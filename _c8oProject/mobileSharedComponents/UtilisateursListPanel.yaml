@@ -1,0 +1,200 @@
+comment: Managed by upsert-ngx-crud-kit (entity-pages template clone) for UtilisateursListPanel. Libelles francises le 2026-09-11.
+↓Title [ngx.components.UICompVariable-1789123318152]: 
+  value: '''Utilisateurs'''
+↓PrimaryField [ngx.components.UICompVariable-1789123318154]: 
+  value: '''initiales'''
+↓SecondaryField [ngx.components.UICompVariable-1789123318156]: 
+  value: '''tel'''
+↓ActionLabel [ngx.components.UICompVariable-1789123318158]: 
+  value: '''New utilisateur'''
+↓RefreshToken [ngx.components.UICompVariable-1789123318160]: 
+↓ItemSelected [ngx.components.UICompEvent-1789123318162]: 
+  attrName: ItemSelected
+  comment: Emitted when the user selects one row from the local list.
+↓NewRequested [ngx.components.UICompEvent-1789123318164]: 
+  attrName: NewRequested
+  comment: Emitted when the user wants to create a new row.
+↓SharedComponent_Event [ngx.components.UISharedComponentEvent-1789123318166]: 
+  comment: Initialize component-local rows once, then load them immediately.
+  componentEvent: onInit
+  ↓SetRows [ngx.components.UIDynamicAction-1789123318168]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:rows",
+       "Value": "script:[]"
+      }'
+    ↓LoadRows [ngx.components.UIDynamicAction-1789123318170]: 
+      beanData: |
+        '{
+         "ionBean": "CallSequenceAction",
+         "requestable": "plain:ParcInformatique.parc_list_utilisateurs",
+         "noLoading": "plain:true"
+        }'
+      comment: Load the entity rows into component-local state on first render.
+      ↓SetLoadedRows [ngx.components.UIDynamicAction-1789123318172]: 
+        beanData: |
+          '{
+           "ionBean": "SetLocalAction",
+           "Property": "plain:rows",
+           "Value": "script:out.rows"
+          }'
+↓Load [ngx.components.UISharedComponentEvent-1789123318174]: 
+  comment: Load the local rows whenever inputs change.
+  componentEvent: onChanges
+  ↓WhenRefreshReady [ngx.components.UIDynamicAction-1789123318176]: 
+    beanData: '{"ionBean":"IfAction","condition":"script:!!scope?.changes?.RefreshToken && !scope?.changes?.RefreshToken.firstChange"}'
+    comment: Reload rows only when the page explicitly bumps the refresh token.
+    ↓LoadRows [ngx.components.UIDynamicAction-1789123318178]: 
+      beanData: |
+        '{
+         "ionBean": "CallSequenceAction",
+         "requestable": "plain:ParcInformatique.parc_list_utilisateurs",
+         "noLoading": "plain:true"
+        }'
+      comment: Load the entity rows into component-local state.
+      ↓SetRows [ngx.components.UIDynamicAction-1789123318180]: 
+        beanData: |
+          '{
+           "ionBean": "SetLocalAction",
+           "Property": "plain:rows",
+           "Value": "script:out.rows"
+          }'
+↓Card [ngx.components.UIDynamicElement-1789123318182]: 
+  beanData: '{"ionBean":"Card"}'
+  tagName: ion-card
+  ↓Header [ngx.components.UIDynamicElement-1789123318184]: 
+    beanData: '{"ionBean":"CardHeader"}'
+    tagName: ion-card-header
+    ↓Title [ngx.components.UIDynamicElement-1789123318186]: 
+      beanData: '{"ionBean":"CardTitle"}'
+      tagName: ion-card-title
+      ↓TitleText [ngx.components.UIText-1789123318188]: 
+        textValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: source:{"filter":"Shared","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318150,"regular":true}],"path":"?.Title","prefix":"","suffix":"","custom":"","useCustom":false}}
+    ↓Subtitle [ngx.components.UIDynamicElement-1789123318190]: 
+      beanData: '{"ionBean":"CardSubTitle"}'
+      tagName: ion-card-subtitle
+      ↓RowsLabelText [ngx.components.UIText-1789123318192]: 
+        textValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: 'plain:Enregistrements : '
+      ↓RowsCountText [ngx.components.UIText-1789123318194]: 
+        textValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.rows","prefix":"","suffix":".length","custom":"","useCustom":false}}
+  ↓Content [ngx.components.UIDynamicElement-1789123318196]: 
+    beanData: '{"ionBean":"CardContent"}'
+    tagName: ion-card-content
+    ↓New [ngx.components.UIDynamicElement-1789123318198]: 
+      beanData: |
+        '{
+         "ionBean": "Button",
+         "Disabled": "plain",
+         "IonFill": "plain:outline"
+        }'
+      tagName: ion-button
+      ↓NewText [ngx.components.UIText-1789123318200]: 
+        textValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: source:{"filter":"Shared","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318150,"regular":true}],"path":"?.ActionLabel","prefix":"","suffix":"","custom":"","useCustom":false}}
+      ↓Event [ngx.components.UIControlEvent-1789123318202]: 
+        ↓EmitNewRequested [ngx.components.UIDynamicEmit-1789123318204]: 
+          beanData: |
+            '{
+             "ionBean": "EmitEventAction",
+             "event": "plain:ParcInformatique.Application.NgxApp.UtilisateursListPanel.NewRequested",
+             "data": "script:{ requested: true }"
+            }'
+          comment: Bubble the new-request event to the page glue.
+    ↓Empty [ngx.components.UIControlDirective-1789123318206]: 
+      directiveName: If
+      directiveSource: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.rows","prefix":"","suffix":".length === 0","custom":"","useCustom":false}}
+      ↓EmptyText [ngx.components.UIDynamicElement-1789123318208]: 
+        beanData: '{"ionBean":"Paragraph"}'
+        tagName: p
+        ↓Text [ngx.components.UIText-1789123318210]: 
+          textValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: plain:Aucun enregistrement pour le moment.
+    ↓List [ngx.components.UIDynamicElement-1789123318212]: 
+      beanData: '{"ionBean":"List"}'
+      tagName: ion-list
+      ↓Loop [ngx.components.UIControlDirective-1789123318214]: 
+        directiveIndexName: idx
+        directiveItemName: row
+        directiveSource: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.rows","prefix":"","suffix":"","custom":"","useCustom":false}}
+        ↓Item [ngx.components.UIDynamicElement-1789123318216]: 
+          beanData: |
+            '{
+             "ionBean": "ListItem",
+             "Button": "plain:true",
+             "Disabled": "plain"
+            }'
+          tagName: ion-item
+          ↓Label [ngx.components.UIDynamicElement-1789123318218]: 
+            beanData: '{"ionBean":"Label"}'
+            tagName: ion-label
+            ↓Title [ngx.components.UIDynamicElement-1789123318220]: 
+              beanData: '{"ionBean":"Heading2"}'
+              tagName: h2
+              ↓ItemField1Text [ngx.components.UIText-1789123318222]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: source:{"filter":"Iteration","project":"ParcInformatique","input":"row.initiales"}
+            ↓Meta1 [ngx.components.UIDynamicElement-1789123318224]: 
+              beanData: '{"ionBean":"Paragraph"}'
+              tagName: p
+              ↓ItemField2TextPrefix [ngx.components.UIText-1789123318226]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: 'plain:Téléphone: '
+              ↓ItemField2Text [ngx.components.UIText-1789123318228]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: source:{"filter":"Iteration","project":"ParcInformatique","input":"row.tel"}
+            ↓Meta2 [ngx.components.UIDynamicElement-1789123318230]: 
+              beanData: '{"ionBean":"Paragraph"}'
+              tagName: p
+              ↓ItemField3TextPrefix [ngx.components.UIText-1789123318232]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: 'plain:Nom complet: '
+              ↓ItemField3Text [ngx.components.UIText-1789123318234]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: source:{"filter":"Iteration","project":"ParcInformatique","input":"row.nom_complet"}
+          ↓Event [ngx.components.UIControlEvent-1789123318236]: 
+            ↓EmitItemSelected [ngx.components.UIDynamicEmit-1789123318238]: 
+              beanData: |
+                '{
+                 "ionBean": "EmitEventAction",
+                 "event": "plain:ParcInformatique.Application.NgxApp.UtilisateursListPanel.ItemSelected",
+                 "data": "script:{ id: row.id, row: row }"
+                }'
+              comment: Bubble the selected row id and row payload to the page glue.
+          ↓SelectedClass [ngx.components.UIAttribute-1789138122188]: 
+            attrName: '[class.selected]'
+            attrValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:this.SelectedId != null && this.SelectedId !== '' && this.SelectedId == row.id
+↓SelectedId [ngx.components.UICompVariable-1789138119675]: 
+  comment: Identifiant de la ligne selectionnee, pour surligner la ligne dans la liste.

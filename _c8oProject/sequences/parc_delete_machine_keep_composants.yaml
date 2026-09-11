@@ -1,0 +1,31 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: 'Facade : supprime une machine et remet ses composants en stock (option 2 du dialogue de suppression FEN_Principale).'
+↓UnlinkComposants [steps.TransactionStep-1789132236996]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.unlink_composants_by_machine
+  ↓id [variables.StepVariable-1789132236998]: 
+    comment: machine primary key.
+↓DeleteMachine [steps.TransactionStep-1789132237000]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.delete_machine
+  ↓id [variables.StepVariable-1789132237002]: 
+    comment: machine primary key.
+↓Message [steps.JsonFieldStep-1789132276420]: 
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: message
+  value: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: SOURCE
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1789132237000
+          - java.lang.String: 
+            - ↑value: ./document/sql_output/text()
+↓id [variables.RequestableVariable-1789132237004]: 
+  comment: machine primary key.
+  description: machine primary key.

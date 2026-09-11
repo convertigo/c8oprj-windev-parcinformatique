@@ -1,0 +1,37 @@
+comment: Managed by upsert-ngx-crud-kit (entity-pages template clone) for CrudPageHeader. Direct edits may be overwritten; prefer entity.ui hints.
+↓Title [ngx.components.UICompVariable-1789123315048]: 
+  value: '''__DISPLAY_LABEL__'''
+↓Subtitle [ngx.components.UICompVariable-1789123315050]: 
+  value: '''Manage your records'''
+↓CrudPageHeaderCard [ngx.components.UIDynamicElement-1789123315052]: 
+  beanData: '{"ionBean":"Card"}'
+  tagName: ion-card
+  ↓CrudPageHeaderHeader [ngx.components.UIDynamicElement-1789123315718]: 
+    beanData: '{"ionBean":"CardHeader"}'
+    tagName: ion-card-header
+    ↓CrudPageHeaderTitleSlot [ngx.components.UIDynamicElement-1789123315720]: 
+      beanData: '{"ionBean":"CardTitle"}'
+      tagName: ion-card-title
+      ↓TitleText [ngx.components.UIText-1789123315722]: 
+        textValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: source:{"filter":"Shared","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123314358,"regular":true}],"path":"?.Title","prefix":"","suffix":"","custom":"","useCustom":false}}
+    ↓CrudPageHeaderSubtitleSlot [ngx.components.UIDynamicElement-1789123315724]: 
+      beanData: '{"ionBean":"CardSubTitle"}'
+      tagName: ion-card-subtitle
+      ↓SubtitleText [ngx.components.UIText-1789123315726]: 
+        textValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: source:{"filter":"Shared","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123314358,"regular":true}],"path":"?.Subtitle","prefix":"","suffix":"","custom":"","useCustom":false}}
+  ↓MenuButton [ngx.components.UIDynamicElement-1789138289487]: 
+    beanData: '{"ionBean":"MenuButton","AutoHide":"plain:false"}'
+    comment: Ouvre le menu lateral depuis le bandeau de chaque page (les pages n'ont pas de barre d'en-tete).
+    tagName: ion-menu-button
+    ↓Class [ngx.components.UIAttribute-1789138289489]: 
+      attrName: class
+      attrValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: plain:parc-menu-btn no-print

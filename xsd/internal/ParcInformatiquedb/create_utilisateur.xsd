@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ParcInformatique_ns="http://www.convertigo.com/convertigo/projects/ParcInformatique" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.convertigo.com/convertigo/projects/ParcInformatique">
+    <xsd:element name="ParcInformatiquedb__create_utilisateur" type="ParcInformatique_ns:ParcInformatiquedb__create_utilisateurRequestData">
+        <xsd:annotation>
+            <xsd:documentation><![CDATA[Create one utilisateur row.
+]]></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="ParcInformatiquedb__create_utilisateurResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="response" type="ParcInformatique_ns:ParcInformatiquedb__create_utilisateurResponseData"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="ParcInformatiquedb__create_utilisateurResponseType">
+        <xsd:sequence>
+            <xsd:element name="document" type="ParcInformatique_ns:ParcInformatiquedb__create_utilisateurResponseData"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ParcInformatiquedb__create_utilisateurRequestData">
+        <xsd:sequence>
+            <xsd:element name="initiales" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation><![CDATA[Initiales for utilisateur.]]></xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="civilite" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation><![CDATA[Civilite for utilisateur.]]></xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="nom_complet" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation><![CDATA[NomComplet for utilisateur.]]></xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="tel" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation><![CDATA[Tel for utilisateur.]]></xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="photo" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation><![CDATA[Photo for utilisateur.]]></xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ParcInformatiquedb_create_utilisateur_document_errorType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="code" type="xsd:byte"/>
+            <xsd:element minOccurs="0" name="message" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="details" type="xsd:anyURI"/>
+            <xsd:element minOccurs="0" name="context" type="xsd:anyURI"/>
+            <xsd:element minOccurs="0" name="exception" type="xsd:anyURI"/>
+            <xsd:element minOccurs="0" name="stacktrace" type="xsd:anyURI"/>
+        </xsd:sequence>
+        <xsd:attribute name="connector" type="xsd:anyURI"/>
+        <xsd:attribute name="project" type="xsd:anyURI"/>
+        <xsd:attribute name="transaction" type="xsd:anyURI"/>
+        <xsd:attribute default="string" name="type" type="xsd:anyURI"/>
+    </xsd:complexType>
+    <xsd:complexType name="ParcInformatiquedb__create_utilisateurResponseData">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="error" type="ParcInformatique_ns:ParcInformatiquedb_create_utilisateur_document_errorType"/>
+            <xsd:element minOccurs="0" name="sql_output" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="error" type="ParcInformatique_ns:ConvertigoError"/>
+        </xsd:sequence>
+        <xsd:attribute name="connector" type="xsd:anyURI"/>
+        <xsd:attribute name="context" type="xsd:string"/>
+        <xsd:attribute name="contextId" type="xsd:string"/>
+        <xsd:attribute name="fromStub" type="xsd:boolean"/>
+        <xsd:attribute name="fromcache" type="xsd:boolean"/>
+        <xsd:attribute name="generated" type="xsd:string"/>
+        <xsd:attribute name="project" type="xsd:anyURI"/>
+        <xsd:attribute name="sequence" type="xsd:anyURI"/>
+        <xsd:attribute name="signature" type="xsd:long"/>
+        <xsd:attribute name="transaction" type="xsd:anyURI"/>
+        <xsd:attribute name="version" type="xsd:anyURI"/>
+        <xsd:attribute name="screenclass" type="xsd:string"/>
+        <xsd:attribute name="type" type="xsd:string"/>
+        <xsd:attribute name="userReference" type="xsd:string"/>
+    </xsd:complexType>
+    <xsd:complexType name="ConvertigoErrorContextVariable">
+        <xsd:attribute name="name" type="xsd:string"/>
+        <xsd:attribute name="value" type="xsd:string"/>
+    </xsd:complexType>
+    <xsd:complexType name="ConvertigoErrorContext">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="variable" type="ParcInformatique_ns:ConvertigoErrorContextVariable"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ConvertigoError">
+        <xsd:sequence minOccurs="0">
+            <xsd:element name="code" type="xsd:integer"/>
+            <xsd:element name="message" type="xsd:string"/>
+            <xsd:element name="details" type="xsd:string"/>
+            <xsd:element name="context" type="ParcInformatique_ns:ConvertigoErrorContext"/>
+            <xsd:element name="exception" type="xsd:string"/>
+            <xsd:element name="stacktrace" type="xsd:string"/>
+        </xsd:sequence>
+        <xsd:attribute name="project" type="xsd:string"/>
+        <xsd:attribute name="connector" type="xsd:string"/>
+        <xsd:attribute name="transaction" type="xsd:string"/>
+        <xsd:attribute name="sequence" type="xsd:string"/>
+        <xsd:attribute name="type">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="c8o"/>
+                    <xsd:enumeration value="project"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+    </xsd:complexType>
+</xsd:schema>

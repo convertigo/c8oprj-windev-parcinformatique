@@ -1,0 +1,121 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: Facade reading one fournisseur by primary key.
+↓CallParc_read_fournisseur [steps.TransactionStep-1789123179344]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.read_fournisseur
+  ↓id [variables.StepVariable-1789123179346]: 
+    comment: fournisseur primary key.
+    description: fournisseur primary key.
+↓Row [steps.JsonObjectStep-1789123179348]: 
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: row
+  ↓id [steps.JsonFieldStep-1789123179350]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: id
+    type: number
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1789123179344
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/ID/text()
+  ↓nom [steps.JsonFieldStep-1789123179352]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: nom
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1789123179344
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/NOM/text()
+  ↓adresse [steps.JsonFieldStep-1789123179354]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: adresse
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1789123179344
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/ADRESSE/text()
+  ↓tel [steps.JsonFieldStep-1789123179356]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: tel
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1789123179344
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/TEL/text()
+  ↓tel_sav [steps.JsonFieldStep-1789123179358]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: tel_sav
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1789123179344
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/TEL_SAV/text()
+  ↓fax [steps.JsonFieldStep-1789123179360]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: fax
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1789123179344
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/FAX/text()
+↓id [variables.RequestableVariable-1789123179342]: 
+  comment: fournisseur primary key.
+  description: fournisseur primary key.

@@ -1,0 +1,88 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: Facade updating one composant.
+↓CallParc_update_composant [steps.TransactionStep-1789123180012]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.update_composant
+  ↓n_serie [variables.StepVariable-1789123180014]: 
+    comment: NSerie for composant.
+    description: NSerie for composant.
+  ↓date_achat [variables.StepVariable-1789123180016]: 
+    comment: DateAchat for composant.
+    description: DateAchat for composant.
+  ↓garantie [variables.StepVariable-1789123180018]: 
+    comment: Garantie for composant.
+    description: Garantie for composant.
+  ↓num_retour [variables.StepVariable-1789123180020]: 
+    comment: NumRetour for composant.
+    description: NumRetour for composant.
+  ↓date_retour [variables.StepVariable-1789123180022]: 
+    comment: DateRetour for composant.
+    description: DateRetour for composant.
+  ↓date_renvoi [variables.StepVariable-1789123180024]: 
+    comment: DateRenvoi for composant.
+    description: DateRenvoi for composant.
+  ↓commentaire [variables.StepVariable-1789123180026]: 
+    comment: Commentaire for composant.
+    description: Commentaire for composant.
+  ↓machine_id [variables.StepVariable-1789123180028]: 
+    comment: MachineId foreign key referencing machines.id.
+    description: MachineId foreign key referencing machines.id.
+  ↓modele_id [variables.StepVariable-1789123180030]: 
+    comment: ModeleId foreign key referencing modeles.id.
+    description: ModeleId foreign key referencing modeles.id.
+  ↓fournisseur_id [variables.StepVariable-1789123180032]: 
+    comment: FournisseurId foreign key referencing fournisseurs.id.
+    description: FournisseurId foreign key referencing fournisseurs.id.
+  ↓id [variables.StepVariable-1789123180034]: 
+    comment: composant primary key.
+    description: composant primary key.
+↓Message [steps.JsonFieldStep-1789123180036]: 
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: message
+  value: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: SOURCE
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1789123180012
+          - java.lang.String: 
+            - ↑value: ./document/sql_output/text()
+↓n_serie [variables.RequestableVariable-1789123179990]: 
+  comment: NSerie for composant.
+  description: NSerie for composant.
+↓date_achat [variables.RequestableVariable-1789123179992]: 
+  comment: DateAchat for composant.
+  description: DateAchat for composant.
+↓garantie [variables.RequestableVariable-1789123179994]: 
+  comment: Garantie for composant.
+  description: Garantie for composant.
+↓num_retour [variables.RequestableVariable-1789123179996]: 
+  comment: NumRetour for composant.
+  description: NumRetour for composant.
+↓date_retour [variables.RequestableVariable-1789123179998]: 
+  comment: DateRetour for composant.
+  description: DateRetour for composant.
+↓date_renvoi [variables.RequestableVariable-1789123180000]: 
+  comment: DateRenvoi for composant.
+  description: DateRenvoi for composant.
+↓commentaire [variables.RequestableVariable-1789123180002]: 
+  comment: Commentaire for composant.
+  description: Commentaire for composant.
+↓machine_id [variables.RequestableVariable-1789123180004]: 
+  comment: MachineId foreign key referencing machines.id.
+  description: MachineId foreign key referencing machines.id.
+↓modele_id [variables.RequestableVariable-1789123180006]: 
+  comment: ModeleId foreign key referencing modeles.id.
+  description: ModeleId foreign key referencing modeles.id.
+↓fournisseur_id [variables.RequestableVariable-1789123180008]: 
+  comment: FournisseurId foreign key referencing fournisseurs.id.
+  description: FournisseurId foreign key referencing fournisseurs.id.
+↓id [variables.RequestableVariable-1789123180010]: 
+  comment: composant primary key.
+  description: composant primary key.

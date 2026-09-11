@@ -1,0 +1,94 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: Facade creating one modele.
+↓CallParc_create_modele [steps.TransactionStep-1789123179585]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.create_modele
+  ↓type_modele [variables.StepVariable-1789123179587]: 
+    comment: TypeModele for modele.
+    description: TypeModele for modele.
+  ↓nom_modele [variables.StepVariable-1789123179589]: 
+    comment: NomModele for modele.
+    description: NomModele for modele.
+  ↓marque [variables.StepVariable-1789123179591]: 
+    comment: Marque for modele.
+    description: Marque for modele.
+  ↓caracteristique1 [variables.StepVariable-1789123179593]: 
+    comment: Caracteristique1 for modele.
+    description: Caracteristique1 for modele.
+  ↓valeur1 [variables.StepVariable-1789123179595]: 
+    comment: Valeur1 for modele.
+    description: Valeur1 for modele.
+  ↓caracteristique2 [variables.StepVariable-1789123179597]: 
+    comment: Caracteristique2 for modele.
+    description: Caracteristique2 for modele.
+  ↓valeur2 [variables.StepVariable-1789123179599]: 
+    comment: Valeur2 for modele.
+    description: Valeur2 for modele.
+  ↓caracteristique3 [variables.StepVariable-1789123179601]: 
+    comment: Caracteristique3 for modele.
+    description: Caracteristique3 for modele.
+  ↓valeur3 [variables.StepVariable-1789123179603]: 
+    comment: Valeur3 for modele.
+    description: Valeur3 for modele.
+  ↓caracteristique4 [variables.StepVariable-1789123179605]: 
+    comment: Caracteristique4 for modele.
+    description: Caracteristique4 for modele.
+  ↓valeur4 [variables.StepVariable-1789123179607]: 
+    comment: Valeur4 for modele.
+    description: Valeur4 for modele.
+  ↓commentaire [variables.StepVariable-1789123179609]: 
+    comment: Commentaire for modele.
+    description: Commentaire for modele.
+↓Message [steps.JsonFieldStep-1789123179611]: 
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: message
+  value: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: SOURCE
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1789123179585
+          - java.lang.String: 
+            - ↑value: ./document/sql_output/text()
+↓type_modele [variables.RequestableVariable-1789123179561]: 
+  comment: TypeModele for modele.
+  description: TypeModele for modele.
+↓nom_modele [variables.RequestableVariable-1789123179563]: 
+  comment: NomModele for modele.
+  description: NomModele for modele.
+↓marque [variables.RequestableVariable-1789123179565]: 
+  comment: Marque for modele.
+  description: Marque for modele.
+↓caracteristique1 [variables.RequestableVariable-1789123179567]: 
+  comment: Caracteristique1 for modele.
+  description: Caracteristique1 for modele.
+↓valeur1 [variables.RequestableVariable-1789123179569]: 
+  comment: Valeur1 for modele.
+  description: Valeur1 for modele.
+↓caracteristique2 [variables.RequestableVariable-1789123179571]: 
+  comment: Caracteristique2 for modele.
+  description: Caracteristique2 for modele.
+↓valeur2 [variables.RequestableVariable-1789123179573]: 
+  comment: Valeur2 for modele.
+  description: Valeur2 for modele.
+↓caracteristique3 [variables.RequestableVariable-1789123179575]: 
+  comment: Caracteristique3 for modele.
+  description: Caracteristique3 for modele.
+↓valeur3 [variables.RequestableVariable-1789123179577]: 
+  comment: Valeur3 for modele.
+  description: Valeur3 for modele.
+↓caracteristique4 [variables.RequestableVariable-1789123179579]: 
+  comment: Caracteristique4 for modele.
+  description: Caracteristique4 for modele.
+↓valeur4 [variables.RequestableVariable-1789123179581]: 
+  comment: Valeur4 for modele.
+  description: Valeur4 for modele.
+↓commentaire [variables.RequestableVariable-1789123179583]: 
+  comment: Commentaire for modele.
+  description: Commentaire for modele.

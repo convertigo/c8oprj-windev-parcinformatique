@@ -1,0 +1,313 @@
+comment: Managed by upsert-ngx-crud-kit (entity-pages page template clone) for FournisseursPage. Mise en page cote a cote (liste | fiche | formulaire) et charte bleue appliquees le 2026-09-11 ; les panneaux ont ete recrees a la main apres restructuration.
+icon: list
+scriptContent: 
+  - xmlizable: 
+    - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+    - com.twinsoft.convertigo.beans.common.FormatedContent: 
+      →: |
+        /*Begin_c8o_PageImport*/
+        /*End_c8o_PageImport*/
+        /*Begin_c8o_PageDeclaration*/
+        /*End_c8o_PageDeclaration*/
+        /*Begin_c8o_PageConstructor*/
+        /*End_c8o_PageConstructor*/
+        /*Begin_c8o_PageFunction*/
+        /*End_c8o_PageFunction*/
+        
+segment: fournisseurs
+title: Fournisseurs
+↓Content [ngx.components.UIDynamicElement-1789123322004]: 
+  beanData: '{"ionBean":"Content"}'
+  tagName: ion-content
+  ↓Grid [ngx.components.UIDynamicElement-1789123322006]: 
+    beanData: '{"ionBean":"Grid"}'
+    tagName: ion-grid
+    ↓HeaderRow [ngx.components.UIDynamicElement-1789123322008]: 
+      beanData: '{"ionBean":"GridRow"}'
+      tagName: ion-row
+      ↓HeaderCol [ngx.components.UIDynamicElement-1789123322010]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓PageHeader [ngx.components.UIUseShared-1789123322012]: 
+          sharedcomponent: ParcInformatique.Application.NgxApp.CrudPageHeader
+          ↓Title [ngx.components.UIUseVariable-1789123322014]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'Fournisseurs'
+          ↓Subtitle [ngx.components.UIUseVariable-1789123322016]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'Sélectionnez un fournisseur, modifiez-le ou créez-en un nouveau.'
+        ↓Back [ngx.components.UIDynamicElement-1789123322018]: 
+          beanData: |
+            '{
+             "ionBean": "Button",
+             "Disabled": "plain",
+             "IonFill": "plain:outline",
+             "LinkRouterPath": "plain:\/home",
+             "LinkRouterDirection": "plain:back"
+            }'
+          tagName: ion-button
+          ↓BackText [ngx.components.UIText-1789123322020]: 
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: plain:Accueil
+    ↓ListRow [ngx.components.UIDynamicElement-1789123322022]: 
+      beanData: '{"ionBean":"GridRow"}'
+      tagName: ion-row
+      ↓ListCol [ngx.components.UIDynamicElement-1789136495705]: 
+        beanData: |
+          '{
+           "ionBean": "GridCol",
+           "SizeLg": "plain:4",
+           "SizeMd": "plain:5",
+           "SizeXl": "plain:3",
+           "SizeXs": "plain:12"
+          }'
+        tagName: ion-col
+        ↓Class [ngx.components.UIAttribute-1789136495707]: 
+          attrName: class
+          attrValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: plain:parc-master
+        ↓ListPanel [ngx.components.UIUseShared-1789137002765]: 
+          sharedcomponent: ParcInformatique.Application.NgxApp.FournisseursListPanel
+          ↓Title [ngx.components.UIUseVariable-1789137003447]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'Fournisseurs'
+          ↓PrimaryField [ngx.components.UIUseVariable-1789137003449]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'nom'
+          ↓SecondaryField [ngx.components.UIUseVariable-1789137003451]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'adresse'
+          ↓ActionLabel [ngx.components.UIUseVariable-1789137003453]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'Nouveau fournisseur'
+          ↓RefreshToken [ngx.components.UIUseVariable-1789137003455]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.refreshToken","prefix":"","suffix":"","custom":"","useCustom":false}}
+          ↓ItemSelected [ngx.components.UIControlEvent-1789137003457]: 
+            attrName: (ItemSelected)
+            eventName: ItemSelected
+            ↓SetSelectedId [ngx.components.UIDynamicAction-1789137003703]: 
+              beanData: |
+                '{
+                 "ionBean": "SetLocalAction",
+                 "Property": "plain:selectedId",
+                 "Value": "script:parent.out.id"
+                }'
+              ↓SetMode [ngx.components.UIDynamicAction-1789137003957]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:mode",
+                   "Value": "script:''update''"
+                  }'
+          ↓NewRequested [ngx.components.UIControlEvent-1789137003959]: 
+            attrName: (NewRequested)
+            eventName: NewRequested
+            ↓ClearSelectedId [ngx.components.UIDynamicAction-1789137003961]: 
+              beanData: |
+                '{
+                 "ionBean": "SetLocalAction",
+                 "Property": "plain:selectedId",
+                 "Value": "script:''''"
+                }'
+              ↓SetCreateMode [ngx.components.UIDynamicAction-1789137003963]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:mode",
+                   "Value": "script:''create''"
+                  }'
+          ↓SelectedId [ngx.components.UIUseVariable-1789138132395]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.selectedId","prefix":"","suffix":"","custom":"","useCustom":false}}
+      ↓DetailCol [ngx.components.UIDynamicElement-1789136495821]: 
+        beanData: |
+          '{
+           "ionBean": "GridCol",
+           "SizeLg": "plain:4",
+           "SizeMd": "plain:7",
+           "SizeXl": "plain:4",
+           "SizeXs": "plain:12"
+          }'
+        tagName: ion-col
+        ↓Class [ngx.components.UIAttribute-1789136495823]: 
+          attrName: class
+          attrValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: plain:parc-detail
+        ↓DetailCard [ngx.components.UIUseShared-1789137004621]: 
+          sharedcomponent: ParcInformatique.Application.NgxApp.FournisseursDetailCard
+          ↓Title [ngx.components.UIUseVariable-1789137005303]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'Fiche fournisseur'
+          ↓SelectedId [ngx.components.UIUseVariable-1789137005305]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.selectedId","prefix":"","suffix":"","custom":"","useCustom":false}}
+          ↓RefreshToken [ngx.components.UIUseVariable-1789137005307]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.refreshToken","prefix":"","suffix":"","custom":"","useCustom":false}}
+      ↓FormCol [ngx.components.UIDynamicElement-1789136495881]: 
+        beanData: |
+          '{
+           "ionBean": "GridCol",
+           "SizeLg": "plain:4",
+           "SizeMd": "plain:12",
+           "SizeXl": "plain:5",
+           "SizeXs": "plain:12"
+          }'
+        tagName: ion-col
+        ↓Class [ngx.components.UIAttribute-1789136495883]: 
+          attrName: class
+          attrValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: plain:parc-form
+        ↓EditForm [ngx.components.UIUseShared-1789137005965]: 
+          sharedcomponent: ParcInformatique.Application.NgxApp.FournisseursEditForm
+          ↓SelectedId [ngx.components.UIUseVariable-1789137006647]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.selectedId","prefix":"","suffix":"","custom":"","useCustom":false}}
+          ↓Mode [ngx.components.UIUseVariable-1789137006649]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.mode","prefix":"","suffix":"","custom":"","useCustom":false}}
+          ↓RefreshToken [ngx.components.UIUseVariable-1789137006651]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.refreshToken","prefix":"","suffix":"","custom":"","useCustom":false}}
+          ↓ActionLabel [ngx.components.UIUseVariable-1789137006653]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'Enregistrer'
+          ↓CreateTitle [ngx.components.UIUseVariable-1789137006655]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'Nouveau fournisseur'
+          ↓EditTitle [ngx.components.UIUseVariable-1789137006657]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'Modifier le fournisseur'
+          ↓DeleteLabel [ngx.components.UIUseVariable-1789137006659]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'Supprimer le fournisseur'
+          ↓Saved [ngx.components.UIControlEvent-1789137006661]: 
+            attrName: (Saved)
+            eventName: Saved
+            ↓SetSelectedId [ngx.components.UIDynamicAction-1789137006907]: 
+              beanData: |
+                '{
+                 "ionBean": "SetLocalAction",
+                 "Property": "plain:selectedId",
+                 "Value": "script:parent.out.id"
+                }'
+              ↓SetMode [ngx.components.UIDynamicAction-1789137007161]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:mode",
+                   "Value": "script:''update''"
+                  }'
+                ↓SetRefreshToken [ngx.components.UIDynamicAction-1789137007163]: 
+                  beanData: |
+                    '{
+                     "ionBean": "SetLocalAction",
+                     "Property": "plain:refreshToken",
+                     "Value": "script:String(Date.now())"
+                    }'
+          ↓Deleted [ngx.components.UIControlEvent-1789137007165]: 
+            attrName: (Deleted)
+            eventName: Deleted
+            ↓ClearSelectedId [ngx.components.UIDynamicAction-1789137007167]: 
+              beanData: |
+                '{
+                 "ionBean": "SetLocalAction",
+                 "Property": "plain:selectedId",
+                 "Value": "script:''''"
+                }'
+              ↓SetCreateMode [ngx.components.UIDynamicAction-1789137007169]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:mode",
+                   "Value": "script:''create''"
+                  }'
+                ↓SetRefreshToken [ngx.components.UIDynamicAction-1789137007171]: 
+                  beanData: |
+                    '{
+                     "ionBean": "SetLocalAction",
+                     "Property": "plain:refreshToken",
+                     "Value": "script:String(Date.now())"
+                    }'
+          ↓Cancelled [ngx.components.UIControlEvent-1789137007173]: 
+            attrName: (Cancelled)
+            eventName: Cancelled
+            ↓SetCancelMode [ngx.components.UIDynamicAction-1789137007175]: 
+              beanData: |
+                '{
+                 "ionBean": "SetLocalAction",
+                 "Property": "plain:mode",
+                 "Value": "script:parent.out.mode"
+                }'
+↓PageEvent [ngx.components.UIPageEvent-1789123324276]: 
+  comment: Initialize the local page glue state for the generated entity page.
+  viewEvent: onWillLoad
+  ↓InvokeEnsureSession [ngx.components.UIDynamicInvoke-1789123324278]: 
+    beanData: '{"ionBean":"InvokeAction"}'
+    stack: ParcInformatique.Application.NgxApp.crud_ensure_session
+    ↓InitSelectedId [ngx.components.UIDynamicAction-1789123324280]: 
+      beanData: |
+        '{
+         "ionBean": "SetLocalAction",
+         "Property": "plain:selectedId",
+         "Value": "script:''''"
+        }'
+      ↓InitMode [ngx.components.UIDynamicAction-1789123324282]: 
+        beanData: |
+          '{
+           "ionBean": "SetLocalAction",
+           "Property": "plain:mode",
+           "Value": "script:''create''"
+          }'
+        ↓InitRefreshToken [ngx.components.UIDynamicAction-1789123324284]: 
+          beanData: |
+            '{
+             "ionBean": "SetLocalAction",
+             "Property": "plain:refreshToken",
+             "Value": "script:String(Date.now())"
+            }'

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ParcInformatique_ns="http://www.convertigo.com/convertigo/projects/ParcInformatique" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.convertigo.com/convertigo/projects/ParcInformatique">
+    <xsd:element name="ParcInformatiquedb__list_fournisseurs" type="ParcInformatique_ns:ParcInformatiquedb__list_fournisseursRequestData">
+        <xsd:annotation>
+            <xsd:documentation><![CDATA[List Fournisseurs rows.
+]]></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="ParcInformatiquedb__list_fournisseursResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="response" type="ParcInformatique_ns:ParcInformatiquedb__list_fournisseursResponseData"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="ParcInformatiquedb__list_fournisseursResponseType">
+        <xsd:sequence>
+            <xsd:element name="document" type="ParcInformatique_ns:ParcInformatiquedb__list_fournisseursResponseData"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ParcInformatiquedb__list_fournisseursRequestData">
+        <xsd:sequence/>
+    </xsd:complexType>
+    <xsd:complexType name="ParcInformatiquedb_list_fournisseurs_document_sql_output_row_IDType">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:anyURI">
+                <xsd:attribute default="string" name="type" type="xsd:anyURI"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:complexType name="ParcInformatiquedb_list_fournisseurs_document_sql_output_row_NOMType">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:anyURI">
+                <xsd:attribute default="string" name="type" type="xsd:anyURI"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:complexType name="ParcInformatiquedb_list_fournisseurs_document_sql_output_row_ADRESSEType">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:anyURI">
+                <xsd:attribute default="string" name="type" type="xsd:anyURI"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:complexType name="ParcInformatiquedb_list_fournisseurs_document_sql_output_row_TELType">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:anyURI">
+                <xsd:attribute default="string" name="type" type="xsd:anyURI"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:complexType name="ParcInformatiquedb_list_fournisseurs_document_sql_output_row_TEL_SAVType">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:anyURI">
+                <xsd:attribute default="string" name="type" type="xsd:anyURI"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:complexType name="ParcInformatiquedb_list_fournisseurs_document_sql_output_row_FAXType">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:anyURI">
+                <xsd:attribute default="string" name="type" type="xsd:anyURI"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:complexType name="ParcInformatiquedb_list_fournisseurs_document_sql_output_rowType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="ID" type="ParcInformatique_ns:ParcInformatiquedb_list_fournisseurs_document_sql_output_row_IDType"/>
+            <xsd:element minOccurs="0" name="NOM" type="ParcInformatique_ns:ParcInformatiquedb_list_fournisseurs_document_sql_output_row_NOMType"/>
+            <xsd:element minOccurs="0" name="ADRESSE" type="ParcInformatique_ns:ParcInformatiquedb_list_fournisseurs_document_sql_output_row_ADRESSEType"/>
+            <xsd:element minOccurs="0" name="TEL" type="ParcInformatique_ns:ParcInformatiquedb_list_fournisseurs_document_sql_output_row_TELType"/>
+            <xsd:element minOccurs="0" name="TEL_SAV" type="ParcInformatique_ns:ParcInformatiquedb_list_fournisseurs_document_sql_output_row_TEL_SAVType"/>
+            <xsd:element minOccurs="0" name="FAX" type="ParcInformatique_ns:ParcInformatiquedb_list_fournisseurs_document_sql_output_row_FAXType"/>
+        </xsd:sequence>
+        <xsd:attribute default="object" name="type" type="xsd:anyURI"/>
+    </xsd:complexType>
+    <xsd:complexType name="ParcInformatiquedb_list_fournisseurs_document_sql_outputType">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="row" type="ParcInformatique_ns:ParcInformatiquedb_list_fournisseurs_document_sql_output_rowType"/>
+        </xsd:sequence>
+        <xsd:attribute default="array" name="type" type="xsd:anyURI"/>
+    </xsd:complexType>
+    <xsd:complexType name="ParcInformatiquedb__list_fournisseursResponseData">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="sql_output" type="ParcInformatique_ns:ParcInformatiquedb_list_fournisseurs_document_sql_outputType"/>
+            <xsd:element minOccurs="0" name="error" type="ParcInformatique_ns:ConvertigoError"/>
+        </xsd:sequence>
+        <xsd:attribute name="connector" type="xsd:anyURI"/>
+        <xsd:attribute name="context" type="xsd:string"/>
+        <xsd:attribute name="contextId" type="xsd:string"/>
+        <xsd:attribute name="fromStub" type="xsd:boolean"/>
+        <xsd:attribute name="fromcache" type="xsd:boolean"/>
+        <xsd:attribute name="generated" type="xsd:string"/>
+        <xsd:attribute name="project" type="xsd:anyURI"/>
+        <xsd:attribute name="sequence" type="xsd:anyURI"/>
+        <xsd:attribute name="signature" type="xsd:long"/>
+        <xsd:attribute name="transaction" type="xsd:anyURI"/>
+        <xsd:attribute name="version" type="xsd:anyURI"/>
+        <xsd:attribute name="screenclass" type="xsd:string"/>
+        <xsd:attribute name="type" type="xsd:string"/>
+        <xsd:attribute name="userReference" type="xsd:string"/>
+    </xsd:complexType>
+    <xsd:complexType name="ConvertigoErrorContextVariable">
+        <xsd:attribute name="name" type="xsd:string"/>
+        <xsd:attribute name="value" type="xsd:string"/>
+    </xsd:complexType>
+    <xsd:complexType name="ConvertigoErrorContext">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="variable" type="ParcInformatique_ns:ConvertigoErrorContextVariable"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ConvertigoError">
+        <xsd:sequence minOccurs="0">
+            <xsd:element name="code" type="xsd:integer"/>
+            <xsd:element name="message" type="xsd:string"/>
+            <xsd:element name="details" type="xsd:string"/>
+            <xsd:element name="context" type="ParcInformatique_ns:ConvertigoErrorContext"/>
+            <xsd:element name="exception" type="xsd:string"/>
+            <xsd:element name="stacktrace" type="xsd:string"/>
+        </xsd:sequence>
+        <xsd:attribute name="project" type="xsd:string"/>
+        <xsd:attribute name="connector" type="xsd:string"/>
+        <xsd:attribute name="transaction" type="xsd:string"/>
+        <xsd:attribute name="sequence" type="xsd:string"/>
+        <xsd:attribute name="type">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="c8o"/>
+                    <xsd:enumeration value="project"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+    </xsd:complexType>
+</xsd:schema>

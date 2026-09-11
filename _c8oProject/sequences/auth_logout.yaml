@@ -1,0 +1,8 @@
+accessibility: Hidden
+comment: Authentication skeleton. Clears the current session authenticated user.
+↓RemoveAuthenticatedUser [steps.SimpleStep-1789123179011]: 
+  comment: Clear the current authenticated user for this HTTP session.
+  expression: context.removeAuthenticatedUser();
+↓AuthenticatedUser [steps.GetAuthenticatedUserStep-1789123179013]: 
+  comment: Expose the current authenticated user after the logout skeleton runs.
+  nodeName: AuthenticatedUser

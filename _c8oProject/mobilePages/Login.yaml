@@ -1,0 +1,114 @@
+↑isRoot: true
+comment: Managed by upsert-ngx-crud-kit (entity-pages page template clone) for Login. Direct edits may be overwritten; prefer template sources and entity.ui hints.
+icon: log-in
+inAutoMenu: false
+preloadPriority: high
+scriptContent: 
+  - xmlizable: 
+    - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+    - com.twinsoft.convertigo.beans.common.FormatedContent: 
+      →: |
+        /*Begin_c8o_PageImport*/
+        /*End_c8o_PageImport*/
+        /*Begin_c8o_PageDeclaration*/
+        /*End_c8o_PageDeclaration*/
+        /*Begin_c8o_PageConstructor*/
+        /*End_c8o_PageConstructor*/
+        /*Begin_c8o_PageFunction*/
+        /*End_c8o_PageFunction*/
+        
+segment: login
+title: Login
+↓Header [ngx.components.UIDynamicElement-1789123320654]: 
+  beanData: '{"ionBean":"Header"}'
+  tagName: ion-header
+  ↓ToolBar [ngx.components.UIDynamicElement-1789123320656]: 
+    beanData: '{"ionBean":"ToolBar"}'
+    tagName: ion-toolbar
+    ↓BarTitle [ngx.components.UIDynamicElement-1789123320658]: 
+      beanData: '{"ionBean":"BarTitle"}'
+      tagName: ion-title
+      ↓Text [ngx.components.UIText-1789123320660]: 
+        textValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: plain:Template Login
+↓Content [ngx.components.UIDynamicElement-1789123320662]: 
+  beanData: '{"ionBean":"Content"}'
+  tagName: ion-content
+  ↓Grid [ngx.components.UIDynamicElement-1789123320664]: 
+    beanData: '{"ionBean":"Grid"}'
+    tagName: ion-grid
+    ↓Row [ngx.components.UIDynamicElement-1789123320666]: 
+      beanData: '{"ionBean":"GridRow"}'
+      tagName: ion-row
+      ↓Col [ngx.components.UIDynamicElement-1789123320668]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓Card [ngx.components.UIDynamicElement-1789123320670]: 
+          beanData: '{"ionBean":"Card"}'
+          tagName: ion-card
+          ↓Header [ngx.components.UIDynamicElement-1789123320672]: 
+            beanData: '{"ionBean":"CardHeader"}'
+            tagName: ion-card-header
+            ↓Title [ngx.components.UIDynamicElement-1789123320674]: 
+              beanData: '{"ionBean":"CardTitle"}'
+              tagName: ion-card-title
+              ↓TitleText [ngx.components.UIText-1789123320676]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Opening the app
+            ↓Subtitle [ngx.components.UIDynamicElement-1789123320678]: 
+              beanData: '{"ionBean":"CardSubTitle"}'
+              tagName: ion-card-subtitle
+              ↓SubtitleText [ngx.components.UIText-1789123320680]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Opening the application.
+          ↓CardContent [ngx.components.UIDynamicElement-1789123320682]: 
+            beanData: '{"ionBean":"CardContent"}'
+            tagName: ion-card-content
+            ↓Spinner [ngx.components.UIDynamicElement-1789123320684]: 
+              beanData: '{"ionBean":"Spinner"}'
+              tagName: ion-spinner
+            ↓Hint [ngx.components.UIDynamicElement-1789123320686]: 
+              beanData: '{"ionBean":"Paragraph"}'
+              tagName: p
+              ↓HintText [ngx.components.UIText-1789123320688]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Please wait a moment.
+↓PageEvent [ngx.components.UIPageEvent-1789123323996]: 
+  comment: Initialize the generated auth session and open the landing page.
+  viewEvent: onWillLoad
+  ↓InvokeCrudAuthLogin [ngx.components.UIDynamicAction-1789123324242]: 
+    beanData: |
+      '{
+       "ionBean": "CallSequenceAction",
+       "requestable": "plain:ParcInformatique.auth_login",
+       "noLoading": "plain:true"
+      }'
+    comment: Establish the generated authenticated context before CRUD facade calls.
+    ↓username [ngx.components.UIControlVariable-1789123324244]: 
+      comment: Best-case demo user for the generated auth skeleton.
+      varValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: script:'demo'
+    ↓password [ngx.components.UIControlVariable-1789123324246]: 
+      comment: Best-case demo password for the generated auth skeleton.
+      varValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: script:'demo'
+    ↓OpenCrudLanding [ngx.components.UIDynamicAction-1789123324248]: 
+      beanData: |
+        '{
+         "ionBean": "NavigatePageAction",
+         "url": "plain:\/home",
+         "data": "script:{}"
+        }'
+      comment: Open the generated CRUD home page once the best-case auth session exists.

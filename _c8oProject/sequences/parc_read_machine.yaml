@@ -1,0 +1,140 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: Facade reading one machine by primary key.
+↓CallParc_read_machine [steps.TransactionStep-1789123179738]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.read_machine
+  ↓id [variables.StepVariable-1789123179740]: 
+    comment: machine primary key.
+    description: machine primary key.
+↓Row [steps.JsonObjectStep-1789123179742]: 
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: row
+  ↓id [steps.JsonFieldStep-1789123179744]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: id
+    type: number
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1789123179738
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/ID/text()
+  ↓nom_machine [steps.JsonFieldStep-1789123179746]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: nom_machine
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1789123179738
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/NOM_MACHINE/text()
+  ↓adresse_ip [steps.JsonFieldStep-1789123179748]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: adresse_ip
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1789123179738
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/ADRESSE_IP/text()
+  ↓emplacement_id [steps.JsonFieldStep-1789123179750]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: emplacement_id
+    type: number
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1789123179738
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/EMPLACEMENT_ID/text()
+  ↓utilisateur_id [steps.JsonFieldStep-1789123179752]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: utilisateur_id
+    type: number
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1789123179738
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/UTILISATEUR_ID/text()
+  ↓emplacement_id__label [steps.JsonFieldStep-1789123179754]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: emplacement_id__label
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1789123179738
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/EMPLACEMENT_ID__LABEL/text()
+  ↓utilisateur_id__label [steps.JsonFieldStep-1789123179756]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: utilisateur_id__label
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1789123179738
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/UTILISATEUR_ID__LABEL/text()
+↓id [variables.RequestableVariable-1789123179736]: 
+  comment: machine primary key.
+  description: machine primary key.

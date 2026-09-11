@@ -1,0 +1,98 @@
+comment: Managed by upsert-ngx-crud-kit (entity-pages template clone) for UtilisateursDetailCard. Libelles francises le 2026-09-11 (regenere).
+↓Title [ngx.components.UICompVariable-1789123318242]: 
+  value: '''Utilisateurs detail'''
+↓SelectedId [ngx.components.UICompVariable-1789123318244]: 
+↓RefreshToken [ngx.components.UICompVariable-1789123318246]: 
+↓Load [ngx.components.UISharedComponentEvent-1789123318248]: 
+  comment: Refresh the detail card local row when selection changes.
+  componentEvent: onChanges
+  ↓ClearRow [ngx.components.UIDynamicAction-1789123318250]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:row",
+       "Value": "script:null"
+      }'
+  ↓WhenSelected [ngx.components.UIDynamicAction-1789123318252]: 
+    beanData: '{"ionBean":"IfAction","condition":"script:!!this.SelectedId"}'
+    comment: Only read the row when one id is selected.
+    ↓LoadRow [ngx.components.UIDynamicAction-1789123318254]: 
+      beanData: |
+        '{
+         "ionBean": "CallSequenceAction",
+         "requestable": "plain:ParcInformatique.parc_read_utilisateur",
+         "noLoading": "plain:true"
+        }'
+      comment: Load the selected row into component-local state.
+      ↓id [ngx.components.UIControlVariable-1789123318256]: 
+        varValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: script:this.SelectedId
+      ↓SetRow [ngx.components.UIDynamicAction-1789123318258]: 
+        beanData: |
+          '{
+           "ionBean": "SetLocalAction",
+           "Property": "plain:row",
+           "Value": "script:out.row || (out.rows && out.rows[0]) || null"
+          }'
+↓Card [ngx.components.UIDynamicElement-1789123318260]: 
+  beanData: '{"ionBean":"Card"}'
+  tagName: ion-card
+  ↓Header [ngx.components.UIDynamicElement-1789123318262]: 
+    beanData: '{"ionBean":"CardHeader"}'
+    tagName: ion-card-header
+    ↓Title [ngx.components.UIDynamicElement-1789123318264]: 
+      beanData: '{"ionBean":"CardTitle"}'
+      tagName: ion-card-title
+      ↓TitleText [ngx.components.UIText-1789123318266]: 
+        textValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: source:{"filter":"Shared","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318240,"regular":true}],"path":"?.Title","prefix":"","suffix":"","custom":"","useCustom":false}}
+  ↓Content [ngx.components.UIDynamicElement-1789123318268]: 
+    beanData: '{"ionBean":"CardContent"}'
+    tagName: ion-card-content
+    ↓EmptyVisible [ngx.components.UIControlDirective-1789123318270]: 
+      directiveExpression: '!this.SelectedId'
+      directiveName: If
+      ↓Empty [ngx.components.UIDynamicElement-1789123318272]: 
+        beanData: '{"ionBean":"Paragraph"}'
+        tagName: p
+        ↓EmptyText [ngx.components.UIText-1789123318274]: 
+          textValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: 'plain:Aucun enregistrement sélectionné : cliquez sur une ligne de la liste.'
+    ↓FieldVisible1 [ngx.components.UIControlDirective-1789123318276]: 
+      directiveExpression: '!!this.SelectedId'
+      directiveName: If
+      ↓Field1 [ngx.components.UIDynamicElement-1789123318278]: 
+        beanData: '{"ionBean":"Paragraph"}'
+        tagName: p
+        ↓Field1Prefix [ngx.components.UIText-1789123318280]: 
+          textValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: 'plain:Nom complet: '
+        ↓Field1Text [ngx.components.UIText-1789123318282]: 
+          textValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.row?.nom_complet","prefix":"","suffix":"","custom":"","useCustom":false}}
+    ↓FieldVisible2 [ngx.components.UIControlDirective-1789123318284]: 
+      directiveExpression: '!!this.SelectedId'
+      directiveName: If
+      ↓Field2 [ngx.components.UIDynamicElement-1789123318286]: 
+        beanData: '{"ionBean":"Paragraph"}'
+        tagName: p
+        ↓Field2Prefix [ngx.components.UIText-1789123318288]: 
+          textValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: 'plain:Utilisateur: '
+        ↓Field2Text [ngx.components.UIText-1789123318290]: 
+          textValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.row?.initiales","prefix":"","suffix":"","custom":"","useCustom":false}}

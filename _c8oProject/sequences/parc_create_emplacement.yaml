@@ -1,0 +1,46 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: Facade creating one emplacement.
+↓CallParc_create_emplacement [steps.TransactionStep-1789123179095]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.create_emplacement
+  ↓nom [variables.StepVariable-1789123179097]: 
+    comment: Nom for emplacement.
+    description: Nom for emplacement.
+  ↓commentaire [variables.StepVariable-1789123179099]: 
+    comment: Commentaire for emplacement.
+    description: Commentaire for emplacement.
+  ↓rectangle [variables.StepVariable-1789123179101]: 
+    comment: Rectangle for emplacement.
+    description: Rectangle for emplacement.
+  ↓picto [variables.StepVariable-1789123179103]: 
+    comment: Picto for emplacement.
+    description: Picto for emplacement.
+↓Message [steps.JsonFieldStep-1789123179105]: 
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: message
+  value: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: SOURCE
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1789123179095
+          - java.lang.String: 
+            - ↑value: ./document/sql_output/text()
+↓nom [variables.RequestableVariable-1789123179087]: 
+  comment: Nom for emplacement.
+  description: Nom for emplacement.
+↓commentaire [variables.RequestableVariable-1789123179089]: 
+  comment: Commentaire for emplacement.
+  description: Commentaire for emplacement.
+↓rectangle [variables.RequestableVariable-1789123179091]: 
+  comment: Rectangle for emplacement.
+  description: Rectangle for emplacement.
+↓picto [variables.RequestableVariable-1789123179093]: 
+  comment: Picto for emplacement.
+  description: Picto for emplacement.

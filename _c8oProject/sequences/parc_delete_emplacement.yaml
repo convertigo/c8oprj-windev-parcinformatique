@@ -1,0 +1,52 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: Facade deleting one emplacement.
+↓CallParc_delete_emplacement [steps.TransactionStep-1789123179135]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.delete_emplacement
+  ↓id [variables.StepVariable-1789123179137]: 
+    comment: emplacement primary key.
+    description: emplacement primary key.
+↓Message [steps.JsonFieldStep-1789123179139]: 
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: message
+  value: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: SOURCE
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1789123179135
+          - java.lang.String: 
+            - ↑value: ./document/sql_output/text()
+↓CheckRefs [steps.TransactionStep-1789132215918]: 
+  comment: Compte les machines rattachees au lieu ; la suppression SQL est deja gardee par NOT EXISTS.
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.count_machines_by_emplacement
+  ↓id [variables.StepVariable-1789132215920]: 
+    comment: emplacement primary key.
+↓Refs [steps.JsonFieldStep-1789132263468]: 
+  comment: 'Nombre de machines encore rattachees : > 0 signifie que la suppression a ete refusee.'
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: refs
+  type: number
+  value: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: SOURCE
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1789132215918
+          - java.lang.String: 
+            - ↑value: ./document/sql_output/row/TOTAL/text()
+↓id [variables.RequestableVariable-1789123179133]: 
+  comment: emplacement primary key.
+  description: emplacement primary key.

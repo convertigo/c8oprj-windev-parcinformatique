@@ -1,0 +1,58 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: Facade updating one fournisseur.
+↓CallParc_update_fournisseur [steps.TransactionStep-1789123179400]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.update_fournisseur
+  ↓nom [variables.StepVariable-1789123179402]: 
+    comment: Nom for fournisseur.
+    description: Nom for fournisseur.
+  ↓adresse [variables.StepVariable-1789123179404]: 
+    comment: Adresse for fournisseur.
+    description: Adresse for fournisseur.
+  ↓tel [variables.StepVariable-1789123179406]: 
+    comment: Tel for fournisseur.
+    description: Tel for fournisseur.
+  ↓tel_sav [variables.StepVariable-1789123179408]: 
+    comment: TelSav for fournisseur.
+    description: TelSav for fournisseur.
+  ↓fax [variables.StepVariable-1789123179410]: 
+    comment: Fax for fournisseur.
+    description: Fax for fournisseur.
+  ↓id [variables.StepVariable-1789123179412]: 
+    comment: fournisseur primary key.
+    description: fournisseur primary key.
+↓Message [steps.JsonFieldStep-1789123179414]: 
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: message
+  value: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: SOURCE
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1789123179400
+          - java.lang.String: 
+            - ↑value: ./document/sql_output/text()
+↓nom [variables.RequestableVariable-1789123179388]: 
+  comment: Nom for fournisseur.
+  description: Nom for fournisseur.
+↓adresse [variables.RequestableVariable-1789123179390]: 
+  comment: Adresse for fournisseur.
+  description: Adresse for fournisseur.
+↓tel [variables.RequestableVariable-1789123179392]: 
+  comment: Tel for fournisseur.
+  description: Tel for fournisseur.
+↓tel_sav [variables.RequestableVariable-1789123179394]: 
+  comment: TelSav for fournisseur.
+  description: TelSav for fournisseur.
+↓fax [variables.RequestableVariable-1789123179396]: 
+  comment: Fax for fournisseur.
+  description: Fax for fournisseur.
+↓id [variables.RequestableVariable-1789123179398]: 
+  comment: fournisseur primary key.
+  description: fournisseur primary key.

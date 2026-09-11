@@ -1,0 +1,82 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: Facade creating one composant.
+↓CallParc_create_composant [steps.TransactionStep-1789123179965]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.create_composant
+  ↓n_serie [variables.StepVariable-1789123179967]: 
+    comment: NSerie for composant.
+    description: NSerie for composant.
+  ↓date_achat [variables.StepVariable-1789123179969]: 
+    comment: DateAchat for composant.
+    description: DateAchat for composant.
+  ↓garantie [variables.StepVariable-1789123179971]: 
+    comment: Garantie for composant.
+    description: Garantie for composant.
+  ↓num_retour [variables.StepVariable-1789123179973]: 
+    comment: NumRetour for composant.
+    description: NumRetour for composant.
+  ↓date_retour [variables.StepVariable-1789123179975]: 
+    comment: DateRetour for composant.
+    description: DateRetour for composant.
+  ↓date_renvoi [variables.StepVariable-1789123179977]: 
+    comment: DateRenvoi for composant.
+    description: DateRenvoi for composant.
+  ↓commentaire [variables.StepVariable-1789123179979]: 
+    comment: Commentaire for composant.
+    description: Commentaire for composant.
+  ↓machine_id [variables.StepVariable-1789123179981]: 
+    comment: MachineId foreign key referencing machines.id.
+    description: MachineId foreign key referencing machines.id.
+  ↓modele_id [variables.StepVariable-1789123179983]: 
+    comment: ModeleId foreign key referencing modeles.id.
+    description: ModeleId foreign key referencing modeles.id.
+  ↓fournisseur_id [variables.StepVariable-1789123179985]: 
+    comment: FournisseurId foreign key referencing fournisseurs.id.
+    description: FournisseurId foreign key referencing fournisseurs.id.
+↓Message [steps.JsonFieldStep-1789123179987]: 
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: message
+  value: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: SOURCE
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1789123179965
+          - java.lang.String: 
+            - ↑value: ./document/sql_output/text()
+↓n_serie [variables.RequestableVariable-1789123179945]: 
+  comment: NSerie for composant.
+  description: NSerie for composant.
+↓date_achat [variables.RequestableVariable-1789123179947]: 
+  comment: DateAchat for composant.
+  description: DateAchat for composant.
+↓garantie [variables.RequestableVariable-1789123179949]: 
+  comment: Garantie for composant.
+  description: Garantie for composant.
+↓num_retour [variables.RequestableVariable-1789123179951]: 
+  comment: NumRetour for composant.
+  description: NumRetour for composant.
+↓date_retour [variables.RequestableVariable-1789123179953]: 
+  comment: DateRetour for composant.
+  description: DateRetour for composant.
+↓date_renvoi [variables.RequestableVariable-1789123179955]: 
+  comment: DateRenvoi for composant.
+  description: DateRenvoi for composant.
+↓commentaire [variables.RequestableVariable-1789123179957]: 
+  comment: Commentaire for composant.
+  description: Commentaire for composant.
+↓machine_id [variables.RequestableVariable-1789123179959]: 
+  comment: MachineId foreign key referencing machines.id.
+  description: MachineId foreign key referencing machines.id.
+↓modele_id [variables.RequestableVariable-1789123179961]: 
+  comment: ModeleId foreign key referencing modeles.id.
+  description: ModeleId foreign key referencing modeles.id.
+↓fournisseur_id [variables.RequestableVariable-1789123179963]: 
+  comment: FournisseurId foreign key referencing fournisseurs.id.
+  description: FournisseurId foreign key referencing fournisseurs.id.

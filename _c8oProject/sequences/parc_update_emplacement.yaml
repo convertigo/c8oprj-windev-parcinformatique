@@ -1,0 +1,52 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: Facade updating one emplacement.
+↓CallParc_update_emplacement [steps.TransactionStep-1789123179118]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.update_emplacement
+  ↓nom [variables.StepVariable-1789123179120]: 
+    comment: Nom for emplacement.
+    description: Nom for emplacement.
+  ↓commentaire [variables.StepVariable-1789123179122]: 
+    comment: Commentaire for emplacement.
+    description: Commentaire for emplacement.
+  ↓rectangle [variables.StepVariable-1789123179124]: 
+    comment: Rectangle for emplacement.
+    description: Rectangle for emplacement.
+  ↓picto [variables.StepVariable-1789123179126]: 
+    comment: Picto for emplacement.
+    description: Picto for emplacement.
+  ↓id [variables.StepVariable-1789123179128]: 
+    comment: emplacement primary key.
+    description: emplacement primary key.
+↓Message [steps.JsonFieldStep-1789123179130]: 
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: message
+  value: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: SOURCE
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1789123179118
+          - java.lang.String: 
+            - ↑value: ./document/sql_output/text()
+↓nom [variables.RequestableVariable-1789123179108]: 
+  comment: Nom for emplacement.
+  description: Nom for emplacement.
+↓commentaire [variables.RequestableVariable-1789123179110]: 
+  comment: Commentaire for emplacement.
+  description: Commentaire for emplacement.
+↓rectangle [variables.RequestableVariable-1789123179112]: 
+  comment: Rectangle for emplacement.
+  description: Rectangle for emplacement.
+↓picto [variables.RequestableVariable-1789123179114]: 
+  comment: Picto for emplacement.
+  description: Picto for emplacement.
+↓id [variables.RequestableVariable-1789123179116]: 
+  comment: emplacement primary key.
+  description: emplacement primary key.

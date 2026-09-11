@@ -1,0 +1,551 @@
+comment: Managed by upsert-ngx-crud-kit (entity-pages template clone) for ModelesEditForm. Libelles francises le 2026-09-11 (regenere).
+↓SelectedId [ngx.components.UICompVariable-1789123318880]: 
+↓Mode [ngx.components.UICompVariable-1789123318882]: 
+  value: '''create'''
+↓RefreshToken [ngx.components.UICompVariable-1789123318884]: 
+↓DraftSeed [ngx.components.UICompVariable-1789123318886]: 
+  value: '({''nom_modele'': '''', ''marque'': '''', ''type_modele'': '''', ''caracteristique1'': '''', ''valeur1'': '''', ''caracteristique2'': '''', ''valeur2'': '''', ''caracteristique3'': '''', ''valeur3'': '''', ''caracteristique4'': '''', ''valeur4'': '''', ''commentaire'': ''''})'
+↓ActionLabel [ngx.components.UICompVariable-1789123318888]: 
+  value: '''Save modele'''
+↓CreateTitle [ngx.components.UICompVariable-1789123318890]: 
+  value: '''Create modele'''
+↓EditTitle [ngx.components.UICompVariable-1789123318892]: 
+  value: '''Edit modele'''
+↓DeleteLabel [ngx.components.UICompVariable-1789123318894]: 
+  value: '''Delete modele'''
+↓Saved [ngx.components.UICompEvent-1789123318896]: 
+  attrName: Saved
+  comment: Emitted after a successful create or update.
+↓Deleted [ngx.components.UICompEvent-1789123318898]: 
+  attrName: Deleted
+  comment: Emitted after a successful delete.
+↓Cancelled [ngx.components.UICompEvent-1789123318900]: 
+  attrName: Cancelled
+  comment: Emitted when the user cancels form editing.
+↓SharedComponent_Event [ngx.components.UISharedComponentEvent-1789123318902]: 
+  comment: Initialize component-local draft once so form bindings stay safe.
+  componentEvent: onInit
+  ↓SetDraft [ngx.components.UIDynamicAction-1789123318904]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:draft",
+       "Value": "script:this.DraftSeed"
+      }'
+↓Load [ngx.components.UISharedComponentEvent-1789123318906]: 
+  comment: Maintain the entity draft in component-local state.
+  componentEvent: onChanges
+  ↓WhenCreateMode [ngx.components.UIDynamicAction-1789123318908]: 
+    beanData: '{"ionBean":"IfAction","condition":"script:this.Mode === ''create'' || !this.SelectedId"}'
+    comment: Initialize the local draft when the page switches to create mode.
+    ↓SetCreateDraft [ngx.components.UIDynamicAction-1789123318910]: 
+      beanData: |
+        '{
+         "ionBean": "SetLocalAction",
+         "Property": "plain:draft",
+         "Value": "script:this.DraftSeed"
+        }'
+  ↓WhenUpdateMode [ngx.components.UIDynamicAction-1789123318912]: 
+    beanData: '{"ionBean":"IfAction","condition":"script:this.Mode !== ''create'' && !!this.SelectedId"}'
+    comment: Reload the local draft when the selected id changes.
+    ↓LoadRow [ngx.components.UIDynamicAction-1789123318914]: 
+      beanData: |
+        '{
+         "ionBean": "CallSequenceAction",
+         "requestable": "plain:ParcInformatique.parc_read_modele",
+         "noLoading": "plain:true"
+        }'
+      comment: Load the selected row into the local draft.
+      ↓id [ngx.components.UIControlVariable-1789123318916]: 
+        varValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: script:this.SelectedId
+      ↓SetUpdateDraft [ngx.components.UIDynamicAction-1789123318918]: 
+        beanData: |
+          '{
+           "ionBean": "SetLocalAction",
+           "Property": "plain:draft",
+           "Value": "script:out.row || (out.rows && out.rows[0]) || this.DraftSeed"
+          }'
+↓Card [ngx.components.UIDynamicElement-1789123318920]: 
+  beanData: '{"ionBean":"Card"}'
+  tagName: ion-card
+  ↓Header [ngx.components.UIDynamicElement-1789123318922]: 
+    beanData: '{"ionBean":"CardHeader"}'
+    tagName: ion-card-header
+    ↓Title [ngx.components.UIDynamicElement-1789123318924]: 
+      beanData: '{"ionBean":"CardTitle"}'
+      tagName: ion-card-title
+      ↓TitleText [ngx.components.UIText-1789123318926]: 
+        textValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: 'script:(this.Mode === ''create'' ? this.CreateTitle : this.EditTitle)'
+  ↓Content [ngx.components.UIDynamicElement-1789123318928]: 
+    beanData: '{"ionBean":"CardContent"}'
+    tagName: ion-card-content
+    ↓Form [ngx.components.UIForm-1789123318930]: 
+      identifier: entityForm
+      ↓Field1 [ngx.components.UIDynamicElement-1789123318932]: 
+        beanData: '{"ionBean":"FormItem","Disabled":"plain"}'
+        tagName: ion-item
+        ↓Input [ngx.components.UIDynamicElement-1789123318934]: 
+          beanData: |
+            '{
+             "ionBean": "Input",
+             "ControlName": "plain:nom_modele",
+             "Disabled": "plain",
+             "Label": "script:''Nom du modèle''",
+             "LabelPlacement": "plain:stacked",
+             "Placeholder": "script:''Nom du modèle''",
+             "Required": "script:true",
+             "Value": "source:{\"filter\":\"Local\",\"project\":\"ParcInformatique\",\"input\":\"\",\"model\":{\"data\":[{\"localObject\":\"local\"}],\"path\":\"?.draft?.nom_modele\",\"prefix\":\"\",\"suffix\":\"\",\"custom\":\"\",\"useCustom\":false}}"
+            }'
+          tagName: ion-input
+      ↓Field2 [ngx.components.UIDynamicElement-1789123318936]: 
+        beanData: '{"ionBean":"FormItem","Disabled":"plain"}'
+        tagName: ion-item
+        ↓Input [ngx.components.UIDynamicElement-1789123318938]: 
+          beanData: |
+            '{
+             "ionBean": "Input",
+             "ControlName": "plain:marque",
+             "Disabled": "plain",
+             "Label": "script:''Marque''",
+             "LabelPlacement": "plain:stacked",
+             "Placeholder": "script:''Marque''",
+             "Required": "script:false",
+             "Value": "source:{\"filter\":\"Local\",\"project\":\"ParcInformatique\",\"input\":\"\",\"model\":{\"data\":[{\"localObject\":\"local\"}],\"path\":\"?.draft?.marque\",\"prefix\":\"\",\"suffix\":\"\",\"custom\":\"\",\"useCustom\":false}}"
+            }'
+          tagName: ion-input
+      ↓Field3 [ngx.components.UIDynamicElement-1789123318940]: 
+        beanData: '{"ionBean":"FormItem","Disabled":"plain"}'
+        tagName: ion-item
+        ↓Input [ngx.components.UIDynamicElement-1789123318942]: 
+          beanData: |
+            '{
+             "ionBean": "Input",
+             "ControlName": "plain:type_modele",
+             "Disabled": "plain",
+             "Label": "script:''Type''",
+             "LabelPlacement": "plain:stacked",
+             "Placeholder": "script:''Type''",
+             "Required": "script:true",
+             "Value": "source:{\"filter\":\"Local\",\"project\":\"ParcInformatique\",\"input\":\"\",\"model\":{\"data\":[{\"localObject\":\"local\"}],\"path\":\"?.draft?.type_modele\",\"prefix\":\"\",\"suffix\":\"\",\"custom\":\"\",\"useCustom\":false}}"
+            }'
+          tagName: ion-input
+      ↓Field4 [ngx.components.UIDynamicElement-1789123318944]: 
+        beanData: '{"ionBean":"FormItem","Disabled":"plain"}'
+        tagName: ion-item
+        ↓Input [ngx.components.UIDynamicElement-1789123318946]: 
+          beanData: |
+            '{
+             "ionBean": "Input",
+             "ControlName": "plain:caracteristique1",
+             "Disabled": "plain",
+             "Label": "script:''Caractéristique 1 (libellé)''",
+             "LabelPlacement": "plain:stacked",
+             "Placeholder": "script:''Caractéristique 1 (libellé)''",
+             "Required": "script:false",
+             "Value": "source:{\"filter\":\"Local\",\"project\":\"ParcInformatique\",\"input\":\"\",\"model\":{\"data\":[{\"localObject\":\"local\"}],\"path\":\"?.draft?.caracteristique1\",\"prefix\":\"\",\"suffix\":\"\",\"custom\":\"\",\"useCustom\":false}}"
+            }'
+          tagName: ion-input
+      ↓Field5 [ngx.components.UIDynamicElement-1789123318948]: 
+        beanData: '{"ionBean":"FormItem","Disabled":"plain"}'
+        tagName: ion-item
+        ↓Input [ngx.components.UIDynamicElement-1789123318950]: 
+          beanData: |
+            '{
+             "ionBean": "Input",
+             "ControlName": "plain:valeur1",
+             "Disabled": "plain",
+             "Label": "script:''Valeur 1''",
+             "LabelPlacement": "plain:stacked",
+             "Placeholder": "script:''Valeur 1''",
+             "Required": "script:false",
+             "Value": "source:{\"filter\":\"Local\",\"project\":\"ParcInformatique\",\"input\":\"\",\"model\":{\"data\":[{\"localObject\":\"local\"}],\"path\":\"?.draft?.valeur1\",\"prefix\":\"\",\"suffix\":\"\",\"custom\":\"\",\"useCustom\":false}}"
+            }'
+          tagName: ion-input
+      ↓Field6 [ngx.components.UIDynamicElement-1789123318952]: 
+        beanData: '{"ionBean":"FormItem","Disabled":"plain"}'
+        tagName: ion-item
+        ↓Input [ngx.components.UIDynamicElement-1789123318954]: 
+          beanData: |
+            '{
+             "ionBean": "Input",
+             "ControlName": "plain:caracteristique2",
+             "Disabled": "plain",
+             "Label": "script:''Caractéristique 2 (libellé)''",
+             "LabelPlacement": "plain:stacked",
+             "Placeholder": "script:''Caractéristique 2 (libellé)''",
+             "Required": "script:false",
+             "Value": "source:{\"filter\":\"Local\",\"project\":\"ParcInformatique\",\"input\":\"\",\"model\":{\"data\":[{\"localObject\":\"local\"}],\"path\":\"?.draft?.caracteristique2\",\"prefix\":\"\",\"suffix\":\"\",\"custom\":\"\",\"useCustom\":false}}"
+            }'
+          tagName: ion-input
+      ↓Field7 [ngx.components.UIDynamicElement-1789123318956]: 
+        beanData: '{"ionBean":"FormItem","Disabled":"plain"}'
+        tagName: ion-item
+        ↓Input [ngx.components.UIDynamicElement-1789123318958]: 
+          beanData: |
+            '{
+             "ionBean": "Input",
+             "ControlName": "plain:valeur2",
+             "Disabled": "plain",
+             "Label": "script:''Valeur 2''",
+             "LabelPlacement": "plain:stacked",
+             "Placeholder": "script:''Valeur 2''",
+             "Required": "script:false",
+             "Value": "source:{\"filter\":\"Local\",\"project\":\"ParcInformatique\",\"input\":\"\",\"model\":{\"data\":[{\"localObject\":\"local\"}],\"path\":\"?.draft?.valeur2\",\"prefix\":\"\",\"suffix\":\"\",\"custom\":\"\",\"useCustom\":false}}"
+            }'
+          tagName: ion-input
+      ↓Field8 [ngx.components.UIDynamicElement-1789123318960]: 
+        beanData: '{"ionBean":"FormItem","Disabled":"plain"}'
+        tagName: ion-item
+        ↓Input [ngx.components.UIDynamicElement-1789123318962]: 
+          beanData: |
+            '{
+             "ionBean": "Input",
+             "ControlName": "plain:caracteristique3",
+             "Disabled": "plain",
+             "Label": "script:''Caractéristique 3 (libellé)''",
+             "LabelPlacement": "plain:stacked",
+             "Placeholder": "script:''Caractéristique 3 (libellé)''",
+             "Required": "script:false",
+             "Value": "source:{\"filter\":\"Local\",\"project\":\"ParcInformatique\",\"input\":\"\",\"model\":{\"data\":[{\"localObject\":\"local\"}],\"path\":\"?.draft?.caracteristique3\",\"prefix\":\"\",\"suffix\":\"\",\"custom\":\"\",\"useCustom\":false}}"
+            }'
+          tagName: ion-input
+      ↓Field9 [ngx.components.UIDynamicElement-1789123318964]: 
+        beanData: '{"ionBean":"FormItem","Disabled":"plain"}'
+        tagName: ion-item
+        ↓Input [ngx.components.UIDynamicElement-1789123318966]: 
+          beanData: |
+            '{
+             "ionBean": "Input",
+             "ControlName": "plain:valeur3",
+             "Disabled": "plain",
+             "Label": "script:''Valeur 3''",
+             "LabelPlacement": "plain:stacked",
+             "Placeholder": "script:''Valeur 3''",
+             "Required": "script:false",
+             "Value": "source:{\"filter\":\"Local\",\"project\":\"ParcInformatique\",\"input\":\"\",\"model\":{\"data\":[{\"localObject\":\"local\"}],\"path\":\"?.draft?.valeur3\",\"prefix\":\"\",\"suffix\":\"\",\"custom\":\"\",\"useCustom\":false}}"
+            }'
+          tagName: ion-input
+      ↓Field10 [ngx.components.UIDynamicElement-1789123318968]: 
+        beanData: '{"ionBean":"FormItem","Disabled":"plain"}'
+        tagName: ion-item
+        ↓Input [ngx.components.UIDynamicElement-1789123318970]: 
+          beanData: |
+            '{
+             "ionBean": "Input",
+             "ControlName": "plain:caracteristique4",
+             "Disabled": "plain",
+             "Label": "script:''Caractéristique 4 (libellé)''",
+             "LabelPlacement": "plain:stacked",
+             "Placeholder": "script:''Caractéristique 4 (libellé)''",
+             "Required": "script:false",
+             "Value": "source:{\"filter\":\"Local\",\"project\":\"ParcInformatique\",\"input\":\"\",\"model\":{\"data\":[{\"localObject\":\"local\"}],\"path\":\"?.draft?.caracteristique4\",\"prefix\":\"\",\"suffix\":\"\",\"custom\":\"\",\"useCustom\":false}}"
+            }'
+          tagName: ion-input
+      ↓Field11 [ngx.components.UIDynamicElement-1789123318972]: 
+        beanData: '{"ionBean":"FormItem","Disabled":"plain"}'
+        tagName: ion-item
+        ↓Input [ngx.components.UIDynamicElement-1789123318974]: 
+          beanData: |
+            '{
+             "ionBean": "Input",
+             "ControlName": "plain:valeur4",
+             "Disabled": "plain",
+             "Label": "script:''Valeur 4''",
+             "LabelPlacement": "plain:stacked",
+             "Placeholder": "script:''Valeur 4''",
+             "Required": "script:false",
+             "Value": "source:{\"filter\":\"Local\",\"project\":\"ParcInformatique\",\"input\":\"\",\"model\":{\"data\":[{\"localObject\":\"local\"}],\"path\":\"?.draft?.valeur4\",\"prefix\":\"\",\"suffix\":\"\",\"custom\":\"\",\"useCustom\":false}}"
+            }'
+          tagName: ion-input
+      ↓Field12 [ngx.components.UIDynamicElement-1789123318976]: 
+        beanData: '{"ionBean":"FormItem","Disabled":"plain"}'
+        tagName: ion-item
+        ↓Input [ngx.components.UIDynamicElement-1789123318978]: 
+          beanData: |
+            '{
+             "ionBean": "Input",
+             "ControlName": "plain:commentaire",
+             "Disabled": "plain",
+             "Label": "script:''Commentaire''",
+             "LabelPlacement": "plain:stacked",
+             "Placeholder": "script:''Commentaire''",
+             "Required": "script:false",
+             "Value": "source:{\"filter\":\"Local\",\"project\":\"ParcInformatique\",\"input\":\"\",\"model\":{\"data\":[{\"localObject\":\"local\"}],\"path\":\"?.draft?.commentaire\",\"prefix\":\"\",\"suffix\":\"\",\"custom\":\"\",\"useCustom\":false}}"
+            }'
+          tagName: ion-input
+      ↓ActionsGrid [ngx.components.UIDynamicElement-1789123318980]: 
+        beanData: '{"ionBean":"Grid"}'
+        tagName: ion-grid
+        ↓ActionsRow [ngx.components.UIDynamicElement-1789123318982]: 
+          beanData: '{"ionBean":"GridRow"}'
+          tagName: ion-row
+          ↓ActionsCol [ngx.components.UIDynamicElement-1789123318984]: 
+            beanData: '{"ionBean":"GridCol"}'
+            tagName: ion-col
+            ↓Submit [ngx.components.UIDynamicElement-1789123318986]: 
+              beanData: |
+                '{
+                 "ionBean": "SubmitButton",
+                 "Disabled": "plain",
+                 "IonColor": "plain:primary"
+                }'
+              tagName: ion-button
+              ↓Text [ngx.components.UIText-1789123318988]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: script:this.ActionLabel
+            ↓Cancel [ngx.components.UIDynamicElement-1789123318990]: 
+              beanData: |
+                '{
+                 "ionBean": "Button",
+                 "Disabled": "plain",
+                 "IonFill": "plain:outline"
+                }'
+              tagName: ion-button
+              ↓CancelText [ngx.components.UIText-1789123318992]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: script:'Annuler'
+              ↓Event [ngx.components.UIControlEvent-1789123318994]: 
+                ↓EmitCancelled [ngx.components.UIDynamicEmit-1789123318996]: 
+                  beanData: |
+                    '{
+                     "ionBean": "EmitEventAction",
+                     "event": "plain:ParcInformatique.Application.NgxApp.ModelesEditForm.Cancelled",
+                     "data": "script:{ id: this.SelectedId, mode: this.Mode }"
+                    }'
+                  comment: Notify the page glue that the form was cancelled.
+            ↓DeleteVisible [ngx.components.UIControlDirective-1789123318998]: 
+              directiveExpression: this.Mode !== 'create' && !!this.SelectedId
+              directiveName: If
+              ↓Delete [ngx.components.UIDynamicElement-1789123319000]: 
+                beanData: |
+                  '{
+                   "ionBean": "Button",
+                   "Disabled": "plain",
+                   "IonColor": "plain:danger",
+                   "IonFill": "plain:outline"
+                  }'
+                tagName: ion-button
+                ↓DeleteText [ngx.components.UIText-1789123319002]: 
+                  textValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: script:this.DeleteLabel
+                ↓Event [ngx.components.UIControlEvent-1789123319004]: 
+                  ↓Delete [ngx.components.UIDynamicAction-1789123319006]: 
+                    beanData: '{"ionBean":"CallSequenceAction","requestable":"plain:ParcInformatique.parc_delete_modele"}'
+                    comment: Delete the selected row.
+                    ↓id [ngx.components.UIControlVariable-1789123319008]: 
+                      varValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: script:this.SelectedId
+                    ↓Blocked [ngx.components.UIDynamicAction-1789132755091]: 
+                      beanData: '{"ionBean":"IfAction","condition":"script:(out.refs || 0) > 0"}'
+                      comment: 'Regle WinDev FEN_Modele : suppression refusee si des composants utilisent le modele (refs > 0).'
+                      ↓BlockedToast [ngx.components.UIDynamicAction-1789132755093]: 
+                        beanData: |
+                          '{
+                           "ionBean": "ToastAction",
+                           "IonColor": "plain:warning",
+                           "message": "script:''Des composants sont associés à ce modèle. Vous ne pouvez donc pas le supprimer.''",
+                           "duration": "plain:4000",
+                           "position": "plain:top"
+                          }'
+                    ↓Done [ngx.components.UIDynamicAction-1789132755095]: 
+                      beanData: '{"ionBean":"IfAction","condition":"script:!((out.refs || 0) > 0)"}'
+                      ↓EmitDeleted [ngx.components.UIDynamicEmit-1789123319010]: 
+                        beanData: |
+                          '{
+                           "ionBean": "EmitEventAction",
+                           "event": "plain:ParcInformatique.Application.NgxApp.ModelesEditForm.Deleted",
+                           "data": "script:{ id: this.SelectedId }"
+                          }'
+                        comment: Notify the page glue that the delete succeeded.
+      ↓Submit1 [ngx.components.UIControlEvent-1789123319012]: 
+        attrName: (ngSubmit)
+        eventName: onSubmit
+        ↓WhenCreateMode [ngx.components.UIDynamicAction-1789123319014]: 
+          beanData: '{"ionBean":"IfAction","condition":"script:this.Mode === ''create'' || !this.SelectedId"}'
+          ↓Create [ngx.components.UIDynamicAction-1789123319016]: 
+            beanData: '{"ionBean":"CallSequenceAction","requestable":"plain:ParcInformatique.parc_create_modele"}'
+            comment: Create a new row from the submitted form.
+            ↓nom_modele [ngx.components.UIControlVariable-1789123319018]: 
+              comment: Forward the submitted form field nom_modele.
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Form","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318930,"identifier":"entityForm"}],"path":"?.controls?.['nom_modele']?.value","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓marque [ngx.components.UIControlVariable-1789123319020]: 
+              comment: Forward the submitted form field marque.
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Form","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318930,"identifier":"entityForm"}],"path":"?.controls?.['marque']?.value","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓type_modele [ngx.components.UIControlVariable-1789123319022]: 
+              comment: Forward the submitted form field type_modele.
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Form","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318930,"identifier":"entityForm"}],"path":"?.controls?.['type_modele']?.value","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓caracteristique1 [ngx.components.UIControlVariable-1789123319024]: 
+              comment: Forward the submitted form field caracteristique1.
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Form","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318930,"identifier":"entityForm"}],"path":"?.controls?.['caracteristique1']?.value","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓valeur1 [ngx.components.UIControlVariable-1789123319026]: 
+              comment: Forward the submitted form field valeur1.
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Form","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318930,"identifier":"entityForm"}],"path":"?.controls?.['valeur1']?.value","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓caracteristique2 [ngx.components.UIControlVariable-1789123319028]: 
+              comment: Forward the submitted form field caracteristique2.
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Form","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318930,"identifier":"entityForm"}],"path":"?.controls?.['caracteristique2']?.value","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓valeur2 [ngx.components.UIControlVariable-1789123319030]: 
+              comment: Forward the submitted form field valeur2.
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Form","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318930,"identifier":"entityForm"}],"path":"?.controls?.['valeur2']?.value","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓caracteristique3 [ngx.components.UIControlVariable-1789123319032]: 
+              comment: Forward the submitted form field caracteristique3.
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Form","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318930,"identifier":"entityForm"}],"path":"?.controls?.['caracteristique3']?.value","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓valeur3 [ngx.components.UIControlVariable-1789123319034]: 
+              comment: Forward the submitted form field valeur3.
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Form","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318930,"identifier":"entityForm"}],"path":"?.controls?.['valeur3']?.value","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓caracteristique4 [ngx.components.UIControlVariable-1789123319036]: 
+              comment: Forward the submitted form field caracteristique4.
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Form","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318930,"identifier":"entityForm"}],"path":"?.controls?.['caracteristique4']?.value","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓valeur4 [ngx.components.UIControlVariable-1789123319038]: 
+              comment: Forward the submitted form field valeur4.
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Form","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318930,"identifier":"entityForm"}],"path":"?.controls?.['valeur4']?.value","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓commentaire [ngx.components.UIControlVariable-1789123319040]: 
+              comment: Forward the submitted form field commentaire.
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Form","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318930,"identifier":"entityForm"}],"path":"?.controls?.['commentaire']?.value","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓EmitSaved [ngx.components.UIDynamicEmit-1789123319042]: 
+              beanData: |
+                '{
+                 "ionBean": "EmitEventAction",
+                 "event": "plain:ParcInformatique.Application.NgxApp.ModelesEditForm.Saved",
+                 "data": "script:{ id: (out.row || (out.rows && out.rows[0]) || {}).id, mode: ''create'' }"
+                }'
+              comment: Notify the page glue that the create succeeded.
+        ↓WhenUpdateMode [ngx.components.UIDynamicAction-1789123319044]: 
+          beanData: '{"ionBean":"IfAction","condition":"script:this.Mode !== ''create'' && !!this.SelectedId"}'
+          ↓Update [ngx.components.UIDynamicAction-1789123319046]: 
+            beanData: '{"ionBean":"CallSequenceAction","requestable":"plain:ParcInformatique.parc_update_modele"}'
+            comment: Update the selected row from the submitted form.
+            ↓id [ngx.components.UIControlVariable-1789123319048]: 
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: script:this.SelectedId
+            ↓nom_modele [ngx.components.UIControlVariable-1789123319050]: 
+              comment: Forward the submitted form field nom_modele.
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Form","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318930,"identifier":"entityForm"}],"path":"?.controls?.['nom_modele']?.value","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓marque [ngx.components.UIControlVariable-1789123319052]: 
+              comment: Forward the submitted form field marque.
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Form","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318930,"identifier":"entityForm"}],"path":"?.controls?.['marque']?.value","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓type_modele [ngx.components.UIControlVariable-1789123319054]: 
+              comment: Forward the submitted form field type_modele.
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Form","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318930,"identifier":"entityForm"}],"path":"?.controls?.['type_modele']?.value","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓caracteristique1 [ngx.components.UIControlVariable-1789123319056]: 
+              comment: Forward the submitted form field caracteristique1.
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Form","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318930,"identifier":"entityForm"}],"path":"?.controls?.['caracteristique1']?.value","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓valeur1 [ngx.components.UIControlVariable-1789123319058]: 
+              comment: Forward the submitted form field valeur1.
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Form","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318930,"identifier":"entityForm"}],"path":"?.controls?.['valeur1']?.value","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓caracteristique2 [ngx.components.UIControlVariable-1789123319060]: 
+              comment: Forward the submitted form field caracteristique2.
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Form","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318930,"identifier":"entityForm"}],"path":"?.controls?.['caracteristique2']?.value","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓valeur2 [ngx.components.UIControlVariable-1789123319062]: 
+              comment: Forward the submitted form field valeur2.
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Form","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318930,"identifier":"entityForm"}],"path":"?.controls?.['valeur2']?.value","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓caracteristique3 [ngx.components.UIControlVariable-1789123319064]: 
+              comment: Forward the submitted form field caracteristique3.
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Form","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318930,"identifier":"entityForm"}],"path":"?.controls?.['caracteristique3']?.value","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓valeur3 [ngx.components.UIControlVariable-1789123319066]: 
+              comment: Forward the submitted form field valeur3.
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Form","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318930,"identifier":"entityForm"}],"path":"?.controls?.['valeur3']?.value","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓caracteristique4 [ngx.components.UIControlVariable-1789123319068]: 
+              comment: Forward the submitted form field caracteristique4.
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Form","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318930,"identifier":"entityForm"}],"path":"?.controls?.['caracteristique4']?.value","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓valeur4 [ngx.components.UIControlVariable-1789123319070]: 
+              comment: Forward the submitted form field valeur4.
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Form","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318930,"identifier":"entityForm"}],"path":"?.controls?.['valeur4']?.value","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓commentaire [ngx.components.UIControlVariable-1789123319072]: 
+              comment: Forward the submitted form field commentaire.
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Form","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123318930,"identifier":"entityForm"}],"path":"?.controls?.['commentaire']?.value","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓EmitSaved [ngx.components.UIDynamicEmit-1789123319074]: 
+              beanData: |
+                '{
+                 "ionBean": "EmitEventAction",
+                 "event": "plain:ParcInformatique.Application.NgxApp.ModelesEditForm.Saved",
+                 "data": "script:{ id: this.SelectedId, mode: ''update'' }"
+                }'
+              comment: Notify the page glue that the update succeeded.

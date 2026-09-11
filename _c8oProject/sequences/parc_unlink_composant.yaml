@@ -1,0 +1,10 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: 'Facade : dissocie un composant (id) de sa machine, il retourne en stock.'
+↓CallUnlink_composant [steps.TransactionStep-1789128196237]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.unlink_composant
+  ↓id [variables.StepVariable-1789128196239]: 
+    comment: composant primary key.
+↓id [variables.RequestableVariable-1789128196235]: 
+  comment: composant primary key.
+  description: composant primary key.

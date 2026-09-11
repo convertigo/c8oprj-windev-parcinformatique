@@ -1,0 +1,688 @@
+comment: 'Ecran principal (FEN_Principale WinDev) : machines et plan des locaux cliquable.'
+icon: map
+segment: parc
+title: Parc informatique
+↓Content [ngx.components.UIDynamicElement-1789127652795]: 
+  beanData: '{"ionBean":"Content"}'
+  tagName: ion-content
+  ↓Grid [ngx.components.UIDynamicElement-1789127653453]: 
+    beanData: '{"ionBean":"Grid"}'
+    tagName: ion-grid
+    ↓HeaderRow [ngx.components.UIDynamicElement-1789127653455]: 
+      beanData: '{"ionBean":"GridRow"}'
+      tagName: ion-row
+      ↓HeaderCol [ngx.components.UIDynamicElement-1789127653457]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓PageHeader [ngx.components.UIUseShared-1789127783299]: 
+          sharedcomponent: ParcInformatique.Application.NgxApp.CrudPageHeader
+          ↓Title [ngx.components.UIUseVariable-1789127783981]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'Gestion de Parc Informatique'
+          ↓Subtitle [ngx.components.UIUseVariable-1789127783983]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'Cliquez dans le plan pour afficher les machines de la salle choisie.'
+    ↓ToolbarRow [ngx.components.UIDynamicElement-1789127653459]: 
+      beanData: '{"ionBean":"GridRow"}'
+      tagName: ion-row
+      ↓ToolbarCol [ngx.components.UIDynamicElement-1789127653461]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓Toolbar [ngx.components.UIDynamicElement-1789127810633]: 
+          beanData: '{"ionBean":"DivTag"}'
+          tagName: div
+          ↓NewButton [ngx.components.UIDynamicElement-1789127810635]: 
+            beanData: '{"ionBean":"Button","LinkRouterPath":"plain:\/machine"}'
+            tagName: ion-button
+            ↓Text [ngx.components.UIText-1789127810637]: 
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:Nouvelle machine
+            ↓Click [ngx.components.UIControlEvent-1789127810639]: 
+              ↓ClearMachineId [ngx.components.UIDynamicAction-1789127810885]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetGlobalAction",
+                   "Property": "plain:parcMachineId",
+                   "Value": "script:''''"
+                  }'
+          ↓EditButton [ngx.components.UIDynamicElement-1789127810887]: 
+            beanData: |
+              '{
+               "ionBean": "Button",
+               "IonFill": "plain:outline",
+               "LinkRouterPath": "plain:\/machine"
+              }'
+            tagName: ion-button
+            ↓Disabled [ngx.components.UIAttribute-1789127810889]: 
+              attrName: '[disabled]'
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: script:!local?.selectedMachine
+            ↓Text [ngx.components.UIText-1789127810891]: 
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:Modifier la machine
+            ↓Click [ngx.components.UIControlEvent-1789127810893]: 
+              ↓SetMachineId [ngx.components.UIDynamicAction-1789127810895]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetGlobalAction",
+                   "Property": "plain:parcMachineId",
+                   "Value": "script:c8oPage.local?.selectedMachine?.id || ''''"
+                  }'
+          ↓AllButton [ngx.components.UIDynamicElement-1789127810897]: 
+            beanData: '{"ionBean":"Button","IonFill":"plain:clear"}'
+            tagName: ion-button
+            ↓Text [ngx.components.UIText-1789127810899]: 
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:Toutes les machines
+            ↓Click [ngx.components.UIControlEvent-1789127810901]: 
+              ↓ClearRoom [ngx.components.UIDynamicAction-1789127810903]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:selectedRoomId",
+                   "Value": "script:null"
+                  }'
+                ↓ShowAll [ngx.components.UIDynamicAction-1789127811157]: 
+                  beanData: |
+                    '{
+                     "ionBean": "SetLocalAction",
+                     "Property": "plain:visibleMachines",
+                     "Value": "script:c8oPage.local?.machines || []"
+                    }'
+                  ↓ResetFilterLabel [ngx.components.UIDynamicAction-1789127811159]: 
+                    beanData: |
+                      '{
+                       "ionBean": "SetLocalAction",
+                       "Property": "plain:filterLabel",
+                       "Value": "script:''Toutes les machines''"
+                      }'
+          ↓FilterLabel [ngx.components.UIDynamicElement-1789127811161]: 
+            beanData: '{"ionBean":"Paragraph"}'
+            tagName: p
+            ↓Class [ngx.components.UIAttribute-1789127811163]: 
+              attrName: class
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:parc-filter
+            ↓Prefix [ngx.components.UIText-1789127811165]: 
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: 'plain:Machines affichées : '
+            ↓Value [ngx.components.UIText-1789127811167]: 
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.filterLabel","prefix":"","suffix":"","custom":"","useCustom":false}}
+          ↓DeleteButton [ngx.components.UIDynamicElement-1789133483293]: 
+            beanData: |
+              '{
+               "ionBean": "Button",
+               "IonColor": "plain:danger",
+               "IonFill": "plain:outline"
+              }'
+            tagName: ion-button
+            ↓Disabled [ngx.components.UIAttribute-1789133483295]: 
+              attrName: '[disabled]'
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: script:!local?.selectedMachine
+            ↓Text [ngx.components.UIText-1789133483297]: 
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:Supprimer la machine
+            ↓Click [ngx.components.UIControlEvent-1789133483299]: 
+              comment: 'Suppression FEN_Principale : sans composant, simple confirmation ; avec composants, choix entre supprimer les composants, les remettre en stock ou annuler.'
+              ↓CountComps [ngx.components.UIDynamicAction-1789133483545]: 
+                beanData: |
+                  '{
+                   "ionBean": "CallSequenceAction",
+                   "requestable": "plain:ParcInformatique.parc_list_composants_by_machine",
+                   "noLoading": "plain:true"
+                  }'
+                ↓machine_id [ngx.components.UIControlVariable-1789133483799]: 
+                  varValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: script:c8oPage.local?.selectedMachine?.id
+                ↓SetCompCount [ngx.components.UIDynamicAction-1789133483801]: 
+                  beanData: |
+                    '{
+                     "ionBean": "SetLocalAction",
+                     "Property": "plain:delCompCount",
+                     "Value": "script:(out.rows || []).length"
+                    }'
+                  ↓NoComp [ngx.components.UIDynamicAction-1789133483803]: 
+                    beanData: '{"ionBean":"IfAction","condition":"script:(c8oPage.local?.delCompCount || 0) === 0"}'
+                    ↓ConfirmSimple [ngx.components.UIDynamicAction-1789133483805]: 
+                      beanData: |
+                        '{
+                         "ionBean": "AlertAction",
+                         "header": "plain:Suppression",
+                         "message": "script:\"Voulez-vous vraiment supprimer la machine ''\" + (c8oPage.local?.selectedMachine?.nom_machine || '''') + \"'' ?\"",
+                         "button1": "plain:Oui",
+                         "button2": "plain:Non",
+                         "value1": "script:''yes''",
+                         "cancel2": "plain:cancel"
+                        }'
+                      ↓IfYes [ngx.components.UIDynamicAction-1789133483807]: 
+                        beanData: '{"ionBean":"IfAction","condition":"script:!!parent.out && parent.out.data === ''yes''"}'
+                        ↓DeleteMachine [ngx.components.UIDynamicAction-1789133483809]: 
+                          beanData: '{"ionBean":"CallSequenceAction","requestable":"plain:ParcInformatique.parc_delete_machine"}'
+                          ↓id [ngx.components.UIControlVariable-1789133483811]: 
+                            varValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: script:c8oPage.local?.selectedMachine?.id
+                          ↓ClearSelected [ngx.components.UIDynamicAction-1789133549076]: 
+                            beanData: |
+                              '{
+                               "ionBean": "SetLocalAction",
+                               "Property": "plain:selectedMachine",
+                               "Value": "script:null"
+                              }'
+                          ↓Reload [ngx.components.UIDynamicAction-1789133549078]: 
+                            beanData: |
+                              '{
+                               "ionBean": "CallSequenceAction",
+                               "requestable": "plain:ParcInformatique.parc_list_machines",
+                               "noLoading": "plain:true"
+                              }'
+                            ↓SetMachines [ngx.components.UIDynamicAction-1789133549080]: 
+                              beanData: |
+                                '{
+                                 "ionBean": "SetLocalAction",
+                                 "Property": "plain:machines",
+                                 "Value": "script:out.rows || []"
+                                }'
+                              ↓SetVisible [ngx.components.UIDynamicAction-1789133549082]: 
+                                beanData: |
+                                  '{
+                                   "ionBean": "SetLocalAction",
+                                   "Property": "plain:visibleMachines",
+                                   "Value": "script:c8oPage.local?.selectedRoomId ? (c8oPage.local?.machines || []).filter(m => m.emplacement_id === c8oPage.local?.selectedRoomId) : (c8oPage.local?.machines || [])"
+                                  }'
+                                ↓SetRoomCounts [ngx.components.UIDynamicAction-1789133549084]: 
+                                  beanData: |
+                                    '{
+                                     "ionBean": "SetLocalAction",
+                                     "Property": "plain:rooms",
+                                     "Value": "script:(c8oPage.local?.rooms || []).map(r => Object.assign({}, r, { count: (c8oPage.local?.machines || []).filter(m => m.emplacement_id === r.id).length }))"
+                                    }'
+                  ↓WithComp [ngx.components.UIDynamicAction-1789133483813]: 
+                    beanData: '{"ionBean":"IfAction","condition":"script:(c8oPage.local?.delCompCount || 0) > 0"}'
+                    ↓Choice [ngx.components.UIDynamicAction-1789133483815]: 
+                      beanData: |
+                        '{
+                         "ionBean": "AlertAction",
+                         "header": "plain:Suppression de la machine",
+                         "message": "script:\"La machine ''\" + (c8oPage.local?.selectedMachine?.nom_machine || '''') + \"'' contient \" + (c8oPage.local?.delCompCount || 0) + \" composant(s). Que faire de ces composants ?\"",
+                         "backdropDismiss": "plain:false",
+                         "button1": "plain:Supprimer aussi les composants",
+                         "button2": "plain:Remettre les composants en stock",
+                         "button3": "plain:Annuler",
+                         "value1": "script:''all''",
+                         "value2": "script:''keep''",
+                         "cancel3": "plain:cancel"
+                        }'
+                      ↓IfAll [ngx.components.UIDynamicAction-1789133483817]: 
+                        beanData: '{"ionBean":"IfAction","condition":"script:!!parent.out && parent.out.data === ''all''"}'
+                        ↓DeleteWith [ngx.components.UIDynamicAction-1789133483819]: 
+                          beanData: '{"ionBean":"CallSequenceAction","requestable":"plain:ParcInformatique.parc_delete_machine_with_composants"}'
+                          ↓id [ngx.components.UIControlVariable-1789133483821]: 
+                            varValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: script:c8oPage.local?.selectedMachine?.id
+                          ↓ClearSelected [ngx.components.UIDynamicAction-1789133556320]: 
+                            beanData: |
+                              '{
+                               "ionBean": "SetLocalAction",
+                               "Property": "plain:selectedMachine",
+                               "Value": "script:null"
+                              }'
+                          ↓Reload [ngx.components.UIDynamicAction-1789133556322]: 
+                            beanData: |
+                              '{
+                               "ionBean": "CallSequenceAction",
+                               "requestable": "plain:ParcInformatique.parc_list_machines",
+                               "noLoading": "plain:true"
+                              }'
+                            ↓SetMachines [ngx.components.UIDynamicAction-1789133556324]: 
+                              beanData: |
+                                '{
+                                 "ionBean": "SetLocalAction",
+                                 "Property": "plain:machines",
+                                 "Value": "script:out.rows || []"
+                                }'
+                              ↓SetVisible [ngx.components.UIDynamicAction-1789133556326]: 
+                                beanData: |
+                                  '{
+                                   "ionBean": "SetLocalAction",
+                                   "Property": "plain:visibleMachines",
+                                   "Value": "script:c8oPage.local?.selectedRoomId ? (c8oPage.local?.machines || []).filter(m => m.emplacement_id === c8oPage.local?.selectedRoomId) : (c8oPage.local?.machines || [])"
+                                  }'
+                                ↓SetRoomCounts [ngx.components.UIDynamicAction-1789133556328]: 
+                                  beanData: |
+                                    '{
+                                     "ionBean": "SetLocalAction",
+                                     "Property": "plain:rooms",
+                                     "Value": "script:(c8oPage.local?.rooms || []).map(r => Object.assign({}, r, { count: (c8oPage.local?.machines || []).filter(m => m.emplacement_id === r.id).length }))"
+                                    }'
+                      ↓IfKeep [ngx.components.UIDynamicAction-1789133483823]: 
+                        beanData: '{"ionBean":"IfAction","condition":"script:!!parent.out && parent.out.data === ''keep''"}'
+                        ↓DeleteKeep [ngx.components.UIDynamicAction-1789133483825]: 
+                          beanData: '{"ionBean":"CallSequenceAction","requestable":"plain:ParcInformatique.parc_delete_machine_keep_composants"}'
+                          ↓id [ngx.components.UIControlVariable-1789133483827]: 
+                            varValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: script:c8oPage.local?.selectedMachine?.id
+                          ↓ClearSelected [ngx.components.UIDynamicAction-1789133562988]: 
+                            beanData: |
+                              '{
+                               "ionBean": "SetLocalAction",
+                               "Property": "plain:selectedMachine",
+                               "Value": "script:null"
+                              }'
+                          ↓Reload [ngx.components.UIDynamicAction-1789133562990]: 
+                            beanData: |
+                              '{
+                               "ionBean": "CallSequenceAction",
+                               "requestable": "plain:ParcInformatique.parc_list_machines",
+                               "noLoading": "plain:true"
+                              }'
+                            ↓SetMachines [ngx.components.UIDynamicAction-1789133562992]: 
+                              beanData: |
+                                '{
+                                 "ionBean": "SetLocalAction",
+                                 "Property": "plain:machines",
+                                 "Value": "script:out.rows || []"
+                                }'
+                              ↓SetVisible [ngx.components.UIDynamicAction-1789133562994]: 
+                                beanData: |
+                                  '{
+                                   "ionBean": "SetLocalAction",
+                                   "Property": "plain:visibleMachines",
+                                   "Value": "script:c8oPage.local?.selectedRoomId ? (c8oPage.local?.machines || []).filter(m => m.emplacement_id === c8oPage.local?.selectedRoomId) : (c8oPage.local?.machines || [])"
+                                  }'
+                                ↓SetRoomCounts [ngx.components.UIDynamicAction-1789133562996]: 
+                                  beanData: |
+                                    '{
+                                     "ionBean": "SetLocalAction",
+                                     "Property": "plain:rooms",
+                                     "Value": "script:(c8oPage.local?.rooms || []).map(r => Object.assign({}, r, { count: (c8oPage.local?.machines || []).filter(m => m.emplacement_id === r.id).length }))"
+                                    }'
+          ↓PrintButton [ngx.components.UIDynamicElement-1789133483829]: 
+            beanData: |
+              '{
+               "ionBean": "Button",
+               "IonFill": "plain:clear",
+               "LinkRouterPath": "plain:\/rapports"
+              }'
+            tagName: ion-button
+            ↓Text [ngx.components.UIText-1789133483831]: 
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:Imprimer (état des machines)
+            ↓Click [ngx.components.UIControlEvent-1789133483833]: 
+              ↓SetReport [ngx.components.UIDynamicAction-1789133483835]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetGlobalAction",
+                   "Property": "plain:parcReport",
+                   "Value": "script:''machines''"
+                  }'
+          ↓Class [ngx.components.UIAttribute-1789137458779]: 
+            attrName: class
+            attrValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: plain:parc-toolbar no-print
+    ↓MainRow [ngx.components.UIDynamicElement-1789127653463]: 
+      beanData: '{"ionBean":"GridRow"}'
+      tagName: ion-row
+      ↓ListCol [ngx.components.UIDynamicElement-1789127653465]: 
+        beanData: |
+          '{
+           "ionBean": "GridCol",
+           "SizeLg": "plain:4",
+           "SizeMd": "plain:4",
+           "SizeXl": "plain:3",
+           "SizeXs": "plain:12"
+          }'
+        tagName: ion-col
+        ↓ListCard [ngx.components.UIDynamicElement-1789127836782]: 
+          beanData: '{"ionBean":"Card"}'
+          tagName: ion-card
+          ↓Header [ngx.components.UIDynamicElement-1789127836784]: 
+            beanData: '{"ionBean":"CardHeader"}'
+            tagName: ion-card-header
+            ↓Title [ngx.components.UIDynamicElement-1789127836786]: 
+              beanData: '{"ionBean":"CardTitle"}'
+              tagName: ion-card-title
+              ↓Text [ngx.components.UIText-1789127836788]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Machines
+            ↓Subtitle [ngx.components.UIDynamicElement-1789127836790]: 
+              beanData: '{"ionBean":"CardSubTitle"}'
+              tagName: ion-card-subtitle
+              ↓Label [ngx.components.UIText-1789127836792]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: 'plain:Nombre : '
+              ↓Count [ngx.components.UIText-1789127836794]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.visibleMachines","prefix":"","suffix":".length","custom":"","useCustom":false}}
+          ↓Content [ngx.components.UIDynamicElement-1789127836796]: 
+            beanData: '{"ionBean":"CardContent"}'
+            tagName: ion-card-content
+            ↓Empty [ngx.components.UIControlDirective-1789127836798]: 
+              directiveName: If
+              directiveSource: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.visibleMachines","prefix":"","suffix":".length === 0","custom":"","useCustom":false}}
+              ↓EmptyText [ngx.components.UIDynamicElement-1789127837456]: 
+                beanData: '{"ionBean":"Paragraph"}'
+                tagName: p
+                ↓Text [ngx.components.UIText-1789127837458]: 
+                  textValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: plain:Aucune machine dans cette salle.
+            ↓List [ngx.components.UIDynamicElement-1789127837460]: 
+              beanData: '{"ionBean":"List"}'
+              tagName: ion-list
+              ↓Loop [ngx.components.UIControlDirective-1789127837462]: 
+                directiveIndexName: idx
+                directiveItemName: row
+                directiveSource: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.visibleMachines","prefix":"","suffix":"","custom":"","useCustom":false}}
+                ↓Item [ngx.components.UIDynamicElement-1789127837464]: 
+                  beanData: '{"ionBean":"ListItem","Button":"plain:true"}'
+                  tagName: ion-item
+                  ↓Selected [ngx.components.UIAttribute-1789127837466]: 
+                    attrName: '[class.machine-selected]'
+                    attrValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: script:local?.selectedMachine?.id === row.id
+                  ↓Label [ngx.components.UIDynamicElement-1789127837468]: 
+                    beanData: '{"ionBean":"Label"}'
+                    tagName: ion-label
+                    ↓Title [ngx.components.UIDynamicElement-1789127837470]: 
+                      beanData: '{"ionBean":"Heading2"}'
+                      tagName: h2
+                      ↓Text [ngx.components.UIText-1789127837472]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:{{ row.nom_machine }}
+                    ↓Meta1 [ngx.components.UIDynamicElement-1789127837474]: 
+                      beanData: '{"ionBean":"Paragraph"}'
+                      tagName: p
+                      ↓Text [ngx.components.UIText-1789127837476]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: 'plain:{{ row.utilisateur_id__label ? ''Utilisateur : '' + row.utilisateur_id__label : ''Disponible'' }}'
+                    ↓Meta2 [ngx.components.UIDynamicElement-1789127837478]: 
+                      beanData: '{"ionBean":"Paragraph"}'
+                      tagName: p
+                      ↓Text [ngx.components.UIText-1789127837480]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:{{ (row.emplacement_id__label || 'Sans lieu') + ' - IP ' + (row.adresse_ip || '') }}
+                  ↓Select [ngx.components.UIControlEvent-1789127837482]: 
+                    ↓SetSelectedMachine [ngx.components.UIDynamicAction-1789127837728]: 
+                      beanData: |
+                        '{
+                         "ionBean": "SetLocalAction",
+                         "Property": "plain:selectedMachine",
+                         "Value": "script:row"
+                        }'
+      ↓PlanCol [ngx.components.UIDynamicElement-1789127653467]: 
+        beanData: |
+          '{
+           "ionBean": "GridCol",
+           "SizeLg": "plain:8",
+           "SizeMd": "plain:8",
+           "SizeXl": "plain:9",
+           "SizeXs": "plain:12"
+          }'
+        tagName: ion-col
+        ↓PlanCard [ngx.components.UIDynamicElement-1789127861034]: 
+          beanData: '{"ionBean":"Card"}'
+          tagName: ion-card
+          ↓Header [ngx.components.UIDynamicElement-1789127861036]: 
+            beanData: '{"ionBean":"CardHeader"}'
+            tagName: ion-card-header
+            ↓Title [ngx.components.UIDynamicElement-1789127861038]: 
+              beanData: '{"ionBean":"CardTitle"}'
+              tagName: ion-card-title
+              ↓Text [ngx.components.UIText-1789127861040]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Plan des locaux
+            ↓Subtitle [ngx.components.UIDynamicElement-1789127861042]: 
+              beanData: '{"ionBean":"CardSubTitle"}'
+              tagName: ion-card-subtitle
+              ↓Text [ngx.components.UIText-1789127861044]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Cliquez sur une salle pour n'afficher que ses machines. La salle de la machine sélectionnée est encadrée en rouge.
+          ↓Content [ngx.components.UIDynamicElement-1789127861046]: 
+            beanData: '{"ionBean":"CardContent"}'
+            tagName: ion-card-content
+            ↓PlanDiv [ngx.components.UIDynamicElement-1789127861048]: 
+              beanData: '{"ionBean":"DivTag"}'
+              tagName: div
+              ↓Class [ngx.components.UIAttribute-1789127861050]: 
+                attrName: class
+                attrValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:parc-plan
+              ↓RoomsLoop [ngx.components.UIControlDirective-1789127861052]: 
+                directiveIndexName: roomIdx
+                directiveItemName: room
+                directiveSource: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.rooms","prefix":"","suffix":"","custom":"","useCustom":false}}
+                ↓RoomDiv [ngx.components.UIDynamicElement-1789127861710]: 
+                  beanData: '{"ionBean":"DivTag"}'
+                  tagName: div
+                  ↓Class [ngx.components.UIAttribute-1789127861712]: 
+                    attrName: class
+                    attrValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: plain:parc-room
+                  ↓Style [ngx.components.UIAttribute-1789127861714]: 
+                    attrName: '[ngStyle]'
+                    attrValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: 'script:{''left.%'': room.x * 100 / 709, ''top.%'': room.y * 100 / 538, ''width.%'': room.w * 100 / 709, ''height.%'': room.h * 100 / 538}'
+                  ↓SelectedClass [ngx.components.UIAttribute-1789127861716]: 
+                    attrName: '[class.selected]'
+                    attrValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: script:local?.selectedRoomId === room.id
+                  ↓HighlightClass [ngx.components.UIAttribute-1789127861718]: 
+                    attrName: '[class.highlight]'
+                    attrValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: script:local?.selectedMachine?.emplacement_id === room.id
+                  ↓Name [ngx.components.UIText-1789127861720]: 
+                    textValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: plain:{{ room.nom }}
+                  ↓CountSpan [ngx.components.UIDynamicElement-1789127861722]: 
+                    beanData: '{"ionBean":"SpanTag"}'
+                    tagName: span
+                    ↓Class [ngx.components.UIAttribute-1789127861724]: 
+                      attrName: class
+                      attrValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: plain:parc-count
+                    ↓Text [ngx.components.UIText-1789127861726]: 
+                      textValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: 'plain:{{ room.count === 0 ? ''Vide'' : (room.count === 1 ? ''1 machine'' : room.count + '' machines'') }}'
+                  ↓Click [ngx.components.UIControlEvent-1789127861728]: 
+                    ↓SetRoom [ngx.components.UIDynamicAction-1789127861974]: 
+                      beanData: |
+                        '{
+                         "ionBean": "SetLocalAction",
+                         "Property": "plain:selectedRoomId",
+                         "Value": "script:room.id"
+                        }'
+                      ↓FilterMachines [ngx.components.UIDynamicAction-1789127862228]: 
+                        beanData: |
+                          '{
+                           "ionBean": "SetLocalAction",
+                           "Property": "plain:visibleMachines",
+                           "Value": "script:(c8oPage.local?.machines || []).filter(m => m.emplacement_id === room.id)"
+                          }'
+                        ↓SetFilterLabel [ngx.components.UIDynamicAction-1789127862230]: 
+                          beanData: |
+                            '{
+                             "ionBean": "SetLocalAction",
+                             "Property": "plain:filterLabel",
+                             "Value": "script:''Machines dans la salle '' + room.nom"
+                            }'
+  ↓PlanStyle [ngx.components.UIStyle-1789127903194]: 
+    styleContent: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+        - com.twinsoft.convertigo.beans.common.FormatedContent: 
+          →: |
+            '/* Le plan (.parc-plan, .parc-room, .parc-count) est style globalement dans sl:ParcTheme (charte bleue, plan responsive en pourcentages). */
+            .parc-filter { font-weight: 600; color: var(--parc-muted, #5b6b8c); margin: 0; }
+            '
+↓PageEvent [ngx.components.UIPageEvent-1789127959598]: 
+  comment: Initialise les locaux puis charge les lieux et les machines.
+  viewEvent: onWillLoad
+  ↓InitFilterLabel [ngx.components.UIDynamicAction-1789127959844]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:filterLabel",
+       "Value": "script:''Toutes les machines''"
+      }'
+  ↓InitRooms [ngx.components.UIDynamicAction-1789127959846]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:rooms",
+       "Value": "script:[]"
+      }'
+  ↓InitMachines [ngx.components.UIDynamicAction-1789127959848]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:machines",
+       "Value": "script:[]"
+      }'
+  ↓InitVisible [ngx.components.UIDynamicAction-1789127959850]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:visibleMachines",
+       "Value": "script:[]"
+      }'
+  ↓InitSelectedMachine [ngx.components.UIDynamicAction-1789127959852]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:selectedMachine",
+       "Value": "script:null"
+      }'
+  ↓InitSelectedRoom [ngx.components.UIDynamicAction-1789127959854]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:selectedRoomId",
+       "Value": "script:null"
+      }'
+  ↓InvokeEnsureSession [ngx.components.UIDynamicInvoke-1789127959856]: 
+    beanData: '{"ionBean":"InvokeAction"}'
+    stack: ParcInformatique.Application.NgxApp.crud_ensure_session
+    ↓LoadRooms [ngx.components.UIDynamicAction-1789127972561]: 
+      beanData: |
+        '{
+         "ionBean": "CallSequenceAction",
+         "requestable": "plain:ParcInformatique.parc_list_emplacements",
+         "noLoading": "plain:true"
+        }'
+      comment: Charge les lieux (emplacements) et calcule les rectangles du plan.
+      ↓SetRooms [ngx.components.UIDynamicAction-1789127972815]: 
+        beanData: |
+          '{
+           "ionBean": "SetLocalAction",
+           "Property": "plain:rooms",
+           "Value": "script:(out.rows || []).map(r => { const p = String(r.rectangle || ''0,0,0,0'').split('','').map(Number); return Object.assign({}, r, { x: p[0] || 0, y: p[1] || 0, w: Math.max(2, (p[2] || 0) - (p[0] || 0)), h: Math.max(2, (p[3] || 0) - (p[1] || 0)), count: 0 }); })"
+          }'
+        ↓LoadMachines [ngx.components.UIDynamicAction-1789127972817]: 
+          beanData: |
+            '{
+             "ionBean": "CallSequenceAction",
+             "requestable": "plain:ParcInformatique.parc_list_machines",
+             "noLoading": "plain:true"
+            }'
+          comment: Charge toutes les machines avec les libellés de lieu et d'utilisateur.
+          ↓SetMachines [ngx.components.UIDynamicAction-1789127981552]: 
+            beanData: |
+              '{
+               "ionBean": "SetLocalAction",
+               "Property": "plain:machines",
+               "Value": "script:out.rows || []"
+              }'
+            ↓SetVisibleAll [ngx.components.UIDynamicAction-1789127981554]: 
+              beanData: |
+                '{
+                 "ionBean": "SetLocalAction",
+                 "Property": "plain:visibleMachines",
+                 "Value": "script:c8oPage.local?.machines || []"
+                }'
+              ↓SetRoomCounts [ngx.components.UIDynamicAction-1789127981556]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:rooms",
+                   "Value": "script:(c8oPage.local?.rooms || []).map(r => Object.assign({}, r, { count: (c8oPage.local?.machines || []).filter(m => m.emplacement_id === r.id).length }))"
+                  }'

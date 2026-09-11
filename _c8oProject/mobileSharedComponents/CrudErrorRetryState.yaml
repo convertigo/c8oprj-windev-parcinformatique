@@ -1,0 +1,44 @@
+comment: Managed by upsert-ngx-crud-kit (entity-pages template clone) for CrudErrorRetryState. Direct edits may be overwritten; prefer entity.ui hints.
+↓Message [ngx.components.UICompVariable-1789123315740]: 
+  value: '''Try again if loading fails.'''
+↓Retry [ngx.components.UICompEvent-1789123315742]: 
+  attrName: Retry
+  comment: Emitted when the user asks to retry the current CRUD state.
+↓CrudErrorRetryStateCard [ngx.components.UIDynamicElement-1789123315744]: 
+  beanData: '{"ionBean":"Card","IonColor":"plain:warning"}'
+  tagName: ion-card
+  ↓CrudErrorRetryStateHeader [ngx.components.UIDynamicElement-1789123315746]: 
+    beanData: '{"ionBean":"CardHeader"}'
+    tagName: ion-card-header
+    ↓CrudErrorRetryStateTitle [ngx.components.UIDynamicElement-1789123315748]: 
+      beanData: '{"ionBean":"CardTitle"}'
+      tagName: ion-card-title
+      ↓CrudErrorRetryStateTitleText [ngx.components.UIText-1789123315750]: 
+        textValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: plain:Retry
+  ↓CrudErrorRetryStateContent [ngx.components.UIDynamicElement-1789123315752]: 
+    beanData: '{"ionBean":"CardContent"}'
+    tagName: ion-card-content
+    ↓CrudErrorRetryStateText [ngx.components.UIText-1789123315754]: 
+      textValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: source:{"filter":"Shared","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123315738,"regular":true}],"path":"?.Message","prefix":"","suffix":"","custom":"","useCustom":false}}
+    ↓RetryButton [ngx.components.UIDynamicElement-1789123315756]: 
+      beanData: |
+        '{
+         "ionBean": "Button",
+         "Disabled": "plain",
+         "IonColor": "plain:primary"
+        }'
+      tagName: ion-button
+      ↓RetryButtonText [ngx.components.UIText-1789123315758]: 
+        textValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: plain:Retry
+      ↓Event [ngx.components.UIControlEvent-1789123315760]: 
+        ↓EmitRetry [ngx.components.UIDynamicEmit-1789123316014]: 
+          beanData: '{"ionBean":"EmitEventAction","event":"plain:ParcInformatique.Application.NgxApp.CrudErrorRetryState.Retry"}'

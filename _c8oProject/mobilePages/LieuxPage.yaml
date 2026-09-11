@@ -1,0 +1,910 @@
+comment: 'Ecran FEN_Lieu WinDev : plan des locaux cliquable (responsive, repere 709x538 rendu en pourcentages), fiche du lieu, creation par trace d''un rectangle en deux clics avec controle de chevauchement, modification et suppression (refusee si des machines occupent le lieu). Charte bleue sl:ParcTheme.'
+icon: business
+segment: lieux
+title: Gestion des lieux
+↓Content [ngx.components.UIDynamicElement-1789132857414]: 
+  beanData: '{"ionBean":"Content"}'
+  tagName: ion-content
+  ↓Grid [ngx.components.UIDynamicElement-1789132858072]: 
+    beanData: '{"ionBean":"Grid"}'
+    tagName: ion-grid
+    ↓HeaderRow [ngx.components.UIDynamicElement-1789132858074]: 
+      beanData: '{"ionBean":"GridRow"}'
+      tagName: ion-row
+      ↓HeaderCol [ngx.components.UIDynamicElement-1789132858076]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓PageHeader [ngx.components.UIUseShared-1789132858078]: 
+          sharedcomponent: ParcInformatique.Application.NgxApp.CrudPageHeader
+          ↓Title [ngx.components.UIUseVariable-1789132858760]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'Gestion des lieux'
+          ↓Subtitle [ngx.components.UIUseVariable-1789132858762]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: 'script:''Cliquez sur une salle du plan pour la sélectionner. Nouveau : tracez le lieu en deux clics sur le plan.'''
+    ↓ToolbarRow [ngx.components.UIDynamicElement-1789132858764]: 
+      beanData: '{"ionBean":"GridRow"}'
+      tagName: ion-row
+      ↓ToolbarCol [ngx.components.UIDynamicElement-1789132858766]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓Toolbar [ngx.components.UIDynamicElement-1789132858768]: 
+          beanData: '{"ionBean":"DivTag"}'
+          tagName: div
+          ↓Class [ngx.components.UIAttribute-1789132858770]: 
+            attrName: class
+            attrValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: plain:parc-toolbar no-print
+          ↓NewButton [ngx.components.UIDynamicElement-1789132933350]: 
+            beanData: '{"ionBean":"Button"}'
+            tagName: ion-button
+            ↓Disabled [ngx.components.UIAttribute-1789132933352]: 
+              attrName: '[disabled]'
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: script:local?.mode !== 'view'
+            ↓Text [ngx.components.UIText-1789132933354]: 
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:Nouveau lieu
+            ↓Click [ngx.components.UIControlEvent-1789132933356]: 
+              ↓SetMode [ngx.components.UIDynamicAction-1789132933602]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:mode",
+                   "Value": "script:''create''"
+                  }'
+              ↓SetSelected [ngx.components.UIDynamicAction-1789132933604]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:selected",
+                   "Value": "script:null"
+                  }'
+              ↓SetSelectedId [ngx.components.UIDynamicAction-1789132933606]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:selectedId",
+                   "Value": "script:''''"
+                  }'
+              ↓SetDrawStep [ngx.components.UIDynamicAction-1789132933608]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:drawStep",
+                   "Value": "script:1"
+                  }'
+              ↓SetNewRect [ngx.components.UIDynamicAction-1789132933610]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:newRect",
+                   "Value": "script:null"
+                  }'
+              ↓SetHint [ngx.components.UIDynamicAction-1789132933612]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:hint",
+                   "Value": "script:''Veuillez d\\''abord cliquer sur le plan pour indiquer le coin supérieur gauche du nouveau lieu.''"
+                  }'
+          ↓EditButton [ngx.components.UIDynamicElement-1789132933614]: 
+            beanData: '{"ionBean":"Button","IonFill":"plain:outline"}'
+            tagName: ion-button
+            ↓Disabled [ngx.components.UIAttribute-1789132933616]: 
+              attrName: '[disabled]'
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: script:!local?.selected || local?.mode !== 'view'
+            ↓Text [ngx.components.UIText-1789132933618]: 
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:Modifier
+            ↓Click [ngx.components.UIControlEvent-1789132933620]: 
+              ↓SetMode [ngx.components.UIDynamicAction-1789132933622]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:mode",
+                   "Value": "script:''update''"
+                  }'
+              ↓SetHint [ngx.components.UIDynamicAction-1789132933624]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:hint",
+                   "Value": "script:''''"
+                  }'
+          ↓DeleteButton [ngx.components.UIDynamicElement-1789132933626]: 
+            beanData: |
+              '{
+               "ionBean": "Button",
+               "IonColor": "plain:danger",
+               "IonFill": "plain:outline"
+              }'
+            tagName: ion-button
+            ↓Disabled [ngx.components.UIAttribute-1789132933628]: 
+              attrName: '[disabled]'
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: script:!local?.selected || local?.mode !== 'view'
+            ↓Text [ngx.components.UIText-1789132933630]: 
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:Supprimer
+            ↓Click [ngx.components.UIControlEvent-1789132933632]: 
+              ↓ConfirmDelete [ngx.components.UIDynamicAction-1789132933634]: 
+                beanData: |
+                  '{
+                   "ionBean": "AlertAction",
+                   "header": "plain:Suppression",
+                   "message": "script:\"Voulez-vous vraiment supprimer le lieu ''\" + (c8oPage.local?.selected?.nom || '''') + \"'' ?\"",
+                   "button1": "plain:Oui",
+                   "button2": "plain:Non",
+                   "value1": "script:''yes''",
+                   "cancel2": "plain:cancel"
+                  }'
+                ↓IfYes [ngx.components.UIDynamicAction-1789132933888]: 
+                  beanData: '{"ionBean":"IfAction","condition":"script:!!parent.out && parent.out.data === ''yes''"}'
+                  ↓DeleteLieu [ngx.components.UIDynamicAction-1789132933890]: 
+                    beanData: '{"ionBean":"CallSequenceAction","requestable":"plain:ParcInformatique.parc_delete_emplacement"}'
+                    comment: 'Facade gardee : refs > 0 signifie que des machines occupent encore le lieu.'
+                    ↓id [ngx.components.UIControlVariable-1789132933892]: 
+                      varValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: script:c8oPage.local?.selected?.id
+                    ↓Blocked [ngx.components.UIDynamicAction-1789133043736]: 
+                      beanData: '{"ionBean":"IfAction","condition":"script:(out.refs || 0) > 0"}'
+                      ↓BlockedToast [ngx.components.UIDynamicAction-1789133043738]: 
+                        beanData: |
+                          '{
+                           "ionBean": "ToastAction",
+                           "IonColor": "plain:warning",
+                           "message": "script:''Des machines sont associées à ce lieu. Vous ne pouvez donc pas le supprimer.''",
+                           "duration": "plain:4000",
+                           "position": "plain:top"
+                          }'
+                    ↓Done [ngx.components.UIDynamicAction-1789133043740]: 
+                      beanData: '{"ionBean":"IfAction","condition":"script:!((out.refs || 0) > 0)"}'
+                      ↓SetSelected [ngx.components.UIDynamicAction-1789133043742]: 
+                        beanData: |
+                          '{
+                           "ionBean": "SetLocalAction",
+                           "Property": "plain:selected",
+                           "Value": "script:null"
+                          }'
+                      ↓SetSelectedId [ngx.components.UIDynamicAction-1789133043744]: 
+                        beanData: |
+                          '{
+                           "ionBean": "SetLocalAction",
+                           "Property": "plain:selectedId",
+                           "Value": "script:''''"
+                          }'
+                      ↓ReloadRooms [ngx.components.UIDynamicAction-1789133043746]: 
+                        beanData: |
+                          '{
+                           "ionBean": "CallSequenceAction",
+                           "requestable": "plain:ParcInformatique.parc_list_emplacements",
+                           "noLoading": "plain:true"
+                          }'
+                        ↓SetRooms [ngx.components.UIDynamicAction-1789133043748]: 
+                          beanData: |
+                            '{
+                             "ionBean": "SetLocalAction",
+                             "Property": "plain:rooms",
+                             "Value": "script:(out.rows || []).map(r => { const p = String(r.rectangle || ''0,0,0,0'').split('','').map(Number); return Object.assign({}, r, { x: p[0] || 0, y: p[1] || 0, w: Math.max(2, (p[2] || 0) - (p[0] || 0)), h: Math.max(2, (p[3] || 0) - (p[1] || 0)) }); })"
+                            }'
+          ↓PrintButton [ngx.components.UIDynamicElement-1789132933894]: 
+            beanData: '{"ionBean":"Button","IonFill":"plain:clear"}'
+            tagName: ion-button
+            ↓Text [ngx.components.UIText-1789132933896]: 
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:Imprimer le plan
+            ↓Click [ngx.components.UIControlEvent-1789132933898]: 
+              ↓PrintPlan [ngx.components.UICustomAction-1789132933900]: 
+                actionValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                    - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                      →: |
+                        		window.print();
+                        		resolve();
+                        
+                comment: 'Equivalent de l''impression du plan (FEN_Lieu, bouton Imprimer) : impression navigateur.'
+          ↓Hint [ngx.components.UIDynamicElement-1789132933902]: 
+            beanData: '{"ionBean":"Paragraph"}'
+            tagName: p
+            ↓Class [ngx.components.UIAttribute-1789132933904]: 
+              attrName: class
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:parc-hint
+            ↓Text [ngx.components.UIText-1789132933906]: 
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:{{ local?.hint }}
+    ↓MainRow [ngx.components.UIDynamicElement-1789132858772]: 
+      beanData: '{"ionBean":"GridRow"}'
+      tagName: ion-row
+      ↓PlanCol [ngx.components.UIDynamicElement-1789132858774]: 
+        beanData: |
+          '{
+           "ionBean": "GridCol",
+           "SizeMd": "plain:8",
+           "SizeXs": "plain:12"
+          }'
+        tagName: ion-col
+        ↓PlanCard [ngx.components.UIDynamicElement-1789132953442]: 
+          beanData: '{"ionBean":"Card"}'
+          tagName: ion-card
+          ↓Header [ngx.components.UIDynamicElement-1789132953444]: 
+            beanData: '{"ionBean":"CardHeader"}'
+            tagName: ion-card-header
+            ↓Title [ngx.components.UIDynamicElement-1789132953446]: 
+              beanData: '{"ionBean":"CardTitle"}'
+              tagName: ion-card-title
+              ↓Text [ngx.components.UIText-1789132953448]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Plan des locaux
+            ↓Subtitle [ngx.components.UIDynamicElement-1789132953450]: 
+              beanData: '{"ionBean":"CardSubTitle"}'
+              tagName: ion-card-subtitle
+              ↓Text [ngx.components.UIText-1789132953452]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Cliquez sur un lieu pour afficher sa fiche. Un nouveau lieu ne doit pas chevaucher un lieu existant.
+          ↓Content [ngx.components.UIDynamicElement-1789132953454]: 
+            beanData: '{"ionBean":"CardContent"}'
+            tagName: ion-card-content
+            ↓PlanDiv [ngx.components.UIDynamicElement-1789132953456]: 
+              beanData: '{"ionBean":"DivTag"}'
+              tagName: div
+              ↓Class [ngx.components.UIAttribute-1789132953458]: 
+                attrName: class
+                attrValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:parc-plan
+              ↓Drawing [ngx.components.UIAttribute-1789132953460]: 
+                attrName: '[class.drawing]'
+                attrValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: script:local?.mode === 'create' && local?.drawStep > 0 && local?.drawStep < 3
+              ↓PlanClick [ngx.components.UIControlEvent-1789132953462]: 
+                comment: 'Trace du nouveau lieu : le premier clic fixe le coin superieur gauche, le second le coin inferieur droit.'
+                ↓SetClick [ngx.components.UIDynamicAction-1789132953708]: 
+                  beanData: |
+                    '{
+                     "ionBean": "SetLocalAction",
+                     "Property": "plain:lastClick",
+                     "Value": "script:(function (e) { if (!e || !e.currentTarget || !e.currentTarget.getBoundingClientRect) { return null; } const r = e.currentTarget.getBoundingClientRect(); const sx = r.width > 0 ? 709 \/ r.width : 1; const sy = r.height > 0 ? 538 \/ r.height : 1; return { x: Math.max(0, Math.round((e.clientX - r.left) * sx)), y: Math.max(0, Math.round((e.clientY - r.top) * sy)) }; })(parent.out)"
+                    }'
+                  comment: Coordonnees du clic ramenees au repere WinDev du plan (709 x 538) quel que soit le facteur d'echelle responsive.
+                  ↓SetClickStep [ngx.components.UIDynamicAction-1789132953962]: 
+                    beanData: |
+                      '{
+                       "ionBean": "SetLocalAction",
+                       "Property": "plain:clickStep",
+                       "Value": "script:(c8oPage.local?.mode === ''create'' && !!c8oPage.local?.lastClick) ? (c8oPage.local?.drawStep || 0) : 0"
+                      }'
+                    comment: Fige l'etape du trace avant toute mutation pour que les deux branches ne se declenchent pas sur le meme clic.
+                    ↓Step1 [ngx.components.UIDynamicAction-1789133070496]: 
+                      beanData: '{"ionBean":"IfAction","condition":"script:c8oPage.local?.clickStep === 1"}'
+                      comment: 'Premier clic : coin superieur gauche.'
+                      ↓SetP1 [ngx.components.UIDynamicAction-1789133070498]: 
+                        beanData: |
+                          '{
+                           "ionBean": "SetLocalAction",
+                           "Property": "plain:p1",
+                           "Value": "script:c8oPage.local?.lastClick"
+                          }'
+                        ↓SetDrawStep [ngx.components.UIDynamicAction-1789133070500]: 
+                          beanData: |
+                            '{
+                             "ionBean": "SetLocalAction",
+                             "Property": "plain:drawStep",
+                             "Value": "script:2"
+                            }'
+                        ↓SetHint [ngx.components.UIDynamicAction-1789133070502]: 
+                          beanData: |
+                            '{
+                             "ionBean": "SetLocalAction",
+                             "Property": "plain:hint",
+                             "Value": "script:''Veuillez maintenant cliquer sur le plan pour indiquer le coin inférieur droit du nouveau lieu.''"
+                            }'
+                    ↓Step2 [ngx.components.UIDynamicAction-1789133070504]: 
+                      beanData: '{"ionBean":"IfAction","condition":"script:c8oPage.local?.clickStep === 2"}'
+                      comment: 'Second clic : coin inferieur droit, controle de chevauchement puis confirmation.'
+                      ↓SetRect [ngx.components.UIDynamicAction-1789133070506]: 
+                        beanData: |
+                          '{
+                           "ionBean": "SetLocalAction",
+                           "Property": "plain:newRect",
+                           "Value": "script:(function (a, b) { if (!a || !b) { return null; } const x1 = Math.min(a.x, b.x), y1 = Math.min(a.y, b.y), x2 = Math.max(a.x, b.x), y2 = Math.max(a.y, b.y); return { x: x1, y: y1, w: Math.max(2, x2 - x1), h: Math.max(2, y2 - y1), x1: x1, y1: y1, x2: Math.max(x1 + 2, x2), y2: Math.max(y1 + 2, y2) }; })(c8oPage.local?.p1, c8oPage.local?.lastClick)"
+                          }'
+                        ↓CheckOverlap [ngx.components.UIDynamicAction-1789133070508]: 
+                          beanData: |
+                            '{
+                             "ionBean": "SetLocalAction",
+                             "Property": "plain:overlap",
+                             "Value": "script:(function (n, rooms) { if (!n) { return true; } return rooms.some(r => !(n.x2 <= r.x || n.x1 >= r.x + r.w || n.y2 <= r.y || n.y1 >= r.y + r.h)); })(c8oPage.local?.newRect, c8oPage.local?.rooms || [])"
+                            }'
+                          ↓Overlap [ngx.components.UIDynamicAction-1789133070510]: 
+                            beanData: '{"ionBean":"IfAction","condition":"script:!!c8oPage.local?.overlap"}'
+                            ↓OverlapToast [ngx.components.UIDynamicAction-1789133070512]: 
+                              beanData: |
+                                '{
+                                 "ionBean": "ToastAction",
+                                 "IonColor": "plain:danger",
+                                 "message": "script:''Impossible de créer le lieu spécifié car ce lieu se superpose avec un autre déjà existant.''",
+                                 "duration": "plain:4000",
+                                 "position": "plain:top"
+                                }'
+                            ↓ResetRect [ngx.components.UIDynamicAction-1789133070514]: 
+                              beanData: |
+                                '{
+                                 "ionBean": "SetLocalAction",
+                                 "Property": "plain:newRect",
+                                 "Value": "script:null"
+                                }'
+                            ↓ResetStep [ngx.components.UIDynamicAction-1789133070516]: 
+                              beanData: |
+                                '{
+                                 "ionBean": "SetLocalAction",
+                                 "Property": "plain:drawStep",
+                                 "Value": "script:1"
+                                }'
+                            ↓SetHint [ngx.components.UIDynamicAction-1789133070518]: 
+                              beanData: |
+                                '{
+                                 "ionBean": "SetLocalAction",
+                                 "Property": "plain:hint",
+                                 "Value": "script:''Ce lieu chevauche un lieu existant. Veuillez cliquer à nouveau sur le plan pour le coin supérieur gauche.''"
+                                }'
+                          ↓NoOverlap [ngx.components.UIDynamicAction-1789133070520]: 
+                            beanData: '{"ionBean":"IfAction","condition":"script:!c8oPage.local?.overlap"}'
+                            ↓ConfirmRect [ngx.components.UIDynamicAction-1789133070522]: 
+                              beanData: |
+                                '{
+                                 "ionBean": "AlertAction",
+                                 "header": "plain:Nouveau lieu",
+                                 "message": "plain:Le lieu vous convient-il sur le plan ?",
+                                 "backdropDismiss": "plain:false",
+                                 "button1": "plain:Il convient.",
+                                 "button2": "plain:Il ne convient pas.",
+                                 "value1": "script:''ok''",
+                                 "cancel2": "plain:cancel"
+                                }'
+                              ↓IfOk [ngx.components.UIDynamicAction-1789133070524]: 
+                                beanData: '{"ionBean":"IfAction","condition":"script:!!parent.out && parent.out.data === ''ok''"}'
+                                ↓SetDraftSeed [ngx.components.UIDynamicAction-1789133070526]: 
+                                  beanData: |
+                                    '{
+                                     "ionBean": "SetLocalAction",
+                                     "Property": "plain:draftSeed",
+                                     "Value": "script:({ nom: '''', commentaire: '''', rectangle: [c8oPage.local.newRect.x1, c8oPage.local.newRect.y1, c8oPage.local.newRect.x2, c8oPage.local.newRect.y2].join('',''), picto: '''' })"
+                                    }'
+                                ↓SetSelectedId [ngx.components.UIDynamicAction-1789133070528]: 
+                                  beanData: |
+                                    '{
+                                     "ionBean": "SetLocalAction",
+                                     "Property": "plain:selectedId",
+                                     "Value": "script:''''"
+                                    }'
+                                ↓SetDrawStep [ngx.components.UIDynamicAction-1789133070530]: 
+                                  beanData: |
+                                    '{
+                                     "ionBean": "SetLocalAction",
+                                     "Property": "plain:drawStep",
+                                     "Value": "script:3"
+                                    }'
+                                ↓SetHint [ngx.components.UIDynamicAction-1789133070532]: 
+                                  beanData: |
+                                    '{
+                                     "ionBean": "SetLocalAction",
+                                     "Property": "plain:hint",
+                                     "Value": "script:''Saisissez aussi le nom du lieu et un commentaire éventuel, puis validez par OK.''"
+                                    }'
+                              ↓IfNo [ngx.components.UIDynamicAction-1789133070534]: 
+                                beanData: '{"ionBean":"IfAction","condition":"script:!parent.out || parent.out.data !== ''ok''"}'
+                                ↓ResetRect [ngx.components.UIDynamicAction-1789133070536]: 
+                                  beanData: |
+                                    '{
+                                     "ionBean": "SetLocalAction",
+                                     "Property": "plain:newRect",
+                                     "Value": "script:null"
+                                    }'
+                                ↓ResetStep [ngx.components.UIDynamicAction-1789133070538]: 
+                                  beanData: |
+                                    '{
+                                     "ionBean": "SetLocalAction",
+                                     "Property": "plain:drawStep",
+                                     "Value": "script:1"
+                                    }'
+                                ↓SetHint [ngx.components.UIDynamicAction-1789133070540]: 
+                                  beanData: |
+                                    '{
+                                     "ionBean": "SetLocalAction",
+                                     "Property": "plain:hint",
+                                     "Value": "script:''Veuillez cliquer à nouveau sur le plan pour indiquer le coin supérieur gauche du nouveau lieu.''"
+                                    }'
+              ↓RoomsLoop [ngx.components.UIControlDirective-1789132953964]: 
+                directiveIndexName: roomIdx
+                directiveItemName: room
+                directiveSource: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.rooms","prefix":"","suffix":"","custom":"","useCustom":false}}
+                ↓RoomDiv [ngx.components.UIDynamicElement-1789132954622]: 
+                  beanData: '{"ionBean":"DivTag"}'
+                  tagName: div
+                  ↓Class [ngx.components.UIAttribute-1789132954624]: 
+                    attrName: class
+                    attrValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: plain:parc-room
+                  ↓Style [ngx.components.UIAttribute-1789132954626]: 
+                    attrName: '[ngStyle]'
+                    attrValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: 'script:{''left.%'': room.x * 100 / 709, ''top.%'': room.y * 100 / 538, ''width.%'': room.w * 100 / 709, ''height.%'': room.h * 100 / 538}'
+                  ↓SelectedClass [ngx.components.UIAttribute-1789132954628]: 
+                    attrName: '[class.selected]'
+                    attrValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: script:local?.selected?.id === room.id
+                  ↓Name [ngx.components.UIText-1789132954630]: 
+                    textValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: plain:{{ room.nom }}
+                  ↓Click [ngx.components.UIControlEvent-1789132954632]: 
+                    ↓WhenView [ngx.components.UIDynamicAction-1789132954634]: 
+                      beanData: '{"ionBean":"IfAction","condition":"script:c8oPage.local?.mode === ''view''"}'
+                      ↓SetSelected [ngx.components.UIDynamicAction-1789132954636]: 
+                        beanData: |
+                          '{
+                           "ionBean": "SetLocalAction",
+                           "Property": "plain:selected",
+                           "Value": "script:room"
+                          }'
+                      ↓SetSelectedId [ngx.components.UIDynamicAction-1789132954638]: 
+                        beanData: |
+                          '{
+                           "ionBean": "SetLocalAction",
+                           "Property": "plain:selectedId",
+                           "Value": "script:room.id"
+                          }'
+              ↓NewRectIf [ngx.components.UIControlDirective-1789132954640]: 
+                directiveExpression: '!!local?.newRect'
+                directiveName: If
+                ↓NewRectDiv [ngx.components.UIDynamicElement-1789132954642]: 
+                  beanData: '{"ionBean":"DivTag"}'
+                  tagName: div
+                  ↓Class [ngx.components.UIAttribute-1789132954644]: 
+                    attrName: class
+                    attrValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: plain:parc-newrect
+                  ↓Style [ngx.components.UIAttribute-1789132954646]: 
+                    attrName: '[ngStyle]'
+                    attrValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: 'script:{''left.%'': (local?.newRect?.x || 0) * 100 / 709, ''top.%'': (local?.newRect?.y || 0) * 100 / 538, ''width.%'': (local?.newRect?.w || 0) * 100 / 709, ''height.%'': (local?.newRect?.h || 0) * 100 / 538}'
+      ↓SideCol [ngx.components.UIDynamicElement-1789132858776]: 
+        beanData: |
+          '{
+           "ionBean": "GridCol",
+           "SizeMd": "plain:4",
+           "SizeXs": "plain:12"
+          }'
+        tagName: ion-col
+        ↓Class [ngx.components.UIAttribute-1789132858778]: 
+          attrName: class
+          attrValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: plain:no-print
+        ↓DetailIf [ngx.components.UIControlDirective-1789132993076]: 
+          directiveExpression: local?.mode === 'view'
+          directiveName: If
+          ↓DetailCard [ngx.components.UIDynamicElement-1789132993734]: 
+            beanData: '{"ionBean":"Card"}'
+            tagName: ion-card
+            ↓Header [ngx.components.UIDynamicElement-1789132993736]: 
+              beanData: '{"ionBean":"CardHeader"}'
+              tagName: ion-card-header
+              ↓Title [ngx.components.UIDynamicElement-1789132993738]: 
+                beanData: '{"ionBean":"CardTitle"}'
+                tagName: ion-card-title
+                ↓Text [ngx.components.UIText-1789132993740]: 
+                  textValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: 'plain:{{ local?.selected ? local.selected.nom : ''Aucun lieu sélectionné'' }}'
+              ↓Subtitle [ngx.components.UIDynamicElement-1789132993742]: 
+                beanData: '{"ionBean":"CardSubTitle"}'
+                tagName: ion-card-subtitle
+                ↓Text [ngx.components.UIText-1789132993744]: 
+                  textValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: plain:Informations du lieu
+            ↓Content [ngx.components.UIDynamicElement-1789132993746]: 
+              beanData: '{"ionBean":"CardContent"}'
+              tagName: ion-card-content
+              ↓NoSel [ngx.components.UIControlDirective-1789132993748]: 
+                directiveExpression: '!local?.selected'
+                directiveName: If
+                ↓P [ngx.components.UIDynamicElement-1789132993750]: 
+                  beanData: '{"ionBean":"Paragraph"}'
+                  tagName: p
+                  ↓Text [ngx.components.UIText-1789132993752]: 
+                    textValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: plain:Cliquez sur une salle du plan pour afficher sa fiche, ou sur Nouveau lieu pour en tracer un.
+              ↓Sel [ngx.components.UIControlDirective-1789132993754]: 
+                directiveExpression: '!!local?.selected'
+                directiveName: If
+                ↓Comment [ngx.components.UIDynamicElement-1789132993756]: 
+                  beanData: '{"ionBean":"Paragraph"}'
+                  tagName: p
+                  ↓Text [ngx.components.UIText-1789132993758]: 
+                    textValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: 'plain:Commentaire : {{ local?.selected?.commentaire || ''-'' }}'
+                ↓Rect [ngx.components.UIDynamicElement-1789132993760]: 
+                  beanData: '{"ionBean":"Paragraph"}'
+                  tagName: p
+                  ↓Text [ngx.components.UIText-1789132993762]: 
+                    textValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: 'plain:Rectangle sur le plan (x1,y1,x2,y2) : {{ local?.selected?.rectangle || ''-'' }}'
+                ↓Picto [ngx.components.UIDynamicElement-1789132993764]: 
+                  beanData: '{"ionBean":"Paragraph"}'
+                  tagName: p
+                  ↓Text [ngx.components.UIText-1789132993766]: 
+                    textValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: 'plain:Pictogramme : {{ local?.selected?.picto || ''-'' }}'
+        ↓FormIf [ngx.components.UIControlDirective-1789132993768]: 
+          directiveExpression: local?.mode === 'update' || (local?.mode === 'create' && local?.drawStep === 3)
+          directiveName: If
+          ↓EditForm [ngx.components.UIUseShared-1789132993770]: 
+            sharedcomponent: ParcInformatique.Application.NgxApp.EmplacementsEditForm
+            ↓SelectedId [ngx.components.UIUseVariable-1789132994452]: 
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.selectedId","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓Mode [ngx.components.UIUseVariable-1789132994454]: 
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.mode","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓RefreshToken [ngx.components.UIUseVariable-1789132994456]: 
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.refreshToken","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓DraftSeed [ngx.components.UIUseVariable-1789132994458]: 
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.draftSeed","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓ActionLabel [ngx.components.UIUseVariable-1789132994460]: 
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: script:'OK'
+            ↓CreateTitle [ngx.components.UIUseVariable-1789132994462]: 
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: script:'Nouveau lieu'
+            ↓EditTitle [ngx.components.UIUseVariable-1789132994464]: 
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: script:'Modifier le lieu'
+            ↓DeleteLabel [ngx.components.UIUseVariable-1789132994466]: 
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: script:'Supprimer le lieu'
+            ↓Saved [ngx.components.UIControlEvent-1789132994468]: 
+              attrName: (Saved)
+              eventName: Saved
+              ↓SetSavedId [ngx.components.UIDynamicAction-1789132994714]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:savedId",
+                   "Value": "script:parent.out.id"
+                  }'
+                ↓ReloadRooms [ngx.components.UIDynamicAction-1789132994968]: 
+                  beanData: |
+                    '{
+                     "ionBean": "CallSequenceAction",
+                     "requestable": "plain:ParcInformatique.parc_list_emplacements",
+                     "noLoading": "plain:true"
+                    }'
+                  ↓SetRooms [ngx.components.UIDynamicAction-1789132994970]: 
+                    beanData: |
+                      '{
+                       "ionBean": "SetLocalAction",
+                       "Property": "plain:rooms",
+                       "Value": "script:(out.rows || []).map(r => { const p = String(r.rectangle || ''0,0,0,0'').split('','').map(Number); return Object.assign({}, r, { x: p[0] || 0, y: p[1] || 0, w: Math.max(2, (p[2] || 0) - (p[0] || 0)), h: Math.max(2, (p[3] || 0) - (p[1] || 0)) }); })"
+                      }'
+                    ↓SetSelected [ngx.components.UIDynamicAction-1789132994972]: 
+                      beanData: |
+                        '{
+                         "ionBean": "SetLocalAction",
+                         "Property": "plain:selected",
+                         "Value": "script:(c8oPage.local?.rooms || []).find(r => String(r.id) === String(c8oPage.local?.savedId)) || null"
+                        }'
+                      ↓SetSelectedId [ngx.components.UIDynamicAction-1789132994974]: 
+                        beanData: |
+                          '{
+                           "ionBean": "SetLocalAction",
+                           "Property": "plain:selectedId",
+                           "Value": "script:c8oPage.local?.selected?.id || ''''"
+                          }'
+              ↓SetMode [ngx.components.UIDynamicAction-1789132994976]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:mode",
+                   "Value": "script:''view''"
+                  }'
+              ↓SetNewRect [ngx.components.UIDynamicAction-1789132994978]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:newRect",
+                   "Value": "script:null"
+                  }'
+              ↓SetDrawStep [ngx.components.UIDynamicAction-1789132994980]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:drawStep",
+                   "Value": "script:0"
+                  }'
+              ↓SetHint [ngx.components.UIDynamicAction-1789132994982]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:hint",
+                   "Value": "script:''''"
+                  }'
+            ↓Deleted [ngx.components.UIControlEvent-1789132994984]: 
+              attrName: (Deleted)
+              eventName: Deleted
+              ↓SetSelected [ngx.components.UIDynamicAction-1789132994986]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:selected",
+                   "Value": "script:null"
+                  }'
+              ↓SetSelectedId [ngx.components.UIDynamicAction-1789132994988]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:selectedId",
+                   "Value": "script:''''"
+                  }'
+              ↓SetMode [ngx.components.UIDynamicAction-1789132994990]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:mode",
+                   "Value": "script:''view''"
+                  }'
+              ↓ReloadRooms [ngx.components.UIDynamicAction-1789132994992]: 
+                beanData: |
+                  '{
+                   "ionBean": "CallSequenceAction",
+                   "requestable": "plain:ParcInformatique.parc_list_emplacements",
+                   "noLoading": "plain:true"
+                  }'
+                ↓SetRooms [ngx.components.UIDynamicAction-1789132994994]: 
+                  beanData: |
+                    '{
+                     "ionBean": "SetLocalAction",
+                     "Property": "plain:rooms",
+                     "Value": "script:(out.rows || []).map(r => { const p = String(r.rectangle || ''0,0,0,0'').split('','').map(Number); return Object.assign({}, r, { x: p[0] || 0, y: p[1] || 0, w: Math.max(2, (p[2] || 0) - (p[0] || 0)), h: Math.max(2, (p[3] || 0) - (p[1] || 0)) }); })"
+                    }'
+            ↓Cancelled [ngx.components.UIControlEvent-1789132994996]: 
+              attrName: (Cancelled)
+              eventName: Cancelled
+              ↓SetMode [ngx.components.UIDynamicAction-1789132994998]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:mode",
+                   "Value": "script:''view''"
+                  }'
+              ↓SetNewRect [ngx.components.UIDynamicAction-1789132995000]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:newRect",
+                   "Value": "script:null"
+                  }'
+              ↓SetDrawStep [ngx.components.UIDynamicAction-1789132995002]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:drawStep",
+                   "Value": "script:0"
+                  }'
+              ↓SetHint [ngx.components.UIDynamicAction-1789132995004]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:hint",
+                   "Value": "script:''''"
+                  }'
+  ↓PlanStyle [ngx.components.UIStyle-1789132858780]: 
+    styleContent: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+        - com.twinsoft.convertigo.beans.common.FormatedContent: 
+          →: |
+            '/* Le plan (.parc-plan, .parc-room, .parc-newrect) est style globalement dans sl:ParcTheme (charte bleue, plan responsive en pourcentages). */
+            .parc-hint { font-weight: 600; color: var(--parc-blue, #1d4ed8); margin: 0; }
+            .parc-picto { max-width: 120px; max-height: 80px; display: block; margin-top: 6px; border-radius: 6px; }
+            '
+↓PageEvent [ngx.components.UIPageEvent-1789132858782]: 
+  comment: Initialise l'etat de la page puis charge les lieux (rectangles du plan).
+  viewEvent: onWillLoad
+  ↓InitMode [ngx.components.UIDynamicAction-1789132859028]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:mode",
+       "Value": "script:''view''"
+      }'
+  ↓InitRooms [ngx.components.UIDynamicAction-1789132859030]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:rooms",
+       "Value": "script:[]"
+      }'
+  ↓InitSelected [ngx.components.UIDynamicAction-1789132859032]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:selected",
+       "Value": "script:null"
+      }'
+  ↓InitSelectedId [ngx.components.UIDynamicAction-1789132859034]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:selectedId",
+       "Value": "script:''''"
+      }'
+  ↓InitDrawStep [ngx.components.UIDynamicAction-1789132859036]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:drawStep",
+       "Value": "script:0"
+      }'
+  ↓InitClickStep [ngx.components.UIDynamicAction-1789132859038]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:clickStep",
+       "Value": "script:0"
+      }'
+  ↓InitP1 [ngx.components.UIDynamicAction-1789132859040]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:p1",
+       "Value": "script:null"
+      }'
+  ↓InitLastClick [ngx.components.UIDynamicAction-1789132859042]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:lastClick",
+       "Value": "script:null"
+      }'
+  ↓InitNewRect [ngx.components.UIDynamicAction-1789132859044]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:newRect",
+       "Value": "script:null"
+      }'
+  ↓InitOverlap [ngx.components.UIDynamicAction-1789132859046]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:overlap",
+       "Value": "script:false"
+      }'
+  ↓InitSavedId [ngx.components.UIDynamicAction-1789132859048]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:savedId",
+       "Value": "script:null"
+      }'
+  ↓InitRefreshToken [ngx.components.UIDynamicAction-1789132859050]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:refreshToken",
+       "Value": "script:0"
+      }'
+  ↓InitDraftSeed [ngx.components.UIDynamicAction-1789132859052]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:draftSeed",
+       "Value": "script:({ nom: '''', commentaire: '''', rectangle: '''', picto: '''' })"
+      }'
+  ↓InitHint [ngx.components.UIDynamicAction-1789132859054]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:hint",
+       "Value": "script:''''"
+      }'
+  ↓InvokeEnsureSession [ngx.components.UIDynamicInvoke-1789132859056]: 
+    beanData: '{"ionBean":"InvokeAction"}'
+    stack: ParcInformatique.Application.NgxApp.crud_ensure_session
+    ↓LoadRooms [ngx.components.UIDynamicAction-1789132859310]: 
+      beanData: |
+        '{
+         "ionBean": "CallSequenceAction",
+         "requestable": "plain:ParcInformatique.parc_list_emplacements",
+         "noLoading": "plain:true"
+        }'
+      comment: Charge les lieux et calcule les rectangles du plan (x, y, largeur, hauteur).
+      ↓SetRooms [ngx.components.UIDynamicAction-1789132859564]: 
+        beanData: |
+          '{
+           "ionBean": "SetLocalAction",
+           "Property": "plain:rooms",
+           "Value": "script:(out.rows || []).map(r => { const p = String(r.rectangle || ''0,0,0,0'').split('','').map(Number); return Object.assign({}, r, { x: p[0] || 0, y: p[1] || 0, w: Math.max(2, (p[2] || 0) - (p[0] || 0)), h: Math.max(2, (p[3] || 0) - (p[1] || 0)) }); })"
+          }'

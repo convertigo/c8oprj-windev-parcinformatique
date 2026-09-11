@@ -1,0 +1,15 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: 'Facade : associe un composant (id) a une machine (machine_id).'
+↓CallLink_composant [steps.TransactionStep-1789128188487]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.link_composant
+  ↓id [variables.StepVariable-1789128188489]: 
+    comment: composant primary key.
+  ↓machine_id [variables.StepVariable-1789128188491]: 
+    comment: Machine to attach the composant to.
+↓id [variables.RequestableVariable-1789128188483]: 
+  comment: composant primary key.
+  description: composant primary key.
+↓machine_id [variables.RequestableVariable-1789128188485]: 
+  comment: Machine to attach the composant to.
+  description: Machine to attach the composant to.

@@ -1,0 +1,122 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: Facade reading one utilisateur by primary key.
+↓CallParc_read_utilisateur [steps.TransactionStep-1789123179202]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.read_utilisateur
+  ↓id [variables.StepVariable-1789123179204]: 
+    comment: utilisateur primary key.
+    description: utilisateur primary key.
+↓Row [steps.JsonObjectStep-1789123179206]: 
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: row
+  ↓id [steps.JsonFieldStep-1789123179208]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: id
+    type: number
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1789123179202
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/ID/text()
+  ↓initiales [steps.JsonFieldStep-1789123179210]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: initiales
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1789123179202
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/INITIALES/text()
+  ↓civilite [steps.JsonFieldStep-1789123179212]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: civilite
+    type: number
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1789123179202
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/CIVILITE/text()
+  ↓nom_complet [steps.JsonFieldStep-1789123179214]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: nom_complet
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1789123179202
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/NOM_COMPLET/text()
+  ↓tel [steps.JsonFieldStep-1789123179216]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: tel
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1789123179202
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/TEL/text()
+  ↓photo [steps.JsonFieldStep-1789123179218]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: photo
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1789123179202
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/PHOTO/text()
+↓id [variables.RequestableVariable-1789123179200]: 
+  comment: utilisateur primary key.
+  description: utilisateur primary key.

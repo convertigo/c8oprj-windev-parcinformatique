@@ -1,0 +1,23 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: Facade counting Modèles.
+↓CallParc_count_modeles [steps.TransactionStep-1789123179521]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.count_modeles
+↓Total [steps.JsonFieldStep-1789123179523]: 
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: total
+  type: number
+  value: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: SOURCE
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1789123179521
+          - java.lang.String: 
+            - ↑value: ./document/sql_output/row/TOTAL/text()

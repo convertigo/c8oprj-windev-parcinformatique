@@ -1,0 +1,23 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: Facade counting Lieux.
+↓CallParc_count_emplacements [steps.TransactionStep-1789123179063]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.count_emplacements
+↓Total [steps.JsonFieldStep-1789123179065]: 
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: total
+  type: number
+  value: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: SOURCE
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1789123179063
+          - java.lang.String: 
+            - ↑value: ./document/sql_output/row/TOTAL/text()

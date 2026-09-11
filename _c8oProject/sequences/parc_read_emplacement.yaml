@@ -1,0 +1,104 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: Facade reading one emplacement by primary key.
+↓CallParc_read_emplacement [steps.TransactionStep-1789123179070]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.read_emplacement
+  ↓id [variables.StepVariable-1789123179072]: 
+    comment: emplacement primary key.
+    description: emplacement primary key.
+↓Row [steps.JsonObjectStep-1789123179074]: 
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: row
+  ↓id [steps.JsonFieldStep-1789123179076]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: id
+    type: number
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1789123179070
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/ID/text()
+  ↓nom [steps.JsonFieldStep-1789123179078]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: nom
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1789123179070
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/NOM/text()
+  ↓commentaire [steps.JsonFieldStep-1789123179080]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: commentaire
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1789123179070
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/COMMENTAIRE/text()
+  ↓rectangle [steps.JsonFieldStep-1789123179082]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: rectangle
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1789123179070
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/RECTANGLE/text()
+  ↓picto [steps.JsonFieldStep-1789123179084]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: picto
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: SOURCE
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1789123179070
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/PICTO/text()
+↓id [variables.RequestableVariable-1789123179068]: 
+  comment: emplacement primary key.
+  description: emplacement primary key.

@@ -1,0 +1,14 @@
+comment: Managed by upsert-ngx-crud-kit (entity-pages template clone) for CrudLoadingState. Direct edits may be overwritten; prefer entity.ui hints.
+↓Message [ngx.components.UICompVariable-1789123315730]: 
+  value: '''Loading records...'''
+↓CrudLoadingStateCard [ngx.components.UIDynamicElement-1789123315732]: 
+  beanData: '{"ionBean":"Card"}'
+  tagName: ion-card
+  ↓CrudLoadingStateContent [ngx.components.UIDynamicElement-1789123315734]: 
+    beanData: '{"ionBean":"CardContent"}'
+    tagName: ion-card-content
+    ↓CrudLoadingStateText [ngx.components.UIText-1789123315736]: 
+      textValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: source:{"filter":"Shared","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123315728,"regular":true}],"path":"?.Message","prefix":"","suffix":"","custom":"","useCustom":false}}

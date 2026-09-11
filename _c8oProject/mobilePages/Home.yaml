@@ -1,0 +1,924 @@
+comment: 'Managed by upsert-ngx-crud-kit (entity-pages page template clone) for Home. Tableau de bord : cartes de comptage responsive (2 / 3 / 6 par ligne), acces aux ecrans, libelles en francais ; charte bleue appliquee le 2026-09-11.'
+icon: home
+preloadPriority: high
+scriptContent: 
+  - xmlizable: 
+    - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+    - com.twinsoft.convertigo.beans.common.FormatedContent: 
+      →: |
+        /*Begin_c8o_PageImport*/
+        /*End_c8o_PageImport*/
+        /*Begin_c8o_PageDeclaration*/
+        /*End_c8o_PageDeclaration*/
+        /*Begin_c8o_PageConstructor*/
+        /*End_c8o_PageConstructor*/
+        /*Begin_c8o_PageFunction*/
+        /*End_c8o_PageFunction*/
+        
+segment: home
+title: Home
+↓Content [ngx.components.UIDynamicElement-1789123323270]: 
+  beanData: '{"ionBean":"Content"}'
+  tagName: ion-content
+  ↓Grid [ngx.components.UIDynamicElement-1789123323272]: 
+    beanData: '{"ionBean":"Grid"}'
+    tagName: ion-grid
+    ↓HeaderRow [ngx.components.UIDynamicElement-1789123323274]: 
+      beanData: '{"ionBean":"GridRow"}'
+      tagName: ion-row
+      ↓HeaderCol [ngx.components.UIDynamicElement-1789123323276]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓PageHeader [ngx.components.UIUseShared-1789123323278]: 
+          sharedcomponent: ParcInformatique.Application.NgxApp.CrudPageHeader
+          ↓Title [ngx.components.UIUseVariable-1789123323280]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'Parc informatique'
+          ↓Subtitle [ngx.components.UIUseVariable-1789123323282]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'Choisissez ce que vous voulez gérer.'
+    ↓MetricsRow [ngx.components.UIDynamicElement-1789123323284]: 
+      beanData: '{"ionBean":"GridRow"}'
+      tagName: ion-row
+      ↓EmplacementsMetricCol [ngx.components.UIDynamicElement-1789123323286]: 
+        beanData: |
+          '{
+           "ionBean": "GridCol",
+           "SizeLg": "plain:2",
+           "SizeSm": "plain:4",
+           "SizeXs": "plain:6"
+          }'
+        tagName: ion-col
+        ↓UseEmplacementsStatCard [ngx.components.UIUseShared-1789123323288]: 
+          sharedcomponent: ParcInformatique.Application.NgxApp.DashboardStatCard
+          ↓Title [ngx.components.UIUseVariable-1789123323290]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'Lieux'
+          ↓Count [ngx.components.UIUseVariable-1789123323292]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: source:{"filter":"Global","project":"ParcInformatique","input":"","model":{"data":[{"sharedObject":"router.sharedObject"}],"path":"?.crudCounts?.emplacements","prefix":"","suffix":"","custom":"","useCustom":false}}
+          ↓Caption [ngx.components.UIUseVariable-1789123323294]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'lieux'
+      ↓UtilisateursMetricCol [ngx.components.UIDynamicElement-1789123323296]: 
+        beanData: |
+          '{
+           "ionBean": "GridCol",
+           "SizeLg": "plain:2",
+           "SizeSm": "plain:4",
+           "SizeXs": "plain:6"
+          }'
+        tagName: ion-col
+        ↓UseUtilisateursStatCard [ngx.components.UIUseShared-1789123323298]: 
+          sharedcomponent: ParcInformatique.Application.NgxApp.DashboardStatCard
+          ↓Title [ngx.components.UIUseVariable-1789123323300]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'Utilisateurs'
+          ↓Count [ngx.components.UIUseVariable-1789123323302]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: source:{"filter":"Global","project":"ParcInformatique","input":"","model":{"data":[{"sharedObject":"router.sharedObject"}],"path":"?.crudCounts?.utilisateurs","prefix":"","suffix":"","custom":"","useCustom":false}}
+          ↓Caption [ngx.components.UIUseVariable-1789123323304]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'utilisateurs'
+      ↓FournisseursMetricCol [ngx.components.UIDynamicElement-1789123323306]: 
+        beanData: |
+          '{
+           "ionBean": "GridCol",
+           "SizeLg": "plain:2",
+           "SizeSm": "plain:4",
+           "SizeXs": "plain:6"
+          }'
+        tagName: ion-col
+        ↓UseFournisseursStatCard [ngx.components.UIUseShared-1789123323308]: 
+          sharedcomponent: ParcInformatique.Application.NgxApp.DashboardStatCard
+          ↓Title [ngx.components.UIUseVariable-1789123323310]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'Fournisseurs'
+          ↓Count [ngx.components.UIUseVariable-1789123323312]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: source:{"filter":"Global","project":"ParcInformatique","input":"","model":{"data":[{"sharedObject":"router.sharedObject"}],"path":"?.crudCounts?.fournisseurs","prefix":"","suffix":"","custom":"","useCustom":false}}
+          ↓Caption [ngx.components.UIUseVariable-1789123323314]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'fournisseurs'
+      ↓ModelesMetricCol [ngx.components.UIDynamicElement-1789123323316]: 
+        beanData: |
+          '{
+           "ionBean": "GridCol",
+           "SizeLg": "plain:2",
+           "SizeSm": "plain:4",
+           "SizeXs": "plain:6"
+          }'
+        tagName: ion-col
+        ↓UseModelesStatCard [ngx.components.UIUseShared-1789123323318]: 
+          sharedcomponent: ParcInformatique.Application.NgxApp.DashboardStatCard
+          ↓Title [ngx.components.UIUseVariable-1789123323320]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'Modèles'
+          ↓Count [ngx.components.UIUseVariable-1789123323322]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: source:{"filter":"Global","project":"ParcInformatique","input":"","model":{"data":[{"sharedObject":"router.sharedObject"}],"path":"?.crudCounts?.modeles","prefix":"","suffix":"","custom":"","useCustom":false}}
+          ↓Caption [ngx.components.UIUseVariable-1789123323324]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'modèles'
+      ↓MachinesMetricCol [ngx.components.UIDynamicElement-1789123323326]: 
+        beanData: |
+          '{
+           "ionBean": "GridCol",
+           "SizeLg": "plain:2",
+           "SizeSm": "plain:4",
+           "SizeXs": "plain:6"
+          }'
+        tagName: ion-col
+        ↓UseMachinesStatCard [ngx.components.UIUseShared-1789123323328]: 
+          sharedcomponent: ParcInformatique.Application.NgxApp.DashboardStatCard
+          ↓Title [ngx.components.UIUseVariable-1789123323330]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'Machines'
+          ↓Count [ngx.components.UIUseVariable-1789123323332]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: source:{"filter":"Global","project":"ParcInformatique","input":"","model":{"data":[{"sharedObject":"router.sharedObject"}],"path":"?.crudCounts?.machines","prefix":"","suffix":"","custom":"","useCustom":false}}
+          ↓Caption [ngx.components.UIUseVariable-1789123323334]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'machines'
+      ↓ComposantsMetricCol [ngx.components.UIDynamicElement-1789123323336]: 
+        beanData: |
+          '{
+           "ionBean": "GridCol",
+           "SizeLg": "plain:2",
+           "SizeSm": "plain:4",
+           "SizeXs": "plain:6"
+          }'
+        tagName: ion-col
+        ↓UseComposantsStatCard [ngx.components.UIUseShared-1789123323338]: 
+          sharedcomponent: ParcInformatique.Application.NgxApp.DashboardStatCard
+          ↓Title [ngx.components.UIUseVariable-1789123323340]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'Composants'
+          ↓Count [ngx.components.UIUseVariable-1789123323342]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: source:{"filter":"Global","project":"ParcInformatique","input":"","model":{"data":[{"sharedObject":"router.sharedObject"}],"path":"?.crudCounts?.composants","prefix":"","suffix":"","custom":"","useCustom":false}}
+          ↓Caption [ngx.components.UIUseVariable-1789123323344]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'composants'
+    ↓ScreensRow [ngx.components.UIDynamicElement-1789138109316]: 
+      beanData: '{"ionBean":"GridRow"}'
+      comment: Acces aux ecrans metier issus de WinDev (parc, lieux, modeles, utilisateurs, etats).
+      tagName: ion-row
+      ↓Parc [ngx.components.UIDynamicElement-1789138109318]: 
+        beanData: |
+          '{
+           "ionBean": "GridCol",
+           "SizeLg": "plain:4",
+           "SizeSm": "plain:6",
+           "SizeXs": "plain:12"
+          }'
+        tagName: ion-col
+        ↓Card [ngx.components.UIDynamicElement-1789138109320]: 
+          beanData: '{"ionBean":"Card"}'
+          tagName: ion-card
+          ↓Class [ngx.components.UIAttribute-1789138109322]: 
+            attrName: class
+            attrValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: plain:parc-screen-card
+          ↓Header [ngx.components.UIDynamicElement-1789138109324]: 
+            beanData: '{"ionBean":"CardHeader"}'
+            tagName: ion-card-header
+            ↓Title [ngx.components.UIDynamicElement-1789138109326]: 
+              beanData: '{"ionBean":"CardTitle"}'
+              tagName: ion-card-title
+              ↓Text [ngx.components.UIText-1789138109328]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Parc informatique
+            ↓Subtitle [ngx.components.UIDynamicElement-1789138109330]: 
+              beanData: '{"ionBean":"CardSubTitle"}'
+              tagName: ion-card-subtitle
+              ↓Text [ngx.components.UIText-1789138109332]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Écran principal
+          ↓Content [ngx.components.UIDynamicElement-1789138109334]: 
+            beanData: '{"ionBean":"CardContent"}'
+            tagName: ion-card-content
+            ↓Hint [ngx.components.UIDynamicElement-1789138109336]: 
+              beanData: '{"ionBean":"Paragraph"}'
+              tagName: p
+              ↓Text [ngx.components.UIText-1789138109338]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Liste des machines et plan des locaux cliquable, filtre par salle, impression de l'état.
+            ↓Open [ngx.components.UIDynamicElement-1789138109340]: 
+              beanData: |
+                '{
+                 "ionBean": "Button",
+                 "IonColor": "plain:primary",
+                 "LinkRouterPath": "plain:\/parc",
+                 "LinkRouterDirection": "plain:forward"
+                }'
+              tagName: ion-button
+              ↓OpenText [ngx.components.UIText-1789138109342]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Ouvrir le parc
+      ↓Lieux [ngx.components.UIDynamicElement-1789138109344]: 
+        beanData: |
+          '{
+           "ionBean": "GridCol",
+           "SizeLg": "plain:4",
+           "SizeSm": "plain:6",
+           "SizeXs": "plain:12"
+          }'
+        tagName: ion-col
+        ↓Card [ngx.components.UIDynamicElement-1789138109346]: 
+          beanData: '{"ionBean":"Card"}'
+          tagName: ion-card
+          ↓Class [ngx.components.UIAttribute-1789138109348]: 
+            attrName: class
+            attrValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: plain:parc-screen-card
+          ↓Header [ngx.components.UIDynamicElement-1789138109350]: 
+            beanData: '{"ionBean":"CardHeader"}'
+            tagName: ion-card-header
+            ↓Title [ngx.components.UIDynamicElement-1789138109352]: 
+              beanData: '{"ionBean":"CardTitle"}'
+              tagName: ion-card-title
+              ↓Text [ngx.components.UIText-1789138109354]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Gestion des lieux
+            ↓Subtitle [ngx.components.UIDynamicElement-1789138109356]: 
+              beanData: '{"ionBean":"CardSubTitle"}'
+              tagName: ion-card-subtitle
+              ↓Text [ngx.components.UIText-1789138109358]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Plan et fiches des lieux
+          ↓Content [ngx.components.UIDynamicElement-1789138109360]: 
+            beanData: '{"ionBean":"CardContent"}'
+            tagName: ion-card-content
+            ↓Hint [ngx.components.UIDynamicElement-1789138109362]: 
+              beanData: '{"ionBean":"Paragraph"}'
+              tagName: p
+              ↓Text [ngx.components.UIText-1789138109364]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Tracez un nouveau lieu en deux clics sur le plan, modifiez ou supprimez un lieu existant.
+            ↓Open [ngx.components.UIDynamicElement-1789138109366]: 
+              beanData: |
+                '{
+                 "ionBean": "Button",
+                 "IonColor": "plain:primary",
+                 "LinkRouterPath": "plain:\/lieux",
+                 "LinkRouterDirection": "plain:forward"
+                }'
+              tagName: ion-button
+              ↓OpenText [ngx.components.UIText-1789138109368]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Ouvrir le plan des lieux
+      ↓ModelesGestion [ngx.components.UIDynamicElement-1789138109370]: 
+        beanData: |
+          '{
+           "ionBean": "GridCol",
+           "SizeLg": "plain:4",
+           "SizeSm": "plain:6",
+           "SizeXs": "plain:12"
+          }'
+        tagName: ion-col
+        ↓Card [ngx.components.UIDynamicElement-1789138109372]: 
+          beanData: '{"ionBean":"Card"}'
+          tagName: ion-card
+          ↓Class [ngx.components.UIAttribute-1789138109374]: 
+            attrName: class
+            attrValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: plain:parc-screen-card
+          ↓Header [ngx.components.UIDynamicElement-1789138109376]: 
+            beanData: '{"ionBean":"CardHeader"}'
+            tagName: ion-card-header
+            ↓Title [ngx.components.UIDynamicElement-1789138109378]: 
+              beanData: '{"ionBean":"CardTitle"}'
+              tagName: ion-card-title
+              ↓Text [ngx.components.UIText-1789138109380]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Gestion des modèles
+            ↓Subtitle [ngx.components.UIDynamicElement-1789138109382]: 
+              beanData: '{"ionBean":"CardSubTitle"}'
+              tagName: ion-card-subtitle
+              ↓Text [ngx.components.UIText-1789138109384]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Table et fiche détaillée
+          ↓Content [ngx.components.UIDynamicElement-1789138109386]: 
+            beanData: '{"ionBean":"CardContent"}'
+            tagName: ion-card-content
+            ↓Hint [ngx.components.UIDynamicElement-1789138109388]: 
+              beanData: '{"ionBean":"Paragraph"}'
+              tagName: p
+              ↓Text [ngx.components.UIText-1789138109390]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Modèles de composants avec leurs caractéristiques à libellés dynamiques et accès aux états.
+            ↓Open [ngx.components.UIDynamicElement-1789138109392]: 
+              beanData: |
+                '{
+                 "ionBean": "Button",
+                 "IonColor": "plain:primary",
+                 "LinkRouterPath": "plain:\/modeles-gestion",
+                 "LinkRouterDirection": "plain:forward"
+                }'
+              tagName: ion-button
+              ↓OpenText [ngx.components.UIText-1789138109394]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Ouvrir la gestion des modèles
+      ↓UtilisateursGestion [ngx.components.UIDynamicElement-1789138109396]: 
+        beanData: |
+          '{
+           "ionBean": "GridCol",
+           "SizeLg": "plain:4",
+           "SizeSm": "plain:6",
+           "SizeXs": "plain:12"
+          }'
+        tagName: ion-col
+        ↓Card [ngx.components.UIDynamicElement-1789138109398]: 
+          beanData: '{"ionBean":"Card"}'
+          tagName: ion-card
+          ↓Class [ngx.components.UIAttribute-1789138109400]: 
+            attrName: class
+            attrValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: plain:parc-screen-card
+          ↓Header [ngx.components.UIDynamicElement-1789138109402]: 
+            beanData: '{"ionBean":"CardHeader"}'
+            tagName: ion-card-header
+            ↓Title [ngx.components.UIDynamicElement-1789138109404]: 
+              beanData: '{"ionBean":"CardTitle"}'
+              tagName: ion-card-title
+              ↓Text [ngx.components.UIText-1789138109406]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Gestion des utilisateurs
+            ↓Subtitle [ngx.components.UIDynamicElement-1789138109408]: 
+              beanData: '{"ionBean":"CardSubTitle"}'
+              tagName: ion-card-subtitle
+              ↓Text [ngx.components.UIText-1789138109410]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Table, civilité et photo
+          ↓Content [ngx.components.UIDynamicElement-1789138109412]: 
+            beanData: '{"ionBean":"CardContent"}'
+            tagName: ion-card-content
+            ↓Hint [ngx.components.UIDynamicElement-1789138109414]: 
+              beanData: '{"ionBean":"Paragraph"}'
+              tagName: p
+              ↓Text [ngx.components.UIText-1789138109416]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Fiche utilisateur avec photo ou pictogramme selon la civilité, impression de l'état.
+            ↓Open [ngx.components.UIDynamicElement-1789138109418]: 
+              beanData: |
+                '{
+                 "ionBean": "Button",
+                 "IonColor": "plain:primary",
+                 "LinkRouterPath": "plain:\/utilisateurs-gestion",
+                 "LinkRouterDirection": "plain:forward"
+                }'
+              tagName: ion-button
+              ↓OpenText [ngx.components.UIText-1789138109420]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Ouvrir la gestion des utilisateurs
+      ↓Rapports [ngx.components.UIDynamicElement-1789138109422]: 
+        beanData: |
+          '{
+           "ionBean": "GridCol",
+           "SizeLg": "plain:4",
+           "SizeSm": "plain:6",
+           "SizeXs": "plain:12"
+          }'
+        tagName: ion-col
+        ↓Card [ngx.components.UIDynamicElement-1789138109424]: 
+          beanData: '{"ionBean":"Card"}'
+          tagName: ion-card
+          ↓Class [ngx.components.UIAttribute-1789138109426]: 
+            attrName: class
+            attrValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: plain:parc-screen-card
+          ↓Header [ngx.components.UIDynamicElement-1789138109428]: 
+            beanData: '{"ionBean":"CardHeader"}'
+            tagName: ion-card-header
+            ↓Title [ngx.components.UIDynamicElement-1789138109430]: 
+              beanData: '{"ionBean":"CardTitle"}'
+              tagName: ion-card-title
+              ↓Text [ngx.components.UIText-1789138109432]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:États imprimés
+            ↓Subtitle [ngx.components.UIDynamicElement-1789138109434]: 
+              beanData: '{"ionBean":"CardSubTitle"}'
+              tagName: ion-card-subtitle
+              ↓Text [ngx.components.UIText-1789138109436]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Aperçu et impression
+          ↓Content [ngx.components.UIDynamicElement-1789138109438]: 
+            beanData: '{"ionBean":"CardContent"}'
+            tagName: ion-card-content
+            ↓Hint [ngx.components.UIDynamicElement-1789138109440]: 
+              beanData: '{"ionBean":"Paragraph"}'
+              tagName: p
+              ↓Text [ngx.components.UIText-1789138109442]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: 'plain:Six états : machines, utilisateurs, fournisseurs, modèles, composants par machine et par modèle.'
+            ↓Open [ngx.components.UIDynamicElement-1789138109444]: 
+              beanData: |
+                '{
+                 "ionBean": "Button",
+                 "IonColor": "plain:primary",
+                 "LinkRouterPath": "plain:\/rapports",
+                 "LinkRouterDirection": "plain:forward"
+                }'
+              tagName: ion-button
+              ↓OpenText [ngx.components.UIText-1789138109446]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Ouvrir les états
+    ↓RouteRow [ngx.components.UIDynamicElement-1789123323346]: 
+      beanData: '{"ionBean":"GridRow"}'
+      tagName: ion-row
+      ↓Emplacements [ngx.components.UIDynamicElement-1789123323348]: 
+        beanData: |
+          '{
+           "ionBean": "GridCol",
+           "SizeLg": "plain:4",
+           "SizeSm": "plain:6",
+           "SizeXs": "plain:12"
+          }'
+        tagName: ion-col
+        ↓Card [ngx.components.UIDynamicElement-1789123323350]: 
+          beanData: '{"ionBean":"Card"}'
+          tagName: ion-card
+          ↓Header [ngx.components.UIDynamicElement-1789123323352]: 
+            beanData: '{"ionBean":"CardHeader"}'
+            tagName: ion-card-header
+            ↓Title [ngx.components.UIDynamicElement-1789123323354]: 
+              beanData: '{"ionBean":"CardTitle"}'
+              tagName: ion-card-title
+              ↓Text [ngx.components.UIText-1789123323356]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Lieux
+            ↓Subtitle [ngx.components.UIDynamicElement-1789123323358]: 
+              beanData: '{"ionBean":"CardSubTitle"}'
+              tagName: ion-card-subtitle
+              ↓Text [ngx.components.UIText-1789123323360]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Gérer les lieux
+          ↓Content [ngx.components.UIDynamicElement-1789123323362]: 
+            beanData: '{"ionBean":"CardContent"}'
+            tagName: ion-card-content
+            ↓Hint [ngx.components.UIDynamicElement-1789123323364]: 
+              beanData: '{"ionBean":"Paragraph"}'
+              tagName: p
+              ↓Text [ngx.components.UIText-1789123323366]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: 'plain:Parcourir, ajouter et modifier les lieux : liste, fiche et formulaire côte à côte.'
+            ↓Open [ngx.components.UIDynamicElement-1789123323368]: 
+              beanData: |
+                '{
+                 "ionBean": "Button",
+                 "Disabled": "plain",
+                 "IonColor": "plain:primary",
+                 "LinkRouterPath": "plain:\/emplacements",
+                 "LinkRouterDirection": "plain:forward"
+                }'
+              tagName: ion-button
+              ↓OpenText [ngx.components.UIText-1789123323370]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Ouvrir les lieux
+      ↓Utilisateurs [ngx.components.UIDynamicElement-1789123323372]: 
+        beanData: |
+          '{
+           "ionBean": "GridCol",
+           "SizeLg": "plain:4",
+           "SizeSm": "plain:6",
+           "SizeXs": "plain:12"
+          }'
+        tagName: ion-col
+        ↓Card [ngx.components.UIDynamicElement-1789123323374]: 
+          beanData: '{"ionBean":"Card"}'
+          tagName: ion-card
+          ↓Header [ngx.components.UIDynamicElement-1789123323376]: 
+            beanData: '{"ionBean":"CardHeader"}'
+            tagName: ion-card-header
+            ↓Title [ngx.components.UIDynamicElement-1789123323378]: 
+              beanData: '{"ionBean":"CardTitle"}'
+              tagName: ion-card-title
+              ↓Text [ngx.components.UIText-1789123323380]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Utilisateurs
+            ↓Subtitle [ngx.components.UIDynamicElement-1789123323382]: 
+              beanData: '{"ionBean":"CardSubTitle"}'
+              tagName: ion-card-subtitle
+              ↓Text [ngx.components.UIText-1789123323384]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Gérer les utilisateurs
+          ↓Content [ngx.components.UIDynamicElement-1789123323386]: 
+            beanData: '{"ionBean":"CardContent"}'
+            tagName: ion-card-content
+            ↓Hint [ngx.components.UIDynamicElement-1789123323388]: 
+              beanData: '{"ionBean":"Paragraph"}'
+              tagName: p
+              ↓Text [ngx.components.UIText-1789123323390]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Parcourir, ajouter et modifier les utilisateurs.
+            ↓Open [ngx.components.UIDynamicElement-1789123323392]: 
+              beanData: |
+                '{
+                 "ionBean": "Button",
+                 "Disabled": "plain",
+                 "IonColor": "plain:primary",
+                 "LinkRouterPath": "plain:\/utilisateurs",
+                 "LinkRouterDirection": "plain:forward"
+                }'
+              tagName: ion-button
+              ↓OpenText [ngx.components.UIText-1789123323394]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Ouvrir les utilisateurs
+      ↓Fournisseurs [ngx.components.UIDynamicElement-1789123323396]: 
+        beanData: |
+          '{
+           "ionBean": "GridCol",
+           "SizeLg": "plain:4",
+           "SizeSm": "plain:6",
+           "SizeXs": "plain:12"
+          }'
+        tagName: ion-col
+        ↓Card [ngx.components.UIDynamicElement-1789123323398]: 
+          beanData: '{"ionBean":"Card"}'
+          tagName: ion-card
+          ↓Header [ngx.components.UIDynamicElement-1789123323400]: 
+            beanData: '{"ionBean":"CardHeader"}'
+            tagName: ion-card-header
+            ↓Title [ngx.components.UIDynamicElement-1789123323402]: 
+              beanData: '{"ionBean":"CardTitle"}'
+              tagName: ion-card-title
+              ↓Text [ngx.components.UIText-1789123323404]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Fournisseurs
+            ↓Subtitle [ngx.components.UIDynamicElement-1789123323406]: 
+              beanData: '{"ionBean":"CardSubTitle"}'
+              tagName: ion-card-subtitle
+              ↓Text [ngx.components.UIText-1789123323408]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Gérer les fournisseurs
+          ↓Content [ngx.components.UIDynamicElement-1789123323410]: 
+            beanData: '{"ionBean":"CardContent"}'
+            tagName: ion-card-content
+            ↓Hint [ngx.components.UIDynamicElement-1789123323412]: 
+              beanData: '{"ionBean":"Paragraph"}'
+              tagName: p
+              ↓Text [ngx.components.UIText-1789123323414]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Parcourir, ajouter et modifier les fournisseurs.
+            ↓Open [ngx.components.UIDynamicElement-1789123323416]: 
+              beanData: |
+                '{
+                 "ionBean": "Button",
+                 "Disabled": "plain",
+                 "IonColor": "plain:primary",
+                 "LinkRouterPath": "plain:\/fournisseurs",
+                 "LinkRouterDirection": "plain:forward"
+                }'
+              tagName: ion-button
+              ↓OpenText [ngx.components.UIText-1789123323418]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Ouvrir les fournisseurs
+      ↓Modeles [ngx.components.UIDynamicElement-1789123323420]: 
+        beanData: |
+          '{
+           "ionBean": "GridCol",
+           "SizeLg": "plain:4",
+           "SizeSm": "plain:6",
+           "SizeXs": "plain:12"
+          }'
+        tagName: ion-col
+        ↓Card [ngx.components.UIDynamicElement-1789123323422]: 
+          beanData: '{"ionBean":"Card"}'
+          tagName: ion-card
+          ↓Header [ngx.components.UIDynamicElement-1789123323424]: 
+            beanData: '{"ionBean":"CardHeader"}'
+            tagName: ion-card-header
+            ↓Title [ngx.components.UIDynamicElement-1789123323426]: 
+              beanData: '{"ionBean":"CardTitle"}'
+              tagName: ion-card-title
+              ↓Text [ngx.components.UIText-1789123323428]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Modèles
+            ↓Subtitle [ngx.components.UIDynamicElement-1789123323430]: 
+              beanData: '{"ionBean":"CardSubTitle"}'
+              tagName: ion-card-subtitle
+              ↓Text [ngx.components.UIText-1789123323432]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Gérer les modèles
+          ↓Content [ngx.components.UIDynamicElement-1789123323434]: 
+            beanData: '{"ionBean":"CardContent"}'
+            tagName: ion-card-content
+            ↓Hint [ngx.components.UIDynamicElement-1789123323436]: 
+              beanData: '{"ionBean":"Paragraph"}'
+              tagName: p
+              ↓Text [ngx.components.UIText-1789123323438]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Parcourir, ajouter et modifier les modèles de composants.
+            ↓Open [ngx.components.UIDynamicElement-1789123323440]: 
+              beanData: |
+                '{
+                 "ionBean": "Button",
+                 "Disabled": "plain",
+                 "IonColor": "plain:primary",
+                 "LinkRouterPath": "plain:\/modeles",
+                 "LinkRouterDirection": "plain:forward"
+                }'
+              tagName: ion-button
+              ↓OpenText [ngx.components.UIText-1789123323442]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Ouvrir les modèles
+      ↓Machines [ngx.components.UIDynamicElement-1789123323444]: 
+        beanData: |
+          '{
+           "ionBean": "GridCol",
+           "SizeLg": "plain:4",
+           "SizeSm": "plain:6",
+           "SizeXs": "plain:12"
+          }'
+        tagName: ion-col
+        ↓Card [ngx.components.UIDynamicElement-1789123323446]: 
+          beanData: '{"ionBean":"Card"}'
+          tagName: ion-card
+          ↓Header [ngx.components.UIDynamicElement-1789123323448]: 
+            beanData: '{"ionBean":"CardHeader"}'
+            tagName: ion-card-header
+            ↓Title [ngx.components.UIDynamicElement-1789123323450]: 
+              beanData: '{"ionBean":"CardTitle"}'
+              tagName: ion-card-title
+              ↓Text [ngx.components.UIText-1789123323452]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Machines
+            ↓Subtitle [ngx.components.UIDynamicElement-1789123323454]: 
+              beanData: '{"ionBean":"CardSubTitle"}'
+              tagName: ion-card-subtitle
+              ↓Text [ngx.components.UIText-1789123323456]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Gérer les machines
+          ↓Content [ngx.components.UIDynamicElement-1789123323458]: 
+            beanData: '{"ionBean":"CardContent"}'
+            tagName: ion-card-content
+            ↓Hint [ngx.components.UIDynamicElement-1789123323460]: 
+              beanData: '{"ionBean":"Paragraph"}'
+              tagName: p
+              ↓Text [ngx.components.UIText-1789123323462]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Parcourir, ajouter et modifier les machines.
+            ↓Open [ngx.components.UIDynamicElement-1789123323464]: 
+              beanData: |
+                '{
+                 "ionBean": "Button",
+                 "Disabled": "plain",
+                 "IonColor": "plain:primary",
+                 "LinkRouterPath": "plain:\/machines",
+                 "LinkRouterDirection": "plain:forward"
+                }'
+              tagName: ion-button
+              ↓OpenText [ngx.components.UIText-1789123323466]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Ouvrir les machines
+      ↓Composants [ngx.components.UIDynamicElement-1789123323468]: 
+        beanData: |
+          '{
+           "ionBean": "GridCol",
+           "SizeLg": "plain:4",
+           "SizeSm": "plain:6",
+           "SizeXs": "plain:12"
+          }'
+        tagName: ion-col
+        ↓Card [ngx.components.UIDynamicElement-1789123323470]: 
+          beanData: '{"ionBean":"Card"}'
+          tagName: ion-card
+          ↓Header [ngx.components.UIDynamicElement-1789123323472]: 
+            beanData: '{"ionBean":"CardHeader"}'
+            tagName: ion-card-header
+            ↓Title [ngx.components.UIDynamicElement-1789123323474]: 
+              beanData: '{"ionBean":"CardTitle"}'
+              tagName: ion-card-title
+              ↓Text [ngx.components.UIText-1789123323476]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Composants
+            ↓Subtitle [ngx.components.UIDynamicElement-1789123323478]: 
+              beanData: '{"ionBean":"CardSubTitle"}'
+              tagName: ion-card-subtitle
+              ↓Text [ngx.components.UIText-1789123323480]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Gérer les composants
+          ↓Content [ngx.components.UIDynamicElement-1789123323482]: 
+            beanData: '{"ionBean":"CardContent"}'
+            tagName: ion-card-content
+            ↓Hint [ngx.components.UIDynamicElement-1789123323484]: 
+              beanData: '{"ionBean":"Paragraph"}'
+              tagName: p
+              ↓Text [ngx.components.UIText-1789123323486]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Parcourir, ajouter et modifier les composants.
+            ↓Open [ngx.components.UIDynamicElement-1789123323488]: 
+              beanData: |
+                '{
+                 "ionBean": "Button",
+                 "Disabled": "plain",
+                 "IonColor": "plain:primary",
+                 "LinkRouterPath": "plain:\/composants",
+                 "LinkRouterDirection": "plain:forward"
+                }'
+              tagName: ion-button
+              ↓OpenText [ngx.components.UIText-1789123323490]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Ouvrir les composants
+    ↓LoadingRow [ngx.components.UIDynamicElement-1789123323492]: 
+      beanData: '{"ionBean":"GridRow"}'
+      tagName: ion-row
+      ↓LoadingCol [ngx.components.UIDynamicElement-1789123323494]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓LoadingVisible [ngx.components.UIControlDirective-1789123323496]: 
+          directiveName: If
+          directiveSource: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: source:{"filter":"Global","project":"ParcInformatique","input":"","model":{"data":[{"sharedObject":"router.sharedObject"}],"path":"?.crudLoading","prefix":"","suffix":" === true","custom":"","useCustom":false}}
+          ↓Loading [ngx.components.UIUseShared-1789123323498]: 
+            sharedcomponent: ParcInformatique.Application.NgxApp.CrudLoadingState
+            ↓Message [ngx.components.UIUseVariable-1789123323500]: 
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: script:'Loading records...'
+    ↓ErrorRow [ngx.components.UIDynamicElement-1789123323502]: 
+      beanData: '{"ionBean":"GridRow"}'
+      tagName: ion-row
+      ↓ErrorCol [ngx.components.UIDynamicElement-1789123323504]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓ErrorVisible [ngx.components.UIControlDirective-1789123323506]: 
+          directiveName: If
+          directiveSource: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: source:{"filter":"Global","project":"ParcInformatique","input":"","model":{"data":[{"sharedObject":"router.sharedObject"}],"path":"?.crudError","prefix":"","suffix":"","custom":"","useCustom":false}}
+          ↓Error [ngx.components.UIUseShared-1789123323508]: 
+            sharedcomponent: ParcInformatique.Application.NgxApp.CrudErrorRetryState
+            ↓Message [ngx.components.UIUseVariable-1789123323510]: 
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Global","project":"ParcInformatique","input":"","model":{"data":[{"sharedObject":"router.sharedObject"}],"path":"?.crudError","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓Retry [ngx.components.UIControlEvent-1789123323512]: 
+              attrName: (Retry)
+              eventName: Retry
+              ↓ClearCrudError [ngx.components.UIDynamicAction-1789123323514]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetGlobalAction",
+                   "Property": "plain:crudError",
+                   "Value": "script:''''"
+                  }'
+                ↓InvokeEnsureSession [ngx.components.UIDynamicInvoke-1789123323516]: 
+                  beanData: '{"ionBean":"InvokeAction"}'
+                  stack: lib_ConvertigoMCP.Application.NgxApp.crud_ensure_session
+                  ↓InvokeBootstrapDashboard [ngx.components.UIDynamicInvoke-1789123323770]: 
+                    beanData: '{"ionBean":"InvokeAction"}'
+                    stack: lib_ConvertigoMCP.Application.NgxApp.crud_bootstrap_dashboard
+↓PageEvent [ngx.components.UIPageEvent-1789123324250]: 
+  comment: Load only the landing counts and route cards.
+  viewEvent: onWillLoad
+  ↓InvokeEnsureSession [ngx.components.UIDynamicInvoke-1789123324252]: 
+    beanData: '{"ionBean":"InvokeAction"}'
+    stack: ParcInformatique.Application.NgxApp.crud_ensure_session
+    ↓InvokeBootstrapDashboard [ngx.components.UIDynamicInvoke-1789123324254]: 
+      beanData: '{"ionBean":"InvokeAction"}'
+      stack: ParcInformatique.Application.NgxApp.crud_bootstrap_dashboard

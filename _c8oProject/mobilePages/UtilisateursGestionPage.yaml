@@ -1,0 +1,745 @@
+comment: 'Ecran FEN_Utilisateur WinDev : table des utilisateurs (colonne defilante), fiche avec civilite et photo (ou pictogramme par defaut selon la civilite), creation / modification via le formulaire partage, suppression refusee si des machines sont affectees, impression de l''etat Utilisateurs. Charte bleue sl:ParcTheme.'
+icon: people
+segment: utilisateurs-gestion
+title: Gestion des utilisateurs
+↓Content [ngx.components.UIDynamicElement-1789133115834]: 
+  beanData: '{"ionBean":"Content"}'
+  tagName: ion-content
+  ↓Grid [ngx.components.UIDynamicElement-1789133116492]: 
+    beanData: '{"ionBean":"Grid"}'
+    tagName: ion-grid
+    ↓HeaderRow [ngx.components.UIDynamicElement-1789133116494]: 
+      beanData: '{"ionBean":"GridRow"}'
+      tagName: ion-row
+      ↓HeaderCol [ngx.components.UIDynamicElement-1789133116496]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓PageHeader [ngx.components.UIUseShared-1789133116498]: 
+          sharedcomponent: ParcInformatique.Application.NgxApp.CrudPageHeader
+          ↓Title [ngx.components.UIUseVariable-1789133117180]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'Gestion des utilisateurs'
+          ↓Subtitle [ngx.components.UIUseVariable-1789133117182]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'Sélectionnez un utilisateur dans la table pour afficher sa fiche.'
+    ↓ToolbarRow [ngx.components.UIDynamicElement-1789133117184]: 
+      beanData: '{"ionBean":"GridRow"}'
+      tagName: ion-row
+      ↓ToolbarCol [ngx.components.UIDynamicElement-1789133117186]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓Toolbar [ngx.components.UIDynamicElement-1789133117188]: 
+          beanData: '{"ionBean":"DivTag"}'
+          tagName: div
+          ↓Class [ngx.components.UIAttribute-1789133117190]: 
+            attrName: class
+            attrValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: plain:parc-toolbar no-print
+          ↓NewButton [ngx.components.UIDynamicElement-1789133341529]: 
+            beanData: '{"ionBean":"Button"}'
+            tagName: ion-button
+            ↓Disabled [ngx.components.UIAttribute-1789133341531]: 
+              attrName: '[disabled]'
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: script:local?.mode !== 'view'
+            ↓Text [ngx.components.UIText-1789133341533]: 
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:Nouveau
+            ↓Click [ngx.components.UIControlEvent-1789133341535]: 
+              ↓SetMode [ngx.components.UIDynamicAction-1789133341781]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:mode",
+                   "Value": "script:''create''"
+                  }'
+              ↓SetSelected [ngx.components.UIDynamicAction-1789133341783]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:selected",
+                   "Value": "script:null"
+                  }'
+              ↓SetSelectedId [ngx.components.UIDynamicAction-1789133341785]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:selectedId",
+                   "Value": "script:''''"
+                  }'
+              ↓SetDraftSeed [ngx.components.UIDynamicAction-1789133341787]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:draftSeed",
+                   "Value": "script:({ initiales: '''', civilite: ''3'', nom_complet: '''', tel: '''', photo: '''' })"
+                  }'
+          ↓EditButton [ngx.components.UIDynamicElement-1789133341789]: 
+            beanData: '{"ionBean":"Button","IonFill":"plain:outline"}'
+            tagName: ion-button
+            ↓Disabled [ngx.components.UIAttribute-1789133341791]: 
+              attrName: '[disabled]'
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: script:!local?.selected || local?.mode !== 'view'
+            ↓Text [ngx.components.UIText-1789133341793]: 
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:Modifier
+            ↓Click [ngx.components.UIControlEvent-1789133341795]: 
+              ↓SetMode [ngx.components.UIDynamicAction-1789133341797]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:mode",
+                   "Value": "script:''update''"
+                  }'
+          ↓DeleteButton [ngx.components.UIDynamicElement-1789133341799]: 
+            beanData: |
+              '{
+               "ionBean": "Button",
+               "IonColor": "plain:danger",
+               "IonFill": "plain:outline"
+              }'
+            tagName: ion-button
+            ↓Disabled [ngx.components.UIAttribute-1789133341801]: 
+              attrName: '[disabled]'
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: script:!local?.selected || local?.mode !== 'view'
+            ↓Text [ngx.components.UIText-1789133341803]: 
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:Supprimer
+            ↓Click [ngx.components.UIControlEvent-1789133341805]: 
+              ↓ConfirmDelete [ngx.components.UIDynamicAction-1789133341807]: 
+                beanData: |
+                  '{
+                   "ionBean": "AlertAction",
+                   "header": "plain:Suppression",
+                   "message": "script:\"Voulez-vous vraiment supprimer l''utilisateur ''\" + (c8oPage.local?.selected?.initiales || '''') + \"'' ?\"",
+                   "button1": "plain:Oui",
+                   "button2": "plain:Non",
+                   "value1": "script:''yes''",
+                   "cancel2": "plain:cancel"
+                  }'
+                ↓IfYes [ngx.components.UIDynamicAction-1789133342061]: 
+                  beanData: '{"ionBean":"IfAction","condition":"script:!!parent.out && parent.out.data === ''yes''"}'
+                  ↓DeleteUtilisateur [ngx.components.UIDynamicAction-1789133342063]: 
+                    beanData: '{"ionBean":"CallSequenceAction","requestable":"plain:ParcInformatique.parc_delete_utilisateur"}'
+                    ↓id [ngx.components.UIControlVariable-1789133342065]: 
+                      varValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: script:c8oPage.local?.selected?.id
+                    ↓Blocked [ngx.components.UIDynamicAction-1789133342067]: 
+                      beanData: '{"ionBean":"IfAction","condition":"script:(out.refs || 0) > 0"}'
+                      ↓BlockedToast [ngx.components.UIDynamicAction-1789133342069]: 
+                        beanData: |
+                          '{
+                           "ionBean": "ToastAction",
+                           "IonColor": "plain:warning",
+                           "message": "script:''Des machines sont associées à cet utilisateur. Vous ne pouvez donc pas le supprimer.''",
+                           "duration": "plain:4000",
+                           "position": "plain:top"
+                          }'
+                    ↓Done [ngx.components.UIDynamicAction-1789133342071]: 
+                      beanData: '{"ionBean":"IfAction","condition":"script:!((out.refs || 0) > 0)"}'
+                      ↓SetSelected [ngx.components.UIDynamicAction-1789133342073]: 
+                        beanData: |
+                          '{
+                           "ionBean": "SetLocalAction",
+                           "Property": "plain:selected",
+                           "Value": "script:null"
+                          }'
+                      ↓SetSelectedId [ngx.components.UIDynamicAction-1789133342075]: 
+                        beanData: |
+                          '{
+                           "ionBean": "SetLocalAction",
+                           "Property": "plain:selectedId",
+                           "Value": "script:''''"
+                          }'
+                      ↓Reload [ngx.components.UIDynamicAction-1789133342077]: 
+                        beanData: |
+                          '{
+                           "ionBean": "CallSequenceAction",
+                           "requestable": "plain:ParcInformatique.parc_list_utilisateurs",
+                           "noLoading": "plain:true"
+                          }'
+                        ↓SetRows [ngx.components.UIDynamicAction-1789133342079]: 
+                          beanData: |
+                            '{
+                             "ionBean": "SetLocalAction",
+                             "Property": "plain:rows",
+                             "Value": "script:(out.rows || []).slice().sort((a, b) => String(a.initiales || '''').localeCompare(String(b.initiales || '''')))"
+                            }'
+          ↓PrintButton [ngx.components.UIDynamicElement-1789133342081]: 
+            beanData: |
+              '{
+               "ionBean": "Button",
+               "IonFill": "plain:clear",
+               "LinkRouterPath": "plain:\/rapports"
+              }'
+            tagName: ion-button
+            ↓Text [ngx.components.UIText-1789133342083]: 
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:Imprimer (état)
+            ↓Click [ngx.components.UIControlEvent-1789133342085]: 
+              ↓SetReport [ngx.components.UIDynamicAction-1789133342087]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetGlobalAction",
+                   "Property": "plain:parcReport",
+                   "Value": "script:''utilisateurs''"
+                  }'
+    ↓MainRow [ngx.components.UIDynamicElement-1789133117192]: 
+      beanData: '{"ionBean":"GridRow"}'
+      tagName: ion-row
+      ↓ListCol [ngx.components.UIDynamicElement-1789133117194]: 
+        beanData: |
+          '{
+           "ionBean": "GridCol",
+           "SizeMd": "plain:7",
+           "SizeXs": "plain:12"
+          }'
+        tagName: ion-col
+        ↓ListCard [ngx.components.UIDynamicElement-1789133358390]: 
+          beanData: '{"ionBean":"Card"}'
+          tagName: ion-card
+          ↓Header [ngx.components.UIDynamicElement-1789133358392]: 
+            beanData: '{"ionBean":"CardHeader"}'
+            tagName: ion-card-header
+            ↓Title [ngx.components.UIDynamicElement-1789133358394]: 
+              beanData: '{"ionBean":"CardTitle"}'
+              tagName: ion-card-title
+              ↓Text [ngx.components.UIText-1789133358396]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Utilisateurs
+            ↓Subtitle [ngx.components.UIDynamicElement-1789133358398]: 
+              beanData: '{"ionBean":"CardSubTitle"}'
+              tagName: ion-card-subtitle
+              ↓Text [ngx.components.UIText-1789133358400]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: 'plain:Nombre : {{ local?.rows?.length || 0 }}'
+          ↓Content [ngx.components.UIDynamicElement-1789133358402]: 
+            beanData: '{"ionBean":"CardContent"}'
+            tagName: ion-card-content
+            ↓Table [ngx.components.UIElement-1789133358404]: 
+              tagName: table
+              ↓Class [ngx.components.UIAttribute-1789133359062]: 
+                attrName: class
+                attrValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:parc-table
+              ↓Thead [ngx.components.UIElement-1789133359064]: 
+                tagName: thead
+                ↓Tr [ngx.components.UIElement-1789133359066]: 
+                  tagName: tr
+                  ↓Th1 [ngx.components.UIElement-1789133359068]: 
+                    tagName: th
+                    ↓Text [ngx.components.UIText-1789133359070]: 
+                      textValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: plain:Utilisateur
+                  ↓Th2 [ngx.components.UIElement-1789133359072]: 
+                    tagName: th
+                    ↓Text [ngx.components.UIText-1789133359074]: 
+                      textValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: plain:Téléphone
+                  ↓Th3 [ngx.components.UIElement-1789133359076]: 
+                    tagName: th
+                    ↓Text [ngx.components.UIText-1789133359078]: 
+                      textValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: plain:Nom complet
+              ↓Tbody [ngx.components.UIElement-1789133359080]: 
+                tagName: tbody
+                ↓Loop [ngx.components.UIControlDirective-1789133359082]: 
+                  directiveIndexName: idx
+                  directiveItemName: row
+                  directiveSource: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.rows","prefix":"","suffix":"","custom":"","useCustom":false}}
+                  ↓Tr [ngx.components.UIElement-1789133359740]: 
+                    tagName: tr
+                    ↓Selected [ngx.components.UIAttribute-1789133359742]: 
+                      attrName: '[class.selected]'
+                      attrValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: script:local?.selected?.id === row.id
+                    ↓Click [ngx.components.UIControlEvent-1789133359744]: 
+                      ↓WhenView [ngx.components.UIDynamicAction-1789133359990]: 
+                        beanData: '{"ionBean":"IfAction","condition":"script:c8oPage.local?.mode === ''view''"}'
+                        ↓SetSelected [ngx.components.UIDynamicAction-1789133360244]: 
+                          beanData: |
+                            '{
+                             "ionBean": "SetLocalAction",
+                             "Property": "plain:selected",
+                             "Value": "script:row"
+                            }'
+                        ↓SetSelectedId [ngx.components.UIDynamicAction-1789133360246]: 
+                          beanData: |
+                            '{
+                             "ionBean": "SetLocalAction",
+                             "Property": "plain:selectedId",
+                             "Value": "script:row.id"
+                            }'
+                    ↓Td1 [ngx.components.UIElement-1789133360248]: 
+                      tagName: td
+                      ↓Text [ngx.components.UIText-1789133360250]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:{{ row.initiales }}
+                    ↓Td2 [ngx.components.UIElement-1789133360252]: 
+                      tagName: td
+                      ↓Text [ngx.components.UIText-1789133360254]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:{{ row.tel }}
+                    ↓Td3 [ngx.components.UIElement-1789133360256]: 
+                      tagName: td
+                      ↓Text [ngx.components.UIText-1789133360258]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:{{ row.nom_complet }}
+        ↓Class [ngx.components.UIAttribute-1789137460095]: 
+          attrName: class
+          attrValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: plain:parc-master
+      ↓DetailCol [ngx.components.UIDynamicElement-1789133117196]: 
+        beanData: |
+          '{
+           "ionBean": "GridCol",
+           "SizeMd": "plain:5",
+           "SizeXs": "plain:12"
+          }'
+        tagName: ion-col
+        ↓DetailIf [ngx.components.UIControlDirective-1789133404234]: 
+          directiveExpression: local?.mode === 'view'
+          directiveName: If
+          ↓DetailCard [ngx.components.UIDynamicElement-1789133404892]: 
+            beanData: '{"ionBean":"Card"}'
+            tagName: ion-card
+            ↓Header [ngx.components.UIDynamicElement-1789133404894]: 
+              beanData: '{"ionBean":"CardHeader"}'
+              tagName: ion-card-header
+              ↓Title [ngx.components.UIDynamicElement-1789133404896]: 
+                beanData: '{"ionBean":"CardTitle"}'
+                tagName: ion-card-title
+                ↓Text [ngx.components.UIText-1789133404898]: 
+                  textValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: 'plain:{{ local?.selected ? local.selected.initiales : ''Aucun utilisateur sélectionné'' }}'
+              ↓Subtitle [ngx.components.UIDynamicElement-1789133404900]: 
+                beanData: '{"ionBean":"CardSubTitle"}'
+                tagName: ion-card-subtitle
+                ↓Text [ngx.components.UIText-1789133404902]: 
+                  textValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: 'plain:{{ local?.selected ? (local.selected.nom_complet || '''') : ''Sélectionnez un utilisateur dans la table.'' }}'
+            ↓Content [ngx.components.UIDynamicElement-1789133404904]: 
+              beanData: '{"ionBean":"CardContent"}'
+              tagName: ion-card-content
+              ↓Sel [ngx.components.UIControlDirective-1789133404906]: 
+                directiveExpression: '!!local?.selected'
+                directiveName: If
+                ↓PhotoIf [ngx.components.UIControlDirective-1789133404908]: 
+                  directiveExpression: (local?.selected?.photo || '').indexOf('http') === 0 || (local?.selected?.photo || '').indexOf('data:') === 0
+                  directiveName: If
+                  ↓Photo [ngx.components.UIDynamicElement-1789133404910]: 
+                    beanData: |
+                      '{
+                       "ionBean": "Image",
+                       "url": "script:local?.selected?.photo",
+                       "alt": "plain:Photo"
+                      }'
+                    selfClose: true
+                    tagName: img
+                    ↓Class [ngx.components.UIAttribute-1789133404912]: 
+                      attrName: class
+                      attrValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: plain:parc-photo
+                ↓IconIf [ngx.components.UIControlDirective-1789133404914]: 
+                  directiveExpression: '!((local?.selected?.photo || '''').indexOf(''http'') === 0 || (local?.selected?.photo || '''').indexOf(''data:'') === 0)'
+                  directiveName: If
+                  ↓Icon [ngx.components.UIElement-1789133404916]: 
+                    tagName: ion-icon
+                    ↓Class [ngx.components.UIAttribute-1789133405574]: 
+                      attrName: class
+                      attrValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: plain:parc-photo-icon
+                    ↓Name [ngx.components.UIAttribute-1789133405576]: 
+                      attrName: '[name]'
+                      attrValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: 'script:(String(local?.selected?.civilite) === ''1'' || String(local?.selected?.civilite) === ''2'') ? ''woman'' : ''man'''
+                ↓Civilite [ngx.components.UIDynamicElement-1789133405578]: 
+                  beanData: '{"ionBean":"Paragraph"}'
+                  tagName: p
+                  ↓Class [ngx.components.UIAttribute-1789133405580]: 
+                    attrName: class
+                    attrValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: plain:parc-field
+                  ↓Lib [ngx.components.UIDynamicElement-1789133405582]: 
+                    beanData: '{"ionBean":"SpanTag"}'
+                    tagName: span
+                    ↓Class [ngx.components.UIAttribute-1789133405584]: 
+                      attrName: class
+                      attrValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: plain:parc-field-lib
+                    ↓Text [ngx.components.UIText-1789133405586]: 
+                      textValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: plain:Civilité :
+                  ↓Text [ngx.components.UIText-1789133405588]: 
+                    textValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: 'plain:{{ String(local?.selected?.civilite) === ''1'' ? ''Madame'' : (String(local?.selected?.civilite) === ''2'' ? ''Mademoiselle'' : ''Monsieur'') }}'
+                ↓Tel [ngx.components.UIDynamicElement-1789133405590]: 
+                  beanData: '{"ionBean":"Paragraph"}'
+                  tagName: p
+                  ↓Class [ngx.components.UIAttribute-1789133405592]: 
+                    attrName: class
+                    attrValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: plain:parc-field
+                  ↓Lib [ngx.components.UIDynamicElement-1789133405594]: 
+                    beanData: '{"ionBean":"SpanTag"}'
+                    tagName: span
+                    ↓Class [ngx.components.UIAttribute-1789133405596]: 
+                      attrName: class
+                      attrValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: plain:parc-field-lib
+                    ↓Text [ngx.components.UIText-1789133405598]: 
+                      textValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: plain:Téléphone :
+                  ↓Text [ngx.components.UIText-1789133405600]: 
+                    textValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: plain:{{ local?.selected?.tel || '-' }}
+                ↓NomComplet [ngx.components.UIDynamicElement-1789133405602]: 
+                  beanData: '{"ionBean":"Paragraph"}'
+                  tagName: p
+                  ↓Class [ngx.components.UIAttribute-1789133405604]: 
+                    attrName: class
+                    attrValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: plain:parc-field
+                  ↓Lib [ngx.components.UIDynamicElement-1789133405606]: 
+                    beanData: '{"ionBean":"SpanTag"}'
+                    tagName: span
+                    ↓Class [ngx.components.UIAttribute-1789133405608]: 
+                      attrName: class
+                      attrValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: plain:parc-field-lib
+                    ↓Text [ngx.components.UIText-1789133405610]: 
+                      textValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: plain:Nom complet :
+                  ↓Text [ngx.components.UIText-1789133405612]: 
+                    textValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: plain:{{ local?.selected?.nom_complet || '-' }}
+                ↓PhotoPath [ngx.components.UIDynamicElement-1789133405614]: 
+                  beanData: '{"ionBean":"Paragraph"}'
+                  tagName: p
+                  ↓Class [ngx.components.UIAttribute-1789133405616]: 
+                    attrName: class
+                    attrValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: plain:parc-field
+                  ↓Lib [ngx.components.UIDynamicElement-1789133405618]: 
+                    beanData: '{"ionBean":"SpanTag"}'
+                    tagName: span
+                    ↓Class [ngx.components.UIAttribute-1789133405620]: 
+                      attrName: class
+                      attrValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: plain:parc-field-lib
+                    ↓Text [ngx.components.UIText-1789133405622]: 
+                      textValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: plain:Photo :
+                  ↓Text [ngx.components.UIText-1789133405624]: 
+                    textValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: plain:{{ local?.selected?.photo || 'photo par défaut selon la civilité' }}
+        ↓FormIf [ngx.components.UIControlDirective-1789133405626]: 
+          directiveExpression: local?.mode !== 'view'
+          directiveName: If
+          ↓EditForm [ngx.components.UIUseShared-1789133405628]: 
+            sharedcomponent: ParcInformatique.Application.NgxApp.UtilisateursEditForm
+            ↓SelectedId [ngx.components.UIUseVariable-1789133406310]: 
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.selectedId","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓Mode [ngx.components.UIUseVariable-1789133406312]: 
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.mode","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓RefreshToken [ngx.components.UIUseVariable-1789133406314]: 
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.refreshToken","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓DraftSeed [ngx.components.UIUseVariable-1789133406316]: 
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.draftSeed","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓ActionLabel [ngx.components.UIUseVariable-1789133406318]: 
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: script:'OK'
+            ↓CreateTitle [ngx.components.UIUseVariable-1789133406320]: 
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: script:'Nouvel utilisateur'
+            ↓EditTitle [ngx.components.UIUseVariable-1789133406322]: 
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: script:'Modifier un utilisateur'
+            ↓DeleteLabel [ngx.components.UIUseVariable-1789133406324]: 
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: script:'Supprimer cet utilisateur'
+            ↓Saved [ngx.components.UIControlEvent-1789133406326]: 
+              attrName: (Saved)
+              eventName: Saved
+              ↓SetSavedId [ngx.components.UIDynamicAction-1789133406572]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:savedId",
+                   "Value": "script:parent.out.id"
+                  }'
+                ↓Reload [ngx.components.UIDynamicAction-1789133406826]: 
+                  beanData: |
+                    '{
+                     "ionBean": "CallSequenceAction",
+                     "requestable": "plain:ParcInformatique.parc_list_utilisateurs",
+                     "noLoading": "plain:true"
+                    }'
+                  ↓SetRows [ngx.components.UIDynamicAction-1789133406828]: 
+                    beanData: |
+                      '{
+                       "ionBean": "SetLocalAction",
+                       "Property": "plain:rows",
+                       "Value": "script:(out.rows || []).slice().sort((a, b) => String(a.initiales || '''').localeCompare(String(b.initiales || '''')))"
+                      }'
+                    ↓SetSelected [ngx.components.UIDynamicAction-1789133406830]: 
+                      beanData: |
+                        '{
+                         "ionBean": "SetLocalAction",
+                         "Property": "plain:selected",
+                         "Value": "script:(c8oPage.local?.rows || []).find(r => String(r.id) === String(c8oPage.local?.savedId)) || null"
+                        }'
+                      ↓SetSelectedId [ngx.components.UIDynamicAction-1789133406832]: 
+                        beanData: |
+                          '{
+                           "ionBean": "SetLocalAction",
+                           "Property": "plain:selectedId",
+                           "Value": "script:c8oPage.local?.selected?.id || ''''"
+                          }'
+              ↓SetMode [ngx.components.UIDynamicAction-1789133406834]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:mode",
+                   "Value": "script:''view''"
+                  }'
+            ↓Deleted [ngx.components.UIControlEvent-1789133406836]: 
+              attrName: (Deleted)
+              eventName: Deleted
+              ↓SetSelected [ngx.components.UIDynamicAction-1789133406838]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:selected",
+                   "Value": "script:null"
+                  }'
+              ↓SetSelectedId [ngx.components.UIDynamicAction-1789133406840]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:selectedId",
+                   "Value": "script:''''"
+                  }'
+              ↓SetMode [ngx.components.UIDynamicAction-1789133406842]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:mode",
+                   "Value": "script:''view''"
+                  }'
+              ↓Reload [ngx.components.UIDynamicAction-1789133406844]: 
+                beanData: |
+                  '{
+                   "ionBean": "CallSequenceAction",
+                   "requestable": "plain:ParcInformatique.parc_list_utilisateurs",
+                   "noLoading": "plain:true"
+                  }'
+                ↓SetRows [ngx.components.UIDynamicAction-1789133406846]: 
+                  beanData: |
+                    '{
+                     "ionBean": "SetLocalAction",
+                     "Property": "plain:rows",
+                     "Value": "script:(out.rows || []).slice().sort((a, b) => String(a.initiales || '''').localeCompare(String(b.initiales || '''')))"
+                    }'
+            ↓Cancelled [ngx.components.UIControlEvent-1789133406848]: 
+              attrName: (Cancelled)
+              eventName: Cancelled
+              ↓SetMode [ngx.components.UIDynamicAction-1789133406850]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:mode",
+                   "Value": "script:''view''"
+                  }'
+  ↓PageStyle [ngx.components.UIStyle-1789133117198]: 
+    styleContent: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+        - com.twinsoft.convertigo.beans.common.FormatedContent: 
+          →: |
+            '.parc-photo { width: 117px; height: 112px; object-fit: cover; border: 1px solid var(--parc-border, #d5e0f2); border-radius: 12px; background: var(--parc-surface-2, #f4f7fd); box-shadow: var(--parc-shadow); }
+            .parc-photo-icon { font-size: 96px; color: var(--parc-blue-300, #93c5fd); border: 1px solid var(--parc-border, #d5e0f2); border-radius: 12px; background: var(--parc-surface-2, #f4f7fd); padding: 8px; }
+            .parc-field { margin: 6px 0; padding-bottom: 6px; border-bottom: 1px dashed var(--parc-border, #d5e0f2); }
+            .parc-field-lib { font-weight: 600; color: var(--parc-muted, #5b6b8c); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.03em; margin-right: 6px; }
+            .parc-hint { font-weight: 600; margin: 0; color: var(--parc-blue, #1d4ed8); }
+            '
+↓PageEvent [ngx.components.UIPageEvent-1789133117200]: 
+  comment: Initialise l'etat puis charge la table des utilisateurs.
+  viewEvent: onWillLoad
+  ↓InitMode [ngx.components.UIDynamicAction-1789133117446]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:mode",
+       "Value": "script:''view''"
+      }'
+  ↓InitRows [ngx.components.UIDynamicAction-1789133117448]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:rows",
+       "Value": "script:[]"
+      }'
+  ↓InitSelected [ngx.components.UIDynamicAction-1789133117450]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:selected",
+       "Value": "script:null"
+      }'
+  ↓InitSelectedId [ngx.components.UIDynamicAction-1789133117452]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:selectedId",
+       "Value": "script:''''"
+      }'
+  ↓InitSavedId [ngx.components.UIDynamicAction-1789133117454]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:savedId",
+       "Value": "script:null"
+      }'
+  ↓InitRefreshToken [ngx.components.UIDynamicAction-1789133117456]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:refreshToken",
+       "Value": "script:0"
+      }'
+  ↓InitDraftSeed [ngx.components.UIDynamicAction-1789133117458]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:draftSeed",
+       "Value": "script:({ initiales: '''', civilite: '''', nom_complet: '''', tel: '''', photo: '''' })"
+      }'
+  ↓InvokeEnsureSession [ngx.components.UIDynamicInvoke-1789133117460]: 
+    beanData: '{"ionBean":"InvokeAction"}'
+    stack: ParcInformatique.Application.NgxApp.crud_ensure_session
+    ↓LoadRows [ngx.components.UIDynamicAction-1789133117714]: 
+      beanData: |
+        '{
+         "ionBean": "CallSequenceAction",
+         "requestable": "plain:ParcInformatique.parc_list_utilisateurs",
+         "noLoading": "plain:true"
+        }'
+      ↓SetRows [ngx.components.UIDynamicAction-1789133117968]: 
+        beanData: |
+          '{
+           "ionBean": "SetLocalAction",
+           "Property": "plain:rows",
+           "Value": "script:(out.rows || []).slice().sort((a, b) => String(a.initiales || '''').localeCompare(String(b.initiales || '''')))"
+          }'

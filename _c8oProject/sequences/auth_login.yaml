@@ -1,0 +1,19 @@
+accessibility: Hidden
+comment: Authentication skeleton. Marks the current session as authenticated with the provided username.
+↓SetAuthenticatedUser [steps.SetAuthenticatedUserStep-1789123179006]: 
+  comment: Store the provided username as the current authenticated user.
+  userid: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: JS
+        - →→: username
+↓AuthenticatedUser [steps.GetAuthenticatedUserStep-1789123179008]: 
+  comment: Expose the current authenticated user after the login skeleton runs.
+  nodeName: AuthenticatedUser
+↓username [variables.RequestableVariable-1789123179002]: 
+  comment: Skeleton username used to flag the HTTP session as authenticated.
+  description: Skeleton username used to flag the HTTP session as authenticated.
+↓password [variables.RequestableVariable-1789123179004]: 
+  comment: Skeleton password placeholder. No credential check is performed in the generated scaffold.
+  description: Skeleton password placeholder. No credential check is performed in the generated scaffold.

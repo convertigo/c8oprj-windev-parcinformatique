@@ -1,0 +1,31 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: 'Facade : supprime une machine et tous ses composants (option 1 du dialogue de suppression FEN_Principale).'
+↓DeleteComposants [steps.TransactionStep-1789132234838]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.delete_composants_by_machine
+  ↓id [variables.StepVariable-1789132234840]: 
+    comment: machine primary key.
+↓DeleteMachine [steps.TransactionStep-1789132234842]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.delete_machine
+  ↓id [variables.StepVariable-1789132234844]: 
+    comment: machine primary key.
+↓Message [steps.JsonFieldStep-1789132274011]: 
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: message
+  value: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: SOURCE
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1789132234842
+          - java.lang.String: 
+            - ↑value: ./document/sql_output/text()
+↓id [variables.RequestableVariable-1789132234846]: 
+  comment: machine primary key.
+  description: machine primary key.

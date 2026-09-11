@@ -1,0 +1,968 @@
+↑default: true
+comment: HSQLDB CRUD data source for ParcInformatique.
+jdbcDriverClassName: org.hsqldb.jdbcDriver
+jdbcURL: jdbc:hsqldb:file:./database/parcinformatique;shutdown=true
+jdbcUserName: SA
+↓count_composants [transactions.SqlTransaction]: 
+  comment: Count Composants rows.
+  sqlQuery: |
+    SELECT COUNT(*) AS total
+    FROM composants
+↓count_composants_by_fournisseur [transactions.SqlTransaction]: 
+  comment: Nombre de composants fournis par un fournisseur (regle FEN_Fournisseur).
+  sqlQuery: SELECT COUNT(*) AS total FROM composants WHERE fournisseur_id = {id}
+  ↓id [variables.RequestableVariable-1789132195473]: 
+    comment: fournisseur primary key.
+↓count_composants_by_machine [transactions.SqlTransaction]: 
+  comment: Nombre de composants installes dans une machine (dialogue de suppression FEN_Principale).
+  sqlQuery: SELECT COUNT(*) AS total FROM composants WHERE machine_id = {id}
+  ↓id [variables.RequestableVariable-1789132197541]: 
+    comment: machine primary key.
+↓count_composants_by_modele [transactions.SqlTransaction]: 
+  comment: Nombre de composants utilisant un modele (regle FEN_Modele).
+  sqlQuery: SELECT COUNT(*) AS total FROM composants WHERE modele_id = {id}
+  ↓id [variables.RequestableVariable-1789132193219]: 
+    comment: modele primary key.
+↓count_emplacements [transactions.SqlTransaction]: 
+  comment: Count Lieux rows.
+  sqlQuery: |
+    SELECT COUNT(*) AS total
+    FROM emplacements
+↓count_fournisseurs [transactions.SqlTransaction]: 
+  comment: Count Fournisseurs rows.
+  sqlQuery: |
+    SELECT COUNT(*) AS total
+    FROM fournisseurs
+↓count_machines [transactions.SqlTransaction]: 
+  comment: Count Machines rows.
+  sqlQuery: |
+    SELECT COUNT(*) AS total
+    FROM machines
+↓count_machines_by_emplacement [transactions.SqlTransaction]: 
+  comment: 'Nombre de machines rattachees a un lieu (regle FEN_Lieu : suppression refusee si > 0).'
+  sqlQuery: SELECT COUNT(*) AS total FROM machines WHERE emplacement_id = {id}
+  ↓id [variables.RequestableVariable-1789132188507]: 
+    comment: emplacement primary key.
+↓count_machines_by_utilisateur [transactions.SqlTransaction]: 
+  comment: Nombre de machines affectees a un utilisateur (regle FEN_Utilisateur).
+  sqlQuery: SELECT COUNT(*) AS total FROM machines WHERE utilisateur_id = {id}
+  ↓id [variables.RequestableVariable-1789132191205]: 
+    comment: utilisateur primary key.
+↓count_modeles [transactions.SqlTransaction]: 
+  comment: Count Modèles rows.
+  sqlQuery: |
+    SELECT COUNT(*) AS total
+    FROM modeles
+↓count_utilisateurs [transactions.SqlTransaction]: 
+  comment: Count Utilisateurs rows.
+  sqlQuery: |
+    SELECT COUNT(*) AS total
+    FROM utilisateurs
+↓create_composant [transactions.SqlTransaction]: 
+  comment: Create one composant row.
+  sqlQuery: |
+    INSERT INTO composants (n_serie, date_achat, garantie, num_retour, date_retour, date_renvoi, commentaire, machine_id, modele_id, fournisseur_id)
+    VALUES ({n_serie}, {date_achat}, {garantie}, {num_retour}, {date_retour}, {date_renvoi}, {commentaire}, {machine_id}, {modele_id}, {fournisseur_id})
+  ↓n_serie [variables.RequestableVariable-1789123179819]: 
+    comment: NSerie for composant.
+    description: NSerie for composant.
+  ↓date_achat [variables.RequestableVariable-1789123179821]: 
+    comment: DateAchat for composant.
+    description: DateAchat for composant.
+  ↓garantie [variables.RequestableVariable-1789123179823]: 
+    comment: Garantie for composant.
+    description: Garantie for composant.
+  ↓num_retour [variables.RequestableVariable-1789123179825]: 
+    comment: NumRetour for composant.
+    description: NumRetour for composant.
+  ↓date_retour [variables.RequestableVariable-1789123179827]: 
+    comment: DateRetour for composant.
+    description: DateRetour for composant.
+  ↓date_renvoi [variables.RequestableVariable-1789123179829]: 
+    comment: DateRenvoi for composant.
+    description: DateRenvoi for composant.
+  ↓commentaire [variables.RequestableVariable-1789123179831]: 
+    comment: Commentaire for composant.
+    description: Commentaire for composant.
+  ↓machine_id [variables.RequestableVariable-1789123179833]: 
+    comment: MachineId foreign key referencing machines.id.
+    description: MachineId foreign key referencing machines.id.
+  ↓modele_id [variables.RequestableVariable-1789123179835]: 
+    comment: ModeleId foreign key referencing modeles.id.
+    description: ModeleId foreign key referencing modeles.id.
+  ↓fournisseur_id [variables.RequestableVariable-1789123179837]: 
+    comment: FournisseurId foreign key referencing fournisseurs.id.
+    description: FournisseurId foreign key referencing fournisseurs.id.
+↓create_emplacement [transactions.SqlTransaction]: 
+  comment: Create one emplacement row.
+  sqlQuery: |
+    INSERT INTO emplacements (nom, commentaire, rectangle, picto)
+    VALUES ({nom}, {commentaire}, {rectangle}, {picto})
+  ↓nom [variables.RequestableVariable-1789123179021]: 
+    comment: Nom for emplacement.
+    description: Nom for emplacement.
+  ↓commentaire [variables.RequestableVariable-1789123179023]: 
+    comment: Commentaire for emplacement.
+    description: Commentaire for emplacement.
+  ↓rectangle [variables.RequestableVariable-1789123179025]: 
+    comment: Rectangle for emplacement.
+    description: Rectangle for emplacement.
+  ↓picto [variables.RequestableVariable-1789123179027]: 
+    comment: Picto for emplacement.
+    description: Picto for emplacement.
+↓create_fournisseur [transactions.SqlTransaction]: 
+  comment: Create one fournisseur row.
+  sqlQuery: |
+    INSERT INTO fournisseurs (nom, adresse, tel, tel_sav, fax)
+    VALUES ({nom}, {adresse}, {tel}, {tel_sav}, {fax})
+  ↓nom [variables.RequestableVariable-1789123179289]: 
+    comment: Nom for fournisseur.
+    description: Nom for fournisseur.
+  ↓adresse [variables.RequestableVariable-1789123179291]: 
+    comment: Adresse for fournisseur.
+    description: Adresse for fournisseur.
+  ↓tel [variables.RequestableVariable-1789123179293]: 
+    comment: Tel for fournisseur.
+    description: Tel for fournisseur.
+  ↓tel_sav [variables.RequestableVariable-1789123179295]: 
+    comment: TelSav for fournisseur.
+    description: TelSav for fournisseur.
+  ↓fax [variables.RequestableVariable-1789123179297]: 
+    comment: Fax for fournisseur.
+    description: Fax for fournisseur.
+↓create_machine [transactions.SqlTransaction]: 
+  comment: Create one machine row.
+  sqlQuery: |
+    INSERT INTO machines (nom_machine, adresse_ip, emplacement_id, utilisateur_id)
+    VALUES ({nom_machine}, {adresse_ip}, {emplacement_id}, {utilisateur_id})
+  ↓nom_machine [variables.RequestableVariable-1789123179685]: 
+    comment: NomMachine for machine.
+    description: NomMachine for machine.
+  ↓adresse_ip [variables.RequestableVariable-1789123179687]: 
+    comment: AdresseIp for machine.
+    description: AdresseIp for machine.
+  ↓emplacement_id [variables.RequestableVariable-1789123179689]: 
+    comment: EmplacementId foreign key referencing emplacements.id.
+    description: EmplacementId foreign key referencing emplacements.id.
+  ↓utilisateur_id [variables.RequestableVariable-1789123179691]: 
+    comment: UtilisateurId foreign key referencing utilisateurs.id.
+    description: UtilisateurId foreign key referencing utilisateurs.id.
+↓create_modele [transactions.SqlTransaction]: 
+  comment: Create one modele row.
+  sqlQuery: |
+    INSERT INTO modeles (type_modele, nom_modele, marque, caracteristique1, valeur1, caracteristique2, valeur2, caracteristique3, valeur3, caracteristique4, valeur4, commentaire)
+    VALUES ({type_modele}, {nom_modele}, {marque}, {caracteristique1}, {valeur1}, {caracteristique2}, {valeur2}, {caracteristique3}, {valeur3}, {caracteristique4}, {valeur4}, {commentaire})
+  ↓type_modele [variables.RequestableVariable-1789123179431]: 
+    comment: TypeModele for modele.
+    description: TypeModele for modele.
+  ↓nom_modele [variables.RequestableVariable-1789123179433]: 
+    comment: NomModele for modele.
+    description: NomModele for modele.
+  ↓marque [variables.RequestableVariable-1789123179435]: 
+    comment: Marque for modele.
+    description: Marque for modele.
+  ↓caracteristique1 [variables.RequestableVariable-1789123179437]: 
+    comment: Caracteristique1 for modele.
+    description: Caracteristique1 for modele.
+  ↓valeur1 [variables.RequestableVariable-1789123179439]: 
+    comment: Valeur1 for modele.
+    description: Valeur1 for modele.
+  ↓caracteristique2 [variables.RequestableVariable-1789123179441]: 
+    comment: Caracteristique2 for modele.
+    description: Caracteristique2 for modele.
+  ↓valeur2 [variables.RequestableVariable-1789123179443]: 
+    comment: Valeur2 for modele.
+    description: Valeur2 for modele.
+  ↓caracteristique3 [variables.RequestableVariable-1789123179445]: 
+    comment: Caracteristique3 for modele.
+    description: Caracteristique3 for modele.
+  ↓valeur3 [variables.RequestableVariable-1789123179447]: 
+    comment: Valeur3 for modele.
+    description: Valeur3 for modele.
+  ↓caracteristique4 [variables.RequestableVariable-1789123179449]: 
+    comment: Caracteristique4 for modele.
+    description: Caracteristique4 for modele.
+  ↓valeur4 [variables.RequestableVariable-1789123179451]: 
+    comment: Valeur4 for modele.
+    description: Valeur4 for modele.
+  ↓commentaire [variables.RequestableVariable-1789123179453]: 
+    comment: Commentaire for modele.
+    description: Commentaire for modele.
+↓create_utilisateur [transactions.SqlTransaction]: 
+  comment: Create one utilisateur row.
+  sqlQuery: |
+    INSERT INTO utilisateurs (initiales, civilite, nom_complet, tel, photo)
+    VALUES ({initiales}, {civilite}, {nom_complet}, {tel}, {photo})
+  ↓initiales [variables.RequestableVariable-1789123179147]: 
+    comment: Initiales for utilisateur.
+    description: Initiales for utilisateur.
+  ↓civilite [variables.RequestableVariable-1789123179149]: 
+    comment: Civilite for utilisateur.
+    description: Civilite for utilisateur.
+  ↓nom_complet [variables.RequestableVariable-1789123179151]: 
+    comment: NomComplet for utilisateur.
+    description: NomComplet for utilisateur.
+  ↓tel [variables.RequestableVariable-1789123179153]: 
+    comment: Tel for utilisateur.
+    description: Tel for utilisateur.
+  ↓photo [variables.RequestableVariable-1789123179155]: 
+    comment: Photo for utilisateur.
+    description: Photo for utilisateur.
+↓delete_composant [transactions.SqlTransaction]: 
+  comment: Delete one composant row by primary key.
+  sqlQuery: |
+    DELETE FROM composants
+    WHERE id = {id}
+  ↓id [variables.RequestableVariable-1789123179863]: 
+    comment: composant primary key.
+    description: composant primary key.
+↓delete_composants_by_machine [transactions.SqlTransaction]: 
+  comment: Supprime tous les composants d'une machine (option 1 de la suppression FEN_Principale).
+  sqlQuery: DELETE FROM composants WHERE machine_id = {id}
+  ↓id [variables.RequestableVariable-1789132199810]: 
+    comment: machine primary key.
+↓delete_emplacement [transactions.SqlTransaction]: 
+  comment: Delete one emplacement (refuse silencieusement si des machines y sont rattachees ; la facade renvoie refs).
+  sqlQuery: DELETE FROM emplacements WHERE id = {id} AND NOT EXISTS (SELECT 1 FROM machines WHERE emplacement_id = {id})
+  ↓id [variables.RequestableVariable-1789123179041]: 
+    comment: emplacement primary key.
+    description: emplacement primary key.
+↓delete_fournisseur [transactions.SqlTransaction]: 
+  comment: Delete one fournisseur (refuse silencieusement si des composants le referencent ; la facade renvoie refs).
+  sqlQuery: DELETE FROM fournisseurs WHERE id = {id} AND NOT EXISTS (SELECT 1 FROM composants WHERE fournisseur_id = {id})
+  ↓id [variables.RequestableVariable-1789123179313]: 
+    comment: fournisseur primary key.
+    description: fournisseur primary key.
+↓delete_machine [transactions.SqlTransaction]: 
+  comment: Delete one machine (refuse silencieusement si des composants y sont installes ; voir parc_delete_machine_with_composants / _keep_composants).
+  sqlQuery: DELETE FROM machines WHERE id = {id} AND NOT EXISTS (SELECT 1 FROM composants WHERE machine_id = {id})
+  ↓id [variables.RequestableVariable-1789123179705]: 
+    comment: machine primary key.
+    description: machine primary key.
+↓delete_modele [transactions.SqlTransaction]: 
+  comment: Delete one modele (refuse silencieusement si des composants l'utilisent ; la facade renvoie refs).
+  sqlQuery: DELETE FROM modeles WHERE id = {id} AND NOT EXISTS (SELECT 1 FROM composants WHERE modele_id = {id})
+  ↓id [variables.RequestableVariable-1789123179483]: 
+    comment: modele primary key.
+    description: modele primary key.
+↓delete_utilisateur [transactions.SqlTransaction]: 
+  comment: Delete one utilisateur (refuse silencieusement si des machines lui sont affectees ; la facade renvoie refs).
+  sqlQuery: DELETE FROM utilisateurs WHERE id = {id} AND NOT EXISTS (SELECT 1 FROM machines WHERE utilisateur_id = {id})
+  ↓id [variables.RequestableVariable-1789123179171]: 
+    comment: utilisateur primary key.
+    description: utilisateur primary key.
+↓init_schema [transactions.SqlTransaction]: 
+  comment: Create or update the SQL schema for Lieux, Utilisateurs, Fournisseurs, Modèles, Machines, Composants and seed demo rows.
+  sqlQuery: |
+    CREATE TABLE IF NOT EXISTS emplacements (
+      id INTEGER GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+      nom VARCHAR(40) NOT NULL UNIQUE,
+      commentaire LONGVARCHAR,
+      rectangle VARCHAR(19),
+      picto VARCHAR(255)
+    );
+    
+    CREATE TABLE IF NOT EXISTS utilisateurs (
+      id INTEGER GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+      initiales VARCHAR(10) NOT NULL UNIQUE,
+      civilite INT,
+      nom_complet VARCHAR(30),
+      tel VARCHAR(20),
+      photo VARCHAR(255)
+    );
+    
+    CREATE TABLE IF NOT EXISTS fournisseurs (
+      id INTEGER GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+      nom VARCHAR(40) NOT NULL UNIQUE,
+      adresse VARCHAR(300),
+      tel VARCHAR(20),
+      tel_sav VARCHAR(20),
+      fax VARCHAR(20)
+    );
+    
+    CREATE TABLE IF NOT EXISTS modeles (
+      id INTEGER GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+      type_modele VARCHAR(30) NOT NULL,
+      nom_modele VARCHAR(30) NOT NULL,
+      marque VARCHAR(30),
+      caracteristique1 VARCHAR(30),
+      valeur1 VARCHAR(50),
+      caracteristique2 VARCHAR(30),
+      valeur2 VARCHAR(50),
+      caracteristique3 VARCHAR(30),
+      valeur3 VARCHAR(50),
+      caracteristique4 VARCHAR(30),
+      valeur4 VARCHAR(50),
+      commentaire LONGVARCHAR
+    );
+    
+    CREATE TABLE IF NOT EXISTS machines (
+      id INTEGER GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+      nom_machine VARCHAR(40) NOT NULL UNIQUE,
+      adresse_ip VARCHAR(20),
+      emplacement_id INT REFERENCES emplacements(id),
+      utilisateur_id INT REFERENCES utilisateurs(id)
+    );
+    
+    CREATE TABLE IF NOT EXISTS composants (
+      id INTEGER GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+      n_serie VARCHAR(20) NOT NULL,
+      date_achat DATE,
+      garantie VARCHAR(20),
+      num_retour VARCHAR(20),
+      date_retour DATE,
+      date_renvoi DATE,
+      commentaire LONGVARCHAR,
+      machine_id INT REFERENCES machines(id),
+      modele_id INT NOT NULL REFERENCES modeles(id),
+      fournisseur_id INT REFERENCES fournisseurs(id)
+    );
+    
+    DELETE FROM composants;
+    
+    DELETE FROM machines;
+    
+    DELETE FROM modeles;
+    
+    DELETE FROM fournisseurs;
+    
+    DELETE FROM utilisateurs;
+    
+    DELETE FROM emplacements;
+    
+    INSERT INTO emplacements (id, nom, rectangle) VALUES
+      (1, 'Salle de réunion', '3,210,98,480'),
+      (2, 'Secrétariat', '610,108,700,200'),
+      (3, 'Atelier', '506,210,600,480'),
+      (4, 'Production', '268,210,402,480'),
+      (5, 'Réseau', '610,362,700,480'),
+      (6, 'Commerciaux', '478,4,586,180'),
+      (7, 'Documentation', '184,85,364,180'),
+      (8, 'Stock', '81,4,146,180'),
+      (9, 'Direction', '420,210,496,283'),
+      (10, 'Dépot n°1', '184,4,364,80'),
+      (11, 'Accueil', '610,4,700,104'),
+      (12, 'Comptabilité', '102,210,264,480'),
+      (13, 'Salle de test', '2,4,78,180'),
+      (14, 'Imprimante', '610,305,700,356'),
+      (15, 'Dépot n°2', '420,290,496,480'),
+      (16, 'Qualité', '380,5,470,180'),
+      (17, 'Packaging', '610,203,700,300');
+    
+    INSERT INTO utilisateurs (id, initiales, civilite, nom_complet, tel, photo) VALUES
+      (1, 'Yves', 3, 'Yves O.', 'Poste 86', 'images/visage_homme.gif'),
+      (2, 'Edouard', 3, 'Edouard H.', 'Poste 24', 'images/visage_homme.gif'),
+      (3, 'Guy', 3, 'Guy Z.', 'Poste 63', 'images/visage_homme.gif'),
+      (4, 'Raymond', 3, 'Raymond V.', 'Poste 8', 'images/visage_homme.gif'),
+      (5, 'Olive', 3, 'Olive Z.', 'Poste 30', 'images/visage_homme.gif'),
+      (6, 'Henri', 3, 'Henri I.', 'Poste 52', 'images/visage_homme.gif'),
+      (7, 'Rémi', 3, 'Rémi K.', 'Poste 26', 'images/visage_homme.gif'),
+      (8, 'Modeste', 3, 'Modeste Q.', 'Poste 4', 'images/visage_homme.gif'),
+      (9, 'Marius', 3, 'Marius T.', 'Poste 32', 'images/visage_homme.gif'),
+      (10, 'Agnès', 2, 'Agnès A.', 'Poste 18', 'images/visage_femme.gif'),
+      (11, 'Tom', 3, 'Tom R.', 'Poste 63', 'images/visage_homme.gif'),
+      (12, 'Aimée', 2, 'Aimée I.', 'Poste 79', 'images/visage_femme.gif'),
+      (13, 'Paul', 3, 'Paul E.', 'Poste 1', 'images/visage_homme.gif'),
+      (14, 'Justine', 2, 'Justine A.', 'Poste 8', 'images/visage_femme.gif'),
+      (15, 'Hervé', 3, 'Hervé C.', 'Poste 37', 'images/visage_homme.gif'),
+      (16, 'Maxime', 3, 'Maxime R.', 'Poste 52', 'images/visage_homme.gif'),
+      (17, 'Martine', 1, 'Martine K.', 'Poste 49', 'images/visage_femme.gif'),
+      (18, 'Gaston', 3, 'Gaston R.', 'Poste 80', 'images/visage_homme.gif'),
+      (19, 'Marc', 3, 'Marc A.', 'Poste 72', 'images/visage_homme.gif'),
+      (20, 'Véronique', 2, 'Véronique T.', 'Poste 45', 'images/visage_femme.gif'),
+      (21, 'François', 3, 'François V.', 'Poste 4', 'images/visage_homme.gif'),
+      (22, 'Kévin', 3, 'Kévin S.', 'Poste 96', 'images/visage_homme.gif'),
+      (23, 'Raoul', 3, 'Raoul T.', 'Poste 23', 'images/visage_homme.gif'),
+      (24, 'Romain', 3, 'Romain M.', 'Poste 88', 'images/visage_homme.gif'),
+      (25, 'Alexis', 3, 'Alexis E.', 'Poste 66', 'images/visage_homme.gif'),
+      (26, 'Alix', 2, 'Alix Q.', 'Poste 36', 'images/visage_femme.gif'),
+      (27, 'José', 3, 'José V.', 'Poste 94', 'images/visage_homme.gif'),
+      (28, 'Irène', 1, 'Irène T.', 'Poste 3', 'images/visage_femme.gif'),
+      (29, 'Mélanie', 1, 'Mélanie L.', 'Poste 65', 'images/visage_femme.gif'),
+      (30, 'Arnaud', 3, 'Arnaud T.', 'Poste 64', 'images/visage_homme.gif'),
+      (31, 'Isabelle', 2, 'Isabelle S.', 'Poste 56', 'images/visage_femme.gif'),
+      (32, 'Léa', 1, 'Léa B.', 'Poste 2', 'images/visage_femme.gif'),
+      (33, 'Félix', 3, 'Félix S.', 'Poste 97', 'images/visage_homme.gif'),
+      (34, 'Karl', 3, 'Karl E.', 'Poste 85', 'images/visage_homme.gif'),
+      (35, 'Florian', 3, 'Florian M.', 'Poste 39', 'images/visage_homme.gif'),
+      (36, 'Eric', 3, 'Eric I.', 'Poste 21', 'images/visage_homme.gif'),
+      (37, 'Emma', 1, 'Emma T.', 'Poste 65', 'images/visage_femme.gif'),
+      (38, 'Ella', 1, 'Ella C.', 'Poste 10', 'images/visage_femme.gif'),
+      (39, 'Valérie', 2, 'Valérie Y.', 'Poste 38', 'images/visage_femme.gif'),
+      (40, 'Didier', 3, 'Didier D.', 'Poste 55', 'images/visage_homme.gif'),
+      (41, 'Charles', 3, 'Charles Q.', 'Poste 7', 'images/visage_homme.gif'),
+      (42, 'Bruno', 3, 'Bruno E.', 'Poste 90', 'images/visage_homme.gif'),
+      (43, 'Boris', 3, 'Boris A.', 'Poste 3', 'images/visage_homme.gif'),
+      (44, 'Blaise', 3, 'Blaise Y.', 'Poste 28', 'images/visage_homme.gif'),
+      (45, 'Basile', 3, 'Basile A.', 'Poste 1', 'images/visage_homme.gif'),
+      (46, 'Jules', 3, 'Jules Z.', 'Poste 57', 'images/visage_homme.gif'),
+      (47, 'Vivien', 3, 'Vivien Y.', 'Poste 98', 'images/visage_homme.gif'),
+      (48, 'Sébastien', 3, 'Sébastien K.', 'Poste 93', 'images/visage_homme.gif'),
+      (49, 'Prisca', 1, 'Prisca S.', 'Poste 98', 'images/visage_femme.gif'),
+      (50, 'Lucien', 3, 'Lucien J.', 'Poste 27', 'images/visage_homme.gif');
+    
+    INSERT INTO fournisseurs (id, nom, adresse, tel) VALUES
+      (1, 'COMPAQ', 'Montpellier', '04 48 25 60 xx'),
+      (2, 'DELL', 'Paris', '01 49 18 22 xx'),
+      (3, 'MICROTRON', 'Paris', '01 31 11 30 xx'),
+      (4, 'MICRO PLUS', 'Nimes', '04 27 63 31 xx'),
+      (5, 'MITSUBISHI', 'Montpellier', '04 19 72 81 xx'),
+      (6, 'CARREFOUR', 'Paris', '01 12 58 45 xx'),
+      (7, 'HP', 'Nice', '04 56 12 25 xx'),
+      (8, 'CARRI', 'Nice', '04 18 56 45 xx'),
+      (9, 'PACKARD-BE', 'Valence', '04 31 67 68 xx'),
+      (10, 'FUJITSU', 'Lyon', '04 67 15 95 xx'),
+      (11, 'MICRO COMP', 'Paris', '01 61 22 23 xx'),
+      (12, 'IBM', 'Aurillac', '04 54 80 92 xx'),
+      (13, 'DIAMOND', 'St Martin', '04 12 45 23 xx'),
+      (14, 'AUCHAN', 'Versailles', '01 13 59 48 xx'),
+      (15, 'TAMES', 'Montpellier', '04 67 03 20 xx');
+    
+    INSERT INTO modeles (id, type_modele, nom_modele, marque, caracteristique1, valeur1, caracteristique2, valeur2, caracteristique3, valeur3, caracteristique4, valeur4) VALUES
+      (1, 'Barrette de mémoire', 'DIM PC 100', 'DANE', 'Capacité (Mo)', '128', 'Type du connecteur', '64', 'Fréquence Max. (Mhz)', NULL, NULL, NULL),
+      (2, 'Boîtier/Alim.', 'ATX3403', 'MD', 'Emplacements 5p¼', NULL, 'Emplacements 3p½', NULL, 'Taille', 'Moyen', NULL, NULL),
+      (3, 'Processeur', 'PII 333', 'INTEL', 'Vitesse (MHz)', '333', 'Mémoire cache (Ko)', NULL, 'Bus (Mhz)', NULL, 'Socket', NULL),
+      (4, 'Ecran', '447ZA', 'NOKIA', 'Taille(pouces)', '17', 'Résolution maximale', NULL, 'Fréquence max. (Hz)', NULL, NULL, NULL),
+      (5, 'Lecteur CD-ROM', 'CRD-8332B', 'GOLDSTAR', 'Vitesse', '32x', 'Interface', 'ide', 'Taux de transfert (Mo/s)', NULL, NULL, NULL),
+      (6, 'Disque dur', 'CAVIAR 38400', 'WESTERN DIGITAL', 'Capacité (Go)', '8,4 Go', 'Interface', 'IDE', 'Vitesse (tr/min)', NULL, 'Taux de transfert (Mo/s)', NULL),
+      (7, 'Boîtier/Alim.', 'ATX de Luxe', 'LPA', 'Emplacements 5p¼', '2', 'Emplacements 3p½', '6', 'Taille', 'Grande tour', NULL, NULL),
+      (8, 'Stockage de masse', 'Z100ATAPI', 'ZIP', 'Taille (Mo)', '100', 'Interface', 'IDE', 'Taux de transfert (Mo/s)', NULL, NULL, NULL),
+      (9, 'Processeur', 'PII 400', 'INTEL', 'Vitesse (MHz)', '400', 'Mémoire cache (Ko)', NULL, 'Bus (Mhz)', NULL, 'Socket', NULL),
+      (10, 'Souris', 'MOUSEMAN WHEEL', 'LOGITECH', 'Interface', 'PS/2', 'Avec/sans fil', NULL, 'Nombre de boutons', NULL, NULL, NULL),
+      (11, 'Carte mère', 'SE440BX', 'INTEL', 'Format', 'ATX', 'Chipset', NULL, 'Interfaces', NULL, NULL, NULL),
+      (12, 'Ecran', '447ZI', 'NOKIA', 'Taille(pouces)', '17', 'Résolution maximale', NULL, 'Fréquence max. (Hz)', NULL, NULL, NULL),
+      (13, 'Disque dur', 'WDE 9100AV', 'WESTERN DIGITAL', 'Capacité (Go)', '9 Go', 'Interface', 'SCSI-3', 'Vitesse (tr/min)', NULL, 'Taux de transfert (Mo/s)', NULL),
+      (14, 'Carte vidéo', 'XPERT 98', 'ATI', 'RAM (Mo)', '8', 'Interface', 'AGP', 'Processeur', '1600x1200', 'Vitesse (Mhz)', NULL),
+      (15, 'Clavier', 'COMFY PR II', 'GENIUS', 'Interface', 'PS/2', 'Avec/sans fil', NULL, NULL, NULL, NULL, NULL),
+      (16, 'Carte mère', 'SE440BX-2', 'INTEL', 'Format', NULL, 'Chipset', NULL, 'Interfaces', NULL, NULL, NULL),
+      (17, 'Barrette de mémoire', 'SDRAM PC100', 'DANE-ELEC', 'Capacité (Mo)', '64', 'Type du connecteur', '64 bits', 'Fréquence Max. (Mhz)', NULL, NULL, NULL),
+      (18, 'Carte vidéo', 'RIVA TNT', 'CREATIVE', 'RAM (Mo)', '16', 'Interface', 'PCI', 'Processeur', NULL, 'Vitesse (Mhz)', NULL),
+      (19, 'Ecran', 'VPA138', 'VIEWSONIC', 'Taille(pouces)', '13,8"', 'Résolution maximale', NULL, 'Fréquence max. (Hz)', NULL, NULL, NULL),
+      (20, 'Carte réseau', 'PRO/100+', 'INTEL', 'Prise(s)', 'RJ45', 'Interface', 'PCI', 'Taux de transfert (Mo/s)', NULL, NULL, NULL),
+      (21, 'Clavier', 'DELUXE SK-720', 'LOGITECH', 'Interface', 'PS/2', 'Avec/sans fil', NULL, NULL, NULL, NULL, NULL),
+      (22, 'Clavier', 'INTERNET KEYBOARD', 'MICROSOFT', 'Interface', 'ps/2', 'Avec/sans fil', NULL, NULL, NULL, NULL, NULL),
+      (23, 'Disque dur', 'BARACUDA', 'SEAGATE', 'Capacité (Go)', NULL, 'Interface', NULL, 'Vitesse (tr/min)', NULL, 'Taux de transfert (Mo/s)', NULL),
+      (24, 'Carte SCSI', 'AHA-2930U/EFIGS KIT', 'ADAPTEC', 'Standard SCSI', 'ULTRA SCSI', 'Interface', 'PCI', 'Taux de transfert (Mo/s)', NULL, NULL, NULL),
+      (25, 'Processeur', 'PIII 500', 'INTEL', 'Vitesse (MHz)', '500E MHz', 'Mémoire cache (Ko)', '100MHz System Bus', 'Bus (Mhz)', NULL, 'Socket', NULL),
+      (26, 'Barrette de mémoire', 'SODIMM', 'SDRAM', 'Capacité (Mo)', '128', 'Type du connecteur', NULL, 'Fréquence Max. (Mhz)', NULL, NULL, NULL),
+      (27, 'Souris', 'C57-00002', 'MICROSOFT', 'Interface', 'PS/2 - SERIE', 'Avec/sans fil', NULL, 'Nombre de boutons', NULL, NULL, NULL),
+      (28, 'Carte mère', 'P2BX', 'ASUS', 'Format', 'ATX', 'Chipset', NULL, 'Interfaces', NULL, NULL, NULL),
+      (29, 'Souris', 'INTELLIMOUSE', 'MICROSOFT', 'Interface', 'PS2', 'Avec/sans fil', NULL, 'Nombre de boutons', NULL, NULL, NULL),
+      (30, 'Lecteur de disquettes', 'SFD 321-B', 'SAMSUNG', 'Capacité (Mo)', '64', 'Vitesse (tr/min)', NULL, NULL, NULL, NULL, NULL),
+      (31, 'Lecteur DVD-ROM', 'DV 5500-A', 'NEC', 'Vitesse', '5/32', 'Interface', 'IDE', 'Taux de transfert (Mo/s)', NULL, NULL, NULL),
+      (32, 'Carte vidéo', 'RIVA TNT2', 'CREATIVE', 'RAM (Mo)', '32', 'Interface', 'AGP', 'Processeur', NULL, 'Vitesse (Mhz)', NULL),
+      (33, 'Unité Centrale', 'PC', 'MITSUBISHI', 'Vitesse du processeur', '333', 'Mémoire vive', '128', 'Système d''exploitation 1', 'Windows NT 4.0', 'Système d''exploitation 2', NULL),
+      (34, 'Unité Centrale', 'PC', 'DELL', 'Vitesse du processeur', '400', 'Mémoire vive', '64', 'Système d''exploitation 1', 'Windows NT 4.0', 'Système d''exploitation 2', NULL),
+      (35, 'Unité Centrale', 'PC', 'IBM', 'Vitesse du processeur', '400', 'Mémoire vive', '64', 'Système d''exploitation 1', 'Windows 95', 'Système d''exploitation 2', 'Windows 98'),
+      (36, 'Unité Centrale', 'PC', 'COMPAQ', 'Vitesse du processeur', '500E MHz', 'Mémoire vive', '128', 'Système d''exploitation 1', 'Windows 2000', 'Système d''exploitation 2', NULL);
+    
+    INSERT INTO machines (id, nom_machine, adresse_ip, emplacement_id, utilisateur_id) VALUES
+      (1, 'MCH241', '94.0.1.1', 3, 7),
+      (2, 'MCH242', '94.0.1.2', 6, 17),
+      (3, 'MCH243', '94.0.1.3', 15, 26),
+      (4, 'MCH244', '94.0.1.4', 14, 44),
+      (5, 'MCH245', '94.0.1.5', 16, 45),
+      (6, 'MCH246', '94.0.1.6', 1, 30),
+      (7, 'MCH247', '94.0.1.7', 16, 20),
+      (8, 'MCH248', '94.0.1.8', 5, 49),
+      (9, 'MCH249', '94.0.1.9', 13, 45),
+      (10, 'MCH250', '94.0.1.10', 10, 50),
+      (11, 'MCH251', '94.0.1.11', 7, 31),
+      (12, 'MCH252', '94.0.1.12', 13, 12),
+      (13, 'MCH253', '94.0.1.13', 5, 8),
+      (14, 'MCH254', '94.0.1.14', 15, 41),
+      (15, 'MCH255', '94.0.1.15', 13, 5),
+      (16, 'MCH256', '94.0.1.16', 13, 40),
+      (17, 'MCH257', '94.0.1.17', 1, 47),
+      (18, 'MCH258', '94.0.1.18', 13, 14),
+      (19, 'MCH259', '94.0.1.19', 3, 3),
+      (20, 'MCH260', '94.0.1.20', 6, 15),
+      (21, 'MCH261', '94.0.1.21', 14, 12),
+      (22, 'MCH262', '94.0.1.22', 1, 9),
+      (23, 'MCH263', '94.0.1.23', 13, 2),
+      (24, 'MCH264', '94.0.1.24', 13, 31),
+      (25, 'MCH265', '94.0.1.25', 13, 13),
+      (26, 'MCH266', '94.0.1.26', 5, 46),
+      (27, 'MCH267', '94.0.1.27', 12, 12),
+      (28, 'MCH268', '94.0.1.28', 12, 16),
+      (29, 'MCH269', '94.0.1.29', 9, 29),
+      (30, 'MCH270', '94.0.1.30', 4, 35),
+      (31, 'MCH271', '94.0.1.31', 11, 44),
+      (32, 'MCH272', '94.0.1.32', 3, 50),
+      (33, 'MCH273', '94.0.1.33', 7, 45),
+      (34, 'MCH274', '94.0.1.34', 5, 23),
+      (35, 'MCH275', '94.0.1.35', 17, 19),
+      (36, 'MCH276', '94.0.1.36', 10, 13),
+      (37, 'MCH277', '94.0.1.37', 10, 37),
+      (38, 'MCH278', '94.0.1.38', 8, 27),
+      (39, 'MCH279', '94.0.1.39', 15, 5),
+      (40, 'MCH280', '94.0.1.40', 14, 39),
+      (41, 'MCH281', '94.0.1.41', 13, 43),
+      (42, 'MCH282', '94.0.1.42', 13, 17),
+      (43, 'MCH283', '94.0.1.43', 7, 34),
+      (44, 'MCH284', '94.0.1.44', 1, 31),
+      (45, 'MCH285', '94.0.1.45', 3, 42),
+      (46, 'MCH286', '94.0.1.46', 9, 29),
+      (47, 'MCH287', '94.0.1.47', 2, 48),
+      (48, 'MCH288', '94.0.1.48', 5, 48),
+      (49, 'MCH289', '94.0.1.49', NULL, NULL),
+      (50, 'MCH290', '94.0.1.50', NULL, NULL),
+      (51, 'MCH291', '94.0.1.51', NULL, NULL),
+      (52, 'MCH292', '94.0.1.52', NULL, NULL),
+      (53, 'MCH293', '94.0.1.53', NULL, NULL),
+      (54, 'MCH294', '94.0.1.54', NULL, NULL),
+      (55, 'MCH295', '94.0.1.55', 14, 40),
+      (56, 'MCH296', '94.0.1.56', 17, 12),
+      (57, 'MCH297', '94.0.1.57', 17, 29),
+      (58, 'MCH298', '94.0.1.58', 3, 46),
+      (59, 'MCH299', '94.0.1.59', 9, 4),
+      (60, 'MCH300', '94.0.1.60', 4, 31),
+      (61, 'MCH301', '94.0.1.61', 16, 25),
+      (62, 'MCH302', '94.0.1.62', 16, 50),
+      (63, 'MCH303', '94.0.1.63', 16, 13),
+      (64, 'MCH304', '94.0.1.64', 8, 25),
+      (65, 'MCH305', '94.0.1.65', 4, 21),
+      (66, 'MCH306', '94.0.1.66', NULL, NULL),
+      (67, 'MCH307', '94.0.1.67', 4, 11),
+      (68, 'MCH308', '94.0.1.68', 15, 31),
+      (69, 'MCH312', '94.0.1.69', 2, 50);
+    
+    INSERT INTO composants (id, n_serie, date_achat, garantie, machine_id, modele_id, fournisseur_id) VALUES
+      (1, 'Y6WFJWO5', '2005-07-29', '6 mois', 2, 34, 15),
+      (2, 'EMF8OIWFU', '2005-07-29', '6 mois', 3, 35, 15),
+      (3, '970WKL5V', '2005-07-29', '6 mois', 4, 36, 15),
+      (4, 'XHCUPG75', '2006-07-05', '6 mois', 4, 25, 15),
+      (5, 'B1F6DA0XL', '2006-07-04', '6 mois', 2, 9, 15),
+      (6, '0JTTBS', '2005-03-04', '6 mois', 3, 9, 15),
+      (7, 'J37974XV2', '2006-07-04', '2 ans', 4, 7, 15),
+      (8, 'IPMFIVC', '2006-07-04', '6 mois', 2, 7, 15),
+      (9, '9SHL6X7', '2006-07-05', '2 ans', 4, 24, 15),
+      (10, 'R1WP10N09', '2006-07-05', '6 mois', 1, 12, 15),
+      (11, 'YODS7IZVJ', '2006-07-05', '6 mois', 3, 12, 15),
+      (12, 'BIJQVVJD', '2004-09-28', '1 an', 2, 4, 15),
+      (13, 'YY1CNL8', '2006-07-04', '2 ans', 1, 3, 15),
+      (14, '5TH894N', '2006-07-05', '1 an', 1, 28, 15),
+      (15, 'FVCDD4Q', '2006-07-05', '6 mois', 3, 28, 15),
+      (16, 'TFBUZ4EJO', '2006-07-05', '2 ans', 4, 10, 15),
+      (17, 'XVROEU', '2006-07-05', '6 mois', 3, 22, 15),
+      (18, '3ACLC6F2', '2006-07-05', '6 mois', 3, 29, 15),
+      (19, 'U6V0N96Y', '2006-02-02', '2 ans', 4, 20, 15),
+      (20, 'Z91H0JBL', '2006-07-05', '6 mois', 4, 18, 15),
+      (21, '38BYV60Y', '2006-07-05', '2 ans', 3, 32, 15),
+      (22, 'LGG6Q312W', '2006-07-04', '6 mois', 2, 14, 15),
+      (23, 'QFVWFO', '2006-07-05', '1 an', 4, 13, 15),
+      (24, '7B4HULY', '2006-07-05', '2 ans', 4, 19, 15),
+      (25, 'IWII0UXD', '2005-03-11', '6 mois', 3, 17, 15),
+      (26, 'NUPEV2I', '2006-07-04', '1 an', 2, 11, 15),
+      (27, 'SJU8YMF', '2006-07-05', '6 mois', 4, 16, 15),
+      (28, 'R22IRO3I', '2006-07-04', '1 an', 2, 30, 15),
+      (29, 'ZLTTEBY', '2006-07-04', '2 ans', 2, 29, 15),
+      (30, '4ABGTO4', '2006-07-05', '1 an', 3, 31, 15),
+      (31, 'BSJ3EJ5', '2006-07-05', '6 mois', 4, 31, 15),
+      (32, '51WZLZG5V', '2006-02-16', '2 ans', 1, 26, 15),
+      (33, '28VO2TB', '2005-06-21', '2 ans', 4, 1, 15),
+      (34, 'NWV31OC87', '2006-07-05', '2 ans', 4, 21, 15),
+      (35, '97LI32', '2005-05-19', '1 an', 1, 21, 15),
+      (36, 'KGJKWT1AL', '2006-07-05', '1 an', 2, 5, 15),
+      (37, '0TMDJFIBA', '2005-03-04', '1 an', 2, 15, 15),
+      (38, 'CXBVPT2DC', '2004-09-15', '2 ans', 3, 6, 15),
+      (39, '1N99KSPTM', '2005-02-15', '1 an', 1, 8, 15),
+      (40, 'G5C3BC7R0', '2006-05-04', '1 an', 1, 27, 15),
+      (41, 'YSBRYVIM', '2005-07-29', '6 mois', 1, 33, 15),
+      (42, '0RMF0HQZ4', '2006-07-05', '1 an', 3, 7, 15),
+      (43, 'B1PFAI9F', '2006-07-05', '2 ans', 1, 7, 15),
+      (44, '620W2QKVZ', '2005-11-12', '2 ans', NULL, 23, NULL),
+      (45, 'AM58N5TL', '2004-09-30', '6 mois', NULL, 2, NULL),
+      (46, 'OAD3M2X5H', '2006-07-05', '1 an', NULL, 25, NULL),
+      (47, '3CZMEG727', '2006-07-05', '1 an', NULL, 25, NULL),
+      (48, 'TZXLIYA', '2006-07-05', '6 mois', NULL, 25, NULL),
+      (49, 'PSBDNPL', '2006-07-05', '1 an', NULL, 25, NULL);
+↓link_composant [transactions.SqlTransaction]: 
+  comment: Associe un composant a une machine (ecran FEN_Machine, bouton Ajouter).
+  sqlQuery: UPDATE composants SET machine_id = {machine_id} WHERE id = {id}
+  ↓id [variables.RequestableVariable-1789128172727]: 
+    comment: composant primary key.
+  ↓machine_id [variables.RequestableVariable-1789128172729]: 
+    comment: Machine to attach the composant to.
+↓list_composants [transactions.SqlTransaction]: 
+  comment: List Composants rows.
+  sqlQuery: |
+    SELECT base.id, base.n_serie, base.date_achat, base.garantie, base.num_retour, base.date_retour, base.date_renvoi, base.commentaire, base.machine_id, base.modele_id, base.fournisseur_id, rel_1.nom AS fournisseur_id__label, rel_2.nom_machine AS machine_id__label, rel_3.nom_modele AS modele_id__label
+    FROM composants base
+    LEFT JOIN fournisseurs rel_1 ON base.fournisseur_id = rel_1.id
+    LEFT JOIN machines rel_2 ON base.machine_id = rel_2.id
+    LEFT JOIN modeles rel_3 ON base.modele_id = rel_3.id
+    ORDER BY base.id ASC
+↓list_composants_by_fournisseur [transactions.SqlTransaction]: 
+  comment: List Composants rows filtered by fournisseur_id.
+  sqlQuery: |
+    SELECT base.id, base.n_serie, base.date_achat, base.garantie, base.num_retour, base.date_retour, base.date_renvoi, base.commentaire, base.machine_id, base.modele_id, base.fournisseur_id, rel_1.nom AS fournisseur_id__label, rel_2.nom_machine AS machine_id__label, rel_3.nom_modele AS modele_id__label
+    FROM composants base
+    LEFT JOIN fournisseurs rel_1 ON base.fournisseur_id = rel_1.id
+    LEFT JOIN machines rel_2 ON base.machine_id = rel_2.id
+    LEFT JOIN modeles rel_3 ON base.modele_id = rel_3.id
+    WHERE base.fournisseur_id = {fournisseur_id}
+    ORDER BY base.id ASC
+  ↓fournisseur_id [variables.RequestableVariable-1789123180048]: 
+    comment: FournisseurId foreign key referencing fournisseurs.id.
+    description: FournisseurId foreign key referencing fournisseurs.id.
+↓list_composants_by_machine [transactions.SqlTransaction]: 
+  comment: List Composants rows filtered by machine_id.
+  sqlQuery: |
+    SELECT base.id, base.n_serie, base.date_achat, base.garantie, base.num_retour, base.date_retour, base.date_renvoi, base.commentaire, base.machine_id, base.modele_id, base.fournisseur_id, rel_1.nom AS fournisseur_id__label, rel_2.nom_machine AS machine_id__label, rel_3.nom_modele AS modele_id__label
+    FROM composants base
+    LEFT JOIN fournisseurs rel_1 ON base.fournisseur_id = rel_1.id
+    LEFT JOIN machines rel_2 ON base.machine_id = rel_2.id
+    LEFT JOIN modeles rel_3 ON base.modele_id = rel_3.id
+    WHERE base.machine_id = {machine_id}
+    ORDER BY base.id ASC
+  ↓machine_id [variables.RequestableVariable-1789123180092]: 
+    comment: MachineId foreign key referencing machines.id.
+    description: MachineId foreign key referencing machines.id.
+↓list_composants_by_modele [transactions.SqlTransaction]: 
+  comment: List Composants rows filtered by modele_id.
+  sqlQuery: |
+    SELECT base.id, base.n_serie, base.date_achat, base.garantie, base.num_retour, base.date_retour, base.date_renvoi, base.commentaire, base.machine_id, base.modele_id, base.fournisseur_id, rel_1.nom AS fournisseur_id__label, rel_2.nom_machine AS machine_id__label, rel_3.nom_modele AS modele_id__label
+    FROM composants base
+    LEFT JOIN fournisseurs rel_1 ON base.fournisseur_id = rel_1.id
+    LEFT JOIN machines rel_2 ON base.machine_id = rel_2.id
+    LEFT JOIN modeles rel_3 ON base.modele_id = rel_3.id
+    WHERE base.modele_id = {modele_id}
+    ORDER BY base.id ASC
+  ↓modele_id [variables.RequestableVariable-1789123180136]: 
+    comment: ModeleId foreign key referencing modeles.id.
+    description: ModeleId foreign key referencing modeles.id.
+↓list_emplacements [transactions.SqlTransaction]: 
+  ↑default: true
+  comment: List Lieux rows.
+  sqlQuery: |
+    SELECT base.id, base.nom, base.commentaire, base.rectangle, base.picto
+    FROM emplacements base
+    ORDER BY base.id ASC
+↓list_fournisseurs [transactions.SqlTransaction]: 
+  comment: List Fournisseurs rows.
+  sqlQuery: |
+    SELECT base.id, base.nom, base.adresse, base.tel, base.tel_sav, base.fax
+    FROM fournisseurs base
+    ORDER BY base.id ASC
+↓list_machines [transactions.SqlTransaction]: 
+  comment: List Machines rows.
+  sqlQuery: |
+    SELECT base.id, base.nom_machine, base.adresse_ip, base.emplacement_id, base.utilisateur_id, rel_1.nom AS emplacement_id__label, rel_2.initiales AS utilisateur_id__label
+    FROM machines base
+    LEFT JOIN emplacements rel_1 ON base.emplacement_id = rel_1.id
+    LEFT JOIN utilisateurs rel_2 ON base.utilisateur_id = rel_2.id
+    ORDER BY base.id ASC
+↓list_machines_by_emplacement [transactions.SqlTransaction]: 
+  comment: List Machines rows filtered by emplacement_id.
+  sqlQuery: |
+    SELECT base.id, base.nom_machine, base.adresse_ip, base.emplacement_id, base.utilisateur_id, rel_1.nom AS emplacement_id__label, rel_2.initiales AS utilisateur_id__label
+    FROM machines base
+    LEFT JOIN emplacements rel_1 ON base.emplacement_id = rel_1.id
+    LEFT JOIN utilisateurs rel_2 ON base.utilisateur_id = rel_2.id
+    WHERE base.emplacement_id = {emplacement_id}
+    ORDER BY base.id ASC
+  ↓emplacement_id [variables.RequestableVariable-1789123180180]: 
+    comment: EmplacementId foreign key referencing emplacements.id.
+    description: EmplacementId foreign key referencing emplacements.id.
+↓list_machines_by_utilisateur [transactions.SqlTransaction]: 
+  comment: List Machines rows filtered by utilisateur_id.
+  sqlQuery: |
+    SELECT base.id, base.nom_machine, base.adresse_ip, base.emplacement_id, base.utilisateur_id, rel_1.nom AS emplacement_id__label, rel_2.initiales AS utilisateur_id__label
+    FROM machines base
+    LEFT JOIN emplacements rel_1 ON base.emplacement_id = rel_1.id
+    LEFT JOIN utilisateurs rel_2 ON base.utilisateur_id = rel_2.id
+    WHERE base.utilisateur_id = {utilisateur_id}
+    ORDER BY base.id ASC
+  ↓utilisateur_id [variables.RequestableVariable-1789123180210]: 
+    comment: UtilisateurId foreign key referencing utilisateurs.id.
+    description: UtilisateurId foreign key referencing utilisateurs.id.
+↓list_modeles [transactions.SqlTransaction]: 
+  comment: List Modèles rows.
+  sqlQuery: |
+    SELECT base.id, base.type_modele, base.nom_modele, base.marque, base.caracteristique1, base.valeur1, base.caracteristique2, base.valeur2, base.caracteristique3, base.valeur3, base.caracteristique4, base.valeur4, base.commentaire
+    FROM modeles base
+    ORDER BY base.id ASC
+↓list_utilisateurs [transactions.SqlTransaction]: 
+  comment: List Utilisateurs rows.
+  sqlQuery: |
+    SELECT base.id, base.initiales, base.civilite, base.nom_complet, base.tel, base.photo
+    FROM utilisateurs base
+    ORDER BY base.id ASC
+↓read_composant [transactions.SqlTransaction]: 
+  comment: Read one composant row by primary key.
+  sqlQuery: |
+    SELECT base.id, base.n_serie, base.date_achat, base.garantie, base.num_retour, base.date_retour, base.date_renvoi, base.commentaire, base.machine_id, base.modele_id, base.fournisseur_id, rel_1.nom AS fournisseur_id__label, rel_2.nom_machine AS machine_id__label, rel_3.nom_modele AS modele_id__label
+    FROM composants base
+    LEFT JOIN fournisseurs rel_1 ON base.fournisseur_id = rel_1.id
+    LEFT JOIN machines rel_2 ON base.machine_id = rel_2.id
+    LEFT JOIN modeles rel_3 ON base.modele_id = rel_3.id
+    WHERE base.id = {id}
+  ↓id [variables.RequestableVariable-1789123179816]: 
+    comment: composant primary key.
+    description: composant primary key.
+↓read_emplacement [transactions.SqlTransaction]: 
+  comment: Read one emplacement row by primary key.
+  sqlQuery: |
+    SELECT base.id, base.nom, base.commentaire, base.rectangle, base.picto
+    FROM emplacements base
+    WHERE base.id = {id}
+  ↓id [variables.RequestableVariable-1789123179018]: 
+    comment: emplacement primary key.
+    description: emplacement primary key.
+↓read_fournisseur [transactions.SqlTransaction]: 
+  comment: Read one fournisseur row by primary key.
+  sqlQuery: |
+    SELECT base.id, base.nom, base.adresse, base.tel, base.tel_sav, base.fax
+    FROM fournisseurs base
+    WHERE base.id = {id}
+  ↓id [variables.RequestableVariable-1789123179286]: 
+    comment: fournisseur primary key.
+    description: fournisseur primary key.
+↓read_machine [transactions.SqlTransaction]: 
+  comment: Read one machine row by primary key.
+  sqlQuery: |
+    SELECT base.id, base.nom_machine, base.adresse_ip, base.emplacement_id, base.utilisateur_id, rel_1.nom AS emplacement_id__label, rel_2.initiales AS utilisateur_id__label
+    FROM machines base
+    LEFT JOIN emplacements rel_1 ON base.emplacement_id = rel_1.id
+    LEFT JOIN utilisateurs rel_2 ON base.utilisateur_id = rel_2.id
+    WHERE base.id = {id}
+  ↓id [variables.RequestableVariable-1789123179682]: 
+    comment: machine primary key.
+    description: machine primary key.
+↓read_modele [transactions.SqlTransaction]: 
+  comment: Read one modele row by primary key.
+  sqlQuery: |
+    SELECT base.id, base.type_modele, base.nom_modele, base.marque, base.caracteristique1, base.valeur1, base.caracteristique2, base.valeur2, base.caracteristique3, base.valeur3, base.caracteristique4, base.valeur4, base.commentaire
+    FROM modeles base
+    WHERE base.id = {id}
+  ↓id [variables.RequestableVariable-1789123179428]: 
+    comment: modele primary key.
+    description: modele primary key.
+↓read_utilisateur [transactions.SqlTransaction]: 
+  comment: Read one utilisateur row by primary key.
+  sqlQuery: |
+    SELECT base.id, base.initiales, base.civilite, base.nom_complet, base.tel, base.photo
+    FROM utilisateurs base
+    WHERE base.id = {id}
+  ↓id [variables.RequestableVariable-1789123179144]: 
+    comment: utilisateur primary key.
+    description: utilisateur primary key.
+↓unlink_composant [transactions.SqlTransaction]: 
+  comment: Dissocie un composant de sa machine, il retourne en stock (bouton Dissocier).
+  sqlQuery: UPDATE composants SET machine_id = NULL WHERE id = {id}
+  ↓id [variables.RequestableVariable-1789128172732]: 
+    comment: composant primary key.
+↓unlink_composants_by_machine [transactions.SqlTransaction]: 
+  comment: Remet en stock tous les composants d'une machine (option 2 de la suppression FEN_Principale).
+  sqlQuery: UPDATE composants SET machine_id = NULL WHERE machine_id = {id}
+  ↓id [variables.RequestableVariable-1789132202405]: 
+    comment: machine primary key.
+↓update_composant [transactions.SqlTransaction]: 
+  comment: Update one composant row by primary key.
+  sqlQuery: |
+    UPDATE composants
+    SET n_serie = {n_serie},
+        date_achat = {date_achat},
+        garantie = {garantie},
+        num_retour = {num_retour},
+        date_retour = {date_retour},
+        date_renvoi = {date_renvoi},
+        commentaire = {commentaire},
+        machine_id = {machine_id},
+        modele_id = {modele_id},
+        fournisseur_id = {fournisseur_id}
+    WHERE id = {id}
+  ↓n_serie [variables.RequestableVariable-1789123179840]: 
+    comment: NSerie for composant.
+    description: NSerie for composant.
+  ↓date_achat [variables.RequestableVariable-1789123179842]: 
+    comment: DateAchat for composant.
+    description: DateAchat for composant.
+  ↓garantie [variables.RequestableVariable-1789123179844]: 
+    comment: Garantie for composant.
+    description: Garantie for composant.
+  ↓num_retour [variables.RequestableVariable-1789123179846]: 
+    comment: NumRetour for composant.
+    description: NumRetour for composant.
+  ↓date_retour [variables.RequestableVariable-1789123179848]: 
+    comment: DateRetour for composant.
+    description: DateRetour for composant.
+  ↓date_renvoi [variables.RequestableVariable-1789123179850]: 
+    comment: DateRenvoi for composant.
+    description: DateRenvoi for composant.
+  ↓commentaire [variables.RequestableVariable-1789123179852]: 
+    comment: Commentaire for composant.
+    description: Commentaire for composant.
+  ↓machine_id [variables.RequestableVariable-1789123179854]: 
+    comment: MachineId foreign key referencing machines.id.
+    description: MachineId foreign key referencing machines.id.
+  ↓modele_id [variables.RequestableVariable-1789123179856]: 
+    comment: ModeleId foreign key referencing modeles.id.
+    description: ModeleId foreign key referencing modeles.id.
+  ↓fournisseur_id [variables.RequestableVariable-1789123179858]: 
+    comment: FournisseurId foreign key referencing fournisseurs.id.
+    description: FournisseurId foreign key referencing fournisseurs.id.
+  ↓id [variables.RequestableVariable-1789123179860]: 
+    comment: composant primary key.
+    description: composant primary key.
+↓update_emplacement [transactions.SqlTransaction]: 
+  comment: Update one emplacement row by primary key.
+  sqlQuery: |
+    UPDATE emplacements
+    SET nom = {nom},
+        commentaire = {commentaire},
+        rectangle = {rectangle},
+        picto = {picto}
+    WHERE id = {id}
+  ↓nom [variables.RequestableVariable-1789123179030]: 
+    comment: Nom for emplacement.
+    description: Nom for emplacement.
+  ↓commentaire [variables.RequestableVariable-1789123179032]: 
+    comment: Commentaire for emplacement.
+    description: Commentaire for emplacement.
+  ↓rectangle [variables.RequestableVariable-1789123179034]: 
+    comment: Rectangle for emplacement.
+    description: Rectangle for emplacement.
+  ↓picto [variables.RequestableVariable-1789123179036]: 
+    comment: Picto for emplacement.
+    description: Picto for emplacement.
+  ↓id [variables.RequestableVariable-1789123179038]: 
+    comment: emplacement primary key.
+    description: emplacement primary key.
+↓update_fournisseur [transactions.SqlTransaction]: 
+  comment: Update one fournisseur row by primary key.
+  sqlQuery: |
+    UPDATE fournisseurs
+    SET nom = {nom},
+        adresse = {adresse},
+        tel = {tel},
+        tel_sav = {tel_sav},
+        fax = {fax}
+    WHERE id = {id}
+  ↓nom [variables.RequestableVariable-1789123179300]: 
+    comment: Nom for fournisseur.
+    description: Nom for fournisseur.
+  ↓adresse [variables.RequestableVariable-1789123179302]: 
+    comment: Adresse for fournisseur.
+    description: Adresse for fournisseur.
+  ↓tel [variables.RequestableVariable-1789123179304]: 
+    comment: Tel for fournisseur.
+    description: Tel for fournisseur.
+  ↓tel_sav [variables.RequestableVariable-1789123179306]: 
+    comment: TelSav for fournisseur.
+    description: TelSav for fournisseur.
+  ↓fax [variables.RequestableVariable-1789123179308]: 
+    comment: Fax for fournisseur.
+    description: Fax for fournisseur.
+  ↓id [variables.RequestableVariable-1789123179310]: 
+    comment: fournisseur primary key.
+    description: fournisseur primary key.
+↓update_machine [transactions.SqlTransaction]: 
+  comment: Update one machine row by primary key.
+  sqlQuery: |
+    UPDATE machines
+    SET nom_machine = {nom_machine},
+        adresse_ip = {adresse_ip},
+        emplacement_id = {emplacement_id},
+        utilisateur_id = {utilisateur_id}
+    WHERE id = {id}
+  ↓nom_machine [variables.RequestableVariable-1789123179694]: 
+    comment: NomMachine for machine.
+    description: NomMachine for machine.
+  ↓adresse_ip [variables.RequestableVariable-1789123179696]: 
+    comment: AdresseIp for machine.
+    description: AdresseIp for machine.
+  ↓emplacement_id [variables.RequestableVariable-1789123179698]: 
+    comment: EmplacementId foreign key referencing emplacements.id.
+    description: EmplacementId foreign key referencing emplacements.id.
+  ↓utilisateur_id [variables.RequestableVariable-1789123179700]: 
+    comment: UtilisateurId foreign key referencing utilisateurs.id.
+    description: UtilisateurId foreign key referencing utilisateurs.id.
+  ↓id [variables.RequestableVariable-1789123179702]: 
+    comment: machine primary key.
+    description: machine primary key.
+↓update_modele [transactions.SqlTransaction]: 
+  comment: Update one modele row by primary key.
+  sqlQuery: |
+    UPDATE modeles
+    SET type_modele = {type_modele},
+        nom_modele = {nom_modele},
+        marque = {marque},
+        caracteristique1 = {caracteristique1},
+        valeur1 = {valeur1},
+        caracteristique2 = {caracteristique2},
+        valeur2 = {valeur2},
+        caracteristique3 = {caracteristique3},
+        valeur3 = {valeur3},
+        caracteristique4 = {caracteristique4},
+        valeur4 = {valeur4},
+        commentaire = {commentaire}
+    WHERE id = {id}
+  ↓type_modele [variables.RequestableVariable-1789123179456]: 
+    comment: TypeModele for modele.
+    description: TypeModele for modele.
+  ↓nom_modele [variables.RequestableVariable-1789123179458]: 
+    comment: NomModele for modele.
+    description: NomModele for modele.
+  ↓marque [variables.RequestableVariable-1789123179460]: 
+    comment: Marque for modele.
+    description: Marque for modele.
+  ↓caracteristique1 [variables.RequestableVariable-1789123179462]: 
+    comment: Caracteristique1 for modele.
+    description: Caracteristique1 for modele.
+  ↓valeur1 [variables.RequestableVariable-1789123179464]: 
+    comment: Valeur1 for modele.
+    description: Valeur1 for modele.
+  ↓caracteristique2 [variables.RequestableVariable-1789123179466]: 
+    comment: Caracteristique2 for modele.
+    description: Caracteristique2 for modele.
+  ↓valeur2 [variables.RequestableVariable-1789123179468]: 
+    comment: Valeur2 for modele.
+    description: Valeur2 for modele.
+  ↓caracteristique3 [variables.RequestableVariable-1789123179470]: 
+    comment: Caracteristique3 for modele.
+    description: Caracteristique3 for modele.
+  ↓valeur3 [variables.RequestableVariable-1789123179472]: 
+    comment: Valeur3 for modele.
+    description: Valeur3 for modele.
+  ↓caracteristique4 [variables.RequestableVariable-1789123179474]: 
+    comment: Caracteristique4 for modele.
+    description: Caracteristique4 for modele.
+  ↓valeur4 [variables.RequestableVariable-1789123179476]: 
+    comment: Valeur4 for modele.
+    description: Valeur4 for modele.
+  ↓commentaire [variables.RequestableVariable-1789123179478]: 
+    comment: Commentaire for modele.
+    description: Commentaire for modele.
+  ↓id [variables.RequestableVariable-1789123179480]: 
+    comment: modele primary key.
+    description: modele primary key.
+↓update_utilisateur [transactions.SqlTransaction]: 
+  comment: Update one utilisateur row by primary key.
+  sqlQuery: |
+    UPDATE utilisateurs
+    SET initiales = {initiales},
+        civilite = {civilite},
+        nom_complet = {nom_complet},
+        tel = {tel},
+        photo = {photo}
+    WHERE id = {id}
+  ↓initiales [variables.RequestableVariable-1789123179158]: 
+    comment: Initiales for utilisateur.
+    description: Initiales for utilisateur.
+  ↓civilite [variables.RequestableVariable-1789123179160]: 
+    comment: Civilite for utilisateur.
+    description: Civilite for utilisateur.
+  ↓nom_complet [variables.RequestableVariable-1789123179162]: 
+    comment: NomComplet for utilisateur.
+    description: NomComplet for utilisateur.
+  ↓tel [variables.RequestableVariable-1789123179164]: 
+    comment: Tel for utilisateur.
+    description: Tel for utilisateur.
+  ↓photo [variables.RequestableVariable-1789123179166]: 
+    comment: Photo for utilisateur.
+    description: Photo for utilisateur.
+  ↓id [variables.RequestableVariable-1789123179168]: 
+    comment: utilisateur primary key.
+    description: utilisateur primary key.

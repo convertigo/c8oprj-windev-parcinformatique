@@ -1,0 +1,52 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: Facade deleting one machine.
+↓CallParc_delete_machine [steps.TransactionStep-1789123179807]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.delete_machine
+  ↓id [variables.StepVariable-1789123179809]: 
+    comment: machine primary key.
+    description: machine primary key.
+↓Message [steps.JsonFieldStep-1789123179811]: 
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: message
+  value: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: SOURCE
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1789123179807
+          - java.lang.String: 
+            - ↑value: ./document/sql_output/text()
+↓CheckRefs [steps.TransactionStep-1789132232040]: 
+  comment: Compte les composants installes dans la machine.
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.count_composants_by_machine
+  ↓id [variables.StepVariable-1789132232042]: 
+    comment: machine primary key.
+↓Refs [steps.JsonFieldStep-1789132271817]: 
+  comment: 'Nombre de composants encore installes : > 0 signifie que la suppression a ete refusee.'
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: refs
+  type: number
+  value: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: SOURCE
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1789132232040
+          - java.lang.String: 
+            - ↑value: ./document/sql_output/row/TOTAL/text()
+↓id [variables.RequestableVariable-1789123179805]: 
+  comment: machine primary key.
+  description: machine primary key.

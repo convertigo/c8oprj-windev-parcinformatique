@@ -1,0 +1,52 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: Facade deleting one utilisateur.
+↓CallParc_delete_utilisateur [steps.TransactionStep-1789123179277]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.delete_utilisateur
+  ↓id [variables.StepVariable-1789123179279]: 
+    comment: utilisateur primary key.
+    description: utilisateur primary key.
+↓Message [steps.JsonFieldStep-1789123179281]: 
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: message
+  value: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: SOURCE
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1789123179277
+          - java.lang.String: 
+            - ↑value: ./document/sql_output/text()
+↓CheckRefs [steps.TransactionStep-1789132217895]: 
+  comment: Compte les machines affectees a l'utilisateur.
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.count_machines_by_utilisateur
+  ↓id [variables.StepVariable-1789132217897]: 
+    comment: utilisateur primary key.
+↓Refs [steps.JsonFieldStep-1789132265401]: 
+  comment: 'Nombre de machines encore affectees : > 0 signifie que la suppression a ete refusee.'
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: refs
+  type: number
+  value: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: SOURCE
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1789132217895
+          - java.lang.String: 
+            - ↑value: ./document/sql_output/row/TOTAL/text()
+↓id [variables.RequestableVariable-1789123179275]: 
+  comment: utilisateur primary key.
+  description: utilisateur primary key.

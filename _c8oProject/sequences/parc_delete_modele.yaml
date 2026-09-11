@@ -1,0 +1,52 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: Facade deleting one modele.
+↓CallParc_delete_modele [steps.TransactionStep-1789123179673]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.delete_modele
+  ↓id [variables.StepVariable-1789123179675]: 
+    comment: modele primary key.
+    description: modele primary key.
+↓Message [steps.JsonFieldStep-1789123179677]: 
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: message
+  value: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: SOURCE
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1789123179673
+          - java.lang.String: 
+            - ↑value: ./document/sql_output/text()
+↓CheckRefs [steps.TransactionStep-1789132229951]: 
+  comment: Compte les composants utilisant ce modele.
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.count_composants_by_modele
+  ↓id [variables.StepVariable-1789132229954]: 
+    comment: modele primary key.
+↓Refs [steps.JsonFieldStep-1789132269694]: 
+  comment: 'Nombre de composants utilisant encore le modele : > 0 signifie que la suppression a ete refusee.'
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: refs
+  type: number
+  value: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: SOURCE
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1789132229951
+          - java.lang.String: 
+            - ↑value: ./document/sql_output/row/TOTAL/text()
+↓id [variables.RequestableVariable-1789123179671]: 
+  comment: modele primary key.
+  description: modele primary key.

@@ -1,0 +1,52 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: Facade creating one utilisateur.
+↓CallParc_create_utilisateur [steps.TransactionStep-1789123179231]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.create_utilisateur
+  ↓initiales [variables.StepVariable-1789123179233]: 
+    comment: Initiales for utilisateur.
+    description: Initiales for utilisateur.
+  ↓civilite [variables.StepVariable-1789123179235]: 
+    comment: Civilite for utilisateur.
+    description: Civilite for utilisateur.
+  ↓nom_complet [variables.StepVariable-1789123179237]: 
+    comment: NomComplet for utilisateur.
+    description: NomComplet for utilisateur.
+  ↓tel [variables.StepVariable-1789123179239]: 
+    comment: Tel for utilisateur.
+    description: Tel for utilisateur.
+  ↓photo [variables.StepVariable-1789123179241]: 
+    comment: Photo for utilisateur.
+    description: Photo for utilisateur.
+↓Message [steps.JsonFieldStep-1789123179243]: 
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: message
+  value: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: SOURCE
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1789123179231
+          - java.lang.String: 
+            - ↑value: ./document/sql_output/text()
+↓initiales [variables.RequestableVariable-1789123179221]: 
+  comment: Initiales for utilisateur.
+  description: Initiales for utilisateur.
+↓civilite [variables.RequestableVariable-1789123179223]: 
+  comment: Civilite for utilisateur.
+  description: Civilite for utilisateur.
+↓nom_complet [variables.RequestableVariable-1789123179225]: 
+  comment: NomComplet for utilisateur.
+  description: NomComplet for utilisateur.
+↓tel [variables.RequestableVariable-1789123179227]: 
+  comment: Tel for utilisateur.
+  description: Tel for utilisateur.
+↓photo [variables.RequestableVariable-1789123179229]: 
+  comment: Photo for utilisateur.
+  description: Photo for utilisateur.

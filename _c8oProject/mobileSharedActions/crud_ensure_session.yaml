@@ -1,0 +1,36 @@
+comment: Ensure a generated authenticated session exists before CRUD facade calls.
+↓WhenSessionMissing [ngx.components.UIDynamicAction-1789123319998]: 
+  beanData: |
+    '{
+     "ionBean": "IfAction",
+     "condition": "script:this.global?.crudSessionReady === true",
+     "negate": "plain:true"
+    }'
+  comment: Establish the generated auth session once, then trust the session cookie for the rest of the app.
+  ↓InvokeCrudAuthLogin [ngx.components.UIDynamicAction-1789123320000]: 
+    beanData: |
+      '{
+       "ionBean": "CallSequenceAction",
+       "requestable": "plain:ParcInformatique.auth_login",
+       "noLoading": "plain:true"
+      }'
+    comment: Establish the generated authenticated context before CRUD facade calls.
+    ↓username [ngx.components.UIControlVariable-1789123320002]: 
+      comment: Best-case demo user for the generated auth skeleton.
+      varValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: script:'demo'
+    ↓password [ngx.components.UIControlVariable-1789123320004]: 
+      comment: Best-case demo password for the generated auth skeleton.
+      varValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: script:'demo'
+    ↓SetSessionReady [ngx.components.UIDynamicAction-1789123320006]: 
+      beanData: |
+        '{
+         "ionBean": "SetGlobalAction",
+         "Property": "plain:crudSessionReady",
+         "Value": "script:true"
+        }'

@@ -1,0 +1,46 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: Facade creating one machine.
+↓CallParc_create_machine [steps.TransactionStep-1789123179767]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.create_machine
+  ↓nom_machine [variables.StepVariable-1789123179769]: 
+    comment: NomMachine for machine.
+    description: NomMachine for machine.
+  ↓adresse_ip [variables.StepVariable-1789123179771]: 
+    comment: AdresseIp for machine.
+    description: AdresseIp for machine.
+  ↓emplacement_id [variables.StepVariable-1789123179773]: 
+    comment: EmplacementId foreign key referencing emplacements.id.
+    description: EmplacementId foreign key referencing emplacements.id.
+  ↓utilisateur_id [variables.StepVariable-1789123179775]: 
+    comment: UtilisateurId foreign key referencing utilisateurs.id.
+    description: UtilisateurId foreign key referencing utilisateurs.id.
+↓Message [steps.JsonFieldStep-1789123179777]: 
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: message
+  value: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: SOURCE
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1789123179767
+          - java.lang.String: 
+            - ↑value: ./document/sql_output/text()
+↓nom_machine [variables.RequestableVariable-1789123179759]: 
+  comment: NomMachine for machine.
+  description: NomMachine for machine.
+↓adresse_ip [variables.RequestableVariable-1789123179761]: 
+  comment: AdresseIp for machine.
+  description: AdresseIp for machine.
+↓emplacement_id [variables.RequestableVariable-1789123179763]: 
+  comment: EmplacementId foreign key referencing emplacements.id.
+  description: EmplacementId foreign key referencing emplacements.id.
+↓utilisateur_id [variables.RequestableVariable-1789123179765]: 
+  comment: UtilisateurId foreign key referencing utilisateurs.id.
+  description: UtilisateurId foreign key referencing utilisateurs.id.

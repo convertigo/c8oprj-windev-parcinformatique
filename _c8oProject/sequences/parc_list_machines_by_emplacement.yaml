@@ -1,0 +1,156 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: Facade exposing the relation list for Machines by emplacement_id.
+↓CallParc_list_machines_by_emplacement [steps.TransactionStep-1789123180185]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.list_machines_by_emplacement
+  ↓emplacement_id [variables.StepVariable-1789123180187]: 
+    comment: EmplacementId foreign key referencing emplacements.id.
+    description: EmplacementId foreign key referencing emplacements.id.
+↓Rows [steps.JsonArrayStep-1789123180189]: 
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: rows
+  ↓RowsIterator [steps.IteratorStep-1789123180191]: 
+    sourceDefinition: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1789123180185
+          - java.lang.String: 
+            - ↑value: ./document/sql_output/row
+    ↓Item [steps.JsonObjectStep-1789123180193]: 
+      key: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+          - SmartType: 
+            - ↑mode: PLAIN
+            - →→: Item
+      ↓id [steps.JsonFieldStep-1789123180195]: 
+        key: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+            - SmartType: 
+              - ↑mode: PLAIN
+              - →→: id
+        type: number
+        value: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+            - SmartType: 
+              - ↑mode: SOURCE
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: 1789123180191
+                - java.lang.String: 
+                  - ↑value: ./ID/text()
+      ↓nom_machine [steps.JsonFieldStep-1789123180197]: 
+        key: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+            - SmartType: 
+              - ↑mode: PLAIN
+              - →→: nom_machine
+        value: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+            - SmartType: 
+              - ↑mode: SOURCE
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: 1789123180191
+                - java.lang.String: 
+                  - ↑value: ./NOM_MACHINE/text()
+      ↓adresse_ip [steps.JsonFieldStep-1789123180199]: 
+        key: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+            - SmartType: 
+              - ↑mode: PLAIN
+              - →→: adresse_ip
+        value: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+            - SmartType: 
+              - ↑mode: SOURCE
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: 1789123180191
+                - java.lang.String: 
+                  - ↑value: ./ADRESSE_IP/text()
+      ↓emplacement_id [steps.JsonFieldStep-1789123180201]: 
+        key: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+            - SmartType: 
+              - ↑mode: PLAIN
+              - →→: emplacement_id
+        type: number
+        value: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+            - SmartType: 
+              - ↑mode: SOURCE
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: 1789123180191
+                - java.lang.String: 
+                  - ↑value: ./EMPLACEMENT_ID/text()
+      ↓utilisateur_id [steps.JsonFieldStep-1789123180203]: 
+        key: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+            - SmartType: 
+              - ↑mode: PLAIN
+              - →→: utilisateur_id
+        type: number
+        value: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+            - SmartType: 
+              - ↑mode: SOURCE
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: 1789123180191
+                - java.lang.String: 
+                  - ↑value: ./UTILISATEUR_ID/text()
+      ↓emplacement_id__label [steps.JsonFieldStep-1789123180205]: 
+        key: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+            - SmartType: 
+              - ↑mode: PLAIN
+              - →→: emplacement_id__label
+        value: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+            - SmartType: 
+              - ↑mode: SOURCE
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: 1789123180191
+                - java.lang.String: 
+                  - ↑value: ./EMPLACEMENT_ID__LABEL/text()
+      ↓utilisateur_id__label [steps.JsonFieldStep-1789123180207]: 
+        key: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+            - SmartType: 
+              - ↑mode: PLAIN
+              - →→: utilisateur_id__label
+        value: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+            - SmartType: 
+              - ↑mode: SOURCE
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: 1789123180191
+                - java.lang.String: 
+                  - ↑value: ./UTILISATEUR_ID__LABEL/text()
+↓emplacement_id [variables.RequestableVariable-1789123180183]: 
+  comment: EmplacementId foreign key referencing emplacements.id.
+  description: EmplacementId foreign key referencing emplacements.id.

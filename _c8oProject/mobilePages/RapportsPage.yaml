@@ -1,0 +1,1506 @@
+comment: 'Equivalent des etats WinDev (Etat_Machine, Etat_Utilisateur, Etat_Fournisseur, Etat_Modele, Etat_Composant_Machine, Etat_Composant_Modele) : apercu HTML (feuille blanche) puis impression navigateur. L''etat et son parametre sont recus par les globaux parcReport / parcReportId. Barre d''outils parc-toolbar.'
+icon: print
+segment: rapports
+title: États imprimés
+↓Content [ngx.components.UIDynamicElement-1789133155612]: 
+  beanData: '{"ionBean":"Content"}'
+  tagName: ion-content
+  ↓Grid [ngx.components.UIDynamicElement-1789133156270]: 
+    beanData: '{"ionBean":"Grid"}'
+    tagName: ion-grid
+    ↓HeaderRow [ngx.components.UIDynamicElement-1789133156272]: 
+      beanData: '{"ionBean":"GridRow"}'
+      tagName: ion-row
+      ↓HeaderCol [ngx.components.UIDynamicElement-1789133156274]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓Class [ngx.components.UIAttribute-1789133156276]: 
+          attrName: class
+          attrValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: plain:no-print
+        ↓PageHeader [ngx.components.UIUseShared-1789133156278]: 
+          sharedcomponent: ParcInformatique.Application.NgxApp.CrudPageHeader
+          ↓Title [ngx.components.UIUseVariable-1789133156960]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'États imprimés'
+          ↓Subtitle [ngx.components.UIUseVariable-1789133156962]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:'Choisissez un état, ajustez son paramètre puis cliquez sur Imprimer.'
+    ↓ToolbarRow [ngx.components.UIDynamicElement-1789133156964]: 
+      beanData: '{"ionBean":"GridRow"}'
+      tagName: ion-row
+      ↓ToolbarCol [ngx.components.UIDynamicElement-1789133156966]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓Toolbar [ngx.components.UIDynamicElement-1789133156968]: 
+          beanData: '{"ionBean":"DivTag"}'
+          tagName: div
+          ↓Class [ngx.components.UIAttribute-1789133156970]: 
+            attrName: class
+            attrValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: plain:parc-toolbar no-print
+          ↓BtnMachines [ngx.components.UIDynamicElement-1789133461360]: 
+            beanData: '{"ionBean":"Button","IonSize":"plain:small"}'
+            tagName: ion-button
+            ↓Fill [ngx.components.UIAttribute-1789133461362]: 
+              attrName: '[fill]'
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: 'script:local?.report === ''machines'' ? ''solid'' : ''outline'''
+            ↓Text [ngx.components.UIText-1789133461364]: 
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:Machines
+            ↓Click [ngx.components.UIControlEvent-1789133461366]: 
+              ↓SetReport [ngx.components.UIDynamicAction-1789133461612]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:report",
+                   "Value": "script:''machines''"
+                  }'
+          ↓BtnUtilisateurs [ngx.components.UIDynamicElement-1789133461614]: 
+            beanData: '{"ionBean":"Button","IonSize":"plain:small"}'
+            tagName: ion-button
+            ↓Fill [ngx.components.UIAttribute-1789133461616]: 
+              attrName: '[fill]'
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: 'script:local?.report === ''utilisateurs'' ? ''solid'' : ''outline'''
+            ↓Text [ngx.components.UIText-1789133461618]: 
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:Utilisateurs
+            ↓Click [ngx.components.UIControlEvent-1789133461620]: 
+              ↓SetReport [ngx.components.UIDynamicAction-1789133461622]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:report",
+                   "Value": "script:''utilisateurs''"
+                  }'
+          ↓BtnFournisseurs [ngx.components.UIDynamicElement-1789133461624]: 
+            beanData: '{"ionBean":"Button","IonSize":"plain:small"}'
+            tagName: ion-button
+            ↓Fill [ngx.components.UIAttribute-1789133461626]: 
+              attrName: '[fill]'
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: 'script:local?.report === ''fournisseurs'' ? ''solid'' : ''outline'''
+            ↓Text [ngx.components.UIText-1789133461628]: 
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:Fournisseurs
+            ↓Click [ngx.components.UIControlEvent-1789133461630]: 
+              ↓SetReport [ngx.components.UIDynamicAction-1789133461632]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:report",
+                   "Value": "script:''fournisseurs''"
+                  }'
+          ↓BtnModeles [ngx.components.UIDynamicElement-1789133461634]: 
+            beanData: '{"ionBean":"Button","IonSize":"plain:small"}'
+            tagName: ion-button
+            ↓Fill [ngx.components.UIAttribute-1789133461636]: 
+              attrName: '[fill]'
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: 'script:local?.report === ''modeles'' ? ''solid'' : ''outline'''
+            ↓Text [ngx.components.UIText-1789133461638]: 
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:Modèles
+            ↓Click [ngx.components.UIControlEvent-1789133461640]: 
+              ↓SetReport [ngx.components.UIDynamicAction-1789133461642]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:report",
+                   "Value": "script:''modeles''"
+                  }'
+          ↓BtnCompMachine [ngx.components.UIDynamicElement-1789133461644]: 
+            beanData: '{"ionBean":"Button","IonSize":"plain:small"}'
+            tagName: ion-button
+            ↓Fill [ngx.components.UIAttribute-1789133461646]: 
+              attrName: '[fill]'
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: 'script:local?.report === ''composants_machine'' ? ''solid'' : ''outline'''
+            ↓Text [ngx.components.UIText-1789133461648]: 
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:Composants par machine
+            ↓Click [ngx.components.UIControlEvent-1789133461650]: 
+              ↓SetReport [ngx.components.UIDynamicAction-1789133461652]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:report",
+                   "Value": "script:''composants_machine''"
+                  }'
+          ↓BtnCompModele [ngx.components.UIDynamicElement-1789133461654]: 
+            beanData: '{"ionBean":"Button","IonSize":"plain:small"}'
+            tagName: ion-button
+            ↓Fill [ngx.components.UIAttribute-1789133461656]: 
+              attrName: '[fill]'
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: 'script:local?.report === ''composants_modele'' ? ''solid'' : ''outline'''
+            ↓Text [ngx.components.UIText-1789133461658]: 
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:Composants par modèle
+            ↓Click [ngx.components.UIControlEvent-1789133461660]: 
+              ↓SetReport [ngx.components.UIDynamicAction-1789133461662]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:report",
+                   "Value": "script:''composants_modele''"
+                  }'
+          ↓PrintButton [ngx.components.UIDynamicElement-1789133461664]: 
+            beanData: |
+              '{
+               "ionBean": "Button",
+               "IonColor": "plain:secondary",
+               "IonSize": "plain:small"
+              }'
+            tagName: ion-button
+            ↓Text [ngx.components.UIText-1789133461666]: 
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:Imprimer
+            ↓Click [ngx.components.UIControlEvent-1789133461668]: 
+              ↓Print [ngx.components.UICustomAction-1789133461670]: 
+                actionValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                    - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                      →: |
+                        		window.print();
+                        		resolve();
+                        
+                comment: 'Apercu puis impression : impression navigateur de l''etat affiche.'
+          ↓MachineParamIf [ngx.components.UIControlDirective-1789133461672]: 
+            directiveExpression: local?.report === 'composants_machine'
+            directiveName: If
+            ↓MachineSelect [ngx.components.UIDynamicElement-1789133462330]: 
+              beanData: |
+                '{
+                 "ionBean": "Select",
+                 "ControlName": "plain:name1789133462330",
+                 "CancelText": "plain:Annuler",
+                 "Interface": "plain:popover",
+                 "Label": "script:''Machine''",
+                 "LabelPlacement": "plain:stacked",
+                 "Placeholder": "script:''Toutes les machines''",
+                 "Value": "source:{\"filter\":\"Local\",\"project\":\"ParcInformatique\",\"input\":\"\",\"model\":{\"data\":[{\"localObject\":\"local\"}],\"path\":\"?.paramMachineId\",\"prefix\":\"\",\"suffix\":\"\",\"custom\":\"\",\"useCustom\":false}}"
+                }'
+              tagName: ion-select
+              ↓Class [ngx.components.UIAttribute-1789133462332]: 
+                attrName: class
+                attrValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:parc-select
+              ↓All [ngx.components.UIDynamicElement-1789133462334]: 
+                beanData: '{"ionBean":"SelectOption","Value":"script:''''"}'
+                tagName: ion-select-option
+                ↓Text [ngx.components.UIText-1789133462336]: 
+                  textValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: plain:Toutes les machines
+              ↓Loop [ngx.components.UIControlDirective-1789133462338]: 
+                directiveIndexName: idx
+                directiveItemName: option
+                directiveSource: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.machines","prefix":"","suffix":"","custom":"","useCustom":false}}
+                ↓Option [ngx.components.UIDynamicElement-1789133462340]: 
+                  beanData: '{"ionBean":"SelectOption","Value":"script:'''' + option.id"}'
+                  tagName: ion-select-option
+                  ↓Text [ngx.components.UIText-1789133462342]: 
+                    textValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: plain:{{ option.nom_machine }}
+              ↓Change [ngx.components.UIControlEvent-1789133462344]: 
+                attrName: (ionChange)
+                eventName: ionChange
+                ↓SetParam [ngx.components.UIDynamicAction-1789133462346]: 
+                  beanData: |
+                    '{
+                     "ionBean": "SetLocalAction",
+                     "Property": "plain:paramMachineId",
+                     "Value": "script:(parent.out && parent.out.detail && parent.out.detail.value != null) ? String(parent.out.detail.value) : ''''"
+                    }'
+                  ↓SetVisibleMachine [ngx.components.UIDynamicAction-1789133462600]: 
+                    beanData: |
+                      '{
+                       "ionBean": "SetLocalAction",
+                       "Property": "plain:visibleGroupsMachine",
+                       "Value": "script:(function (groups) { const out = []; let n = 0; groups.forEach(g => { out.push({ kind: ''group'', label: g.label + '' ('' + g.rows.length + '' composant'' + (g.rows.length > 1 ? ''s'' : '''') + '')'' }); g.rows.forEach(r => { n += 1; out.push(Object.assign({ kind: ''row'' }, r)); }); }); out.push({ kind: ''total'', label: ''Total : '' + n + '' composant'' + (n > 1 ? ''s'' : '''') }); return out; })((c8oPage.local?.groupsMachine || []).filter(g => !c8oPage.local?.paramMachineId || String(g.id) === String(c8oPage.local?.paramMachineId)))"
+                      }'
+          ↓ModeleParamIf [ngx.components.UIControlDirective-1789133462602]: 
+            directiveExpression: local?.report === 'composants_modele'
+            directiveName: If
+            ↓ModeleSelect [ngx.components.UIDynamicElement-1789133462604]: 
+              beanData: |
+                '{
+                 "ionBean": "Select",
+                 "ControlName": "plain:name1789133462604",
+                 "CancelText": "plain:Annuler",
+                 "Interface": "plain:popover",
+                 "Label": "script:''Modèle''",
+                 "LabelPlacement": "plain:stacked",
+                 "Placeholder": "script:''Tous les modèles''",
+                 "Value": "source:{\"filter\":\"Local\",\"project\":\"ParcInformatique\",\"input\":\"\",\"model\":{\"data\":[{\"localObject\":\"local\"}],\"path\":\"?.paramModeleId\",\"prefix\":\"\",\"suffix\":\"\",\"custom\":\"\",\"useCustom\":false}}"
+                }'
+              tagName: ion-select
+              ↓Class [ngx.components.UIAttribute-1789133462606]: 
+                attrName: class
+                attrValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:parc-select
+              ↓All [ngx.components.UIDynamicElement-1789133462608]: 
+                beanData: '{"ionBean":"SelectOption","Value":"script:''''"}'
+                tagName: ion-select-option
+                ↓Text [ngx.components.UIText-1789133462610]: 
+                  textValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: plain:Tous les modèles
+              ↓Loop [ngx.components.UIControlDirective-1789133462612]: 
+                directiveIndexName: idx
+                directiveItemName: option
+                directiveSource: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.modeles","prefix":"","suffix":"","custom":"","useCustom":false}}
+                ↓Option [ngx.components.UIDynamicElement-1789133462614]: 
+                  beanData: '{"ionBean":"SelectOption","Value":"script:'''' + option.id"}'
+                  tagName: ion-select-option
+                  ↓Text [ngx.components.UIText-1789133462616]: 
+                    textValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: plain:{{ option.type_modele }} {{ option.nom_modele }} ({{ option.marque }})
+              ↓Change [ngx.components.UIControlEvent-1789133462618]: 
+                attrName: (ionChange)
+                eventName: ionChange
+                ↓SetParam [ngx.components.UIDynamicAction-1789133462620]: 
+                  beanData: |
+                    '{
+                     "ionBean": "SetLocalAction",
+                     "Property": "plain:paramModeleId",
+                     "Value": "script:(parent.out && parent.out.detail && parent.out.detail.value != null) ? String(parent.out.detail.value) : ''''"
+                    }'
+                  ↓SetVisibleModele [ngx.components.UIDynamicAction-1789133462622]: 
+                    beanData: |
+                      '{
+                       "ionBean": "SetLocalAction",
+                       "Property": "plain:visibleGroupsModele",
+                       "Value": "script:(function (groups) { const out = []; let n = 0; groups.forEach(g => { out.push({ kind: ''group'', label: g.label + '' ('' + g.rows.length + '' composant'' + (g.rows.length > 1 ? ''s'' : '''') + '')'' }); g.rows.forEach(r => { n += 1; out.push(Object.assign({ kind: ''row'' }, r)); }); }); out.push({ kind: ''total'', label: ''Total : '' + n + '' composant'' + (n > 1 ? ''s'' : '''') }); return out; })((c8oPage.local?.groupsModele || []).filter(g => !c8oPage.local?.paramModeleId || String(g.id) === String(c8oPage.local?.paramModeleId)))"
+                      }'
+    ↓ReportRow [ngx.components.UIDynamicElement-1789133156972]: 
+      beanData: '{"ionBean":"GridRow"}'
+      tagName: ion-row
+      ↓ReportCol [ngx.components.UIDynamicElement-1789133156974]: 
+        beanData: '{"ionBean":"GridCol"}'
+        tagName: ion-col
+        ↓ReportDiv [ngx.components.UIDynamicElement-1789133156976]: 
+          beanData: '{"ionBean":"DivTag"}'
+          tagName: div
+          ↓Class [ngx.components.UIAttribute-1789133156978]: 
+            attrName: class
+            attrValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: plain:parc-report
+          ↓MachinesIf [ngx.components.UIControlDirective-1789133595069]: 
+            directiveExpression: local?.report === 'machines'
+            directiveName: If
+            ↓Block [ngx.components.UIDynamicElement-1789133595727]: 
+              beanData: '{"ionBean":"DivTag"}'
+              tagName: div
+              ↓H2 [ngx.components.UIDynamicElement-1789133595729]: 
+                beanData: '{"ionBean":"Heading2"}'
+                tagName: h2
+                ↓Text [ngx.components.UIText-1789133595731]: 
+                  textValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: plain:État des machines
+              ↓Table [ngx.components.UIElement-1789133595733]: 
+                tagName: table
+                ↓Class [ngx.components.UIAttribute-1789133596391]: 
+                  attrName: class
+                  attrValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: plain:parc-table
+                ↓Thead [ngx.components.UIElement-1789133596393]: 
+                  tagName: thead
+                  ↓Tr [ngx.components.UIElement-1789133596395]: 
+                    tagName: tr
+                    ↓Th1 [ngx.components.UIElement-1789133596397]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133596399]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Machine
+                    ↓Th2 [ngx.components.UIElement-1789133596401]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133596403]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Emplacement
+                    ↓Th3 [ngx.components.UIElement-1789133596405]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133596407]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Utilisateur
+                    ↓Th4 [ngx.components.UIElement-1789133596409]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133596411]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Adresse IP
+                ↓Tbody [ngx.components.UIElement-1789133596413]: 
+                  tagName: tbody
+                  ↓Loop [ngx.components.UIControlDirective-1789133596415]: 
+                    directiveIndexName: idx
+                    directiveItemName: row
+                    directiveSource: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.machines","prefix":"","suffix":"","custom":"","useCustom":false}}
+                    ↓Tr [ngx.components.UIElement-1789133596417]: 
+                      tagName: tr
+                      ↓Td1 [ngx.components.UIElement-1789133596419]: 
+                        tagName: td
+                        ↓Text [ngx.components.UIText-1789133596421]: 
+                          textValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: plain:{{ row.nom_machine }}
+                      ↓Td2 [ngx.components.UIElement-1789133596423]: 
+                        tagName: td
+                        ↓Text [ngx.components.UIText-1789133596425]: 
+                          textValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: plain:{{ row.emplacement_id__label }}
+                      ↓Td3 [ngx.components.UIElement-1789133596427]: 
+                        tagName: td
+                        ↓Text [ngx.components.UIText-1789133596429]: 
+                          textValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: plain:{{ row.utilisateur_id__label }}
+                      ↓Td4 [ngx.components.UIElement-1789133596431]: 
+                        tagName: td
+                        ↓Text [ngx.components.UIText-1789133596433]: 
+                          textValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: plain:{{ row.adresse_ip }}
+              ↓Total [ngx.components.UIDynamicElement-1789133596435]: 
+                beanData: '{"ionBean":"Paragraph"}'
+                tagName: p
+                ↓Class [ngx.components.UIAttribute-1789133596437]: 
+                  attrName: class
+                  attrValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: plain:parc-total
+                ↓Text [ngx.components.UIText-1789133596439]: 
+                  textValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: 'plain:Total : {{ local?.machines?.length || 0 }} machine(s)'
+          ↓UtilisateursIf [ngx.components.UIControlDirective-1789133610019]: 
+            directiveExpression: local?.report === 'utilisateurs'
+            directiveName: If
+            ↓Block [ngx.components.UIDynamicElement-1789133610677]: 
+              beanData: '{"ionBean":"DivTag"}'
+              tagName: div
+              ↓H2 [ngx.components.UIDynamicElement-1789133610679]: 
+                beanData: '{"ionBean":"Heading2"}'
+                tagName: h2
+                ↓Text [ngx.components.UIText-1789133610681]: 
+                  textValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: plain:État des utilisateurs
+              ↓Table [ngx.components.UIElement-1789133610683]: 
+                tagName: table
+                ↓Class [ngx.components.UIAttribute-1789133611341]: 
+                  attrName: class
+                  attrValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: plain:parc-table
+                ↓Thead [ngx.components.UIElement-1789133611343]: 
+                  tagName: thead
+                  ↓Tr [ngx.components.UIElement-1789133611345]: 
+                    tagName: tr
+                    ↓Th1 [ngx.components.UIElement-1789133611347]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133611349]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Utilisateur
+                    ↓Th2 [ngx.components.UIElement-1789133611351]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133611353]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Téléphone
+                    ↓Th3 [ngx.components.UIElement-1789133611355]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133611357]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Nom complet
+                ↓Tbody [ngx.components.UIElement-1789133611359]: 
+                  tagName: tbody
+                  ↓Loop [ngx.components.UIControlDirective-1789133611361]: 
+                    directiveIndexName: idx
+                    directiveItemName: row
+                    directiveSource: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.utilisateurs","prefix":"","suffix":"","custom":"","useCustom":false}}
+                    ↓Tr [ngx.components.UIElement-1789133611363]: 
+                      tagName: tr
+                      ↓Td1 [ngx.components.UIElement-1789133611365]: 
+                        tagName: td
+                        ↓Text [ngx.components.UIText-1789133611367]: 
+                          textValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: plain:{{ row.initiales }}
+                      ↓Td2 [ngx.components.UIElement-1789133611369]: 
+                        tagName: td
+                        ↓Text [ngx.components.UIText-1789133611371]: 
+                          textValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: plain:{{ row.tel }}
+                      ↓Td3 [ngx.components.UIElement-1789133611373]: 
+                        tagName: td
+                        ↓Text [ngx.components.UIText-1789133611375]: 
+                          textValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: plain:{{ row.nom_complet }}
+              ↓Total [ngx.components.UIDynamicElement-1789133611377]: 
+                beanData: '{"ionBean":"Paragraph"}'
+                tagName: p
+                ↓Class [ngx.components.UIAttribute-1789133611379]: 
+                  attrName: class
+                  attrValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: plain:parc-total
+                ↓Text [ngx.components.UIText-1789133611381]: 
+                  textValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: 'plain:Total : {{ local?.utilisateurs?.length || 0 }} utilisateur(s)'
+          ↓FournisseursIf [ngx.components.UIControlDirective-1789133627258]: 
+            directiveExpression: local?.report === 'fournisseurs'
+            directiveName: If
+            ↓Block [ngx.components.UIDynamicElement-1789133627916]: 
+              beanData: '{"ionBean":"DivTag"}'
+              tagName: div
+              ↓H2 [ngx.components.UIDynamicElement-1789133627918]: 
+                beanData: '{"ionBean":"Heading2"}'
+                tagName: h2
+                ↓Text [ngx.components.UIText-1789133627920]: 
+                  textValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: plain:État des fournisseurs
+              ↓Table [ngx.components.UIElement-1789133627922]: 
+                tagName: table
+                ↓Class [ngx.components.UIAttribute-1789133628580]: 
+                  attrName: class
+                  attrValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: plain:parc-table
+                ↓Thead [ngx.components.UIElement-1789133628582]: 
+                  tagName: thead
+                  ↓Tr [ngx.components.UIElement-1789133628584]: 
+                    tagName: tr
+                    ↓Th1 [ngx.components.UIElement-1789133628586]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133628588]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Nom
+                    ↓Th2 [ngx.components.UIElement-1789133628590]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133628592]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Adresse
+                    ↓Th3 [ngx.components.UIElement-1789133628594]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133628596]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Téléphone
+                    ↓Th4 [ngx.components.UIElement-1789133628598]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133628600]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Tél. SAV
+                    ↓Th5 [ngx.components.UIElement-1789133628602]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133628604]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Fax
+                ↓Tbody [ngx.components.UIElement-1789133628606]: 
+                  tagName: tbody
+                  ↓Loop [ngx.components.UIControlDirective-1789133628608]: 
+                    directiveIndexName: idx
+                    directiveItemName: row
+                    directiveSource: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.fournisseurs","prefix":"","suffix":"","custom":"","useCustom":false}}
+                    ↓Tr [ngx.components.UIElement-1789133628610]: 
+                      tagName: tr
+                      ↓Td1 [ngx.components.UIElement-1789133628612]: 
+                        tagName: td
+                        ↓Text [ngx.components.UIText-1789133628614]: 
+                          textValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: plain:{{ row.nom }}
+                      ↓Td2 [ngx.components.UIElement-1789133628616]: 
+                        tagName: td
+                        ↓Text [ngx.components.UIText-1789133628618]: 
+                          textValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: plain:{{ row.adresse }}
+                      ↓Td3 [ngx.components.UIElement-1789133628620]: 
+                        tagName: td
+                        ↓Text [ngx.components.UIText-1789133628622]: 
+                          textValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: plain:{{ row.tel }}
+                      ↓Td4 [ngx.components.UIElement-1789133628624]: 
+                        tagName: td
+                        ↓Text [ngx.components.UIText-1789133628626]: 
+                          textValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: plain:{{ row.tel_sav }}
+                      ↓Td5 [ngx.components.UIElement-1789133628628]: 
+                        tagName: td
+                        ↓Text [ngx.components.UIText-1789133628630]: 
+                          textValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: plain:{{ row.fax }}
+              ↓Total [ngx.components.UIDynamicElement-1789133628632]: 
+                beanData: '{"ionBean":"Paragraph"}'
+                tagName: p
+                ↓Class [ngx.components.UIAttribute-1789133628634]: 
+                  attrName: class
+                  attrValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: plain:parc-total
+                ↓Text [ngx.components.UIText-1789133628636]: 
+                  textValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: 'plain:Total : {{ local?.fournisseurs?.length || 0 }} fournisseur(s)'
+          ↓ModelesIf [ngx.components.UIControlDirective-1789133652730]: 
+            directiveExpression: local?.report === 'modeles'
+            directiveName: If
+            ↓Block [ngx.components.UIDynamicElement-1789133653388]: 
+              beanData: '{"ionBean":"DivTag"}'
+              tagName: div
+              ↓H2 [ngx.components.UIDynamicElement-1789133653390]: 
+                beanData: '{"ionBean":"Heading2"}'
+                tagName: h2
+                ↓Text [ngx.components.UIText-1789133653392]: 
+                  textValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: plain:État des modèles de composants
+              ↓Table [ngx.components.UIElement-1789133653394]: 
+                tagName: table
+                ↓Class [ngx.components.UIAttribute-1789133654052]: 
+                  attrName: class
+                  attrValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: plain:parc-table
+                ↓Thead [ngx.components.UIElement-1789133654054]: 
+                  tagName: thead
+                  ↓Tr [ngx.components.UIElement-1789133654056]: 
+                    tagName: tr
+                    ↓Th1 [ngx.components.UIElement-1789133654058]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133654060]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Type
+                    ↓Th2 [ngx.components.UIElement-1789133654062]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133654064]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Nom
+                    ↓Th3 [ngx.components.UIElement-1789133654066]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133654068]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Marque
+                    ↓Th4 [ngx.components.UIElement-1789133654070]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133654072]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Caractéristique 1
+                    ↓Th5 [ngx.components.UIElement-1789133654074]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133654076]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Caractéristique 2
+                    ↓Th6 [ngx.components.UIElement-1789133654078]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133654080]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Caractéristique 3
+                    ↓Th7 [ngx.components.UIElement-1789133654082]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133654084]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Caractéristique 4
+                    ↓Th8 [ngx.components.UIElement-1789133654086]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133654088]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Commentaire
+                ↓Tbody [ngx.components.UIElement-1789133654090]: 
+                  tagName: tbody
+                  ↓Loop [ngx.components.UIControlDirective-1789133654092]: 
+                    directiveIndexName: idx
+                    directiveItemName: row
+                    directiveSource: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.modeles","prefix":"","suffix":"","custom":"","useCustom":false}}
+                    ↓Tr [ngx.components.UIElement-1789133654094]: 
+                      tagName: tr
+                      ↓Td1 [ngx.components.UIElement-1789133654096]: 
+                        tagName: td
+                        ↓Text [ngx.components.UIText-1789133654098]: 
+                          textValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: plain:{{ row.type_modele }}
+                      ↓Td2 [ngx.components.UIElement-1789133654100]: 
+                        tagName: td
+                        ↓Text [ngx.components.UIText-1789133654102]: 
+                          textValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: plain:{{ row.nom_modele }}
+                      ↓Td3 [ngx.components.UIElement-1789133654104]: 
+                        tagName: td
+                        ↓Text [ngx.components.UIText-1789133654106]: 
+                          textValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: plain:{{ row.marque }}
+                      ↓Td4 [ngx.components.UIElement-1789133654108]: 
+                        tagName: td
+                        ↓Text [ngx.components.UIText-1789133654110]: 
+                          textValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: 'plain:{{ row.caracteristique1 ? (row.caracteristique1 + '' : '' + (row.valeur1 || ''-'')) : '''' }}'
+                      ↓Td5 [ngx.components.UIElement-1789133654112]: 
+                        tagName: td
+                        ↓Text [ngx.components.UIText-1789133654114]: 
+                          textValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: 'plain:{{ row.caracteristique2 ? (row.caracteristique2 + '' : '' + (row.valeur2 || ''-'')) : '''' }}'
+                      ↓Td6 [ngx.components.UIElement-1789133654116]: 
+                        tagName: td
+                        ↓Text [ngx.components.UIText-1789133654118]: 
+                          textValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: 'plain:{{ row.caracteristique3 ? (row.caracteristique3 + '' : '' + (row.valeur3 || ''-'')) : '''' }}'
+                      ↓Td7 [ngx.components.UIElement-1789133654120]: 
+                        tagName: td
+                        ↓Text [ngx.components.UIText-1789133654122]: 
+                          textValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: 'plain:{{ row.caracteristique4 ? (row.caracteristique4 + '' : '' + (row.valeur4 || ''-'')) : '''' }}'
+                      ↓Td8 [ngx.components.UIElement-1789133654124]: 
+                        tagName: td
+                        ↓Text [ngx.components.UIText-1789133654126]: 
+                          textValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: plain:{{ row.commentaire }}
+              ↓Total [ngx.components.UIDynamicElement-1789133654128]: 
+                beanData: '{"ionBean":"Paragraph"}'
+                tagName: p
+                ↓Class [ngx.components.UIAttribute-1789133654130]: 
+                  attrName: class
+                  attrValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: plain:parc-total
+                ↓Text [ngx.components.UIText-1789133654132]: 
+                  textValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: 'plain:Total : {{ local?.modeles?.length || 0 }} modèle(s)'
+          ↓CompMachineIf [ngx.components.UIControlDirective-1789133666913]: 
+            directiveExpression: local?.report === 'composants_machine'
+            directiveName: If
+            ↓Block [ngx.components.UIDynamicElement-1789133667571]: 
+              beanData: '{"ionBean":"DivTag"}'
+              tagName: div
+              ↓H2 [ngx.components.UIDynamicElement-1789133667573]: 
+                beanData: '{"ionBean":"Heading2"}'
+                tagName: h2
+                ↓Text [ngx.components.UIText-1789133667575]: 
+                  textValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: plain:État des composants par machine
+              ↓Table [ngx.components.UIElement-1789133667577]: 
+                tagName: table
+                ↓Class [ngx.components.UIAttribute-1789133668235]: 
+                  attrName: class
+                  attrValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: plain:parc-table
+                ↓Thead [ngx.components.UIElement-1789133668237]: 
+                  tagName: thead
+                  ↓Tr [ngx.components.UIElement-1789133668239]: 
+                    tagName: tr
+                    ↓Th1 [ngx.components.UIElement-1789133668241]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133668243]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Type
+                    ↓Th2 [ngx.components.UIElement-1789133668245]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133668247]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Marque
+                    ↓Th3 [ngx.components.UIElement-1789133668249]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133668251]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Modèle
+                    ↓Th4 [ngx.components.UIElement-1789133668253]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133668255]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:N° série
+                    ↓Th5 [ngx.components.UIElement-1789133668257]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133668259]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Date achat
+                    ↓Th6 [ngx.components.UIElement-1789133668261]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133668263]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Garantie
+                    ↓Th7 [ngx.components.UIElement-1789133668265]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133668267]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:N° retour
+                    ↓Th8 [ngx.components.UIElement-1789133668269]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133668271]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Date retour
+                    ↓Th9 [ngx.components.UIElement-1789133668273]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133668275]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Date renvoi
+                    ↓Th10 [ngx.components.UIElement-1789133668277]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133668279]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Fournisseur
+                    ↓Th11 [ngx.components.UIElement-1789133668281]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133668283]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Caractéristiques
+                ↓Tbody [ngx.components.UIElement-1789133720984]: 
+                  tagName: tbody
+                  ↓Loop [ngx.components.UIControlDirective-1789133720986]: 
+                    directiveIndexName: idx
+                    directiveItemName: item
+                    directiveSource: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.visibleGroupsMachine","prefix":"","suffix":"","custom":"","useCustom":false}}
+                    ↓GroupIf [ngx.components.UIControlDirective-1789133721644]: 
+                      directiveExpression: item.kind === 'group'
+                      directiveName: If
+                      ↓Tr [ngx.components.UIElement-1789133721646]: 
+                        tagName: tr
+                        ↓Class [ngx.components.UIAttribute-1789133721648]: 
+                          attrName: class
+                          attrValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: plain:parc-group-row
+                        ↓Td [ngx.components.UIElement-1789133721650]: 
+                          tagName: td
+                          ↓Colspan [ngx.components.UIAttribute-1789133721652]: 
+                            attrName: colspan
+                            attrValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:11
+                          ↓Text [ngx.components.UIText-1789133721654]: 
+                            textValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:{{ item.label }}
+                    ↓RowIf [ngx.components.UIControlDirective-1789133721656]: 
+                      directiveExpression: item.kind === 'row'
+                      directiveName: If
+                      ↓Tr [ngx.components.UIElement-1789133721658]: 
+                        tagName: tr
+                        ↓Td1 [ngx.components.UIElement-1789133721660]: 
+                          tagName: td
+                          ↓Text [ngx.components.UIText-1789133721662]: 
+                            textValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:{{ item.type_modele }}
+                        ↓Td2 [ngx.components.UIElement-1789133721664]: 
+                          tagName: td
+                          ↓Text [ngx.components.UIText-1789133721666]: 
+                            textValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:{{ item.marque }}
+                        ↓Td3 [ngx.components.UIElement-1789133721668]: 
+                          tagName: td
+                          ↓Text [ngx.components.UIText-1789133721670]: 
+                            textValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:{{ item.nom_modele }}
+                        ↓Td4 [ngx.components.UIElement-1789133721672]: 
+                          tagName: td
+                          ↓Text [ngx.components.UIText-1789133721674]: 
+                            textValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:{{ item.n_serie }}
+                        ↓Td5 [ngx.components.UIElement-1789133721676]: 
+                          tagName: td
+                          ↓Text [ngx.components.UIText-1789133721678]: 
+                            textValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:{{ item.date_achat }}
+                        ↓Td6 [ngx.components.UIElement-1789133721680]: 
+                          tagName: td
+                          ↓Text [ngx.components.UIText-1789133721682]: 
+                            textValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:{{ item.garantie }}
+                        ↓Td7 [ngx.components.UIElement-1789133721684]: 
+                          tagName: td
+                          ↓Text [ngx.components.UIText-1789133721686]: 
+                            textValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:{{ item.num_retour }}
+                        ↓Td8 [ngx.components.UIElement-1789133721688]: 
+                          tagName: td
+                          ↓Text [ngx.components.UIText-1789133721690]: 
+                            textValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:{{ item.date_retour }}
+                        ↓Td9 [ngx.components.UIElement-1789133721692]: 
+                          tagName: td
+                          ↓Text [ngx.components.UIText-1789133721694]: 
+                            textValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:{{ item.date_renvoi }}
+                        ↓Td10 [ngx.components.UIElement-1789133721696]: 
+                          tagName: td
+                          ↓Text [ngx.components.UIText-1789133721698]: 
+                            textValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:{{ item.fournisseur_label }}
+                        ↓Td11 [ngx.components.UIElement-1789133721700]: 
+                          tagName: td
+                          ↓Text [ngx.components.UIText-1789133721702]: 
+                            textValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:{{ item.caracs }}
+                    ↓TotalIf [ngx.components.UIControlDirective-1789133721704]: 
+                      directiveExpression: item.kind === 'total'
+                      directiveName: If
+                      ↓Tr [ngx.components.UIElement-1789133721706]: 
+                        tagName: tr
+                        ↓Class [ngx.components.UIAttribute-1789133721708]: 
+                          attrName: class
+                          attrValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: plain:parc-total-row
+                        ↓Td [ngx.components.UIElement-1789133721710]: 
+                          tagName: td
+                          ↓Colspan [ngx.components.UIAttribute-1789133721712]: 
+                            attrName: colspan
+                            attrValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:11
+                          ↓Text [ngx.components.UIText-1789133721714]: 
+                            textValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:{{ item.label }}
+          ↓CompModeleIf [ngx.components.UIControlDirective-1789133681412]: 
+            directiveExpression: local?.report === 'composants_modele'
+            directiveName: If
+            ↓Block [ngx.components.UIDynamicElement-1789133682070]: 
+              beanData: '{"ionBean":"DivTag"}'
+              tagName: div
+              ↓H2 [ngx.components.UIDynamicElement-1789133682072]: 
+                beanData: '{"ionBean":"Heading2"}'
+                tagName: h2
+                ↓Text [ngx.components.UIText-1789133682074]: 
+                  textValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: plain:État des composants par modèle
+              ↓Table [ngx.components.UIElement-1789133682076]: 
+                tagName: table
+                ↓Class [ngx.components.UIAttribute-1789133682734]: 
+                  attrName: class
+                  attrValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: plain:parc-table
+                ↓Thead [ngx.components.UIElement-1789133682736]: 
+                  tagName: thead
+                  ↓Tr [ngx.components.UIElement-1789133682738]: 
+                    tagName: tr
+                    ↓Th1 [ngx.components.UIElement-1789133682740]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133682742]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:N° série
+                    ↓Th2 [ngx.components.UIElement-1789133682744]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133682746]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Machine
+                    ↓Th3 [ngx.components.UIElement-1789133682748]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133682750]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Date achat
+                    ↓Th4 [ngx.components.UIElement-1789133682752]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133682754]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Garantie
+                    ↓Th5 [ngx.components.UIElement-1789133682756]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133682758]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:N° retour
+                    ↓Th6 [ngx.components.UIElement-1789133682760]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133682762]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Date retour
+                    ↓Th7 [ngx.components.UIElement-1789133682764]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133682766]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Date renvoi
+                    ↓Th8 [ngx.components.UIElement-1789133682768]: 
+                      tagName: th
+                      ↓Text [ngx.components.UIText-1789133682770]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Fournisseur
+                ↓Tbody [ngx.components.UIElement-1789133739259]: 
+                  tagName: tbody
+                  ↓Loop [ngx.components.UIControlDirective-1789133739261]: 
+                    directiveIndexName: idx
+                    directiveItemName: item
+                    directiveSource: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: source:{"filter":"Local","project":"ParcInformatique","input":"","model":{"data":[{"localObject":"local"}],"path":"?.visibleGroupsModele","prefix":"","suffix":"","custom":"","useCustom":false}}
+                    ↓GroupIf [ngx.components.UIControlDirective-1789133739919]: 
+                      directiveExpression: item.kind === 'group'
+                      directiveName: If
+                      ↓Tr [ngx.components.UIElement-1789133739921]: 
+                        tagName: tr
+                        ↓Class [ngx.components.UIAttribute-1789133739923]: 
+                          attrName: class
+                          attrValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: plain:parc-group-row
+                        ↓Td [ngx.components.UIElement-1789133739925]: 
+                          tagName: td
+                          ↓Colspan [ngx.components.UIAttribute-1789133739927]: 
+                            attrName: colspan
+                            attrValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:8
+                          ↓Text [ngx.components.UIText-1789133739929]: 
+                            textValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:{{ item.label }}
+                    ↓RowIf [ngx.components.UIControlDirective-1789133739931]: 
+                      directiveExpression: item.kind === 'row'
+                      directiveName: If
+                      ↓Tr [ngx.components.UIElement-1789133739933]: 
+                        tagName: tr
+                        ↓Td1 [ngx.components.UIElement-1789133739935]: 
+                          tagName: td
+                          ↓Text [ngx.components.UIText-1789133739937]: 
+                            textValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:{{ item.n_serie }}
+                        ↓Td2 [ngx.components.UIElement-1789133739939]: 
+                          tagName: td
+                          ↓Text [ngx.components.UIText-1789133739941]: 
+                            textValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:{{ item.machine_label }}
+                        ↓Td3 [ngx.components.UIElement-1789133739943]: 
+                          tagName: td
+                          ↓Text [ngx.components.UIText-1789133739945]: 
+                            textValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:{{ item.date_achat }}
+                        ↓Td4 [ngx.components.UIElement-1789133739947]: 
+                          tagName: td
+                          ↓Text [ngx.components.UIText-1789133739949]: 
+                            textValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:{{ item.garantie }}
+                        ↓Td5 [ngx.components.UIElement-1789133739951]: 
+                          tagName: td
+                          ↓Text [ngx.components.UIText-1789133739953]: 
+                            textValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:{{ item.num_retour }}
+                        ↓Td6 [ngx.components.UIElement-1789133739955]: 
+                          tagName: td
+                          ↓Text [ngx.components.UIText-1789133739957]: 
+                            textValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:{{ item.date_retour }}
+                        ↓Td7 [ngx.components.UIElement-1789133739959]: 
+                          tagName: td
+                          ↓Text [ngx.components.UIText-1789133739961]: 
+                            textValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:{{ item.date_renvoi }}
+                        ↓Td8 [ngx.components.UIElement-1789133739963]: 
+                          tagName: td
+                          ↓Text [ngx.components.UIText-1789133739965]: 
+                            textValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:{{ item.fournisseur_label }}
+                    ↓TotalIf [ngx.components.UIControlDirective-1789133739967]: 
+                      directiveExpression: item.kind === 'total'
+                      directiveName: If
+                      ↓Tr [ngx.components.UIElement-1789133739969]: 
+                        tagName: tr
+                        ↓Class [ngx.components.UIAttribute-1789133739971]: 
+                          attrName: class
+                          attrValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: plain:parc-total-row
+                        ↓Td [ngx.components.UIElement-1789133739973]: 
+                          tagName: td
+                          ↓Colspan [ngx.components.UIAttribute-1789133739975]: 
+                            attrName: colspan
+                            attrValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:8
+                          ↓Text [ngx.components.UIText-1789133739977]: 
+                            textValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: plain:{{ item.label }}
+  ↓PageStyle [ngx.components.UIStyle-1789133156980]: 
+    styleContent: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+        - com.twinsoft.convertigo.beans.common.FormatedContent: 
+          →: |
+            '.parc-report { background: #ffffff; color: #0f1f3d; border: 1px solid var(--parc-border, #d5e0f2); border-radius: 12px; padding: 1.25rem 1.5rem; box-shadow: var(--parc-shadow); }
+            .parc-report h2 { font: 700 18px/1.3 var(--ion-font-family, sans-serif); color: #0b2a6f; margin: 12px 0 8px; padding-bottom: 6px; border-bottom: 2px solid #bfdbfe; }
+            .parc-report h3 { font: 700 14px/1.3 var(--ion-font-family, sans-serif); color: #1d4ed8; margin: 14px 0 4px; }
+            .parc-report .parc-table { width: 100%; border-collapse: collapse; font-size: 12px; color: #0f1f3d; }
+            .parc-report .parc-table th, .parc-report .parc-table td { border: 1px solid #d5e0f2; padding: 4px 6px; text-align: left; vertical-align: top; position: static; }
+            .parc-report .parc-table th { background: #eff6ff; color: #0b2a6f; text-transform: none; letter-spacing: 0; font-size: 12px; }
+            .parc-report .parc-group-row td { background: #dbeafe; color: #0b2a6f; font-weight: 600; }
+            .parc-report .parc-total-row td { font-weight: 700; background: #f4f7fd; border-top: 2px solid #bfdbfe; }
+            .parc-total { font-weight: 700; color: #0b2a6f; margin: 6px 0 12px 4px; }
+            .parc-select { max-width: 360px; }
+            '
+↓PageEvent [ngx.components.UIPageEvent-1789133156982]: 
+  comment: Lit l'etat demande (global parcReport) puis charge toutes les donnees necessaires aux etats.
+  viewEvent: onWillLoad
+  ↓InitReport [ngx.components.UIDynamicAction-1789133157228]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:report",
+       "Value": "script:c8oPage.global?.parcReport || ''machines''"
+      }'
+  ↓InitParamMachine [ngx.components.UIDynamicAction-1789133157230]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:paramMachineId",
+       "Value": "script:(c8oPage.global?.parcReport === ''composants_machine'' && c8oPage.global?.parcReportId) ? String(c8oPage.global.parcReportId) : ''''"
+      }'
+  ↓InitParamModele [ngx.components.UIDynamicAction-1789133157232]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:paramModeleId",
+       "Value": "script:(c8oPage.global?.parcReport === ''composants_modele'' && c8oPage.global?.parcReportId) ? String(c8oPage.global.parcReportId) : ''''"
+      }'
+  ↓InitMachines [ngx.components.UIDynamicAction-1789133157234]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:machines",
+       "Value": "script:[]"
+      }'
+  ↓InitUtilisateurs [ngx.components.UIDynamicAction-1789133157236]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:utilisateurs",
+       "Value": "script:[]"
+      }'
+  ↓InitFournisseurs [ngx.components.UIDynamicAction-1789133157238]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:fournisseurs",
+       "Value": "script:[]"
+      }'
+  ↓InitModeles [ngx.components.UIDynamicAction-1789133157240]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:modeles",
+       "Value": "script:[]"
+      }'
+  ↓InitModeleMap [ngx.components.UIDynamicAction-1789133157242]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:modeleMap",
+       "Value": "script:({})"
+      }'
+  ↓InitComposants [ngx.components.UIDynamicAction-1789133157244]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:composants",
+       "Value": "script:[]"
+      }'
+  ↓InitCompRows [ngx.components.UIDynamicAction-1789133157246]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:compRows",
+       "Value": "script:[]"
+      }'
+  ↓InitGroupsMachine [ngx.components.UIDynamicAction-1789133157248]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:groupsMachine",
+       "Value": "script:[]"
+      }'
+  ↓InitGroupsModele [ngx.components.UIDynamicAction-1789133157250]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:groupsModele",
+       "Value": "script:[]"
+      }'
+  ↓InitVisibleMachine [ngx.components.UIDynamicAction-1789133157252]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:visibleGroupsMachine",
+       "Value": "script:[]"
+      }'
+  ↓InitVisibleModele [ngx.components.UIDynamicAction-1789133157254]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:visibleGroupsModele",
+       "Value": "script:[]"
+      }'
+  ↓InvokeEnsureSession [ngx.components.UIDynamicInvoke-1789133157256]: 
+    beanData: '{"ionBean":"InvokeAction"}'
+    stack: ParcInformatique.Application.NgxApp.crud_ensure_session
+    ↓LoadMachines [ngx.components.UIDynamicAction-1789133157510]: 
+      beanData: |
+        '{
+         "ionBean": "CallSequenceAction",
+         "requestable": "plain:ParcInformatique.parc_list_machines",
+         "noLoading": "plain:true"
+        }'
+      ↓SetMachines [ngx.components.UIDynamicAction-1789133157764]: 
+        beanData: |
+          '{
+           "ionBean": "SetLocalAction",
+           "Property": "plain:machines",
+           "Value": "script:(out.rows || []).slice().sort((a, b) => String(a.nom_machine || '''').localeCompare(String(b.nom_machine || '''')))"
+          }'
+    ↓LoadUtilisateurs [ngx.components.UIDynamicAction-1789133157766]: 
+      beanData: |
+        '{
+         "ionBean": "CallSequenceAction",
+         "requestable": "plain:ParcInformatique.parc_list_utilisateurs",
+         "noLoading": "plain:true"
+        }'
+      ↓SetUtilisateurs [ngx.components.UIDynamicAction-1789133157768]: 
+        beanData: |
+          '{
+           "ionBean": "SetLocalAction",
+           "Property": "plain:utilisateurs",
+           "Value": "script:(out.rows || []).slice().sort((a, b) => String(a.initiales || '''').localeCompare(String(b.initiales || '''')))"
+          }'
+    ↓LoadFournisseurs [ngx.components.UIDynamicAction-1789133157770]: 
+      beanData: |
+        '{
+         "ionBean": "CallSequenceAction",
+         "requestable": "plain:ParcInformatique.parc_list_fournisseurs",
+         "noLoading": "plain:true"
+        }'
+      ↓SetFournisseurs [ngx.components.UIDynamicAction-1789133157772]: 
+        beanData: |
+          '{
+           "ionBean": "SetLocalAction",
+           "Property": "plain:fournisseurs",
+           "Value": "script:(out.rows || []).slice().sort((a, b) => String(a.nom || '''').localeCompare(String(b.nom || '''')))"
+          }'
+    ↓LoadModeles [ngx.components.UIDynamicAction-1789133157774]: 
+      beanData: |
+        '{
+         "ionBean": "CallSequenceAction",
+         "requestable": "plain:ParcInformatique.parc_list_modeles",
+         "noLoading": "plain:true"
+        }'
+      ↓SetModeles [ngx.components.UIDynamicAction-1789133157776]: 
+        beanData: |
+          '{
+           "ionBean": "SetLocalAction",
+           "Property": "plain:modeles",
+           "Value": "script:(out.rows || []).slice().sort((a, b) => String(a.type_modele || '''').localeCompare(String(b.type_modele || '''')) || String(a.nom_modele || '''').localeCompare(String(b.nom_modele || '''')))"
+          }'
+        ↓SetModeleMap [ngx.components.UIDynamicAction-1789133157778]: 
+          beanData: |
+            '{
+             "ionBean": "SetLocalAction",
+             "Property": "plain:modeleMap",
+             "Value": "script:(function (rows) { const m = {}; rows.forEach(r => { m[String(r.id)] = r; }); return m; })(c8oPage.local?.modeles || [])"
+            }'
+          ↓LoadComposants [ngx.components.UIDynamicAction-1789133157780]: 
+            beanData: |
+              '{
+               "ionBean": "CallSequenceAction",
+               "requestable": "plain:ParcInformatique.parc_list_composants",
+               "noLoading": "plain:true"
+              }'
+            ↓SetComposants [ngx.components.UIDynamicAction-1789133157782]: 
+              beanData: |
+                '{
+                 "ionBean": "SetLocalAction",
+                 "Property": "plain:composants",
+                 "Value": "script:out.rows || []"
+                }'
+              ↓SetCompRows [ngx.components.UIDynamicAction-1789133416489]: 
+                beanData: |
+                  '{
+                   "ionBean": "SetLocalAction",
+                   "Property": "plain:compRows",
+                   "Value": "script:(c8oPage.local?.composants || []).map(c => { const m = (c8oPage.local?.modeleMap || {})[String(c.modele_id)] || {}; const caracs = [1, 2, 3, 4].map(i => (m[''caracteristique'' + i] ? (m[''caracteristique'' + i] + '' : '' + (m[''valeur'' + i] || ''-'')) : '''')).filter(s => !!s).join('' ; ''); return Object.assign({}, c, { type_modele: m.type_modele || '''', marque: m.marque || '''', nom_modele: m.nom_modele || c.modele_id__label || '''', caracs: caracs, machine_label: c.machine_id__label || ''En stock'', fournisseur_label: c.fournisseur_id__label || '''', modele_label: ((m.type_modele || '''') + '' '' + (m.nom_modele || '''') + (m.marque ? '' ('' + m.marque + '')'' : '''')).trim() }); })"
+                  }'
+                comment: Enrichit chaque composant avec son modele (type, marque, caracteristiques) et ses libelles.
+                ↓SetGroupsMachine [ngx.components.UIDynamicAction-1789133416491]: 
+                  beanData: |
+                    '{
+                     "ionBean": "SetLocalAction",
+                     "Property": "plain:groupsMachine",
+                     "Value": "script:(function (rows) { const map = {}; rows.forEach(r => { const key = String(r.machine_id || 0); if (!map[key]) { map[key] = { id: r.machine_id || 0, label: r.machine_label, rows: [] }; } map[key].rows.push(r); }); return Object.keys(map).map(k => map[k]).sort((a, b) => String(a.label).localeCompare(String(b.label))); })(c8oPage.local?.compRows || [])"
+                    }'
+                  ↓SetGroupsModele [ngx.components.UIDynamicAction-1789133416493]: 
+                    beanData: |
+                      '{
+                       "ionBean": "SetLocalAction",
+                       "Property": "plain:groupsModele",
+                       "Value": "script:(function (rows) { const map = {}; rows.forEach(r => { const key = String(r.modele_id || 0); if (!map[key]) { map[key] = { id: r.modele_id || 0, label: r.modele_label || (''Modèle '' + key), rows: [] }; } map[key].rows.push(r); }); return Object.keys(map).map(k => map[k]).sort((a, b) => String(a.label).localeCompare(String(b.label))); })(c8oPage.local?.compRows || [])"
+                      }'
+                    ↓SetVisibleMachine [ngx.components.UIDynamicAction-1789133416495]: 
+                      beanData: |
+                        '{
+                         "ionBean": "SetLocalAction",
+                         "Property": "plain:visibleGroupsMachine",
+                         "Value": "script:(function (groups) { const out = []; let n = 0; groups.forEach(g => { out.push({ kind: ''group'', label: g.label + '' ('' + g.rows.length + '' composant'' + (g.rows.length > 1 ? ''s'' : '''') + '')'' }); g.rows.forEach(r => { n += 1; out.push(Object.assign({ kind: ''row'' }, r)); }); }); out.push({ kind: ''total'', label: ''Total : '' + n + '' composant'' + (n > 1 ? ''s'' : '''') }); return out; })((c8oPage.local?.groupsMachine || []).filter(g => !c8oPage.local?.paramMachineId || String(g.id) === String(c8oPage.local?.paramMachineId)))"
+                        }'
+                      comment: 'Liste aplatie pour l''etat : lignes ''group'' (en-tete machine), ''row'' (composant) et ''total''.'
+                      ↓SetVisibleModele [ngx.components.UIDynamicAction-1789133416497]: 
+                        beanData: |
+                          '{
+                           "ionBean": "SetLocalAction",
+                           "Property": "plain:visibleGroupsModele",
+                           "Value": "script:(function (groups) { const out = []; let n = 0; groups.forEach(g => { out.push({ kind: ''group'', label: g.label + '' ('' + g.rows.length + '' composant'' + (g.rows.length > 1 ? ''s'' : '''') + '')'' }); g.rows.forEach(r => { n += 1; out.push(Object.assign({ kind: ''row'' }, r)); }); }); out.push({ kind: ''total'', label: ''Total : '' + n + '' composant'' + (n > 1 ? ''s'' : '''') }); return out; })((c8oPage.local?.groupsModele || []).filter(g => !c8oPage.local?.paramModeleId || String(g.id) === String(c8oPage.local?.paramModeleId)))"
+                          }'
+                        comment: 'Liste aplatie pour l''etat : lignes ''group'' (en-tete modele), ''row'' (composant) et ''total''.'

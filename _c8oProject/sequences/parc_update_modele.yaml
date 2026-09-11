@@ -1,0 +1,100 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: Facade updating one modele.
+↓CallParc_update_modele [steps.TransactionStep-1789123179640]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.update_modele
+  ↓type_modele [variables.StepVariable-1789123179642]: 
+    comment: TypeModele for modele.
+    description: TypeModele for modele.
+  ↓nom_modele [variables.StepVariable-1789123179644]: 
+    comment: NomModele for modele.
+    description: NomModele for modele.
+  ↓marque [variables.StepVariable-1789123179646]: 
+    comment: Marque for modele.
+    description: Marque for modele.
+  ↓caracteristique1 [variables.StepVariable-1789123179648]: 
+    comment: Caracteristique1 for modele.
+    description: Caracteristique1 for modele.
+  ↓valeur1 [variables.StepVariable-1789123179650]: 
+    comment: Valeur1 for modele.
+    description: Valeur1 for modele.
+  ↓caracteristique2 [variables.StepVariable-1789123179652]: 
+    comment: Caracteristique2 for modele.
+    description: Caracteristique2 for modele.
+  ↓valeur2 [variables.StepVariable-1789123179654]: 
+    comment: Valeur2 for modele.
+    description: Valeur2 for modele.
+  ↓caracteristique3 [variables.StepVariable-1789123179656]: 
+    comment: Caracteristique3 for modele.
+    description: Caracteristique3 for modele.
+  ↓valeur3 [variables.StepVariable-1789123179658]: 
+    comment: Valeur3 for modele.
+    description: Valeur3 for modele.
+  ↓caracteristique4 [variables.StepVariable-1789123179660]: 
+    comment: Caracteristique4 for modele.
+    description: Caracteristique4 for modele.
+  ↓valeur4 [variables.StepVariable-1789123179662]: 
+    comment: Valeur4 for modele.
+    description: Valeur4 for modele.
+  ↓commentaire [variables.StepVariable-1789123179664]: 
+    comment: Commentaire for modele.
+    description: Commentaire for modele.
+  ↓id [variables.StepVariable-1789123179666]: 
+    comment: modele primary key.
+    description: modele primary key.
+↓Message [steps.JsonFieldStep-1789123179668]: 
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: message
+  value: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: SOURCE
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1789123179640
+          - java.lang.String: 
+            - ↑value: ./document/sql_output/text()
+↓type_modele [variables.RequestableVariable-1789123179614]: 
+  comment: TypeModele for modele.
+  description: TypeModele for modele.
+↓nom_modele [variables.RequestableVariable-1789123179616]: 
+  comment: NomModele for modele.
+  description: NomModele for modele.
+↓marque [variables.RequestableVariable-1789123179618]: 
+  comment: Marque for modele.
+  description: Marque for modele.
+↓caracteristique1 [variables.RequestableVariable-1789123179620]: 
+  comment: Caracteristique1 for modele.
+  description: Caracteristique1 for modele.
+↓valeur1 [variables.RequestableVariable-1789123179622]: 
+  comment: Valeur1 for modele.
+  description: Valeur1 for modele.
+↓caracteristique2 [variables.RequestableVariable-1789123179624]: 
+  comment: Caracteristique2 for modele.
+  description: Caracteristique2 for modele.
+↓valeur2 [variables.RequestableVariable-1789123179626]: 
+  comment: Valeur2 for modele.
+  description: Valeur2 for modele.
+↓caracteristique3 [variables.RequestableVariable-1789123179628]: 
+  comment: Caracteristique3 for modele.
+  description: Caracteristique3 for modele.
+↓valeur3 [variables.RequestableVariable-1789123179630]: 
+  comment: Valeur3 for modele.
+  description: Valeur3 for modele.
+↓caracteristique4 [variables.RequestableVariable-1789123179632]: 
+  comment: Caracteristique4 for modele.
+  description: Caracteristique4 for modele.
+↓valeur4 [variables.RequestableVariable-1789123179634]: 
+  comment: Valeur4 for modele.
+  description: Valeur4 for modele.
+↓commentaire [variables.RequestableVariable-1789123179636]: 
+  comment: Commentaire for modele.
+  description: Commentaire for modele.
+↓id [variables.RequestableVariable-1789123179638]: 
+  comment: modele primary key.
+  description: modele primary key.

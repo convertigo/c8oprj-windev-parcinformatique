@@ -1,0 +1,58 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: Facade updating one utilisateur.
+↓CallParc_update_utilisateur [steps.TransactionStep-1789123179258]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.update_utilisateur
+  ↓initiales [variables.StepVariable-1789123179260]: 
+    comment: Initiales for utilisateur.
+    description: Initiales for utilisateur.
+  ↓civilite [variables.StepVariable-1789123179262]: 
+    comment: Civilite for utilisateur.
+    description: Civilite for utilisateur.
+  ↓nom_complet [variables.StepVariable-1789123179264]: 
+    comment: NomComplet for utilisateur.
+    description: NomComplet for utilisateur.
+  ↓tel [variables.StepVariable-1789123179266]: 
+    comment: Tel for utilisateur.
+    description: Tel for utilisateur.
+  ↓photo [variables.StepVariable-1789123179268]: 
+    comment: Photo for utilisateur.
+    description: Photo for utilisateur.
+  ↓id [variables.StepVariable-1789123179270]: 
+    comment: utilisateur primary key.
+    description: utilisateur primary key.
+↓Message [steps.JsonFieldStep-1789123179272]: 
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: message
+  value: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: SOURCE
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1789123179258
+          - java.lang.String: 
+            - ↑value: ./document/sql_output/text()
+↓initiales [variables.RequestableVariable-1789123179246]: 
+  comment: Initiales for utilisateur.
+  description: Initiales for utilisateur.
+↓civilite [variables.RequestableVariable-1789123179248]: 
+  comment: Civilite for utilisateur.
+  description: Civilite for utilisateur.
+↓nom_complet [variables.RequestableVariable-1789123179250]: 
+  comment: NomComplet for utilisateur.
+  description: NomComplet for utilisateur.
+↓tel [variables.RequestableVariable-1789123179252]: 
+  comment: Tel for utilisateur.
+  description: Tel for utilisateur.
+↓photo [variables.RequestableVariable-1789123179254]: 
+  comment: Photo for utilisateur.
+  description: Photo for utilisateur.
+↓id [variables.RequestableVariable-1789123179256]: 
+  comment: utilisateur primary key.
+  description: utilisateur primary key.

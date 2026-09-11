@@ -1,0 +1,67 @@
+↑convertigo: 8.4.0.m006
+↓ParcInformatique [core.Project]: 
+  comment: Convertigo NGX builder Project
+  contextTimeout: 59
+  corsOrigin: =Origin
+  httpSessionTimeout: 60
+  version: 8.4.0
+  ↓ParcInformatiquedb [connectors.SqlConnector]: 🗏 connectors/ParcInformatiquedb.yaml
+  ↓auth_login [sequences.GenericSequence]: 🗏 sequences/auth_login.yaml
+  ↓auth_logout [sequences.GenericSequence]: 🗏 sequences/auth_logout.yaml
+  ↓parc_count_composants [sequences.GenericSequence]: 🗏 sequences/parc_count_composants.yaml
+  ↓parc_count_emplacements [sequences.GenericSequence]: 🗏 sequences/parc_count_emplacements.yaml
+  ↓parc_count_fournisseurs [sequences.GenericSequence]: 🗏 sequences/parc_count_fournisseurs.yaml
+  ↓parc_count_machines [sequences.GenericSequence]: 🗏 sequences/parc_count_machines.yaml
+  ↓parc_count_modeles [sequences.GenericSequence]: 🗏 sequences/parc_count_modeles.yaml
+  ↓parc_count_utilisateurs [sequences.GenericSequence]: 🗏 sequences/parc_count_utilisateurs.yaml
+  ↓parc_create_composant [sequences.GenericSequence]: 🗏 sequences/parc_create_composant.yaml
+  ↓parc_create_emplacement [sequences.GenericSequence]: 🗏 sequences/parc_create_emplacement.yaml
+  ↓parc_create_fournisseur [sequences.GenericSequence]: 🗏 sequences/parc_create_fournisseur.yaml
+  ↓parc_create_machine [sequences.GenericSequence]: 🗏 sequences/parc_create_machine.yaml
+  ↓parc_create_modele [sequences.GenericSequence]: 🗏 sequences/parc_create_modele.yaml
+  ↓parc_create_utilisateur [sequences.GenericSequence]: 🗏 sequences/parc_create_utilisateur.yaml
+  ↓parc_delete_composant [sequences.GenericSequence]: 🗏 sequences/parc_delete_composant.yaml
+  ↓parc_delete_emplacement [sequences.GenericSequence]: 🗏 sequences/parc_delete_emplacement.yaml
+  ↓parc_delete_fournisseur [sequences.GenericSequence]: 🗏 sequences/parc_delete_fournisseur.yaml
+  ↓parc_delete_machine [sequences.GenericSequence]: 🗏 sequences/parc_delete_machine.yaml
+  ↓parc_delete_machine_keep_composants [sequences.GenericSequence]: 🗏 sequences/parc_delete_machine_keep_composants.yaml
+  ↓parc_delete_machine_with_composants [sequences.GenericSequence]: 🗏 sequences/parc_delete_machine_with_composants.yaml
+  ↓parc_delete_modele [sequences.GenericSequence]: 🗏 sequences/parc_delete_modele.yaml
+  ↓parc_delete_utilisateur [sequences.GenericSequence]: 🗏 sequences/parc_delete_utilisateur.yaml
+  ↓parc_link_composant [sequences.GenericSequence]: 🗏 sequences/parc_link_composant.yaml
+  ↓parc_list_composants [sequences.GenericSequence]: 🗏 sequences/parc_list_composants.yaml
+  ↓parc_list_composants_by_fournisseur [sequences.GenericSequence]: 🗏 sequences/parc_list_composants_by_fournisseur.yaml
+  ↓parc_list_composants_by_machine [sequences.GenericSequence]: 🗏 sequences/parc_list_composants_by_machine.yaml
+  ↓parc_list_composants_by_modele [sequences.GenericSequence]: 🗏 sequences/parc_list_composants_by_modele.yaml
+  ↓parc_list_emplacements [sequences.GenericSequence]: 🗏 sequences/parc_list_emplacements.yaml
+  ↓parc_list_fournisseurs [sequences.GenericSequence]: 🗏 sequences/parc_list_fournisseurs.yaml
+  ↓parc_list_machines [sequences.GenericSequence]: 🗏 sequences/parc_list_machines.yaml
+  ↓parc_list_machines_by_emplacement [sequences.GenericSequence]: 🗏 sequences/parc_list_machines_by_emplacement.yaml
+  ↓parc_list_machines_by_utilisateur [sequences.GenericSequence]: 🗏 sequences/parc_list_machines_by_utilisateur.yaml
+  ↓parc_list_modeles [sequences.GenericSequence]: 🗏 sequences/parc_list_modeles.yaml
+  ↓parc_list_utilisateurs [sequences.GenericSequence]: 🗏 sequences/parc_list_utilisateurs.yaml
+  ↓parc_read_composant [sequences.GenericSequence]: 🗏 sequences/parc_read_composant.yaml
+  ↓parc_read_emplacement [sequences.GenericSequence]: 🗏 sequences/parc_read_emplacement.yaml
+  ↓parc_read_fournisseur [sequences.GenericSequence]: 🗏 sequences/parc_read_fournisseur.yaml
+  ↓parc_read_machine [sequences.GenericSequence]: 🗏 sequences/parc_read_machine.yaml
+  ↓parc_read_modele [sequences.GenericSequence]: 🗏 sequences/parc_read_modele.yaml
+  ↓parc_read_utilisateur [sequences.GenericSequence]: 🗏 sequences/parc_read_utilisateur.yaml
+  ↓parc_unlink_composant [sequences.GenericSequence]: 🗏 sequences/parc_unlink_composant.yaml
+  ↓parc_update_composant [sequences.GenericSequence]: 🗏 sequences/parc_update_composant.yaml
+  ↓parc_update_emplacement [sequences.GenericSequence]: 🗏 sequences/parc_update_emplacement.yaml
+  ↓parc_update_fournisseur [sequences.GenericSequence]: 🗏 sequences/parc_update_fournisseur.yaml
+  ↓parc_update_machine [sequences.GenericSequence]: 🗏 sequences/parc_update_machine.yaml
+  ↓parc_update_modele [sequences.GenericSequence]: 🗏 sequences/parc_update_modele.yaml
+  ↓parc_update_utilisateur [sequences.GenericSequence]: 🗏 sequences/parc_update_utilisateur.yaml
+  ↓lib_ConvertigoMCP_reference [references.ProjectSchemaReference]: 
+    projectName: lib_ConvertigoMCP=https://github.com/convertigo/c8oprj-lib-c8o-mcp.git:branch=main
+  ↓project1 [references.ProjectSchemaReference]: 
+    projectName: mobilebuilder_tpl_8_4_0_ngx=https://github.com/convertigo/c8oprj-mobilebuilder-tpl/archive/mobilebuilder_tpl_8_4_0_ngx.zip
+  ↓Application [core.MobileApplication]: 
+    comment: Describes the mobile application global properties
+    splashRemoveMode: beforeUpdate
+    ↓Android [mobileplatforms.Android]: 
+      comment: Android platform
+    ↓iOS [mobileplatforms.IOs]: 
+      comment: iOS platform
+    ↓NgxApp [ngx.components.ApplicationComponent]: 🗏 mobileNgxApp.yaml

@@ -1,0 +1,39 @@
+comment: Managed by upsert-ngx-crud-kit (entity-pages template clone) for DashboardStatCard. Direct edits may be overwritten; prefer entity.ui hints.
+↓Title [ngx.components.UICompVariable-1789123316018]: 
+  value: '''__DISPLAY_LABEL__'''
+↓Count [ngx.components.UICompVariable-1789123316020]: 
+  value: '''0'''
+↓Caption [ngx.components.UICompVariable-1789123316022]: 
+  value: '''items'''
+↓DashboardStatCardCard [ngx.components.UIDynamicElement-1789123316024]: 
+  beanData: '{"ionBean":"Card"}'
+  tagName: ion-card
+  ↓DashboardStatCardHeader [ngx.components.UIDynamicElement-1789123316026]: 
+    beanData: '{"ionBean":"CardHeader"}'
+    tagName: ion-card-header
+    ↓DashboardStatCardTitleSlot [ngx.components.UIDynamicElement-1789123316028]: 
+      beanData: '{"ionBean":"CardTitle"}'
+      tagName: ion-card-title
+      ↓TitleText [ngx.components.UIText-1789123316030]: 
+        textValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: source:{"filter":"Shared","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123316016,"regular":true}],"path":"?.Title","prefix":"","suffix":"","custom":"","useCustom":false}}
+  ↓DashboardStatCardContent [ngx.components.UIDynamicElement-1789123316032]: 
+    beanData: '{"ionBean":"CardContent"}'
+    tagName: ion-card-content
+    ↓DashboardStatCardValue [ngx.components.UIText-1789123316034]: 
+      textValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: source:{"filter":"Shared","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123316016,"regular":true}],"path":"?.Count","prefix":"","suffix":"","custom":"","useCustom":false}}
+    ↓DashboardStatCardSeparator [ngx.components.UIText-1789123316036]: 
+      textValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: 'plain: '
+    ↓DashboardStatCardCaption [ngx.components.UIText-1789123316038]: 
+      textValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: source:{"filter":"Shared","project":"ParcInformatique","input":"","model":{"data":[{"priority":1789123316016,"regular":true}],"path":"?.Caption","prefix":"","suffix":"","custom":"","useCustom":false}}

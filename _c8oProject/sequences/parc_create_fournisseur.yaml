@@ -1,0 +1,52 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: Facade creating one fournisseur.
+↓CallParc_create_fournisseur [steps.TransactionStep-1789123179373]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.create_fournisseur
+  ↓nom [variables.StepVariable-1789123179375]: 
+    comment: Nom for fournisseur.
+    description: Nom for fournisseur.
+  ↓adresse [variables.StepVariable-1789123179377]: 
+    comment: Adresse for fournisseur.
+    description: Adresse for fournisseur.
+  ↓tel [variables.StepVariable-1789123179379]: 
+    comment: Tel for fournisseur.
+    description: Tel for fournisseur.
+  ↓tel_sav [variables.StepVariable-1789123179381]: 
+    comment: TelSav for fournisseur.
+    description: TelSav for fournisseur.
+  ↓fax [variables.StepVariable-1789123179383]: 
+    comment: Fax for fournisseur.
+    description: Fax for fournisseur.
+↓Message [steps.JsonFieldStep-1789123179385]: 
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: message
+  value: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: SOURCE
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1789123179373
+          - java.lang.String: 
+            - ↑value: ./document/sql_output/text()
+↓nom [variables.RequestableVariable-1789123179363]: 
+  comment: Nom for fournisseur.
+  description: Nom for fournisseur.
+↓adresse [variables.RequestableVariable-1789123179365]: 
+  comment: Adresse for fournisseur.
+  description: Adresse for fournisseur.
+↓tel [variables.RequestableVariable-1789123179367]: 
+  comment: Tel for fournisseur.
+  description: Tel for fournisseur.
+↓tel_sav [variables.RequestableVariable-1789123179369]: 
+  comment: TelSav for fournisseur.
+  description: TelSav for fournisseur.
+↓fax [variables.RequestableVariable-1789123179371]: 
+  comment: Fax for fournisseur.
+  description: Fax for fournisseur.

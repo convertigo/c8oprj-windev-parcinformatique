@@ -1,0 +1,23 @@
+accessibility: Hidden
+authenticatedContextRequired: true
+comment: Facade counting Machines.
+↓CallParc_count_machines [steps.TransactionStep-1789123179731]: 
+  sourceTransaction: ParcInformatique.ParcInformatiquedb.count_machines
+↓Total [steps.JsonFieldStep-1789123179733]: 
+  key: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: PLAIN
+        - →→: total
+  type: number
+  value: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: SOURCE
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1789123179731
+          - java.lang.String: 
+            - ↑value: ./document/sql_output/row/TOTAL/text()
