@@ -1,10 +1,123 @@
 ↑convertigo: 8.4.0.m006
 ↓ParcInformatique [core.Project]: 
-  comment: Convertigo NGX builder Project
+  comment: |
+    '**IT asset management — the WinDev sample « WD Gestion de Parc informatique » rebuilt with Convertigo**
+    
+    Rebuild of the PC SOFT sample application **WD Gestion de Parc informatique** (WinDev 28, HFSQL) as a Convertigo 8.4 NGX application (Ionic / Angular). The 11 WinDev windows, the 6 HFSQL files and the demo data were reverse-engineered from the text-format sources, then reconstructed with the Convertigo MCP: an embedded HSQLDB database seeded with the original demo data, hidden CRUD facade sequences, the generic *entity-pages* UI kit and six purpose-built screens. Panels (list, record, form, floor plan) are laid out side by side on wide screens and stack on mobile; the visual identity is a modern blue theme.
+    
+    ## Functional scope
+    
+    | WinDev window / report | Convertigo page | Route |
+    |---|---|---|
+    | FEN_Principale — machines and clickable floor plan | `ParcPage` | `/parc` |
+    | FEN_Machine — machine record with its components (2 tabs) | `MachineDetailPage` (3 columns, no tabs) | `/machine` |
+    | FEN_Lieu — rooms drawn on the floor plan | `LieuxPage` | `/lieux` |
+    | FEN_Modèle — component models with dynamic characteristic labels | `ModelesGestionPage` | `/modeles-gestion` |
+    | FEN_Utilisateur — users with title and photo | `UtilisateursGestionPage` | `/utilisateurs-gestion` |
+    | FEN_Fournisseur, FEN_Composants, FEN_Choix* (pickers) | CRUD kit pages + enriched selects with inline creation | `/emplacements`, `/utilisateurs`, `/fournisseurs`, `/modeles`, `/machines`, `/composants` |
+    | Etat_Machine, Etat_Utilisateur, Etat_Fournisseur, Etat_Modele, Etat_Composant_Machine, Etat_Composant_Modele | `RapportsPage` (HTML preview, browser print) | `/rapports` |
+    | — | `Home` dashboard (counters, access to every screen) | `/home` |
+    
+    ## Architecture
+    
+    - **Data**: embedded HSQLDB (connector `ParcInformatiquedb`), tables `emplacements`, `utilisateurs`, `fournisseurs`, `modeles`, `machines`, `composants` with foreign keys, seeded with the sample data (17 rooms, 50 users, 15 suppliers, 36 models, 69 machines, 49 components).
+    - **Backend**: hidden facade sequences `parc_*` (list, read, create, update, delete, count per entity; relation lists such as `parc_list_composants_by_machine`; `parc_link_composant` / `parc_unlink_composant` for the stock; `parc_delete_machine_with_composants` / `parc_delete_machine_keep_composants` for the three-way machine deletion). DELETE statements are guarded by `NOT EXISTS` and every `parc_delete_*` returns a `refs` count so the UI can display the WinDev refusal messages.
+    - **UI**: NGX application `NgxApp`. Generic CRUD kit (`*ListPanel`, `*DetailCard`, `*EditForm` shared components) customised with a title select (Madame / Mademoiselle / Monsieur), relation previews, inline "New" creation of the related record, deletion rules as toasts and a highlighted selected row. Custom pages for the floor plan, the machine record, the management screens and the reports. Application styles: `ParcTheme` (blue design system, responsive floor plan) and `PrintStyle` (`@media print`).
+    - **Business rules kept from WinDev**: components tab hidden until the machine is saved; deletion refused when a room, user, supplier or model is still referenced; machine deletion with three options (cancel, delete components, put components back in stock); new room traced with two clicks on the plan with overlap check; model characteristics labelled dynamically (`caracteristiqueN` → label of `valeurN`); user photo or default pictogram by title.
+    
+    ## Design system (blue theme)
+    
+    | Token | Value | Usage |
+    |---|---|---|
+    | Primary | `#1d4ed8` | buttons, selection, links |
+    | Navy | `#0b2a6f` | card titles, table headers |
+    | Sky | `#0284c7` | accents (plan counters, screen cards) |
+    | Page background | `#eef3fb` | |
+    | Surface / border | `#ffffff` / `#d5e0f2` | cards, toolbars, fields |
+    | Page banner | gradient `#0b2a6f → #1d4ed8 → #0ea5e9` | page header and side menu header |
+    | Font | IBM Plex Sans | |
+    
+    Rounded cards with soft shadows, pill toolbars, tables with sticky headers, lists with hover and a blue selection stripe, floor plan on a light blue grid with rooms in a white-to-blue gradient. Dark mode follows `prefers-color-scheme`.
+    
+    Responsive grid (Ionic breakpoints xs / md / lg / xl): entity pages 12 → 5+7 → 4+4+4 → 3+4+5; machine record 12 → 12+6+6 → 4+4+4; park 12 → 4+8 → 3+9; rooms 12 → 8+4; dashboard counters 2, 3 then 6 per row. The floor plan keeps the WinDev 709×538 coordinate system rendered in percentages, so it scales with the column and clicks are mapped back to the original coordinates.
+    
+    ## Screens
+    
+    ### Dashboard and navigation
+    
+    ![Dashboard](marketplace/01-tableau-de-bord.png)
+    
+    ![Side menu opened from the page banner](marketplace/02-menu-lateral.png)
+    
+    ### IT park (FEN_Principale)
+    
+    ![Machines list and floor plan](marketplace/03-parc-machines-plan.png)
+    
+    ![Machines filtered by the room clicked on the plan](marketplace/04-parc-filtre-salle.png)
+    
+    ### Machine record (FEN_Machine)
+    
+    ![Machine record: form, components and detail side by side](marketplace/05-fiche-machine.png)
+    
+    ![Selected component with its model panel and dynamic labels](marketplace/06-fiche-machine-composant.png)
+    
+    ![Adding a component from the stock](marketplace/07-fiche-machine-stock.png)
+    
+    ### Rooms on the floor plan (FEN_Lieu)
+    
+    ![Rooms management: plan, record and form](marketplace/08-gestion-lieux.png)
+    
+    ### Component models (FEN_Modèle)
+    
+    ![Component models with dynamic characteristic labels](marketplace/09-gestion-modeles.png)
+    
+    ### Users (FEN_Utilisateur)
+    
+    ![Users with title and photo](marketplace/10-gestion-utilisateurs.png)
+    
+    ### Printed reports (Etat_*)
+    
+    ![Machines report](marketplace/11-etats-machines.png)
+    
+    ![Components per machine report](marketplace/12-etats-composants-par-machine.png)
+    
+    ### CRUD kit pages (list, record and form side by side)
+    
+    ![Rooms](marketplace/13-lieux.png)
+    
+    ![Users](marketplace/14-utilisateurs.png)
+    
+    ![Suppliers](marketplace/15-fournisseurs.png)
+    
+    ![Models](marketplace/16-modeles.png)
+    
+    ![Machines](marketplace/17-machines.png)
+    
+    ![Components](marketplace/18-composants.png)
+    
+    ### Mobile layout
+    
+    ![Dashboard on mobile](marketplace/19-mobile-tableau-de-bord.png)
+    
+    ![IT park on mobile](marketplace/20-mobile-parc.png)
+    
+    ![Rooms on mobile](marketplace/21-mobile-lieux.png)
+    
+    ## Running the application
+    
+    - Studio dev viewer: `http://localhost:47242` (NGX builder).
+    - Production build: `http://localhost:18080/convertigo/projects/ParcInformatique/DisplayObjects/mobile/home`.
+    - Screenshots are stored in `marketplace/` and can be regenerated with the headless Chrome script kept in the `retroengeneering/outils` folder.
+    
+    ## Credits
+    
+    Original sample: PC SOFT, *WD Gestion de Parc informatique* (WinDev 28). Reconstruction: Convertigo MCP, September 2026.
+    
+    '
   contextTimeout: 59
   corsOrigin: =Origin
   httpSessionTimeout: 60
-  version: 8.4.0
+  version: 8.4.1
   ↓ParcInformatiquedb [connectors.SqlConnector]: 🗏 connectors/ParcInformatiquedb.yaml
   ↓auth_login [sequences.GenericSequence]: 🗏 sequences/auth_login.yaml
   ↓auth_logout [sequences.GenericSequence]: 🗏 sequences/auth_logout.yaml
