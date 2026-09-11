@@ -1,0 +1,141 @@
+
+
+################ CODE FEN_Modèle ################
+
+--- WINDOW event type=None ---
+procedure FEN_Modèle(gnMode est un entier = CST_MODEVISUALISATION)
+
+
+
+--- WINDOW event type=34 ---
+SI gnMode = CST_MODEVISUALISATION ALORS
+	//Les champs de saisie pour l'ajout et la modification du modèle sont grisés
+	GR_AjoutModif..Etat = Grisé
+SINON
+	ExécuteTraitement(BTN_Nouveau, trtClic)
+FIN
+
+//La fenêtre renvoie le modèle, le cas échéant
+MaFenêtre..ValeurRenvoyée = ""
+
+
+
+--- BTN_Nouveau (BUTTON) event type=18 ---
+//Ré-initialisation en vue d'ajout de modèle
+hraz(modèle)
+raz()
+
+//On veut ajouter un modèle => on dégrise les champs de saisie pour l'ajout et la modification d'un modèle
+GR_AjoutModif..Etat = Actif
+
+
+--- BTN_Modifier (BUTTON) event type=18 ---
+
+//On veut modifier un modèle => on dégrise les champs de saisie pour l'ajout et la modification d'un modèle
+GR_AjoutModif..etat = actif
+
+
+--- BTN_Supprimer (BUTTON) event type=18 ---
+//1 : &Supprimer
+//2 : &Ne pas supprimer
+SELON Dialogue(<§?183C3A7702AC0162§>, TABLE_Modèles.COL_NomModele)
+	
+	// &Supprimer
+	CAS 1 :
+		
+		//Avant de supprimer le modèle, on vérifie qu'il n'y ait pas de composant lié à ce modèle
+		HLitRecherchePremier(COMPOSANT,IDMODELE,TABLE_Modèles.COL_IDMODELE)
+		
+		//S'il n'y a pas de composants associés à ce modèle, on supprime le modèle
+		si pas htrouve(composant) ALORS
+			
+			//Suppression dans la table et donc aussi dans le fichier
+			TableSupprime(TABLE_Modèles)
+			FichierVersEcran(MaFenêtre, MODELE)
+			
+		sinon
+			
+			Info(<§$0000§>)
+		
+		FIN
+		
+	// &Ne pas supprimer
+	CAS 2 :
+		
+FIN
+
+--- TABLE_Modèles (TABLE) event type=33 ---
+
+//On affiche les informations sur le modèle
+FichierVersEcran(MaFenêtre, modele)
+
+
+--- BTN_Annuler (BUTTON) event type=18 ---
+//On remet à jour les champs de saisie avec les valeurs présentes dans le fichier
+fichierversecran(mafenêtre, modele) 
+
+//On re-grise les champs de saisie pour l'ajout et la modification d'un modèle
+GR_AjoutModif..etat = grise
+
+
+--- BTN_OK (BUTTON) event type=18 ---
+//On vérifie qu'au moins le nom du modèle a été saisi
+SI SAI_NomModeleComp = "" ALORS
+	Info("Veuillez saisir au moins le nom du modèle.")
+	RepriseSaisie(SAI_NomModeleComp)
+FIN
+
+//On remplit les rubriques du fichier avec ce que l'utilisateur a saisi à l'écran
+EcranVersFichier(MaFenêtre, modele)
+
+//On ajoute ou modifie l'enregistrement dans le fichier
+si modele..NouvelEnregistrement = vrai alors
+	hajoute(modele)
+	//A la fermeture de la fenêtre, on renvoie l'identifiant du modèle créé
+	mafenêtre..ValeurRenvoyée = modele.IDMODELE
+sinon
+	HModifie(MODELE)		
+FIN
+
+//On re-grise les champs de saisie pour l'ajout et la modification d'un fournisseur
+GR_AjoutModif..Etat = Grisé
+
+//On met à jour la table
+TableAffiche(TABLE_Modèles, taCourantEnreg)
+
+
+
+--- BTN_Détails (BUTTON) event type=18 ---
+
+//Ouverture de la boîte de dialogue
+
+//1 : pour ce modèle seulement ?
+//2 : pour tous les modèles
+//3 : Ne rien faire
+SELON Dialogue(<§?187C819901CD9F7C§>)
+	
+	// pour ce modèle seulement ?
+	CAS 1
+		iInitRequêteEtat(Etat_Composant_Modele,TABLE_Modèles.COL_IDMODELE)
+		// On affiche l'aperçu à l'écran avant d'imprimer
+		iAperçu(iPage,<§$0001§>,Vrai)
+		iImprimeEtat(Etat_Composant_Modele)
+		
+	// pour tous les modèles ?
+	CAS 2
+		// on va imprimer le détail des composants de toutes les machines
+		iInitRequêteEtat(Etat_Composant_Modele,*)
+		// On affiche l'aperçu à l'écran avant d'imprimer
+		iAperçu(iPage,<§$0001§>,Vrai)
+		iImprimeEtat(Etat_Composant_Modele)
+		
+	// Ne rien faire
+	CAS 3
+		
+FIN
+
+--- BTN_Liste (BUTTON) event type=18 ---
+// Aperçu avant impression de la liste des machines
+iAperçu(iPage,<§$0002§>,Vrai)
+iImprimeEtat(Etat_Modele)
+

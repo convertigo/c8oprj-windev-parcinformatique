@@ -1,0 +1,303 @@
+
+
+################ CODE FEN_Principale ################
+
+--- WINDOW event type=None ---
+//Identifiant du lieu sélectionné
+gnIDLieu est un entier
+
+ToastAffiche("Cliquez dans le plan pour afficher les machines d'une salle donnée.",toastLong,cvMilieu,chCentre)
+
+--- WINDOW event type=34 ---
+
+//Affichage du plan des locaux avec des rectangles
+AffichePlan(IMG_PlanLocaux)
+
+//Par défaut, on affiche toutes les machines de tous les lieux
+AfficheToutesMachines()
+
+//le clic dans le plan sur un lieu donné n'affichera dans la table que les machines de ce lieu
+
+
+--- TABLE_Machines (TABLE) event type=33 ---
+
+AffichePlan(IMG_PlanLocaux)
+
+//On se positionne dans le fichier sur la machine sélectionnée dans la table
+HLitRecherchePremier(MACHINE,NomMachine,TABLE_Machines.COL_Machine)
+
+//Si la machine n'est pas dans un lieu
+si machine.IDLieu <> 0 alors
+	
+	//Sinon on affiche un cadre rouge autour du lieu où se situe la machine
+	HLitRecherchePremier(LIEU,IDLieu,machine.IDLieu)
+	EntoureLieu(lieu.Rectangle)
+	
+fin
+
+
+--- BTN_Modifier (BUTTON) event type=18 ---
+nIDmachine est un entier = TABLE_Machines.COL_IDMachine
+
+//On ouvre la fenêtre de visualisation - modification de la machine sélectionnée dans la table
+bModif est un booleen = ouvre(FEN_Machine, nIDmachine)
+
+//Si on a changé le nom de la machine pendant la modification, on met à jour la table
+si bModif = vrai alors
+	
+	//Met à jour la table au cas où les informations de la machine aient été modifiées 
+	//Si on avait un ID de lieu mémorisé : on affiche les machines de ce lieu sinon on affiche toutes les machines
+	si gnIDLieu = 0 ALORS
+		AfficheToutesMachines()
+	sinon
+		AfficheMachinesLieu(gnIDLieu)
+	FIN
+	
+	//Remet le bandeau de la table sur la machine qui a été visualisée - modifiée
+	nIndice est un entier = TableCherche(COL_idMachine, nIDmachine)
+	TableSelectPlus(TABLE_Machines,nIndice)
+	
+	//Ré-affichage du plan : si on a modifié le lieu d'une machine ...
+	AffichePlan(IMG_PlanLocaux)
+	
+	HLitRecherchePremier(lieu, IDLieu, machine.IDLieu)
+	EntoureLieu(LIEU.Rectangle)
+	
+FIN
+
+--- BTN_Toutes (BUTTON) event type=18 ---
+//Permet de visualiser toutes les machines de tous les lieux
+AfficheToutesMachines()
+
+
+
+--- BTN_Supprimer (BUTTON) event type=18 ---
+si TableSelect(TABLE_Machines) = -1 alors retour
+
+//1 : Et tous ses composants ?
+//2 : Et son UC et mettre les autres composants dans le stock ?
+//3 : Ne rien faire
+SELON Dialogue(<§?183C306901A0BAB1§>, TABLE_Machines.COL_Machine)
+
+	// Et tous ses composants ?
+	CAS 1 :
+		
+		POUR TOUT COMPOSANT AVEC NomMachine = TABLE_Machines.COL_Machine
+			HSupprime(COMPOSANT)
+		FIN
+		
+		//On supprime la machine correspondant à la sélection dans la table
+		HLitRecherchepremier(MACHINE,NomMachine,TABLE_Machines.COL_Machine)
+		HSupprime(MACHINE)
+		
+		//Met à jour la table
+		//Si on avait un ID de lieu mémorisé : on affiche les machines de ce lieu sinon on affiche toutes les machines
+		SI gnIDLieu = 0 ALORS
+			AfficheToutesMachines()
+		SINON
+			AfficheMachinesLieu(gnIDLieu)
+		FIN
+		
+	// Et son UC et mettre les autres composants dans le stock ?
+	CAS 2 :
+		
+		POUR TOUT COMPOSANT AVEC NomMachine = TABLE_Machines.COL_Machine
+			
+			//On va chercher le type du composant
+			//Si c'est l'unité centrale : on supprime
+			//sinon on met le composant dans le stock
+			
+			HLitRecherchepremier(Modele,IDMODELE,COMPOSANT.IDMODELE)
+			SI Modele.TypeModele = CST_TypeUC ALORS
+				HSupprime(COMPOSANT)
+			SINON
+				COMPOSANT.NomMachine=""
+				HModifie(COMPOSANT)	
+			FIN
+			
+		FIN
+		
+		//On supprime la machine correspondant à la sélection dans la table
+		HLitRecherchePremier(MACHINE,NomMachine,TABLE_Machines.COL_Machine)
+		HSupprime(MACHINE)
+		
+		//Met à jour la table
+		//Si on avait un ID de lieu mémorisé : on affiche les machines de ce lieu sinon on affiche toutes les machines
+		SI gnIDLieu = 0 ALORS
+			AfficheToutesMachines()
+		SINON
+			AfficheMachinesLieu(gnIDLieu)
+		FIN	
+		
+	// Ne rien faire
+	CAS 3 :
+		
+FIN
+
+
+--- BTN_Nouveau (BUTTON) event type=18 ---
+//Ouverture de la fenêtre de création d'une nouvelle machine
+sNomMachine est une chaine = Ouvre(FEN_Machine)
+
+//Si effectivement on a créé une nouvelle machine, on met à jour la table 
+si sNomMachine <> "" alors
+	
+	//Met à jour la table avec la nouvelle machine
+	//Si on avait un ID de lieu mémorisé : on affiche les machines de ce lieu sinon on affiche toutes les machines
+	SI gnIDLieu = 0 ALORS
+		AfficheToutesMachines()
+	SINON
+		AfficheMachinesLieu(gnIDLieu)
+	FIN
+	
+	//Remet le bandeau de la table sur la machine qui a été créée et la sélectionne
+	nIndice est un entier = TableCherche(COL_Machine, sNomMachine)
+	TableSelectPlus(TABLE_Machines,nIndice)
+	
+fin
+
+--- BTN_Imprimer (BUTTON) event type=18 ---
+// Aperçu avant impression de la liste des machines
+iAperçu(iPage,<§$0002§>,Vrai)
+iImprimeEtat(Etat_Machine)
+
+--- IMG_PlanLocaux (IMAGE) event type=18 ---
+
+
+//On parcourt chaque lieu de la base de données
+pour TOUT LIEU 
+	
+	//Si le point cliqué sur le plan correspond à un lieu donné
+	si bInclusDans(lieu.Rectangle, SourisPosX(), SourisPosY()) ALORS
+		
+		gnIDLieu = lieu.IDLieu
+		
+		AffichePlan(IMG_PlanLocaux)
+		
+		//Entoure en rouge sur le plan le lieu sur lequel on a cliqué
+		EntoureLieu(LIEU.Rectangle)		
+		
+		//On affiche dans la table la liste des machines de ce lieu
+		AfficheMachinesLieu(lieu.IDLieu)
+		
+		lib_filtre = ChaîneConstruit("Machines dans la salle %1", lieu.Emplacement)
+	fin
+
+FIN
+
+--- MENU OPT_Modifier_le_plan_des_locaux event type=32 ---
+
+ouvre(FEN_Lieu)
+
+//Rafraîchit l'image du plan des locaux pour prendre en compte les éventuelles modifications
+IMG_PlanLocaux = ""
+IMG_PlanLocaux = ComplèteRep(frepexe()) + "plan_locaux.gif" 
+
+
+
+--- MENU OPT_Gérer_les_utilisateurs event type=32 ---
+ouvre(FEN_Utilisateur)
+
+
+--- MENU OPT_Gérer_les_fournisseurs event type=32 ---
+Ouvre(FEN_Fournisseur)
+
+
+--- MENU OPT_Gérer_les_modèles event type=32 ---
+ouvre(FEN_Modèle)
+
+
+--- PROCEDURE EntoureLieu ---
+// Résumé : Entoure d'un cadre rouge sur le plan le lieu correspondant au rectangle 
+// Syntaxe :
+//EntoureLieu (<Rectangle>)
+//
+// Paramètres :
+//	Rectangle : coordonnées du lieu
+// Valeur de retour :
+// 	Aucune
+
+
+Procédure EntoureLieu(Rectangle)
+
+nLX, nLY, nRX, nRY sont des entiers
+MonImagepourEntourer est une Image
+
+dDébutDessin(MonImagepourEntourer)
+MonImagepourEntourer = IMG_PlanLocaux
+
+// Coin haut gauche du rectangle du lieu
+nLX = ExtraitChaîne(Rectangle,1,",") 
+nLY = ExtraitChaîne(Rectangle,2,",")
+
+// Coin bas droit du rectangle du lieu
+nRX = ExtraitChaîne(Rectangle,3,",") 
+nRY = ExtraitChaîne(Rectangle,4,",")
+
+dStylo(RougeClair, 0, 3)
+dFond(Transparent)
+
+//On dessine le lieu
+dRectangle(nLX-2,nLY-2,nRX+2,nRY+2)
+
+dFusionne(IMG_PlanLocaux, MonImagepourEntourer,50)
+
+--- PROCEDURE AfficheMachinesLieu ---
+// Résumé : Affiche dans la table toutes les machines d'un lieu donné
+// Syntaxe :
+//AfficheMachinesLieu (<nIDLieu>)
+//
+// Paramètres :
+// 	nIDLieu : Identifiant du lieu pour lequel il faut rechercher les machines
+// Valeur de retour :
+// 	Aucune
+//
+
+Procédure AfficheMachinesLieu(nIDLieu)
+
+//On change le contenu de la liste des machines pour y mettre les machines du lieu sur lequel l'utilisateur a cliqué
+TableSupprimeTout(TABLE_Machines)
+
+POUR TOUTE MACHINE AVEC IDLieu = nIDLieu
+	
+	//On affiche l'utilisateur de la machine s'il y en a un, avec un pictogramme "machine utilisée"
+	//sinon on utilise un pictogramme "machine disponible"
+	SI MACHINE.InitialesUtilisateur = "" ALORS
+		TableAjouteLigne(TABLE_Machines, IMG_MachineDispo, MACHINE.NomMachine, "" ,MACHINE.IDMachine)
+			SINON
+		TableAjouteLigne(TABLE_Machines, IMG_MachineUtilisée, MACHINE.NomMachine, MACHINE.InitialesUtilisateur ,MACHINE.IDMachine)
+	FIN
+	
+FIN
+
+--- PROCEDURE AfficheToutesMachines ---
+// Résumé : Affiche toutes les machines de tous les lieux
+// Syntaxe :
+// AfficheToutesMachines ()
+//
+// Paramètres :
+//	Aucun
+// Valeur de retour :
+// 	Aucune
+
+Procédure AfficheToutesMachines()
+
+
+//Affiche toutes les machines de tous les lieux
+TableSupprimeTout(TABLE_Machines)
+
+POUR TOUTE MACHINE
+		
+	//On affiche l'utilisateur de la machine s'il y en a un, avec un pictogramme "machine utilisée"
+	//sinon on utilise un pictogramme "machine disponible"
+	SI MACHINE.InitialesUtilisateur = "" ALORS
+		TableAjouteLigne(TABLE_Machines, IMG_MachineDispo, MACHINE.NomMachine, "" , MACHINE.IDMachine)
+	SINON
+		TableAjouteLigne(TABLE_Machines, IMG_MachineUtilisée, MACHINE.NomMachine, MACHINE.InitialesUtilisateur ,MACHINE.IDMachine)
+	FIN
+	
+FIN
+
+gnIDLieu = 0
+ExécuteTraitement(TABLE_Machines, trtSélection)
+

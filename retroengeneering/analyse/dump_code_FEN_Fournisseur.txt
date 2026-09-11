@@ -1,0 +1,103 @@
+
+
+################ CODE FEN_Fournisseur ################
+
+--- WINDOW event type=None ---
+procedure FEN_Fournisseur (gnMode est un entier = CST_MODEVISUALISATION)
+
+--- WINDOW event type=34 ---
+
+si gnMode = CST_MODEVISUALISATION alors
+	//Les champs de saisie pour l'ajout et la modification du fournisseur sont grisés
+	GR_AjoutModif..Etat = Grisé
+sinon
+	ExécuteTraitement(BTN_Nouveau, trtclic)
+fin
+
+//La fenêtre renvoie le fournisseur créé, le cas échéant
+mafenêtrE..ValeurRenvoyée = ""
+
+
+--- BTN_Nouveau (BUTTON) event type=18 ---
+//Ré-initialisation en vue de l'ajout
+hraz(FOURNISSEUR)
+raz()
+
+//On veut ajouter un fournisseur => on dégrise les champs de saisie pour l'ajout et la modification d'un fournisseur
+GR_AjoutModif..Etat = Actif
+
+
+--- BTN_Modifier (BUTTON) event type=18 ---
+//On veut modifier un fournisseur => on dégrise les champs de saisie pour l'ajout et la modification d'un fournisseur
+GR_AjoutModif..etat = actif
+
+
+--- BTN_Supprimer (BUTTON) event type=18 ---
+//1 : &Supprimer
+//2 : &Ne pas supprimer
+SELON Dialogue(<§?183A7FE802402A04§>, TABLE_Fournisseurs.COL_NomFournisseur)
+
+	// &Supprimer
+	CAS 1 :		
+		HLitRecherchePremier(COMPOSANT,IDFournisseur,TABLE_Fournisseurs.COL_idfournisseur)
+	
+		si pas HTrouve(COMPOSANT) ALORS
+			//Suppression dans la table et donc aussi dans le fichier
+			TableSupprime(TABLE_Fournisseurs)
+			FichierVersEcran(MaFenêtre, FOURNISSEUR)
+		sinon
+			info("Des composants sont associés à ce fournisseur. Vous ne pouvez donc pas le supprimer.")
+		fin
+		
+	// &Ne pas supprimer : on ne fait rien
+	CAS 2 :
+		
+FIN
+
+--- BTN_OK (BUTTON) event type=18 ---
+//On vérifie qu'au moins le nom du fournisseur a été saisi
+SI SAI_Nom = "" ALORS
+	Info("Veuillez saisir au moins le nom du fournisseur.")
+	RepriseSaisie(SAI_Nom)
+FIN
+
+//On remplit les rubriques du fichier avec ce que l'utilisateur a saisi à l'écran
+EcranVersFichier(MaFenêtre, FOURNISSEUR)
+
+//On ajoute ou modifie l'enregistrement dans le fichier
+si FOURNISSEUR..NouvelEnregistrement = vrai alors
+	hajoute(FOURNISSEUR)
+	mafenêtre..ValeurRenvoyée = fournisseur.NomFournisseur
+sinon
+	HModifie(FOURNISSEUR)		
+FIN
+
+//On re-grise les champs de saisie pour l'ajout et la modification d'un fournisseur
+GR_AjoutModif..Etat = Grisé
+
+//On met à jour la table
+TableAffiche(TABLE_Fournisseurs, taCourantEnreg)
+
+
+
+--- BTN_Annuler (BUTTON) event type=18 ---
+//On remet à jour les champs de saisie avec les valeurs présentes dans le fichier
+fichierversecran(mafenêtre, fournisseur) 
+
+//On re-grise les champs de saisie pour l'ajout et la modification d'un fournisseur
+GR_AjoutModif..etat = grise
+
+
+--- TABLE_Fournisseurs (TABLE) event type=33 ---
+
+//On affiche les informations sur le fournisseur
+FichierVersEcran(MaFenêtre, FOURNISSEUR)
+
+--- BTN_Imprimer (BUTTON) event type=18 ---
+
+
+// Aperçu avant impression pour la liste des utilisateurs
+iAperçu(iPage,<§$0002§>,Vrai)
+// Impression de l'état correspondant
+iImprimeEtat(Etat_Fournisseur)
+

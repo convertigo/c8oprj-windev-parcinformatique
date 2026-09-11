@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="729" height="588" font-family="Helvetica, Arial, sans-serif">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<rect x="24" y="40" width="681" height="518" fill="#f7f7f7" stroke="#333" stroke-width="1.5"/>
+<rect x="24" y="40" width="681" height="24" fill="#3b4a5a"/><text x="32" y="56" font-size="12" text-anchor="start" font-weight="bold" font-style="normal" fill="#fff">FEN_Utilisateur</text><text x="697" y="56" font-size="10" text-anchor="end" font-weight="normal" font-style="normal" fill="#dde">679×492</text>
+<rect x="37" y="74" width="294" height="30" fill="#f3f3f3" stroke="#999999" stroke-width="1"  />
+<text x="41" y="93" font-size="11" text-anchor="start" font-weight="bold" font-style="normal" fill="#333">Gestion des Utilisateurs</text>
+<rect x="390" y="122" width="299" height="387" fill="#f3f3f3" stroke="#999999" stroke-width="1" stroke-dasharray="4 3" />
+<text x="394" y="136" font-size="10" text-anchor="start" font-weight="normal" font-style="italic" fill="#777">InfosLieu</text>
+<rect x="283" y="77" width="96" height="24" fill="#ffd9a0" stroke="#c77d00" stroke-width="1"  rx="4"/>
+<text x="331" y="93" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">Nouveau</text>
+<rect x="385" y="77" width="96" height="24" fill="#ffd9a0" stroke="#c77d00" stroke-width="1"  rx="4"/>
+<text x="433" y="93" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">Modifier</text>
+<rect x="487" y="77" width="96" height="24" fill="#ffd9a0" stroke="#c77d00" stroke-width="1"  rx="4"/>
+<text x="535" y="93" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">Supprimer</text>
+<rect x="589" y="77" width="96" height="24" fill="#ffd9a0" stroke="#c77d00" stroke-width="1"  rx="4"/>
+<text x="637" y="93" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">Imprimer</text>
+<rect x="37" y="122" width="339" height="387" fill="#dff3ee" stroke="#0f8a6f" stroke-width="1"  />
+<rect x="37" y="122" width="339" height="20" fill="#bfe6da" stroke="#0f8a6f"/>
+<text x="40" y="136" font-size="9" text-anchor="start" font-weight="bold" font-style="normal" fill="#0b4d3e">Utilisateur</text>
+<line x1="150" y1="122" x2="150" y2="509" stroke="#a9d6c9"/>
+<text x="153" y="136" font-size="9" text-anchor="start" font-weight="bold" font-style="normal" fill="#0b4d3e">Tel</text>
+<line x1="263" y1="122" x2="263" y2="509" stroke="#a9d6c9"/>
+<text x="266" y="136" font-size="9" text-anchor="start" font-weight="bold" font-style="normal" fill="#0b4d3e">NomComplet</text>
+<line x1="376" y1="122" x2="376" y2="509" stroke="#a9d6c9"/>
+<line x1="37" y1="160" x2="376" y2="160" stroke="#cfe9e1"/>
+<line x1="37" y1="178" x2="376" y2="178" stroke="#cfe9e1"/>
+<line x1="37" y1="196" x2="376" y2="196" stroke="#cfe9e1"/>
+<line x1="37" y1="214" x2="376" y2="214" stroke="#cfe9e1"/>
+<line x1="37" y1="232" x2="376" y2="232" stroke="#cfe9e1"/>
+<line x1="37" y1="250" x2="376" y2="250" stroke="#cfe9e1"/>
+<line x1="37" y1="268" x2="376" y2="268" stroke="#cfe9e1"/>
+<line x1="37" y1="286" x2="376" y2="286" stroke="#cfe9e1"/>
+<line x1="37" y1="304" x2="376" y2="304" stroke="#cfe9e1"/>
+<line x1="37" y1="322" x2="376" y2="322" stroke="#cfe9e1"/>
+<line x1="37" y1="340" x2="376" y2="340" stroke="#cfe9e1"/>
+<line x1="37" y1="358" x2="376" y2="358" stroke="#cfe9e1"/>
+<line x1="37" y1="376" x2="376" y2="376" stroke="#cfe9e1"/>
+<line x1="37" y1="394" x2="376" y2="394" stroke="#cfe9e1"/>
+<line x1="37" y1="412" x2="376" y2="412" stroke="#cfe9e1"/>
+<line x1="37" y1="430" x2="376" y2="430" stroke="#cfe9e1"/>
+<line x1="37" y1="448" x2="376" y2="448" stroke="#cfe9e1"/>
+<line x1="37" y1="466" x2="376" y2="466" stroke="#cfe9e1"/>
+<line x1="37" y1="484" x2="376" y2="484" stroke="#cfe9e1"/>
+<text x="41" y="503" font-size="9" text-anchor="start" font-weight="normal" font-style="italic" fill="#0b4d3e">Table Utilisateurs</text>
+<rect x="401" y="181" width="173" height="26" fill="#fff3c4" stroke="#b58a00" stroke-width="1"  />
+<text x="404" y="198" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">Civilité</text>
+<rect x="473" y="183" width="99" height="22" fill="#fff" stroke="#8aa8e0"/>
+<text x="562" y="198" font-size="11" text-anchor="start" font-weight="normal" font-style="normal" fill="#222">▾</text>
+<rect x="401" y="211" width="222" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="404" y="227" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">Utilisateur</text>
+<rect x="494" y="213" width="127" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="401" y="241" width="222" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="404" y="257" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">Tel</text>
+<rect x="494" y="243" width="127" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="401" y="271" width="279" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="404" y="287" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">NomComplet</text>
+<rect x="518" y="273" width="160" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="401" y="301" width="117" height="112" fill="#ece3fb" stroke="#7a48c9" stroke-width="1"  />
+<line x1="401" y1="301" x2="518" y2="413" stroke="#b9a6df"/><line x1="518" y1="301" x2="401" y2="413" stroke="#b9a6df"/>
+<text x="460" y="361" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#5b3aa5">IMG Photo</text>
+<rect x="401" y="417" width="248" height="38" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="405" y="430" font-size="9" text-anchor="start" font-weight="normal" font-style="italic" fill="#444">Photo</text>
+<rect x="655" y="432" width="25" height="24" fill="#ffd9a0" stroke="#c77d00" stroke-width="1"  rx="4"/>
+<text x="668" y="448" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">Pa…</text>
+<rect x="559" y="477" width="38" height="24" fill="#ffd9a0" stroke="#c77d00" stroke-width="1"  rx="4"/>
+<text x="578" y="493" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">Annu…</text>
+<rect x="515" y="477" width="38" height="24" fill="#ffd9a0" stroke="#c77d00" stroke-width="1"  rx="4"/>
+<text x="534" y="493" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">OK</text>
+<rect x="24" y="570" width="14" height="12" fill="#ffffff" stroke="#2f6fd6"/><text x="42" y="580" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#222">Saisie (SAI_)</text>
+<rect x="149" y="570" width="14" height="12" fill="#fff3c4" stroke="#b58a00"/><text x="167" y="580" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#222">Combo (COMBO_)</text>
+<rect x="274" y="570" width="14" height="12" fill="#ffd9a0" stroke="#c77d00"/><text x="292" y="580" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#222">Bouton (BTN_)</text>
+<rect x="399" y="570" width="14" height="12" fill="#f3f3f3" stroke="#999999"/><text x="417" y="580" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#222">Libellé (LIB_)</text>
+<rect x="524" y="570" width="14" height="12" fill="#dff3ee" stroke="#0f8a6f"/><text x="542" y="580" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#222">Table (TABLE_)</text>
+<rect x="649" y="570" width="14" height="12" fill="#e6f4e6" stroke="#2e8b3d"/><text x="667" y="580" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#222">Liste (LISTE_/LSI_)</text>
+<rect x="774" y="570" width="14" height="12" fill="#ece3fb" stroke="#7a48c9"/><text x="792" y="580" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#222">Image (IMG_)</text>
+</svg>

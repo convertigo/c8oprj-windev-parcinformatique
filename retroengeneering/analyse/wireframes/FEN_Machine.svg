@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1650" height="670" font-family="Helvetica, Arial, sans-serif">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<rect x="24" y="40" width="789" height="600" fill="#f7f7f7" stroke="#333" stroke-width="1.5"/>
+<rect x="24" y="40" width="789" height="24" fill="#3b4a5a"/><text x="32" y="56" font-size="12" text-anchor="start" font-weight="bold" font-style="normal" fill="#fff">FEN_Machine  — onglet 1</text><text x="805" y="56" font-size="10" text-anchor="end" font-weight="normal" font-style="normal" fill="#dde">787×574</text>
+<rect x="37" y="152" width="760" height="439" fill="#fbfbfb" stroke="#666"/>
+<rect x="37" y="128" width="110" height="25" fill="#fbfbfb" stroke="#666"/><text x="92" y="145" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">Machine</text>
+<rect x="147" y="128" width="110" height="25" fill="#d9d9d9" stroke="#666"/><text x="202" y="145" font-size="10" text-anchor="middle" font-weight="normal" font-style="normal" fill="#222">Composants</text>
+<rect x="37" y="77" width="542" height="30" fill="#f3f3f3" stroke="#999999" stroke-width="1"  />
+<text x="41" y="96" font-size="11" text-anchor="start" font-weight="bold" font-style="normal" fill="#333">Gestion des Machines</text>
+<rect x="65" y="492" width="709" height="48" fill="#f3f3f3" stroke="#999999" stroke-width="1" stroke-dasharray="4 3" />
+<text x="69" y="506" font-size="10" text-anchor="start" font-weight="normal" font-style="italic" fill="#777">Note</text>
+<rect x="164" y="172" width="96" height="24" fill="#ffd9a0" stroke="#c77d00" stroke-width="1"  rx="4"/>
+<text x="212" y="188" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">Annuler</text>
+<rect x="62" y="172" width="96" height="24" fill="#ffd9a0" stroke="#c77d00" stroke-width="1"  rx="4"/>
+<text x="110" y="188" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">Appliquer</text>
+<rect x="56" y="206" width="268" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="59" y="222" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">NomMachine</text>
+<rect x="168" y="208" width="154" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="56" y="236" width="270" height="30" fill="#fff3c4" stroke="#b58a00" stroke-width="1"  />
+<text x="59" y="255" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">Emplacement</text>
+<rect x="169" y="238" width="155" height="26" fill="#fff" stroke="#8aa8e0"/>
+<text x="314" y="255" font-size="11" text-anchor="start" font-weight="normal" font-style="normal" fill="#222">▾</text>
+<rect x="56" y="270" width="270" height="30" fill="#fff3c4" stroke="#b58a00" stroke-width="1"  />
+<text x="59" y="289" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">Utilisateur</text>
+<rect x="169" y="272" width="155" height="26" fill="#fff" stroke="#8aa8e0"/>
+<text x="314" y="289" font-size="11" text-anchor="start" font-weight="normal" font-style="normal" fill="#222">▾</text>
+<rect x="56" y="304" width="268" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="59" y="320" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">AdresseIP</text>
+<rect x="168" y="306" width="154" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="837" y="40" width="789" height="600" fill="#f7f7f7" stroke="#333" stroke-width="1.5"/>
+<rect x="837" y="40" width="789" height="24" fill="#3b4a5a"/><text x="845" y="56" font-size="12" text-anchor="start" font-weight="bold" font-style="normal" fill="#fff">FEN_Machine  — onglet 2</text><text x="1618" y="56" font-size="10" text-anchor="end" font-weight="normal" font-style="normal" fill="#dde">787×574</text>
+<rect x="850" y="152" width="760" height="439" fill="#fbfbfb" stroke="#666"/>
+<rect x="850" y="128" width="110" height="25" fill="#d9d9d9" stroke="#666"/><text x="905" y="145" font-size="10" text-anchor="middle" font-weight="normal" font-style="normal" fill="#222">Machine</text>
+<rect x="960" y="128" width="110" height="25" fill="#fbfbfb" stroke="#666"/><text x="1015" y="145" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">Composants</text>
+<rect x="850" y="77" width="542" height="30" fill="#f3f3f3" stroke="#999999" stroke-width="1"  />
+<text x="854" y="96" font-size="11" text-anchor="start" font-weight="bold" font-style="normal" fill="#333">Gestion des Machines</text>
+<rect x="1294" y="236" width="305" height="345" fill="#f3f3f3" stroke="#999999" stroke-width="1" stroke-dasharray="4 3" />
+<text x="1298" y="250" font-size="10" text-anchor="start" font-weight="normal" font-style="italic" fill="#777">InfosLieu</text>
+<rect x="876" y="172" width="96" height="24" fill="#ffd9a0" stroke="#c77d00" stroke-width="1"  rx="4"/>
+<text x="924" y="188" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">Nouveau</text>
+<rect x="876" y="172" width="96" height="24" fill="#ffd9a0" stroke="#c77d00" stroke-width="1"  rx="4"/>
+<text x="924" y="188" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">ValiderComposant</text>
+<rect x="976" y="172" width="96" height="24" fill="#ffd9a0" stroke="#c77d00" stroke-width="1"  rx="4"/>
+<text x="1024" y="188" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">AnnulerComposant</text>
+<rect x="976" y="172" width="96" height="24" fill="#ffd9a0" stroke="#c77d00" stroke-width="1"  rx="4"/>
+<text x="1024" y="188" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">Modifier</text>
+<rect x="1276" y="172" width="96" height="24" fill="#ffd9a0" stroke="#c77d00" stroke-width="1"  rx="4"/>
+<text x="1324" y="188" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">Dissocier</text>
+<rect x="1176" y="172" width="96" height="24" fill="#ffd9a0" stroke="#c77d00" stroke-width="1"  rx="4"/>
+<text x="1224" y="188" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">Ajouter</text>
+<rect x="1076" y="172" width="96" height="24" fill="#ffd9a0" stroke="#c77d00" stroke-width="1"  rx="4"/>
+<text x="1124" y="188" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">Supprimer</text>
+<rect x="1376" y="172" width="96" height="24" fill="#ffd9a0" stroke="#c77d00" stroke-width="1"  rx="4"/>
+<text x="1424" y="188" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">Imprimer</text>
+<rect x="869" y="220" width="124" height="360" fill="#e6f4e6" stroke="#2e8b3d" stroke-width="1"  />
+<text x="873" y="233" font-size="9" text-anchor="start" font-weight="bold" font-style="normal" fill="#256b30">Liste Composants</text>
+<line x1="871" y1="256" x2="991" y2="256" stroke="#bcd9bc"/>
+<line x1="871" y1="274" x2="991" y2="274" stroke="#bcd9bc"/>
+<line x1="871" y1="292" x2="991" y2="292" stroke="#bcd9bc"/>
+<line x1="871" y1="310" x2="991" y2="310" stroke="#bcd9bc"/>
+<rect x="1010" y="236" width="268" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="1013" y="252" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">NSerieComp</text>
+<rect x="1122" y="238" width="154" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="1010" y="266" width="199" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="1013" y="282" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">DateAchatComp</text>
+<rect x="1093" y="268" width="114" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="1300" y="275" width="96" height="24" fill="#ffd9a0" stroke="#c77d00" stroke-width="1"  rx="4"/>
+<text x="1348" y="291" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">Type</text>
+<rect x="1010" y="292" width="270" height="30" fill="#fff3c4" stroke="#b58a00" stroke-width="1"  />
+<text x="1013" y="311" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">Fournisseur</text>
+<rect x="1123" y="294" width="155" height="26" fill="#fff" stroke="#8aa8e0"/>
+<text x="1268" y="311" font-size="11" text-anchor="start" font-weight="normal" font-style="normal" fill="#222">▾</text>
+<rect x="1300" y="305" width="291" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="1303" y="321" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">NomModeleComp</text>
+<rect x="1420" y="307" width="169" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="1010" y="326" width="199" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="1013" y="342" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">GarantieComp</text>
+<rect x="1093" y="328" width="114" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="1300" y="335" width="291" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="1303" y="351" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">MarqueModeleComp</text>
+<rect x="1420" y="337" width="169" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="1010" y="356" width="268" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="1013" y="372" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">NumRetourComp</text>
+<rect x="1122" y="358" width="154" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="1300" y="365" width="291" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="1303" y="381" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">Caractéristique1Comp</text>
+<rect x="1420" y="367" width="169" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="1010" y="386" width="199" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="1013" y="402" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">DateRetourComp</text>
+<rect x="1093" y="388" width="114" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="1300" y="395" width="291" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="1303" y="411" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">Caractéristique2Comp</text>
+<rect x="1420" y="397" width="169" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="1010" y="416" width="199" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="1013" y="432" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">DateRenvoiComp</text>
+<rect x="1093" y="418" width="114" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="1300" y="425" width="291" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="1303" y="441" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">Caractéristique3Comp</text>
+<rect x="1420" y="427" width="169" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="1010" y="446" width="268" height="135" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="1014" y="459" font-size="9" text-anchor="start" font-weight="normal" font-style="italic" fill="#444">CommentairesComp</text>
+<rect x="1300" y="455" width="291" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="1303" y="471" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">Caractéristique4Comp</text>
+<rect x="1420" y="457" width="169" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="24" y="652" width="14" height="12" fill="#ffffff" stroke="#2f6fd6"/><text x="42" y="662" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#222">Saisie (SAI_)</text>
+<rect x="149" y="652" width="14" height="12" fill="#fff3c4" stroke="#b58a00"/><text x="167" y="662" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#222">Combo (COMBO_)</text>
+<rect x="274" y="652" width="14" height="12" fill="#ffd9a0" stroke="#c77d00"/><text x="292" y="662" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#222">Bouton (BTN_)</text>
+<rect x="399" y="652" width="14" height="12" fill="#f3f3f3" stroke="#999999"/><text x="417" y="662" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#222">Libellé (LIB_)</text>
+<rect x="524" y="652" width="14" height="12" fill="#dff3ee" stroke="#0f8a6f"/><text x="542" y="662" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#222">Table (TABLE_)</text>
+<rect x="649" y="652" width="14" height="12" fill="#e6f4e6" stroke="#2e8b3d"/><text x="667" y="662" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#222">Liste (LISTE_/LSI_)</text>
+<rect x="774" y="652" width="14" height="12" fill="#ece3fb" stroke="#7a48c9"/><text x="792" y="662" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#222">Image (IMG_)</text>
+</svg>

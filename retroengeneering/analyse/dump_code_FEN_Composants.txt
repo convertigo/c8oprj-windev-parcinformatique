@@ -1,0 +1,33 @@
+
+
+################ CODE FEN_Composants ################
+
+--- WINDOW event type=34 ---
+//A la fermeture de la fenêtre, on renvoie l'identifiant du composant sélectionné
+mafenetre..ValeurRenvoyée = 0
+
+--- TABLE_Composants (TABLE) event type=21 ---
+
+//On affiche l'utilisateur de la machine
+
+si TABLE_Composants.COL_NomMachine <> "" ALORS
+	
+	HLitRecherchePremier(machine,NomMachine,TABLE_Composants.COL_NomMachine)
+	TABLE_Composants.COL_Utilisateur = machine.InitialesUtilisateur
+	
+sinon
+	
+	TABLE_Composants.COL_Utilisateur = ""	
+	
+FIN
+
+
+--- BTN_Valider (BUTTON) event type=18 ---
+
+//On renvoie l'identifiant du composant sélectionné
+ferme(mafenêtre, TABLE_Composants.COL_IDCOMPOSANT)
+
+
+--- BTN_Annuler (BUTTON) event type=18 ---
+Ferme(MaFenêtre, 0)
+

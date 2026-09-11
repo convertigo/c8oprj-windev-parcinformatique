@@ -1,0 +1,740 @@
+{
+ "UTILISATEUR": {
+  "record_size": 82,
+  "header_bytes": 12,
+  "phase": 1252,
+  "approx_records": 55,
+  "good_in_first_60": 51,
+  "sample": [
+   {
+    "Initiales": "",
+    "Tel": "",
+    "NomComplet": "ÿÿÿw!",
+    "Photo": "<memo>",
+    "Civilité": 0
+   },
+   {
+    "Initiales": "z|H",
+    "Tel": "",
+    "NomComplet": "",
+    "Photo": "<memo>",
+    "Civilité": 8530
+   },
+   {
+    "Initiales": "{|H",
+    "Tel": "rd",
+    "NomComplet": "",
+    "Photo": "<memo>",
+    "Civilité": 31826
+   },
+   {
+    "Initiales": "z|H",
+    "Tel": "",
+    "NomComplet": "",
+    "Photo": "<memo>",
+    "Civilité": -21678
+   },
+   {
+    "Initiales": "z|H",
+    "Tel": "nd",
+    "NomComplet": "",
+    "Photo": "<memo>",
+    "Civilité": -10414
+   },
+   {
+    "Initiales": "z|H",
+    "Tel": "",
+    "NomComplet": "",
+    "Photo": "<memo>",
+    "Civilité": 850
+   },
+   {
+    "Initiales": "z|H",
+    "Tel": "",
+    "NomComplet": "",
+    "Photo": "<memo>",
+    "Civilité": -15534
+   },
+   {
+    "Initiales": "z|H",
+    "Tel": "",
+    "NomComplet": "",
+    "Photo": "<memo>",
+    "Civilité": -16558
+   },
+   {
+    "Initiales": "z|H",
+    "Tel": "te",
+    "NomComplet": "",
+    "Photo": "<memo>",
+    "Civilité": 5970
+   },
+   {
+    "Initiales": "z|H",
+    "Tel": "s",
+    "NomComplet": "",
+    "Photo": "<memo>",
+    "Civilité": 14162
+   },
+   {
+    "Initiales": "¬~[",
+    "Tel": "",
+    "NomComplet": "",
+    "Photo": "<memo>",
+    "Civilité": 22482
+   },
+   {
+    "Initiales": "z|H",
+    "Tel": "",
+    "NomComplet": "",
+    "Photo": "<memo>",
+    "Civilité": -22702
+   }
+  ]
+ },
+ "MACHINE": {
+  "record_size": 90,
+  "header_bytes": 12,
+  "phase": 1239,
+  "approx_records": 77,
+  "good_in_first_60": 56,
+  "sample": [
+   {
+    "IDMachine": 0,
+    "NomMachine": "",
+    "InitialesUtilisateur": "ÿÿe-",
+    "AdresseIP": "",
+    "IDLieu": 18432
+   },
+   {
+    "IDMachine": 378634335,
+    "NomMachine": "jW",
+    "InitialesUtilisateur": "",
+    "AdresseIP": "",
+    "IDLieu": 0
+   },
+   {
+    "IDMachine": 311984128,
+    "NomMachine": "zv|H",
+    "InitialesUtilisateur": "",
+    "AdresseIP": "",
+    "IDLieu": 0
+   },
+   {
+    "IDMachine": 312049664,
+    "NomMachine": "zv|H",
+    "InitialesUtilisateur": "",
+    "AdresseIP": "",
+    "IDLieu": 0
+   },
+   {
+    "IDMachine": 375525376,
+    "NomMachine": "Þw|H",
+    "InitialesUtilisateur": "",
+    "AdresseIP": "i",
+    "IDLieu": 0
+   },
+   {
+    "IDMachine": 375394304,
+    "NomMachine": "zv|H",
+    "InitialesUtilisateur": "",
+    "AdresseIP": "tine",
+    "IDLieu": 0
+   },
+   {
+    "IDMachine": 375328768,
+    "NomMachine": "zv|H",
+    "InitialesUtilisateur": "",
+    "AdresseIP": "x",
+    "IDLieu": 0
+   },
+   {
+    "IDMachine": 375394304,
+    "NomMachine": "zv|H",
+    "InitialesUtilisateur": "",
+    "AdresseIP": "ise",
+    "IDLieu": 0
+   },
+   {
+    "IDMachine": 375787520,
+    "NomMachine": "zv|H",
+    "InitialesUtilisateur": "",
+    "AdresseIP": "ile",
+    "IDLieu": 0
+   },
+   {
+    "IDMachine": 375787520,
+    "NomMachine": "y´÷L",
+    "InitialesUtilisateur": "",
+    "AdresseIP": "aud",
+    "IDLieu": 0
+   },
+   {
+    "IDMachine": 375590912,
+    "NomMachine": "zv|H",
+    "InitialesUtilisateur": "",
+    "AdresseIP": "onique",
+    "IDLieu": 0
+   },
+   {
+    "IDMachine": 375656448,
+    "NomMachine": "zv|H",
+    "InitialesUtilisateur": "",
+    "AdresseIP": "sca",
+    "IDLieu": 0
+   }
+  ]
+ },
+ "LIEU": {
+  "record_size": 90,
+  "header_bytes": 11,
+  "phase": 1236,
+  "approx_records": 23,
+  "good_in_first_60": 18,
+  "sample": [
+   {
+    "IDLieu": 5267920,
+    "Emplacement": "ÿSalle de réunion",
+    "Commentaire": "<memo>",
+    "Rectangle": "ÿÿ3,210,98,480",
+    "Picto": "<memo>"
+   },
+   {
+    "IDLieu": 5267920,
+    "Emplacement": "ÿSecrétariat",
+    "Commentaire": "<memo>",
+    "Rectangle": "ÿÿ610,108,700,200",
+    "Picto": "<memo>"
+   },
+   {
+    "IDLieu": 5267918,
+    "Emplacement": "ÿAtelier",
+    "Commentaire": "<memo>",
+    "Rectangle": "ÿÿ506,210,600,480",
+    "Picto": "<memo>"
+   },
+   {
+    "IDLieu": 5267917,
+    "Emplacement": "ÿProduction",
+    "Commentaire": "<memo>",
+    "Rectangle": "ÿÿ268,210,402,480",
+    "Picto": "<memo>"
+   },
+   {
+    "IDLieu": 5267920,
+    "Emplacement": "ÿRéseau",
+    "Commentaire": "<memo>",
+    "Rectangle": "ÿÿ610,362,700,480",
+    "Picto": "<memo>"
+   },
+   {
+    "IDLieu": 5267914,
+    "Emplacement": "ÿCommerciaux",
+    "Commentaire": "<memo>",
+    "Rectangle": "ÿÿ478,4,586,180",
+    "Picto": "<memo>"
+   },
+   {
+    "IDLieu": 5267917,
+    "Emplacement": "ÿDocumentation",
+    "Commentaire": "<memo>",
+    "Rectangle": "ÿÿ184,85,364,180",
+    "Picto": "<memo>"
+   },
+   {
+    "IDLieu": 5267918,
+    "Emplacement": "ÿStock",
+    "Commentaire": "<memo>",
+    "Rectangle": "ÿÿ81,4,146,180",
+    "Picto": "<memo>"
+   },
+   {
+    "IDLieu": 5267917,
+    "Emplacement": "ÿDirection",
+    "Commentaire": "<memo>",
+    "Rectangle": "ÿÿ420,210,496,283",
+    "Picto": "<memo>"
+   },
+   {
+    "IDLieu": 5267917,
+    "Emplacement": "ÿDépot n°1",
+    "Commentaire": "<memo>",
+    "Rectangle": "ÿÿ184,4,364,80",
+    "Picto": "<memo>"
+   },
+   {
+    "IDLieu": 5267920,
+    "Emplacement": "ÿAccueil",
+    "Commentaire": "<memo>",
+    "Rectangle": "ÿÿ610,4,700,104",
+    "Picto": "<memo>"
+   },
+   {
+    "IDLieu": 5267914,
+    "Emplacement": "ÿComptabilité",
+    "Commentaire": "<memo>",
+    "Rectangle": "ÿÿ102,210,264,480",
+    "Picto": "<memo>"
+   }
+  ]
+ },
+ "COMPOSANT": {
+  "record_size": 169,
+  "header_bytes": 17,
+  "phase": 1274,
+  "approx_records": 1321,
+  "good_in_first_60": 54,
+  "sample": [
+   {
+    "IDCOMPOSANT": 0,
+    "NSerie": "",
+    "DateAchat": "",
+    "Garantie": "",
+    "NumRetour": "ÿÿÿÿÿÿMCH285",
+    "DateRetour": "",
+    "DateRenvoi": "",
+    "Commentaire": "<memo>",
+    "NomMachine": "",
+    "IDMODELE": 23126,
+    "IDFournisseur": 0
+   },
+   {
+    "IDCOMPOSANT": 0,
+    "NSerie": "",
+    "DateAchat": "",
+    "Garantie": "",
+    "NumRetour": "ÿÿÿÿÿÿ",
+    "DateRetour": "",
+    "DateRenvoi": "",
+    "Commentaire": "<memo>",
+    "NomMachine": "",
+    "IDMODELE": 76,
+    "IDFournisseur": 0
+   },
+   {
+    "IDCOMPOSANT": 0,
+    "NSerie": "",
+    "DateAchat": "",
+    "Garantie": "",
+    "NumRetour": "ÿÿÿÿÿÿ",
+    "DateRetour": "",
+    "DateRenvoi": "",
+    "Commentaire": "<memo>",
+    "NomMachine": "",
+    "IDMODELE": 0,
+    "IDFournisseur": 0
+   },
+   {
+    "IDCOMPOSANT": 0,
+    "NSerie": "",
+    "DateAchat": "",
+    "Garantie": "",
+    "NumRetour": "ÿÿÿÿÿÿMCH293",
+    "DateRetour": "",
+    "DateRenvoi": "",
+    "Commentaire": "<memo>",
+    "NomMachine": "",
+    "IDMODELE": 13905,
+    "IDFournisseur": 0
+   },
+   {
+    "IDCOMPOSANT": 0,
+    "NSerie": "",
+    "DateAchat": "",
+    "Garantie": "",
+    "NumRetour": "ÿÿÿÿÿÿMCH312",
+    "DateRetour": "",
+    "DateRenvoi": "",
+    "Commentaire": "<memo>",
+    "NomMachine": "",
+    "IDMODELE": 17753,
+    "IDFournisseur": 0
+   },
+   {
+    "IDCOMPOSANT": 0,
+    "NSerie": "",
+    "DateAchat": "",
+    "Garantie": "",
+    "NumRetour": "ÿÿÿÿÿÿMCH308",
+    "DateRetour": "",
+    "DateRenvoi": "",
+    "Commentaire": "<memo>",
+    "NomMachine": "",
+    "IDMODELE": 0,
+    "IDFournisseur": 0
+   },
+   {
+    "IDCOMPOSANT": 0,
+    "NSerie": "",
+    "DateAchat": "",
+    "Garantie": "",
+    "NumRetour": "ÿÿÿÿÿÿMCH307",
+    "DateRetour": "",
+    "DateRenvoi": "",
+    "Commentaire": "<memo>",
+    "NomMachine": "",
+    "IDMODELE": 49,
+    "IDFournisseur": 0
+   },
+   {
+    "IDCOMPOSANT": 0,
+    "NSerie": "",
+    "DateAchat": "",
+    "Garantie": "",
+    "NumRetour": "ÿÿÿÿÿÿMCH306",
+    "DateRetour": "",
+    "DateRenvoi": "",
+    "Commentaire": "<memo>",
+    "NomMachine": "",
+    "IDMODELE": 3755854,
+    "IDFournisseur": 0
+   },
+   {
+    "IDCOMPOSANT": 0,
+    "NSerie": "",
+    "DateAchat": "",
+    "Garantie": "",
+    "NumRetour": "ÿÿÿÿÿÿMCH305",
+    "DateRetour": "",
+    "DateRenvoi": "",
+    "Commentaire": "<memo>",
+    "NomMachine": "",
+    "IDMODELE": 4997936,
+    "IDFournisseur": 0
+   },
+   {
+    "IDCOMPOSANT": 0,
+    "NSerie": "",
+    "DateAchat": "",
+    "Garantie": "",
+    "NumRetour": "ÿÿÿÿÿÿMCH304",
+    "DateRetour": "",
+    "DateRenvoi": "",
+    "Commentaire": "<memo>",
+    "NomMachine": "",
+    "IDMODELE": 57,
+    "IDFournisseur": 0
+   },
+   {
+    "IDCOMPOSANT": 0,
+    "NSerie": "",
+    "DateAchat": "",
+    "Garantie": "",
+    "NumRetour": "ÿÿÿÿÿÿMCH303",
+    "DateRetour": "",
+    "DateRenvoi": "",
+    "Commentaire": "<memo>",
+    "NomMachine": "",
+    "IDMODELE": 17496,
+    "IDFournisseur": 0
+   },
+   {
+    "IDCOMPOSANT": 0,
+    "NSerie": "",
+    "DateAchat": "",
+    "Garantie": "",
+    "NumRetour": "ÿÿÿÿÿÿMCH302",
+    "DateRetour": "",
+    "DateRenvoi": "",
+    "Commentaire": "<memo>",
+    "NomMachine": "",
+    "IDMODELE": 0,
+    "IDFournisseur": 0
+   }
+  ]
+ },
+ "FOURNISSEUR": {
+  "record_size": 418,
+  "header_bytes": 14,
+  "phase": 1357,
+  "approx_records": 17,
+  "good_in_first_60": 15,
+  "sample": [
+   {
+    "NomFournisseur": "À<",
+    "Adresse": "|H",
+    "Tel": "",
+    "TelSAV": "",
+    "Fax": "",
+    "IDFournisseur": 0
+   },
+   {
+    "NomFournisseur": "",
+    "Adresse": "|H",
+    "Tel": "",
+    "TelSAV": "",
+    "Fax": "",
+    "IDFournisseur": 0
+   },
+   {
+    "NomFournisseur": "",
+    "Adresse": "|H",
+    "Tel": "",
+    "TelSAV": "",
+    "Fax": "",
+    "IDFournisseur": 0
+   },
+   {
+    "NomFournisseur": "",
+    "Adresse": "|H",
+    "Tel": "",
+    "TelSAV": "",
+    "Fax": "",
+    "IDFournisseur": 0
+   },
+   {
+    "NomFournisseur": "",
+    "Adresse": "|H",
+    "Tel": "",
+    "TelSAV": "",
+    "Fax": "",
+    "IDFournisseur": 0
+   },
+   {
+    "NomFournisseur": "",
+    "Adresse": "|H",
+    "Tel": "",
+    "TelSAV": "",
+    "Fax": "",
+    "IDFournisseur": 0
+   },
+   {
+    "NomFournisseur": "",
+    "Adresse": "|H",
+    "Tel": "",
+    "TelSAV": "",
+    "Fax": "",
+    "IDFournisseur": 0
+   },
+   {
+    "NomFournisseur": "",
+    "Adresse": "|H",
+    "Tel": "",
+    "TelSAV": "",
+    "Fax": "",
+    "IDFournisseur": 0
+   },
+   {
+    "NomFournisseur": "",
+    "Adresse": "W",
+    "Tel": "",
+    "TelSAV": "",
+    "Fax": "",
+    "IDFournisseur": 0
+   },
+   {
+    "NomFournisseur": "",
+    "Adresse": "|H",
+    "Tel": "",
+    "TelSAV": "",
+    "Fax": "",
+    "IDFournisseur": 0
+   },
+   {
+    "NomFournisseur": "",
+    "Adresse": "|H",
+    "Tel": "",
+    "TelSAV": "",
+    "Fax": "",
+    "IDFournisseur": 0
+   },
+   {
+    "NomFournisseur": "",
+    "Adresse": "|H",
+    "Tel": "",
+    "TelSAV": "",
+    "Fax": "",
+    "IDFournisseur": 0
+   }
+  ]
+ },
+ "MODELE": {
+  "record_size": 447,
+  "header_bytes": 21,
+  "phase": 1234,
+  "approx_records": 1111,
+  "good_in_first_60": 57,
+  "sample": [
+   {
+    "NomModele": "ï?",
+    "MarqueModele": "",
+    "TypeModele": "",
+    "Caractéristique1": "",
+    "Caractéristique2": "",
+    "Caractéristique3": "",
+    "Caractéristique4": "",
+    "Valeur1": "",
+    "Valeur2": "",
+    "Valeur3": "",
+    "Valeur4": "",
+    "Commentaire": "<memo>",
+    "IDMODELE": 0
+   },
+   {
+    "NomModele": "ï?",
+    "MarqueModele": "",
+    "TypeModele": "",
+    "Caractéristique1": "",
+    "Caractéristique2": "",
+    "Caractéristique3": "",
+    "Caractéristique4": "",
+    "Valeur1": "",
+    "Valeur2": "",
+    "Valeur3": "",
+    "Valeur4": "",
+    "Commentaire": "<memo>",
+    "IDMODELE": 0
+   },
+   {
+    "NomModele": "ï?",
+    "MarqueModele": "",
+    "TypeModele": "",
+    "Caractéristique1": "",
+    "Caractéristique2": "",
+    "Caractéristique3": "",
+    "Caractéristique4": "",
+    "Valeur1": "",
+    "Valeur2": "",
+    "Valeur3": "",
+    "Valeur4": "",
+    "Commentaire": "<memo>",
+    "IDMODELE": 0
+   },
+   {
+    "NomModele": "ï?",
+    "MarqueModele": "",
+    "TypeModele": "",
+    "Caractéristique1": "",
+    "Caractéristique2": "",
+    "Caractéristique3": "",
+    "Caractéristique4": "",
+    "Valeur1": "",
+    "Valeur2": "",
+    "Valeur3": "",
+    "Valeur4": "",
+    "Commentaire": "<memo>",
+    "IDMODELE": 0
+   },
+   {
+    "NomModele": "ï?",
+    "MarqueModele": "",
+    "TypeModele": "",
+    "Caractéristique1": "",
+    "Caractéristique2": "",
+    "Caractéristique3": "",
+    "Caractéristique4": "",
+    "Valeur1": "",
+    "Valeur2": "",
+    "Valeur3": "",
+    "Valeur4": "",
+    "Commentaire": "<memo>",
+    "IDMODELE": 0
+   },
+   {
+    "NomModele": "ï?",
+    "MarqueModele": "",
+    "TypeModele": "",
+    "Caractéristique1": "",
+    "Caractéristique2": "",
+    "Caractéristique3": "",
+    "Caractéristique4": "",
+    "Valeur1": "",
+    "Valeur2": "",
+    "Valeur3": "",
+    "Valeur4": "",
+    "Commentaire": "<memo>",
+    "IDMODELE": 0
+   },
+   {
+    "NomModele": "ï?",
+    "MarqueModele": "",
+    "TypeModele": "",
+    "Caractéristique1": "",
+    "Caractéristique2": "",
+    "Caractéristique3": "",
+    "Caractéristique4": "",
+    "Valeur1": "",
+    "Valeur2": "",
+    "Valeur3": "",
+    "Valeur4": "",
+    "Commentaire": "<memo>",
+    "IDMODELE": 0
+   },
+   {
+    "NomModele": "ï?",
+    "MarqueModele": "",
+    "TypeModele": "",
+    "Caractéristique1": "",
+    "Caractéristique2": "",
+    "Caractéristique3": "",
+    "Caractéristique4": "",
+    "Valeur1": "",
+    "Valeur2": "",
+    "Valeur3": "",
+    "Valeur4": "",
+    "Commentaire": "<memo>",
+    "IDMODELE": 0
+   },
+   {
+    "NomModele": "ï?",
+    "MarqueModele": "",
+    "TypeModele": "",
+    "Caractéristique1": "",
+    "Caractéristique2": "",
+    "Caractéristique3": "",
+    "Caractéristique4": "",
+    "Valeur1": "",
+    "Valeur2": "",
+    "Valeur3": "",
+    "Valeur4": "",
+    "Commentaire": "<memo>",
+    "IDMODELE": 0
+   },
+   {
+    "NomModele": "ï?",
+    "MarqueModele": "",
+    "TypeModele": "",
+    "Caractéristique1": "",
+    "Caractéristique2": "",
+    "Caractéristique3": "",
+    "Caractéristique4": "",
+    "Valeur1": "",
+    "Valeur2": "",
+    "Valeur3": "",
+    "Valeur4": "",
+    "Commentaire": "<memo>",
+    "IDMODELE": 0
+   },
+   {
+    "NomModele": "ï?",
+    "MarqueModele": "",
+    "TypeModele": "",
+    "Caractéristique1": "",
+    "Caractéristique2": "",
+    "Caractéristique3": "",
+    "Caractéristique4": "",
+    "Valeur1": "",
+    "Valeur2": "",
+    "Valeur3": "",
+    "Valeur4": "",
+    "Commentaire": "<memo>",
+    "IDMODELE": 0
+   },
+   {
+    "NomModele": "ï?",
+    "MarqueModele": "",
+    "TypeModele": "",
+    "Caractéristique1": "",
+    "Caractéristique2": "",
+    "Caractéristique3": "",
+    "Caractéristique4": "",
+    "Valeur1": "",
+    "Valeur2": "",
+    "Valeur3": "",
+    "Valeur4": "",
+    "Commentaire": "<memo>",
+    "IDMODELE": 0
+   }
+  ]
+ }
+}

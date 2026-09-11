@@ -1,0 +1,2955 @@
+{
+ "FEN_ChoixEmplacement.wdw": {
+  "name": "FEN_ChoixEmplacement",
+  "properties": {
+   "width": 657,
+   "height": 472,
+   "widthClient": 655,
+   "heightClient": 470,
+   "widthMin": 136,
+   "heightMin": 186
+  },
+  "controls": [
+   {
+    "name": "LSI_Lieu",
+    "type": 27,
+    "parent": null,
+    "x": 11,
+    "y": 57,
+    "w": 633,
+    "h": 405,
+    "events": []
+   },
+   {
+    "name": "LIB_Lieux",
+    "type": 3,
+    "parent": null,
+    "x": 12,
+    "y": 12,
+    "w": 196,
+    "h": 30,
+    "events": []
+   },
+   {
+    "name": "BTN_Valider",
+    "type": 4,
+    "parent": null,
+    "x": 348,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "// Renvoie l'élément sélectionné dans la liste image\n// et l'affecte dans la combo qui a ouvert la popup\nMonChampPopup = LSI_Lieu\nFerme()\n\n//Ce traitement s'exécute également lors du double clic dans la liste image\n"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Annuler",
+    "type": 4,
+    "parent": null,
+    "x": 450,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "Ferme()\n"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Nouveau",
+    "type": 4,
+    "parent": null,
+    "x": 552,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "nIdLieu est un entier = ouvre(FEN_Lieu, CST_MODECREATION)\n\n//Permet d'afficher dans la liste le nouveau lieu et de le sélectionner\nListeAffiche(LSI_Lieu, taDébut)\nLSI_Lieu = nIdLieu"
+     }
+    ]
+   }
+  ],
+  "menu": [],
+  "window_events": [
+   {
+    "type": null,
+    "code": "//--- Fenêtre Popup ---\n// Pour accéder au champ ou à la combo popup qui a ouvert cette fenêtre\n// vous pouvez utiliser : MonChampPopup \n"
+   },
+   {
+    "type": 34,
+    "code": "//A l'ouverture de la fenêtre popup, l'élément sélectionné dans la liste image correspond\n//à ce qui est sélectionné dans la combo qui l'a ouverte\n LSI_LIEU = MonChampPopup"
+   }
+  ],
+  "procedures": [],
+  "strings": [],
+  "dialogs": [],
+  "embedded": null,
+  "other_keys": []
+ },
+ "FEN_ChoixFournisseur.wdw": {
+  "name": "FEN_ChoixFournisseur",
+  "properties": {
+   "width": 657,
+   "height": 406,
+   "widthClient": 655,
+   "heightClient": 404,
+   "widthMin": 136,
+   "heightMin": 186
+  },
+  "controls": [
+   {
+    "name": "LIB_Fournisseurs",
+    "type": 3,
+    "parent": null,
+    "x": 12,
+    "y": 12,
+    "w": 196,
+    "h": 30,
+    "events": []
+   },
+   {
+    "name": "BTN_Valider",
+    "type": 4,
+    "parent": null,
+    "x": 341,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "//Renvoie le fournisseur sélectionné dans la table et l'affecte à la combo qui a ouvert la fenêtre popup\nMonChampPopup = TABLE_Fournisseurs.COL_idFournisseur\nFerme()\n\n//Ce traitement s'exécute également lors du double clic dans la table des fournisseurs"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Annuler",
+    "type": 4,
+    "parent": null,
+    "x": 443,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "Ferme()\n"
+     }
+    ]
+   },
+   {
+    "name": "TABLE_Fournisseurs",
+    "type": 9,
+    "parent": null,
+    "x": 12,
+    "y": 57,
+    "w": 631,
+    "h": 339,
+    "columns": [
+     {
+      "name": "COL_IDFournisseur",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAAAiWzjjaaTVAacrNEAxmhnr8cHAA4eDjCtnaCaG+xFSBPlXoCDzJ8B5UpekTUUCfTwBP34fRlmlAjIskoQCaWUCFnafIUJzTKbVQN032oI954eFayjT3tPlv9C/XShltzv4lr7tgHa4gEkKA+92hpP8L9PUmTBzb90cSH3ALLEQcTvrecOnZRByrnkEmoHTYUR7u+fFAwvGSwk/8pqrmq18+mTq+OaMu9HN8mTb6KQdoOTQHfr1aHCHiFpnndVavyvWcwDidDtl7H/ZkqjYQECgyklNWqP0Uz8C35T1DmZ2OKvGOesEXhItfwXw5OtV1OWAayVJ/k4wQTp2oRk+iDwjU4izOEamclwOu7prve0qBBmT+sa83os1UTq2tcXMqrKWFYBfBdOS1EdAP2mzqggyrJqXkhmauPOteoJs52GIXwBUyOOBuOh2JmhDA97dARUHaIr1iwgZEOChVL4hVZqrhSfEmDMNLYTx/VGQBW403JM41QhkRP7rf9kJCxWj9HoAK2o5C+xQhB9duOLN1Gk2jPXU+v7fB3D/nTBlRHlyDT8u/NErSCVd1JaOym8ipz2JyblU0wwBPNk4b3iIFROAPGV6TGZmlOtFnWbkMPasRyVIDoWOxW8RyuU0Jwn4mKTaNQqRwp2IvxjtXHWDWwOKxREFj2W9to21I/SSkoxlVD/Mjfqm/KpmE+0dWzZHAX521G3ZdgcN5oabnsH1M6aoijkjylaMrX8cdVXZ3uRS9i0UdW6v62dyPIzULhYIh0Sok6hRRIe6DFsDPu9pNjE2J3lN8Q1IbXyiVAzFM3JgJdGYMG22YMYUVTJNSfl6RPmNvbcavmeAYDjg7iFb2ANa+0z7FmQmX5mODbM6UNh1MgT4mhnxLi9/5g4eE5MuwRkYf7xPbwWW0BMlWumyqR34++3sMOrOtD/Gk9DK3OOJKJLXF4EK3HaR3mvRF25QQSuKd6aKhBUf7Euprj2Z",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_NomFournisseur",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAADDFmnK17Bo94AXLzV+cmvP5DS3MwpSaSYL6W7Sus+/smd6BdI3F1GRbbtQAcQBVBMM+hRHKu6RICwn+gVOduyY2FtehwrsIKA6567BxDbygOEjlwUsFF7qu78JUv1i3UcuVR15S1EKMEwSlXWhkMYnxSvK9F7c8Vo03MytkbC4Q1UU5wwhvF/CdUJmdNlGCFP9tjiCbzCBhDX9LJ0hCpsn2hCD/ve74CW+HwJEbPfwHX2PM+DGIT8aA5zLkLQEDkks7qy5p06v8Sp1yaQle0rsj0FHPEqcfpFLuTzC9WJFvKhS3pf3fCpUx625e1uttla4/FGzgUjkn6WckOMAf0io0SLvtny2/CkGfJyZeZLX3iBQXxEVgrtnWCnNEeM8XoVrfuQe7fzmQ/r5mdKpELZCOh8BOovqrvSTW0Q1LYzlbhIJANi+o+ABgatcbSmDmhZMh+HQgjp0+0L+5YrP0cgGaMr3qWe7HDenBsbygLtJqGMU85ekbJcdfj26x22yvlA1icQ9vZFMF3/Yv9tr0VvinNdYL1MJjS6CRLfW++KLP9Wc/SgXt0OX4wdg1pjzZBUwze4/xe8wXJbXfm6vJO7pdWif3wMLfu/2NWs2PZkoHGmpqyJubmx2y1fUV1CKrKBkSwPK6m5Me3blLB5k9r4okJz7SfQRcNtMnKbJmaXmuqap81DNtg5ScIxs2BK9dJKET56yPLVS0YJtWBKtudS9IXG5VWu8FpWYpT0lHWCtuZ8fSXhHkpTumNb2fvlLcvq1KbGOlcQFWhRTJpXJNCV91yX4ByotPR30WAFnNXqX9zfBSh16KJKzmbDVcCGzIOMYIOYO+L4y9JAJmsLKNvJuAiUOX8aQkO5A42tjC+GGjM1y3uOS5Ftr3cx/W0b67jDzXncsEKHaf11Alf80DxOevaySIpQapffG+PhHquvuJxiMHTBEjqI0EU/Gs5w3Ku/q5VIS/6MoWVuHFw9PmK6+XwbYJUyaGfwvAZL3mGHmI/DlRcRUQGuAzEl+mYjLpI9ogMcVwpxbVDPeJ57h10dNNMcoe6Vo4CarPSHKPTI8PwGTFBzFaR2EwVH0ReDuCh4/",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_Adresse",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAACf2xkXk5no++dSdFFlIQqcEJw8ZVTh7PiIoA3l/IvRiJdRaXpYjJK6aVhujKgMq5zC/TKtuI23UrPiTkm4uH9rIAvhxWtw00Ic6Is+X2S9LR9veDkDMzww1lLgxVsO41puPmVj/PJijdCSKvA4FEpxGuZEw/geJO/pBowmwfjSE/yD0T8RFryv5ytfU2tu9bYAnNIzk8cwYq0BM5LCOnsYDZVGErBsgFZ6MaiRayzaCNLB+kMXHS2v4Yy8LzZLKvICNJeE1KoiiKtJCfXNwQfpGnCKzKrvYsvuMe9pP4JOrFVksbP4BdOWtqrO+0Wpxh7c8UboeK+csBHJF8/KtmEqIu0HECuEyPrRmLE0thRq9xR4OhCklbJDap4E82B3Mc4TYXOQzBF7MHH82HfP9mFqO25AElCKOjp+FeJljAIsWEKuVmAH2Xiwof/4uEk0+CEruX2dHC0mLjtz9o6B1sONJc3x43zGwMaqiSN2+DXi1Ocr9hFj92SoNw3XhpFg5USCMdN/75NUC6CPru50JUzeUKp8zJa+NC5lefcL4y8Va+hdN7HlJae0NLJSt2heqoFFIj6uAYeuo0/Q9mMVm67HXF/txNtnqEDDbKXtt6xepLJe6ZOEBHS9IDquGkDvACIjkFM9GgJmquF0wu9avaD0KWn1AOIvmEinQ2qeB2po0neOE/HBprQpW4/6K+jsJMhRZNDDmlMGTif4Ys2xwgrJJIq1qm+M+G7Dfqnc5RuLkcDiz6F/HuaPAykuO/1k8tCQGMunKxrpRVs0sMj1zdWjDPgsBspRt0KJo0UqM68TLZKe9r5obi7YPhcj3aF4PP059RgPjiw+46/uojmGr/pQj5ypofnhZVo89/h/jjGP4YmYA51FxZxlGariO/fO7cOnjliQ+9MHyT8ip8PQVbBNyWxDbjIptzmJHcSQ7pR+pd3zkkNEJwcauBDEP/iDEWYWFlHY6iYc5UuhxQZ3oSnHGAKlyrKw/dm1kwzYepmnNCJ8fkROZ0XJnbll4NxSHa+w9ASJ69NcUqv4EpQiya2GdeI0TGg095EbYvqGlOSxkHKG",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_Tel",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAACP1ObnuZ7lD6z4bUKHY+hdMJPpNV+dEdQtPv1/L47BYbK6y37wFAR37UAS1IC8Sf2YcH5uLa+LSznXZ+UjSEjTOOccYvvH04XgbQyvkxEaoTKw1fwq0+ED4eqA2ZtyObZJbLyIm4PdNuvB3XueLQGzYupc9/MAgXCgUWkZskuFg3pXCvN5qkQ2iDlJ0idh6XAbu6qgiKjDnmUZte4rDfne+3OX4nBVDe9lUxR15L6G5VS9+Z/4zTbxTnCTbPlGqA0jy2aBpEC3jeEPvpHv+b9OkYORPapJtFn7OebvJjwQCC+qnfwt8+kuc1vQYTc11nqwpvupjmdFAhHet+AmEd/3GkgnvjCO9MMGlSG2H50Y88zio4OCm2cRn01W1WqxVyw+PVSNswLbQzj8Fl1YKuzGcJUhhKJT6ytPRDBedwh3DrW6PfLdDdm81QWb+NZeH6/H33Oui6GL198Q0n7z3DmP1xF7VK0X1reJqbNT/mch6X8+cbGzEzHTcUiVSLDhA7GEI2jsgy7n8QLFJjFxjJiNZsgGqRrnnx2BgcWQeYyVrF1159oNCt6f8LpkMjjBgiIuGiwrRZydfjEyciBFqPZOxwcpUYkcDxsfzE+WSXtit7FiodQEEVNIyjaE3zQqoHGiHEE20vc1ebH6RuQmgLCLPN9LNfx6CbEft9YDJ4kGde4okT4nUQ1mYWHINrybuutUsK5QvtYnGzOakKQTXyLoO7S7qSN5JxlDPtNHY14bgMfUAQZZ4W+8UTs2hpU58OGNYo9qJbuc7CEK4gsTbOnehyoqYagOvuntYenZi+r7NN1g3t2OkY+Ffne5kg+HAKoS32a4Fs2pBplYzl5y5gYrsrpEu4bzZwqxUAEP24fkizXp4ImEKUS3Ult/MyIAFC0iKSX9ZSHLAUDSkCu8WQArdD2zpjtsapaPP8p3/mNrwMJzu6ishzHU9bZNlY0UV4SwyB79agXaeAo+sGxd58SbqjrxcK0nX6O2Aq6X2zMWEdbauzDZe+eEECMnPSCuByZSUQkmwk3hyzNBF1CBe1TAbLMHUjE3OCc43wXMI7aRxKCgbA==",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_TelSAV",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAAAQwC1hbu9oZyhr4WjVNPxLneSXCpFQ9qLD2bvHSR23PFXR6MrEn3GLV4c0zCyvc6hfJ7R1fej8OLUss4Fd3xZalw6E60MAooGcJBIZkRqIrGvjkSl+GOqxbcdLgP9JfpKh12s06DBsdu8J0S/u+AOwiYOK6LqcqbjIi+OwRuqHfwM0r0O6ZmTBvjLuq7E8cid4YmhnuD2qx0r9ZnjOLUDLEQ1Yc6llnH2pMvm9ibm630Uyxe5lduNHfd50NFmn3YjQ9u9AHFsp668oh2XaWeP4GVLhrFaGctZhMWwEETwdsxWGUrM/UO5R4CJVfL5+Wr150/1qUIMnCibmcmkN1BuaOut9Sak3PX2VxxeMi+mELg+XMcmPxixXbFDm+xnyK9PZwTzq4w0W9A9N4oKPf4SF7Tk9oVBxT2c9i37F7GO3uhPmuCieapMVmx0he5bF8hOwpt0IUaRSCaBo8FwGGptAYqTMqTuwFjnQcFd2zNjdFmUrgVD3SCTG0G9N4BWOMyBAGRWLz9NlBih+67EzL/SpN4wx2+3HsbxxLnJIBZ8XdFbssmaMjhh2irFvmiQUbDTlz30P1ARz5QFPCxYn1/z+3mwqx3Re02o9zVQ+JdhA50Y5qLQx/8szsFe7VTY31lutrY7SM6lVRnUBV1oofXYhi2RceS0MIdpJzI/xoZY2UyennLg2sfdBq5ifTng67nftu4MwaWQvZAuvue4BFKKMUpUwf1bdCSpXtWrTUwcv5ETPmMiYfbkb3w4pwIuoPIMcw2TOzClwPwPZ3aNP2VcG5AVNFff8HhjzlKbJ52nBtKzh+Xt//z/05ALIMNGSCOB7MvOE3wOpe6ldMeI6YTgpnS8X0wt/WUHfA5aZYQxEFeTeQ639vUquMsbUUQxv8guKOtw0P3XvTPr2FwFREf7tvJ5PaqBZsZKcs0sZ7FDDcyLhu31ifdWdqF0H6eonUjoyumwSjnhblEoz/0QngG5zE6zjTR2+jYGFDgXlvPqsuxMFyAY8cYrEmG1qTlg1SMXPklnPeu1nLDjQ5mQZTHrZRj+wFDF1y6RrBOMwSk7fAmEYbuSkAjn4",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_Fax",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAAD9rXrenZuoGbrVVZxZqGIPzbSZhHmQ1oy5D783qWUVsOEdiK6Iq0HFqSlo7NR3zUjHfzprbdDgwkfG363xQxSu6x4q6d8csvsqcqKBGYqGeLn8jQWinBY9YaMPNQOFuT4u135rHPLeaIOgmXNIfN7ZFiW/KvFI7gNWuscl5oHwZ680LCfnxhNCfiKMnXP2KsHy8DCPFp+Mp6LdXFYUyyBNZwtUZ6NTsg05kj8Tt48CiTvY1S4z4FVDJYYOnvtBoT6GYPtUMj0Dc+8g2StA53uiw5BdUDTADJolBb72i24VnfMsinuR/gy1FK4DThC4EscXcfkm+jEN6pJCqD/LaseA1DGxrcMVcykhk6lqsa9cwCE14dmZ5MrvCCwU/SuMtwF7y1QCqedIVLfV2MgdxVBTs2PRRSpP3d+lc/BTolmzeDlYhASYIEk1M5Uz1aD31qFq6DnciyrApTSsHlpkSNcGNDJgxZXe3E3wEHWI9mrlgJuRGZjB3trKTBPXYr+gG8oqz23TqUnzLhx6aTtV2VwjQQpJy1SopL9yPxnp9qoobY9tSe9/+1fF20L+wy3zrf0K/CjkAyVmJIZEfluslr0/x42pWHMPiolyAh9zMuORiC8ah6XIaD6iwbgqLl9m+3D+tnXbOrqwcabyVhuZ8OeSANE3Hojp+DGWmdJ2jrEzcMAwq7m14lZMpAFmz/mFHxgCWCad+JVSB+zwCB9ihz85zxLLNKHqDB04Vpns1JZ8kel8A12LQpQC9JOcVXDH+RiR+KcbcwIrvsAG8IjUVLzr6XpAwk613VcwITk+HCC2oRGWNJBe0Arfkc8rle5FeVHIz7aRQoAYNipOMKsD+CFyGrRyaGYE5KjUGElu3kcJYnlzTuJIIsE1i28LEt3aD3iITYG4OxJwB2Wy1oZNxdf8Ou/mLqJMiso7hz9PUsaqri++LpxA3G67bnpmYjLnavpqeiwy1qjuJdkCNBcSnd3WytswgGZlRhZMxUqgt79j7vpkFamRlL/RCxCb3Z8yV+DO0bbyvXg80dOLF2tQ2dVQNS6Fz4ocgNkSa1i73dtmlZjXmzdXV5RV",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     }
+    ],
+    "events": []
+   },
+   {
+    "name": "BTN_Nouveau",
+    "type": 4,
+    "parent": null,
+    "x": 545,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "sFournisseur est une chaine = ouvre(FEN_Fournisseur, CST_MODECREATION)\n\n//Permet d'afficher dans la table le nouveau fournisseur et de le sélectionner\nTableAffiche(TABLE_Fournisseurs, taDébut)\nnIndice est un entier = TableCherche(COL_NomFournisseur,sFournisseur)\nTableSelectPlus(TABLE_Fournisseurs, nIndice)"
+     }
+    ]
+   }
+  ],
+  "menu": [],
+  "window_events": [
+   {
+    "type": null,
+    "code": "//--- Fenêtre Popup ---\n// Pour accéder au champ ou à la combo popup qui a ouvert cette fenêtre\n// vous pouvez utiliser : MonChampPopup\n \n"
+   },
+   {
+    "type": 34,
+    "code": "//A l'ouverture de la fenêtre popup, l'élément sélectionné dans la liste image correspond\n//à ce qui est sélectionné dans la combo qui l'a ouverte\nTABLE_Fournisseurs = MonChampPopup"
+   }
+  ],
+  "procedures": [],
+  "strings": [],
+  "dialogs": [],
+  "embedded": null,
+  "other_keys": []
+ },
+ "FEN_ChoixModele.wdw": {
+  "name": "FEN_ChoixModèle",
+  "properties": {
+   "width": 788,
+   "height": 608,
+   "widthClient": 786,
+   "heightClient": 576,
+   "widthMin": 344,
+   "heightMin": 308
+  },
+  "controls": [
+   {
+    "name": "LIB_Modèles_de_Composant",
+    "type": 3,
+    "parent": null,
+    "x": 12,
+    "y": 12,
+    "w": 449,
+    "h": 30,
+    "events": []
+   },
+   {
+    "name": "TABLE_Modèles",
+    "type": 9,
+    "parent": null,
+    "x": 12,
+    "y": 55,
+    "w": 760,
+    "h": 398,
+    "columns": [
+     {
+      "name": "COL_TypeModele",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAADul3w3vYg5JXuPkOr9OumNuH3ld6fkVXpoRe+O2NAMnSefyV799w4ZMndEbUWiPVzhv95/RpkF4tKMMuRCiaUiNrZ/gUKzrMY14L2XWmK9x2cFC8gTnjNFHzDffejFtxvYFl4NQDbY4KlqY0825pNcz5M0+fBzT/38qF1g7JEQUZvrWaNnpXDSDllkusGzYaQbO0elA8sma2lfkvprOm0c2uRK2GbMG3Ht0sR7qMRdwERQPRr16JAnKDrHvdV6/0u2c2BCNDtFDF/58ogYYIDA6oltemN0M9/iP7TVTkb2mAtG2QvEHjLN32XQxCs11MUg64Wp/k4QIdqWQfn+qHzDs8jTWIamUrxu21pLPY1qJHkTWiZ83utV8ZqW1UWsKhL21SB/BdMyNOcgn0lziggSzBq3shmamJNN2iKM5wHI/+CUaIMBuMiWRghj4x49AfVnKGpVy0h5MACBNJ5hNRqLJeek+HPNjaSRXbFwxc6kTKMo5di01I5bz2n5W0XzpKoQG3qJmzygtK8taHJ95FkmXKWkCs4vV+AP7WA1NEmiPQ9ezCG7mHXNpKb+mt8yly2ZOckk49zRbGmIH0h4ZUOwzFUKnDZ2pBtV7RY0YIact3X4XpWelf/BmjXkd/lIyFRqpRrhUq3YL6h9zIWz6/P6VYGV3/VNBv3Fs2RiwlyVBE88HYo2DLqWY71Nq2YXMS6GxH1pxpedlhbrThElQ5aYmqkzmqYc/a9shUUpjrQCJv1ERX6/O7cijNyEfkbYt3R4Q/hhVNcKvCvT7j9ZBmHmdymdAd3YPSwypLwVYwLQlaHIgP1GsBaEJcK9GamKtGldbQeqDvcQkEhwXnGLaPNKi7wLprQ2r0keHaMKAGjlopRoKinBvr/vdh6O40N+cUkob0zfv5XmgCM1ynmiOQ3oyx08APqeXmmKdZFFlbH1k0x9pGXxpru7JCViai62/8lw2wIu4PHzwB/9cnHV",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_NomModele",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAAAp/9mBGV3lMa6yIy62Gr3IKTl2J42tlVcB79A0+cNLLt8jdMSHlSO2eXE1MnQuu82U/hfXDJ31IkN12A7gWfbKhsCSittRYErkq7Z3H7eyuBl0TROTjZfJfBzRcRlOMaIi5TjLAhgSwW6tq1QbRovN00fTC3DWZnS1rayS3TvZDTiCuFJ/T6OkwV2Ipcu2foYs7+MDI/Zs1YqKWZ7Qc5We6XP6k3BS5w0pCeXz1tdGuKx9jr1UMp8o1pLWNf+F6F07PneDBjwrWG1TzLvMJogpyuLlkFw3Qg19GRdCez7D7zgy0fMRvdtD5JKiAXqISY5f9BA9RKBMiNO6KXOQY3P7XDmNwvJhyfAliVX3KTElR125lkuIHw51FEJPMAGTCAZPwEnmyvjvWex5ElFWPbyv3T1bySKhd35h54CN2IxMM7qvfhxvV52XSCw8yZ4wpSkaqGo8MmuqBsNXtzs0W6VaTluhTBv5xbcqL/JXry/QRcb3uQUgb41Ndsyqkn/6IRNlO5PXdPdWzvcNs+Hc1xiy9/LedljADf/T40XRHekmWC5rqxFXV4Ct2uI6I0yG55YLKDDAM2kPvD8MfHkzeXcAQL23VpuzDwc7Wv05icYJx3CwveMGlsVu/FKIdDbdV8GNXkvpEganz89IEnMQM1dX6Xep+CyZE89Z3apy86IvUYWoOTdP5HM4S4fmK8wc+wf55mzLUv/nr1eoVu3x3s2gUmw5uh3C1Qt1Ev+aFcegTsIe1Ud1PKU+3yHo3Y0w2yEckA9HX/L0WAVcSFQ9Sbr8RKxizN6h5CsjExEyTbHCcP4UugZGtMNdRjOhMx8e68wny2AjPhDdHjlM6B+crclnUd5OCEiWHWQzOqMooSJzLwArbMi2aKw6x/PzHQIDHEWm8IpauZhLYci+lgcTs8xgTPxaxIag35uUOp3Tw/zQqmOr3sJ1ZpwrlTOigOoPPvrzb7VfwuorxRZ68ExD2/CjVPxlrx+dLch7kdgt5p7JpHbSvA5clMJ+w/hUulH+1sIj6LhEBiAT8csj",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_MarqueModele",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAADm/rwhOTtvb6nBVQ3aTVvEiopeVkffKdYQ1UBuvWMEd961u0W2txyKO37ye69/qI+oo2DTblhoINzKUGYQEnMPvRjv28fcX1Ba7RTxpl1JVq3G7ZNBRYz4PvQxbvwZFiVZ9BYFReV/twSWvaV4/8Z2SWyYrN4BjUAELfX52+UXIDL0aq7At3B56mFt9j8zyHLg2ncRTlnobIf+irkr8GIvhjol+UpcsN5F/VV3uSeXkAvT94oSZEX/vGje65Bh+u8Uq3QMpyWpCoVz5FLMm9przaBwSPwtIk0P4EFKGKAKCNDTqtaAstKeK58Df1HFtS9NQguNOfAJNheIni8XC+A80RuWrow/R8bUAri/21t4LAGyFGfxlifwm8AJGVHO5t6PsphT4HUgbM14e9BKY8XUI/mO/tfAFqFF9YL0JFfFidVa3wLFySmvHHZcTrpIENhq4xjLU5HjdNx8i1z8/QTs37w8SAL98OzbMdFBnFzIdlwzYSwCcT4Sd/VvoRkG6nsZuH81UnKwJHCNnrPkM7GnR6e/Qk7OkS/qE0ghe+eRB2p6NgGRKXZ3c7YZc5bgbm1H53uEHWMRgpRmB6t5dxLDPrpWhPFBEU1M4ExrkSK25FBNvHfuktWa/Tj/ePhHYBKpS35N2jrLv0w0dZda7a6mzUCcBObr+ZHsI7Mosw4EDt0biMnrfBskWKmLfXQgvBB3c0UTQuu/ExAYdVlTEAyvxC1SJAHy9ac4yiD0hwlTYZIrYFuRBGHeRO8pf33UzKYMuUZnPw4i0iSWM8K7Nxv1YGtBsAAb/klo/WxMtc09m3aJj2K+EA91CyXY++96htuBnvEDhjwfvHIaERu43YhCt1O5NETmcYRs5Kaoy7RSliIGdWJk5igCGtq9GF5XIs1VmyOUSUX+zkAdIO5mbKZoXunl4NxGY1P5vH4FN+w1ZuClmpf1n8qpo0aZMS6bXSXqQ4HXztC9ZVfjUpva64qE7FnPtqIi0eiaC1WZaHD85bwSxtQ+dboU/jEUyW6Qo1nWpwG4lxxr+w+ZOqE=",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_Commentaire",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAACbdl2Vp1innGqnFtLG33gelkyJJT513k4q4RF0MRmkcIPn8iNzwA7pPJqhrDaT4ttDVu1QfVHUyivQEtNeyWBxon85uKWuTcePWQk4j1TSyZMTxexKjiY7Hgh3yfTAsAIQWTdCFItdJ+fJ5xK0N1XExjg/5cbF6IGDYKPiSA5mqFek1Lkl5cceeGfxDTl0BoOGSsLUCiC8GH+Pf4Cs/kan+NQFwiOdCvPtJBQKey9emeHtebDYsN93ogrzJABbRM0bzcTnO/dEIuthg0nEF/n8OfM3y+3oFcxsnJlO+acaJPMRBtydTB5lNIy8sqNkp6isnvuL+sl/o/1LyYtTpW+lLTudKz9aDPJWejuQarx5vtO6wSUipp77QdgIygaqeU5ewjZhi2bVpvuwgjKX/fttcOnWgg0gTPHuezu/S6PL9WcaGCxYs3UFQkxJFCg/CK4oqboLGE54SnpQWgTnxYZd7sT8w1NR8BPhpBzyVH6tevujqS4JL6+OTlkiPZBiCywUJHRLdG3DZ76TA0ZEJyjWBgQ87lPq2EfSz1VlN2xdj2t35N1sb2o8c9CL1kyNjtfJtI/glpd6G3RqEPRhRlR0jqQwZgf9EegyF3ueqZdxC+NJPtWVLJxaVxWXhax/t0DsYgbJEeDRkLWvSx26wECQgchtNVAS5cYW848u5T3GSGnR6Wqvk4fXZMuu69GgSvYMTddbnXB43ws/NQc+FNtejippTJ2RfExNAThdVaF7nLkTSSJqUpyNtyqZettZAEwKYKRV8dITTTQ/u0f2o6bkkzKDh847dm/d5HVPxrfxhW9BYnNvdcWl7nLUG6Sr4UvBbicW9aiLhYkWM7NEwyogc1/5sm/XQmrj9cZyf6HGdnKBzH8s5QxUL7Rb1z6PSufkgKSNvMRDaQzJ5Tf5htKQcK736KvBfQrcu6aFjv74bm3b/nxn5h+DVwmeb2iU7txhbqzvUDuHHpGMmA==",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_IDMODELE",
+      "type": 3,
+      "content": {
+       "internal_properties": "CAAAAAgAAAAIgCQrZKqJBd0YLcFniVEZTcHjlYUTLhJmMnx2SToaE2IVYBSSu3JevOooG73Qw1oBK0utZ4gz0fgaNxWgzcX+FB5toY6kGBfsOvO+nV/3cRacPMuvWrmFBKMhtUXA4lrsYfkXj8KHZw1PYMFASZaRIeXQNa/eKiwfZ/jqNoBeOso9y2FNQXxdWAaNnONNqjbnhTM85KE6CQX1wB8eLr56nIEhb8gzo0FYIuV1p8i/+wUR",
+       "type": 3
+      },
+      "w": null,
+      "events": []
+     }
+    ],
+    "events": [
+     {
+      "type": 33,
+      "code": "FichierVersEcran(mafenêtre, modele)\n\n//Selon les caractéristiques disponibles pour le composant, on affiche ou pas les champs de saisie qui correspondent \n//On adapte le libellé du champ de saisie à la caractéristique en cours\nSI SAI_Caractéristique1 <> \"\" ALORS\n\tSAI_Caractéristique1..Visible = Vrai\n\tSAI_Caractéristique1..Libellé = MODELE.Caractéristique1 + \" : \"\nSINON\n\tSAI_Caractéristique1..Visible = Faux\nFIN\n\nSI SAI_Caractéristique2 <> \"\" ALORS\n\tSAI_Caractéristique2..Visible = Vrai\n\tSAI_Caractéristique2..Libellé = MODELE.Caractéristique2 + \" : \"\nSINON\n\tSAI_Caractéristique2..Visible = Faux\nFIN\n\nSI SAI_Caractéristique3 <> \"\" ALORS\n\tSAI_Caractéristique3..Visible = Vrai\n\tSAI_Caractéristique3..Libellé = MODELE.Caractéristique3 + \" : \"\nSINON\n\tSAI_Caractéristique3..Visible = Faux\nFIN\n\nSI SAI_Caractéristique4 <> \"\" ALORS\n\tSAI_Caractéristique4..Visible = Vrai\n\tSAI_Caractéristique4..Libellé = MODELE.Caractéristique4 + \" : \"\nSINON\n\tSAI_Caractéristique4..Visible = Faux\nFIN\n\n"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Annuler",
+    "type": 4,
+    "parent": null,
+    "x": 570,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "Ferme(MaFenêtre, 0)\n"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Valider",
+    "type": 4,
+    "parent": null,
+    "x": 468,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "//On renvoie l'identifiant du modèle sélectionné\nferme(mafenêtre, TABLE_Modèles.COL_IDMODELE)\n"
+     }
+    ]
+   },
+   {
+    "name": "LIB_Libellé1",
+    "type": 3,
+    "parent": null,
+    "x": 12,
+    "y": 469,
+    "w": 760,
+    "h": 101,
+    "events": []
+   },
+   {
+    "name": "SAI_Caractéristique1",
+    "type": 2,
+    "parent": null,
+    "x": 24,
+    "y": 512,
+    "w": 277,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_Caractéristique2",
+    "type": 2,
+    "parent": null,
+    "x": 24,
+    "y": 542,
+    "w": 277,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_Caractéristique3",
+    "type": 2,
+    "parent": null,
+    "x": 475,
+    "y": 512,
+    "w": 277,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_Caractéristique4",
+    "type": 2,
+    "parent": null,
+    "x": 475,
+    "y": 542,
+    "w": 277,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "BTN_Nouveau",
+    "type": 4,
+    "parent": null,
+    "x": 672,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "nIDModèle est une chaine = ouvre(FEN_modele, CST_MODECREATION)\n\n//Permet d'afficher dans la table le nouveau modèle et de le sélectionner\nTableAffiche(TABLE_Modèles, taDébut)\nnIndice est un entier = TableCherche(COL_IDMODELE, nIDModèle)\nTableSelectPlus(TABLE_Modèles, nIndice)"
+     }
+    ]
+   }
+  ],
+  "menu": [],
+  "window_events": [
+   {
+    "type": 34,
+    "code": "//A la fermeture de la fenêtre, on renvoie l'identifiant du modèle sélectionné\nMaFenêtre..ValeurRenvoyée = 0\n"
+   }
+  ],
+  "procedures": [],
+  "strings": [],
+  "dialogs": [],
+  "embedded": null,
+  "other_keys": []
+ },
+ "FEN_ChoixUtilisateur.wdw": {
+  "name": "FEN_ChoixUtilisateur",
+  "properties": {
+   "width": 711,
+   "height": 472,
+   "widthClient": 709,
+   "heightClient": 470,
+   "widthMin": 136,
+   "heightMin": 186
+  },
+  "controls": [
+   {
+    "name": "LSI_Utilisateur",
+    "type": 27,
+    "parent": null,
+    "x": 12,
+    "y": 57,
+    "w": 687,
+    "h": 403,
+    "events": []
+   },
+   {
+    "name": "LIB_Utilisateurs",
+    "type": 3,
+    "parent": null,
+    "x": 12,
+    "y": 12,
+    "w": 196,
+    "h": 30,
+    "events": []
+   },
+   {
+    "name": "BTN_Valider",
+    "type": 4,
+    "parent": null,
+    "x": 396,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "// Renvoie l'élément sélectionné dan la liste image\n// et l'affecte dans la combo qui a ouvert la popup\nMonChampPopup = LSI_Utilisateur\nFerme()\n\n\n//Ce traitement s'exécute également lors du double clic dans la liste image"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Annuler",
+    "type": 4,
+    "parent": null,
+    "x": 498,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "Ferme()\n"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Nouveau",
+    "type": 4,
+    "parent": null,
+    "x": 600,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "sUtilisateur est une chaine = ouvre(FEN_Utilisateur, CST_MODECREATION)\n\n//Permet d'afficher dans la liste le nouvel utilisateur et de le sélectionner\nListeAffiche(LSI_Utilisateur, taDébut)\nLSI_Utilisateur = sUtilisateur"
+     }
+    ]
+   }
+  ],
+  "menu": [],
+  "window_events": [
+   {
+    "type": null,
+    "code": "//--- Fenêtre Popup ---\n// Pour accéder au champ ou à la combo popup qui a ouvert cette fenêtre\n// vous pouvez utiliser : MonChampPopup\n \n"
+   },
+   {
+    "type": 34,
+    "code": "//A l'ouverture de la fenêtre popup, l'élément sélectionné dans la liste image correspond\n//à ce qui est sélectionné dans la combo qui l'a ouverte\n LSI_Utilisateur = MonChampPopup"
+   }
+  ],
+  "procedures": [],
+  "strings": [],
+  "dialogs": [],
+  "embedded": null,
+  "other_keys": []
+ },
+ "FEN_Composants.wdw": {
+  "name": "FEN_Composants",
+  "properties": {
+   "width": 788,
+   "height": 585,
+   "widthClient": 786,
+   "heightClient": 553,
+   "widthMin": 344,
+   "heightMin": 308
+  },
+  "controls": [
+   {
+    "name": "TABLE_Composants",
+    "type": 9,
+    "parent": null,
+    "x": 12,
+    "y": 58,
+    "w": 760,
+    "h": 481,
+    "columns": [
+     {
+      "name": "COL_IDCOMPOSANT",
+      "type": 3,
+      "content": {
+       "internal_properties": "CAAAAAgAAAAIgCQrZKqJBd0YLcFniVEZTcHjlYUTLhJmMnx2SToaE2IVYBSSu3JevOooG73Qw1oBK0utZ4gz0fgaNxWgzcX+FB5toY6kGBfsOvO+nV/3cRacPMuvWrmFBKMhtUXA4lrsYfkXj8KHZw1PYMFASZaRIeXQNa/eKiwfZ/jqNoBeOso9y2FNQXxdWAaNnONNqjbnhTM85KE6CQX1wB8eLr56nIEhb8gzo0FYIuV1p8i/+wUR",
+       "type": 3
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_Type",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAAB/Q3Dg0Rhpz+2YCl2G8Ul2rBn1DhIDb98M5FV3ogrctIFuGKGFn0+Kno5X0lcLEck73+3rKaN5kSlGCNh/0O78baddMVvTk5BAP3GjuVar5u5YsCPG+JnIihLZFbI7gsOV4UYczmZ/mgZfwy9TkxUIK8KejHsSnK3uQ3ZTG3rYGbjGK5q8XF96lmtIy723kg5AgQKteL3VQJltEqVOGttv6KRK38XciCldyGaPqwIQCF9+2u+oPtzqfSt28u3HBw5/Ocqwoe8ZZ5JuJYzzFSbfcUG3zJ7hIJLj6XgvJEa0eQfrrMrZjXYMo33CtU8SMa6nDf2IsjPDXvRi+RRuKN53xmD7J7FrnH3S7HfMXmI5o+NCNW3x8nB01dkSVqJzxjDv94oSu467Yw2Vx4O74aVpm+TnbL5UV/HOHevruDfHVM6GN92D5AIMWGUVPstZrkAAzxEXIPe7TkMxxFEHlPaScw9kCSS51vOQle2kBP9ZKn1wPkU3zLPvtqdVJKKxE0BSS3lSChoXDCAP/IMCJky+kC89JZuVutL2xbbskXEp5522BQDYaj5V4TwmRbpAwm8feaQ7GGx08FAovZ+Bk2D8tDMHaZtek5d8e+ZPfXTt4/3Cx36HUxiNNSnqDh6uEbKspXtIP+1Dx10ZKlZ6z9QAl63wvEary+MIX6rTGayEltXAnsUPBJewBD0Lvomr9MDkNNCkn436BFcVwrii4TdeJEHO1Wsg7IHZS4maAcjFlvFaSi8qA4zGja48g6cunDS81U3gD4EH7KxdYrT+ajZQ3anscGK4zAid9kjC3tKzT58EaXyFxmcIFApTrBzw+5X9AwCNETPdmo2kELLcDoZGG76kOT+cIP0ZiVW3jXAc/BqU6yjM2KajmfgSBuAqnNFMfXNSJoejDJBT2nxLl2Lc478/z/dWaZPJB4ZXeYG0aLZt2uqVJEc04IwY/UtOagk5urYWPrrvr/JMmzA=",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_Marque",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAAB/Q3Dg0Rhpz+2YCl2G8Ul2rBn1DhIDb98M5FV3ogrctIFuGKGFn0+Kno5X0lcLEck73+3rKaN5kSlGCNh/0O78baddMVvTk5BAP3GjuVar5u5YsCPG+JnIihLZFbI7gsOV4UYczmZ/mgZfwy9TkxUIK8KejHsSnK3uQ3ZTG3rYGbjGK5q8XF96lmtIy723kg5AgQKteL3VQJltEqVOGttv6KRK38XciCldyGaPqwIQCF9+2u+oPtzqfSt28u3HBw5/Ocqwoe8ZZ5JuJYzzFSbfcUG3zJ7hIJLj6XgvJEa0eQfrrMrZjXYMo33CtU8SMa6nDf2IsjPDXvRi+RRuKN53xmD7J7FrnH3S7HfMXmI5o+NCNW3x8nB01dkSVqJzxjDv94oSu467Yw2Vx4O74aVpm+TnbL5UV/HOHevruDfHVM6GN92D5AIMWGUVPstZrkAAzxEXIPe7TkMxxFEHlPaScw9kCSS51vOQle2kBP9ZKn1wPkU3zLPvtqdVJKKxE0BSS3lSChoXDCAP/IMCJky+kC89JZuVutL2xbbskXEp5522BQDYaj5V4TwmRbpAwm8feaQ7GGx08FAovZ+Bk2D8tDMHaZtek5d8e+ZPfXTt4/3Cx36HUxiNNSnqDh6uEbKspXtIP+1Dx10ZKlZ6z9QAl63wvEary+MIX6rTGayEltXAnsUPBJewBD0Lvomr9MDkNNCkn436BFcVwrii4TdeJEHO1Wsg7IHZS4maAcjFlvFaSi8qA4zGja48g6cunDS81U3gD4EH7KxdYrT+ajZQ3anscGK4zAid9kjC3tKzT58EaXyFxmcIFApTrBzw+5X9AwCNETPdmo2kELLcDoZGG76kOT+cIP0ZiVW3jXAc/BqU6yjM2KajmfgSBuAqnNFMfXNSJoejDJBT2nxLl2Lc478/z/dWaZPJB4ZXeYG0aLZt2uqVJEc04IwY/UtOagk5urYWPrrvr/JMmzA=",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_Modèle",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAAB/Q3Dg0Rhpz+2YCl2G8Ul2rBn1DhIDb98M5FV3ogrctIFuGKGFn0+Kno5X0lcLEck73+3rKaN5kSlGCNh/0O78baddMVvTk5BAP3GjuVar5u5YsCPG+JnIihLZFbI7gsOV4UYczmZ/mgZfwy9TkxUIK8KejHsSnK3uQ3ZTG3rYGbjGK5q8XF96lmtIy723kg5AgQKteL3VQJltEqVOGttv6KRK38XciCldyGaPqwIQCF9+2u+oPtzqfSt28u3HBw5/Ocqwoe8ZZ5JuJYzzFSbfcUG3zJ7hIJLj6XgvJEa0eQfrrMrZjXYMo33CtU8SMa6nDf2IsjPDXvRi+RRuKN53xmD7J7FrnH3S7HfMXmI5o+NCNW3x8nB01dkSVqJzxjDv94oSu467Yw2Vx4O74aVpm+TnbL5UV/HOHevruDfHVM6GN92D5AIMWGUVPstZrkAAzxEXIPe7TkMxxFEHlPaScw9kCSS51vOQle2kBP9ZKn1wPkU3zLPvtqdVJKKxE0BSS3lSChoXDCAP/IMCJky+kC89JZuVutL2xbbskXEp5522BQDYaj5V4TwmRbpAwm8feaQ7GGx08FAovZ+Bk2D8tDMHaZtek5d8e+ZPfXTt4/3Cx36HUxiNNSnqDh6uEbKspXtIP+1Dx10ZKlZ6z9QAl63wvEary+MIX6rTGayEltXAnsUPBJewBD0Lvomr9MDkNNCkn436BFcVwrii4TdeJEHO1Wsg7IHZS4maAcjFlvFaSi8qA4zGja48g6cunDS81U3gD4EH7KxdYrT+ajZQ3anscGK4zAid9kjC3tKzT58EaXyFxmcIFApTrBzw+5X9AwCNETPdmo2kELLcDoZGG76kOT+cIP0ZiVW3jXAc/BqU6yjM2KajmfgSBuAqnNFMfXNSJoejDJBT2nxLl2Lc478/z/dWaZPJB4ZXeYG0aLZt2uqVJEc04IwY/UtOagk5urYWPrrvr/JMmzA=",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_NSerie",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAACYYW4lr44zL3X5hnRflItviq93xQlyR1SSp00QujKWD5GpK+a2/RKVhol27eWqHfpl0WKxQmNxxsqSPGzK5QGMrqSLk5INzOKJGmtrtnK11ZOnqyZb6Judg9oZPTCdj2GcOH4T7Hxw+JU0vQNaapM+aw1kZ3BhJ6VUxreQ7DlIE9/V/XXHF9TKasuaZm3PzSan1duXTxWKO31RPGLbTpEuNh5SRn4eT9k1MGprWEQJvqyO9TC9qrD/UBCFpVXWryVWyVDwZF2Z8P+fjIyUIGQKfsPlUF9OfwuOWar1LobaUqs0xWWYcLoBa1cmsAep5JME1emLjujItc44Hzm+/EApk26PWiIUPhh6hXSveSneWtVlpjB83IexMdiQLa1A+ph2s4yZcX1WFLf+/aF7wrwMBKjz/FWwJGfBdKAcd6EQkRR+QNkp1qh2HhYFFzLFeRMfJg7PDxIlyNy7Zn6xya4ZrW04giM7cYT973dMySpZgX7zWPeJIZH6Tu5eLgYoWe+XMnEIOFG7z7o6VT3egaqHPwADLc/IrofmNjkcyaLL3q7dR5gwDRjch9uzLahH6O7YiPyfhE1I44BpCK+FVmBlS6T5z+ef0xZQFtdvuXO5TCjLjYSDympAJQLRQpJFxVFpJK3wZxL7nitm1YCk0BSr5JCssl7u5UhgkCGdK+GOdd5TGOHDmU059o6OGpM4ppPV25BQG0RAOcVcP2xGWGvtSZiG1V+FrIIT/u5MV5mnS1g/BD3kgKoVszWtVdNpJOEHog/ACfw1b84Ii+Ymt7a76oQAwDKF2NeZwYmMuLORxgj394i/eZ2TxCN2oFbbZaoUpNpNV0hv/+sp1whA4fhPxndG+Z0PhpRVxsQpFeFiN/OviTSyR4Zi5Yu7jgT78soTkoeOBAqJswaqn2h3Ulq9fqhfS6tnJSwm13Nb40Nbda7fBoPXuMlJtrf0mBzY3SvSRfQ81vv5xhHvZEfj",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_Utilisateur",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAAB/Q3Dg0Rhpz+2YCl2G8Ul2rBn1DhIDb98M5FV3ogrctIFuGKGFn0+Kno5X0lcLEck73+3rKaN5kSlGCNh/0O78baddMVvTk5BAP3GjuVar5u5YsCPG+JnIihLZFbI7gsOV4UYczmZ/mgZfwy9TkxUIK8KejHsSnK3uQ3ZTG3rYGbjGK5q8XF96lmtIy723kg5AgQKteL3VQJltEqVOGttv6KRK38XciCldyGaPqwIQCF9+2u+oPtzqfSt28u3HBw5/Ocqwoe8ZZ5JuJYzzFSbfcUG3zJ7hIJLj6XgvJEa0eQfrrMrZjXYMo33CtU8SMa6nDf2IsjPDXvRi+RRuKN53xmD7J7FrnH3S7HfMXmI5o+NCNW3x8nB01dkSVqJzxjDv94oSu467Yw2Vx4O74aVpm+TnbL5UV/HOHevruDfHVM6GN92D5AIMWGUVPstZrkAAzxEXIPe7TkMxxFEHlPaScw9kCSS51vOQle2kBP9ZKn1wPkU3zLPvtqdVJKKxE0BSS3lSChoXDCAP/IMCJky+kC89JZuVutL2xbbskXEp5522BQDYaj5V4TwmRbpAwm8feaQ7GGx08FAovZ+Bk2D8tDMHaZtek5d8e+ZPfXTt4/3Cx36HUxiNNSnqDh6uEbKspXtIP+1Dx10ZKlZ6z9QAl63wvEary+MIX6rTGayEltXAnsUPBJewBD0Lvomr9MDkNNCkn436BFcVwrii4TdeJEHO1Wsg7IHZS4maAcjFlvFaSi8qA4zGja48g6cunDS81U3gD4EH7KxdYrT+ajZQ3anscGK4zAid9kjC3tKzT58EaXyFxmcIFApTrBzw+5X9AwCNETPdmo2kELLcDoZGG76kOT+cIP0ZiVW3jXAc/BqU6yjM2KajmfgSBuAqnNFMfXNSJoejDJBT2nxLl2Lc478/z/dWaZPJB4ZXeYG0aLZt2uqVJEc04IwY/UtOagk5urYWPrrvr/JMmzA=",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_NomMachine",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAAA4Qc5FD24Tz5XZZtS/dCtP6k+XJSkSZ7Tyx20wWlL2L7EJC5wodeoNhtlGfVXKjXrt2TppykvRVvLqxKSyPQlE/uRLE8LtdDo5ymubVtLlNVtvQ64jQGuNq4KRVTg15wkc6J5z/HyIMCXUzbOKKlOe0zX8X2jpp6Vszt+IBJHg+x9lDYWHZ4yCygtKpi3vbVZvHaPf5906CyVpZLpTplkWNh5ylt4edyEFMOrbCITZ7kRG7XhFQkB/SHgt7T0el+32uYAQxC1hGA//3OyU0HRadktdWIc2f4umsVKtZk7Smmvk1RUIQPJJy0dGYHc5dCO83WHD9nBI5aaAlzFWBFghk37v2mK0RsDKFRRfCfnuqu2tDkjUpNdhGYD4haUoouDGs2zp0c0ejDdurQGb0mz87GBLxE1oJNcZTOjU/zm4qSQuECnJVgCubnb1p+J1iUPXviZnB5ql+GQD7ga5EWbBbU044lMraQz97xdcORoNxfpn7Gs9bd026nKKwvL8HTNDNiX8PP13i3buoQHK9b6b29QXgVPk+uMyWnXA5aa/4qqB2/zUmXRYIz8/EbTrTGLkTAATKCnkj3wdVKPhCjS5NyhtM5vL//J82rNDdZedoETfodgndibs4Xa9Rn6JiZXlyIF0y84Hygea4bTg1BivkNRQtiIaEXSspA2xxwXi2XrH3CV3xXnVUtJKXt+MuqcBr2R077C8lWGwe/CCvI+R1cyKSQPxyI5/Epowoy2bT0RDCMF4DEahf1l5iX99+DXzFvNkbUiBW4r8h1qCKzo/1qgERKYBZOOVRWXwRCe16tRLWywTBSkPsEcSxLJ/Ke7AOG4xe0RbO8d9s3z8BUwzkssKrbE7ssCx+pAdcYU2C39jHZh28/Ke8Z9nIoBfJu5PJuuSCHbFb9L+S7yzFq4RKlzzv19TASBMt1O7AyN7Fc7/JuN32OlplteUOPz4PYuypVRcttvZJrFPxCeD",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_NomFournisseur",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAAA4Qc5FD24Tz5XZZtS/dCtP6k+XJSkSZ7Tyx20wWlL2L7EJC5wodeoNhtlGfVXKjXrt2TppykvRVvLqxKSyPQlE/uRLE8LtdDo5ymubVtLlNVtvQ64jQGuNq4KRVTg15wkc6J5z/HyIMCXUzbOKKlOe0zX8X2jpp6Vszt+IBJHg+x9lDYWHZ4yCygtKpi3vbVZvHaPf5906CyVpZLpTplkWNh5ylt4edyEFMOrbCITZ7kRG7XhFQkB/SHgt7T0el+32uYAQxC1hGA//3OyU0HRadktdWIc2f4umsVKtZk7Smmvk1RUIQPJJy0dGYHc5dCO83WHD9nBI5aaAlzFWBFghk37v2mK0RsDKFRRfCfnuqu2tDkjUpNdhGYD4haUoouDGs2zp0c0ejDdurQGb0mz87GBLxE1oJNcZTOjU/zm4qSQuECnJVgCubnb1p+J1iUPXviZnB5ql+GQD7ga5EWbBbU044lMraQz97xdcORoNxfpn7Gs9bd026nKKwvL8HTNDNiX8PP13i3buoQHK9b6b29QXgVPk+uMyWnXA5aa/4qqB2/zUmXRYIz8/EbTrTGLkTAATKCnkj3wdVKPhCjS5NyhtM5vL//J82rNDdZedoETfodgndibs4Xa9Rn6JiZXlyIF0y84Hygea4bTg1BivkNRQtiIaEXSspA2xxwXi2XrH3CV3xXnVUtJKXt+MuqcBr2R077C8lWGwe/CCvI+R1cyKSQPxyI5/Epowoy2bT0RDCMF4DEahf1l5iX99+DXzFvNkbUiBW4r8h1qCKzo/1qgERKYBZOOVRWXwRCe16tRLWywTBSkPsEcSxLJ/Ke7AOG4xe0RbO8d9s3z8BUwzkssKrbE7ssCx+pAdcYU2C39jHZh28/Ke8Z9nIoBfJu5PJuuSCHbFb9L+S7yzFq4RKlzzv19TASBMt1O7AyN7Fc7/JuN32OlplteUOPz4PYuypVRcttvZJrFPxCeD",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_DateAchat",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAADMPMDGV7ixzIo3dYC2fuHwvO+ot9DKNdtZF/ousArAg6w/xlaOe39xf5z6gXrUUzXHv1iUD2RcocFonWbeSj2TDq37/2ny+EZiJNropMy1BPIHR3RPH09Vn62KJ1qCTjdBZ7S/rZYFxZwVNpKLuy+PwjfUEQk886hK/9rFjZ6Wnwha+z9Oa+0PQQPB35BCcM/AvJdYsmzUQPdLJzXCPSNzkAIf8BJCesP1kQLXV6fXkKjTnjCPmWWPR8OHkWxGlh0myqFtbimdIPPSeD8SBvnq7XnthLOY2oLWsVzQNlvZjXRwr0m0Xb366ueQoF6NZ4vqgcL7sYCa1It02UPJaJNZ/J+sefwN0DpWV0LFvcUE/+aodp1XNngMlFzP5LLoLpsw9s1IQo7E36OpJ6WeCLKPHUaKNGznDNOoapBymyd6kRa4S8lQNBvBrdL4JiVzsFha7rSSZnw79xKngg74HVV97o0R/A2tr5KBmg6W2z9RJMo+btDNM5DhaWxs0Uqu3/wLXvjgGr9Bqaw/QKmqraKjJyuAVVOMxn2MN2zo48LPsob6QnqswXiKdWTC2zJjuCLAHX8n/tN+aTaiM5W5GLLXwV9a+/G9EaIoWzqfm7tNJNxcyGCpwpaMFUWi/mKVkbmFk8LkI55jZp/3oOw0jjJrMG+pLvR0Axgcp1Jt/V8kScYmtX0nFbU9NtOdQMvQmrfNgJNWB7ImUwfZvtbgkGcfdxt3S/XDeop3FbveDTPp7fbCsXd2aAbBE+Cqj29tvE+JSYDGuQypsdj1zjRcm6bnoinjejhz/qmr4G506KeJmFYyKAz3YekPdFYz3kwxo5Q6V3tTixZN/cGkAKwK6wKFqKSR/Y85QB4HM48pd63y40PkvAYOIXBsz3L8KuA9JE7L1x7YDAi/lw6dMIinzAwpntXO99v5ddJGAXdCSmg2qW33BOxtMvblVJky5wt1bAHVCBY5ow7FrigmrnPHfqABd4LgbiztrEAZGg9MsLPr2Z2Kzb8olhLsEE+WbNjr3K/FfyA/yw==",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_IDMODELE",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAADGcX77ApZmnGLAS3YF/EjvWUsVyiGy4z5JOmfdH1MFboKrtbB/4vJuBcHhTV+2bJKsiJuQDmWo3o0EdAO4+hTTsdc8X/4dopxj9eCaKGWQXckGBz1Yzz2jh1KjY/lMk/IOKlO2CYETUxN+54x2l/HdfbErbKawXKHDDLDDeoAhkh83boaumJ6xWxtCnYLLMvJfy0qUy08+9mhD6N2alYVybRuFBMuOqgkKBeiXcXbkRfUuL1I1yaU9k17KIgDRIgIO/IfXUrKVoOU4G99AI/7RoyQT4XQBPSHQvvtcavQiUS4SVS4vNQjI3rpdSXZzIO9c3rokCICD+pg3R4Yb0BzgquyN04J60AU9hCjvrroVC0tLHwHiBdQnxQwTr1Xmr7w4wW3R6zRFG2s7RkcUcwEHKuo9/dm8HrgnJXrO7nrWKYEqHhw8divSh6vXd+pEy+am0ZcWz10gGAbOMCryfOjh6DVwY5wXPn8EmkEcunMrFLEdqomd7ZLJtth8+dvcPlGYfz5nucecn6rXOUzPTeUx6LWwlFZ+80k0gSNtcP7UYIuOTHOPH5sMN/gvSo/3VdjdCUHEOzWNj7xS2M7aljcZ9uOU3C73ioAu40UyWisCis9u+H+MurEIjcf1R3UT5uHwfzQb9lrqANlf9Yn9IEs9IQkFo0++GFJep8E8Qndx5QeoJZIkC1KBTj10Ych45/HQCi83KBizsxMzbcXrFLDRzDdZcNbJQ6obB7b/rBkQV2fCn0rpoH/XoUQd2rzlgyE8owD/qopeuSQrN/ln/Xl5iTe7MYFNF+kvkkHnA8nqHAl0MHmiBcSDRKga95sNCEyZrd/izGza9c3CYUPPpzOF5Ur5KEo9G6LH+UaajFXhwxysNmNlU/9mWVozJ42pMw5MzyQneYBor1KvNcNazIHh5atyRITdIubcBWI1EyKVtVJLihU4YGeDf4NVbFksU/8SJ0JYJZdCjZn+oJXmgq0xe6PC0DL1pcmAxF18JLZ8krniybo=",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     }
+    ],
+    "events": [
+     {
+      "type": 21,
+      "code": "\n//On affiche l'utilisateur de la machine\n\nsi TABLE_Composants.COL_NomMachine <> \"\" ALORS\n\t\n\tHLitRecherchePremier(machine,NomMachine,TABLE_Composants.COL_NomMachine)\n\tTABLE_Composants.COL_Utilisateur = machine.InitialesUtilisateur\n\t\nsinon\n\t\n\tTABLE_Composants.COL_Utilisateur = \"\"\t\n\t\nFIN\n"
+     }
+    ]
+   },
+   {
+    "name": "LIB_Composants",
+    "type": 3,
+    "parent": null,
+    "x": 12,
+    "y": 12,
+    "w": 327,
+    "h": 30,
+    "events": []
+   },
+   {
+    "name": "BTN_Valider",
+    "type": 4,
+    "parent": null,
+    "x": 572,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "\n//On renvoie l'identifiant du composant sélectionné\nferme(mafenêtre, TABLE_Composants.COL_IDCOMPOSANT)\n"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Annuler",
+    "type": 4,
+    "parent": null,
+    "x": 674,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "Ferme(MaFenêtre, 0)\n"
+     }
+    ]
+   }
+  ],
+  "menu": [],
+  "window_events": [
+   {
+    "type": 34,
+    "code": "//A la fermeture de la fenêtre, on renvoie l'identifiant du composant sélectionné\nmafenetre..ValeurRenvoyée = 0"
+   }
+  ],
+  "procedures": [],
+  "strings": [],
+  "dialogs": [],
+  "embedded": null,
+  "other_keys": []
+ },
+ "FEN_Fournisseur.wdw": {
+  "name": "FEN_Fournisseur",
+  "properties": {
+   "width": 679,
+   "height": 492,
+   "widthClient": 677,
+   "heightClient": 460,
+   "widthMin": 344,
+   "heightMin": 308
+  },
+  "controls": [
+   {
+    "name": "SAI_Nom",
+    "type": 2,
+    "parent": null,
+    "x": 395,
+    "y": 84,
+    "w": 248,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_Tel",
+    "type": 2,
+    "parent": null,
+    "x": 395,
+    "y": 114,
+    "w": 248,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_TelSAV",
+    "type": 2,
+    "parent": null,
+    "x": 395,
+    "y": 144,
+    "w": 248,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "LIB_Gestion_des_Fournisseurs",
+    "type": 3,
+    "parent": null,
+    "x": 12,
+    "y": 12,
+    "w": 246,
+    "h": 30,
+    "events": []
+   },
+   {
+    "name": "BTN_Nouveau",
+    "type": 4,
+    "parent": null,
+    "x": 264,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "//Ré-initialisation en vue de l'ajout\nhraz(FOURNISSEUR)\nraz()\n\n//On veut ajouter un fournisseur => on dégrise les champs de saisie pour l'ajout et la modification d'un fournisseur\nGR_AjoutModif..Etat = Actif\n"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Modifier",
+    "type": 4,
+    "parent": null,
+    "x": 366,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "//On veut modifier un fournisseur => on dégrise les champs de saisie pour l'ajout et la modification d'un fournisseur\nGR_AjoutModif..etat = actif\n"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Supprimer",
+    "type": 4,
+    "parent": null,
+    "x": 468,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "//1 : &Supprimer\n//2 : &Ne pas supprimer\nSELON Dialogue(<§?183A7FE802402A04§>, TABLE_Fournisseurs.COL_NomFournisseur)\n\n\t// &Supprimer\n\tCAS 1 :\t\t\n\t\tHLitRecherchePremier(COMPOSANT,IDFournisseur,TABLE_Fournisseurs.COL_idfournisseur)\n\t\n\t\tsi pas HTrouve(COMPOSANT) ALORS\n\t\t\t//Suppression dans la table et donc aussi dans le fichier\n\t\t\tTableSupprime(TABLE_Fournisseurs)\n\t\t\tFichierVersEcran(MaFenêtre, FOURNISSEUR)\n\t\tsinon\n\t\t\tinfo(\"Des composants sont associés à ce fournisseur. Vous ne pouvez donc pas le supprimer.\")\n\t\tfin\n\t\t\n\t// &Ne pas supprimer : on ne fait rien\n\tCAS 2 :\n\t\t\nFIN"
+     }
+    ]
+   },
+   {
+    "name": "LIB_InfosLieu",
+    "type": 3,
+    "parent": null,
+    "x": 374,
+    "y": 55,
+    "w": 290,
+    "h": 389,
+    "events": []
+   },
+   {
+    "name": "BTN_OK",
+    "type": 4,
+    "parent": null,
+    "x": 499,
+    "y": 399,
+    "w": 38,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "//On vérifie qu'au moins le nom du fournisseur a été saisi\nSI SAI_Nom = \"\" ALORS\n\tInfo(\"Veuillez saisir au moins le nom du fournisseur.\")\n\tRepriseSaisie(SAI_Nom)\nFIN\n\n//On remplit les rubriques du fichier avec ce que l'utilisateur a saisi à l'écran\nEcranVersFichier(MaFenêtre, FOURNISSEUR)\n\n//On ajoute ou modifie l'enregistrement dans le fichier\nsi FOURNISSEUR..NouvelEnregistrement = vrai alors\n\thajoute(FOURNISSEUR)\n\tmafenêtre..ValeurRenvoyée = fournisseur.NomFournisseur\nsinon\n\tHModifie(FOURNISSEUR)\t\t\nFIN\n\n//On re-grise les champs de saisie pour l'ajout et la modification d'un fournisseur\nGR_AjoutModif..Etat = Grisé\n\n//On met à jour la table\nTableAffiche(TABLE_Fournisseurs, taCourantEnreg)\n\n"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Annuler",
+    "type": 4,
+    "parent": null,
+    "x": 543,
+    "y": 399,
+    "w": 38,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "//On remet à jour les champs de saisie avec les valeurs présentes dans le fichier\nfichierversecran(mafenêtre, fournisseur) \n\n//On re-grise les champs de saisie pour l'ajout et la modification d'un fournisseur\nGR_AjoutModif..etat = grise\n"
+     }
+    ]
+   },
+   {
+    "name": "TABLE_Fournisseurs",
+    "type": 9,
+    "parent": null,
+    "x": 12,
+    "y": 55,
+    "w": 347,
+    "h": 389,
+    "columns": [
+     {
+      "name": "COL_IDFournisseur",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAACPpzqmDoubC4Br4Kn6lFUOno5ZD3f1rBeiPsH0a0Axl/oZf/mb1GuFQn4244Lt6A81ag2Rpk+Gs8T+QgDGr7nHQATeAeEAO7E09bvLn7qgEoer89nV801SlL66MVTN8MH5VDIyvPQXyvWqAVKqOMuEPaplnpCEqShQWhVqeeaCd1ITd2Bv5gtfswIfavDVFKspMl5UmUe1UlsZydxu2Z0p/wMLw8jGc5KtaEN07qvNIQ6C571P+v8E4pD6B1LGxed8uO1rlSlojRCRdMO0pj6azfRTNy+mfj6GfeGUp7XMHFDqldme2yONKDsr668prll6i+CIvoZLJXl6RVCDvKslDT5hfNN92BlNJZx2PUUPgZK9AerPZb7nboWJ2KcOqCMVMC05XYqxP4qi3n3ApgBdNT/0dJt+l8oaquAhaTn8g8zX5TLkJw3QH1qpD433OjUHr+Vag6AJ1t/QTX2MenaHnrrLqITAKWMkdKUd++OSGqZe3goC0rNC8eJLh6175dYJfBpwrzg/1DJBIKINlvzutX58C84LUrq6ebDlAtsBP5TLmsT1ljj/a14KWnV2dutsdB9dqVak0Dw878w2h7KSa8Qob0aK6U1uFSoIqIbJ/9SvxG5wDeKnI++S1RkKsxihfOzoigOl2efD7psNmeRIin7RfG3ZORGozyxWeoqgsm6DUY/ymgXOLp/T9aj1ytq9Q4847KEcBmGHDh2B+c34MyIlV/Jw5Cl1J5vfTN4RokxLw69FE9ZQT3BM8tBCqDilkAay3GkXXB6nNsdJdCaADvCRNqsk1lKXeJxxzYwxiZY1Iuwi8O9AEMZFee1oXwFIsE0joEHJxi/20G+rjjDsLt87pfTqtuNnD2FAkoJK9sm1rICvrlilWdAkwbs2iPWhAHamK3d1jqLV3n2U98q8QKqiGbYcd+lQI/2v3xkTExhluwNbbnMjDmRhiV3j9HFuv1X/zSgHNc5Mqv6bd3qAOlm6F7Z6nHYLm4zQYwJqJgGSTiwQSw==",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_NomFournisseur",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAAA4Qc5FD24Tz5XZZtS/dCtP6k+XJSkSZ7Tyx20wWlL2L7EJC5wodeoNhtlGfVXKjXrt2TppykvRVvLqxKSyPQlE/uRLE8LtdDo5ymubVtLlNVtvQ64jQGuNq4KRVTg15wkc6J5z/HyIMCXUzbOKKlOe0zX8X2jpp6Vszt+IBJHg+x9lDYWHZ4yCygtKpi3vbVZvHaPf5906CyVpZLpTplkWNh5ylt4edyEFMOrbCITZ7kRG7XhFQkB/SHgt7T0el+32uYAQxC1hGA//3OyU0HRadktdWIc2f4umsVKtZk7Smmvk1RUIQPJJy0dGYHc5dCO83WHD9nBI5aaAlzFWBFghk37v2mK0RsDKFRRfCfnuqu2tDkjUpNdhGYD4haUoouDGs2zp0c0ejDdurQGb0mz87GBLxE1oJNcZTOjU/zm4qSQuECnJVgCubnb1p+J1iUPXviZnB5ql+GQD7ga5EWbBbU044lMraQz97xdcORoNxfpn7Gs9bd026nKKwvL8HTNDNiX8PP13i3buoQHK9b6b29QXgVPk+uMyWnXA5aa/4qqB2/zUmXRYIz8/EbTrTGLkTAATKCnkj3wdVKPhCjS5NyhtM5vL//J82rNDdZedoETfodgndibs4Xa9Rn6JiZXlyIF0y84Hygea4bTg1BivkNRQtiIaEXSspA2xxwXi2XrH3CV3xXnVUtJKXt+MuqcBr2R077C8lWGwe/CCvI+R1cyKSQPxyI5/Epowoy2bT0RDCMF4DEahf1l5iX99+DXzFvNkbUiBW4r8h1qCKzo/1qgERKYBZOOVRWXwRCe16tRLWywTBSkPsEcSxLJ/Ke7AOG4xe0RbO8d9s3z8BUwzkssKrbE7ssCx+pAdcYU2C39jHZh28/Ke8Z9nIoBfJu5PJuuSCHbFb9L+S7yzFq4RKlzzv19TASBMt1O7AyN7Fc7/JuN32OlplteUOPz4PYuypVRcttvZJrFPxCeD",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_Adresse",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAAC0zUJ58xKnsym9srAdUp+zDoMxmW1O2/ReD2GU7rqi843B2726H6ihstfE/dWy7ZzpR8ZXPrGlkloU+pwKMd3a9gYvwdJzxK5FIL3nWpKNh48d40C75vOF1+jXFSBt/6MY5s7tcOZg2GkaQ29mBlN8Nzuc4Vjrf0008CWohKmo+dvLKSPH5Siqrin0KkEz4cTzs+/dm3Pm25FHypID0pXEWgQ62IZM82ktEoTLmMTtoFxodRJ94EC3kGIvxe1CtxOWI5AC1Es9lD+p0jhIwDAgQmFl8muco9+KZ/x9Jo4ecGuGGfs0jioVv3UQlBvV9NVYUx2xBgZAMfIe+VGWwGSLc/hz6Ba2aqQOSwqbvS0qRFHbUs50RuuVOeIOXT2U8orWBZD/ZbMafIfw35kTuthS9PKvSkHiWCNV8hq0/xmgB4AECCOB2HA+VkjDU/4dodVfoML9E5BJENhJXFbpvZLjlSckSEONpZxhTUEglY6AqMdEIYQQmEIvg1Wdtyn/kKYUx/aVl0B0eGOZHE4hQHXS0AEAtkpDG6QjyZQx2LU+STNqyA3H7LmhaHLi5nNuw9k9ZdWgn3B1oH2UE5T8oQ/84DF2uCLq2L9pyQoAVBKIo4l0+hEaWQO1jiH4E60kZOCucVbNjtG8kyz5AJHX9292GY1BK7FxatHJD4h+9uhxUPM4STZi0I5qJ3mBJ/qDzUqqAHll0ssRWgoXIn1JL5KknvVvVvIAIYMQYbmFMhAu4jHwUYqLf+t20GhY+ppUs2CcX6RdYFue0B/PAiut8m3iezWpLbnc8VBmkJBxl74cUfXEjHnCBGooie5hhc1WYJVh2ZOmCusEBPw8kh2vtB8GH3iXktCaE00SGYe2NCSR3hjkpvUd8vPDOiqCj9fKvQVsu2irG1naBKcBflVmJQnUb5m4nGYSqLsJSeU1MRGVLygxhIW1nrOfyBGoPOgs8cmG+SAAEoeNWuUzOKsP",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_Tel",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAACYYW4lr44zL3X5hnRflItviq93xQlyR1SSp00QujKWD5GpK+a2/RKVhol27eWqHfpl0WKxQmNxxsqSPGzK5QGMrqSLk5INzOKJGmtrtnK11ZOnqyZb6Judg9oZPTCdj2GcOH4T7Hxw+JU0vQNaapM+aw1kZ3BhJ6VUxreQ7DlIE9/V/XXHF9TKasuaZm3PzSan1duXTxWKO31RPGLbTpEuNh5SRn4eT9k1MGprWEQJvqyO9TC9qrD/UBCFpVXWryVWyVDwZF2Z8P+fjIyUIGQKfsPlUF9OfwuOWar1LobaUqs0xWWYcLoBa1cmsAep5JME1emLjujItc44Hzm+/EApk26PWiIUPhh6hXSveSneWtVlpjB83IexMdiQLa1A+ph2s4yZcX1WFLf+/aF7wrwMBKjz/FWwJGfBdKAcd6EQkRR+QNkp1qh2HhYFFzLFeRMfJg7PDxIlyNy7Zn6xya4ZrW04giM7cYT973dMySpZgX7zWPeJIZH6Tu5eLgYoWe+XMnEIOFG7z7o6VT3egaqHPwADLc/IrofmNjkcyaLL3q7dR5gwDRjch9uzLahH6O7YiPyfhE1I44BpCK+FVmBlS6T5z+ef0xZQFtdvuXO5TCjLjYSDympAJQLRQpJFxVFpJK3wZxL7nitm1YCk0BSr5JCssl7u5UhgkCGdK+GOdd5TGOHDmU059o6OGpM4ppPV25BQG0RAOcVcP2xGWGvtSZiG1V+FrIIT/u5MV5mnS1g/BD3kgKoVszWtVdNpJOEHog/ACfw1b84Ii+Ymt7a76oQAwDKF2NeZwYmMuLORxgj394i/eZ2TxCN2oFbbZaoUpNpNV0hv/+sp1whA4fhPxndG+Z0PhpRVxsQpFeFiN/OviTSyR4Zi5Yu7jgT78soTkoeOBAqJswaqn2h3Ulq9fqhfS6tnJSwm13Nb40Nbda7fBoPXuMlJtrf0mBzY3SvSRfQ81vv5xhHvZEfj",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_TelSAV",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAACYYW4lr44zL3X5hnRflItviq93xQlyR1SSp00QujKWD5GpK+a2/RKVhol27eWqHfpl0WKxQmNxxsqSPGzK5QGMrqSLk5INzOKJGmtrtnK11ZOnqyZb6Judg9oZPTCdj2GcOH4T7Hxw+JU0vQNaapM+aw1kZ3BhJ6VUxreQ7DlIE9/V/XXHF9TKasuaZm3PzSan1duXTxWKO31RPGLbTpEuNh5SRn4eT9k1MGprWEQJvqyO9TC9qrD/UBCFpVXWryVWyVDwZF2Z8P+fjIyUIGQKfsPlUF9OfwuOWar1LobaUqs0xWWYcLoBa1cmsAep5JME1emLjujItc44Hzm+/EApk26PWiIUPhh6hXSveSneWtVlpjB83IexMdiQLa1A+ph2s4yZcX1WFLf+/aF7wrwMBKjz/FWwJGfBdKAcd6EQkRR+QNkp1qh2HhYFFzLFeRMfJg7PDxIlyNy7Zn6xya4ZrW04giM7cYT973dMySpZgX7zWPeJIZH6Tu5eLgYoWe+XMnEIOFG7z7o6VT3egaqHPwADLc/IrofmNjkcyaLL3q7dR5gwDRjch9uzLahH6O7YiPyfhE1I44BpCK+FVmBlS6T5z+ef0xZQFtdvuXO5TCjLjYSDympAJQLRQpJFxVFpJK3wZxL7nitm1YCk0BSr5JCssl7u5UhgkCGdK+GOdd5TGOHDmU059o6OGpM4ppPV25BQG0RAOcVcP2xGWGvtSZiG1V+FrIIT/u5MV5mnS1g/BD3kgKoVszWtVdNpJOEHog/ACfw1b84Ii+Ymt7a76oQAwDKF2NeZwYmMuLORxgj394i/eZ2TxCN2oFbbZaoUpNpNV0hv/+sp1whA4fhPxndG+Z0PhpRVxsQpFeFiN/OviTSyR4Zi5Yu7jgT78soTkoeOBAqJswaqn2h3Ulq9fqhfS6tnJSwm13Nb40Nbda7fBoPXuMlJtrf0mBzY3SvSRfQ81vv5xhHvZEfj",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_Fax",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAACYYW4lr44zL3X5hnRflItviq93xQlyR1SSp00QujKWD5GpK+a2/RKVhol27eWqHfpl0WKxQmNxxsqSPGzK5QGMrqSLk5INzOKJGmtrtnK11ZOnqyZb6Judg9oZPTCdj2GcOH4T7Hxw+JU0vQNaapM+aw1kZ3BhJ6VUxreQ7DlIE9/V/XXHF9TKasuaZm3PzSan1duXTxWKO31RPGLbTpEuNh5SRn4eT9k1MGprWEQJvqyO9TC9qrD/UBCFpVXWryVWyVDwZF2Z8P+fjIyUIGQKfsPlUF9OfwuOWar1LobaUqs0xWWYcLoBa1cmsAep5JME1emLjujItc44Hzm+/EApk26PWiIUPhh6hXSveSneWtVlpjB83IexMdiQLa1A+ph2s4yZcX1WFLf+/aF7wrwMBKjz/FWwJGfBdKAcd6EQkRR+QNkp1qh2HhYFFzLFeRMfJg7PDxIlyNy7Zn6xya4ZrW04giM7cYT973dMySpZgX7zWPeJIZH6Tu5eLgYoWe+XMnEIOFG7z7o6VT3egaqHPwADLc/IrofmNjkcyaLL3q7dR5gwDRjch9uzLahH6O7YiPyfhE1I44BpCK+FVmBlS6T5z+ef0xZQFtdvuXO5TCjLjYSDympAJQLRQpJFxVFpJK3wZxL7nitm1YCk0BSr5JCssl7u5UhgkCGdK+GOdd5TGOHDmU059o6OGpM4ppPV25BQG0RAOcVcP2xGWGvtSZiG1V+FrIIT/u5MV5mnS1g/BD3kgKoVszWtVdNpJOEHog/ACfw1b84Ii+Ymt7a76oQAwDKF2NeZwYmMuLORxgj394i/eZ2TxCN2oFbbZaoUpNpNV0hv/+sp1whA4fhPxndG+Z0PhpRVxsQpFeFiN/OviTSyR4Zi5Yu7jgT78soTkoeOBAqJswaqn2h3Ulq9fqhfS6tnJSwm13Nb40Nbda7fBoPXuMlJtrf0mBzY3SvSRfQ81vv5xhHvZEfj",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     }
+    ],
+    "events": [
+     {
+      "type": 33,
+      "code": "\n//On affiche les informations sur le fournisseur\nFichierVersEcran(MaFenêtre, FOURNISSEUR)"
+     }
+    ]
+   },
+   {
+    "name": "SAI_Fax",
+    "type": 2,
+    "parent": null,
+    "x": 395,
+    "y": 174,
+    "w": 248,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_Adresse",
+    "type": 2,
+    "parent": null,
+    "x": 395,
+    "y": 204,
+    "w": 248,
+    "h": 175,
+    "events": []
+   },
+   {
+    "name": "BTN_Imprimer",
+    "type": 4,
+    "parent": null,
+    "x": 570,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "\n\n// Aperçu avant impression pour la liste des utilisateurs\niAperçu(iPage,<§$0002§>,Vrai)\n// Impression de l'état correspondant\niImprimeEtat(Etat_Fournisseur)\n"
+     }
+    ]
+   }
+  ],
+  "menu": [],
+  "window_events": [
+   {
+    "type": null,
+    "code": "procedure FEN_Fournisseur (gnMode est un entier = CST_MODEVISUALISATION)"
+   },
+   {
+    "type": 34,
+    "code": "\nsi gnMode = CST_MODEVISUALISATION alors\n\t//Les champs de saisie pour l'ajout et la modification du fournisseur sont grisés\n\tGR_AjoutModif..Etat = Grisé\nsinon\n\tExécuteTraitement(BTN_Nouveau, trtclic)\nfin\n\n//La fenêtre renvoie le fournisseur créé, le cas échéant\nmafenêtrE..ValeurRenvoyée = \"\"\n"
+   }
+  ],
+  "procedures": [],
+  "strings": [
+   {
+    "index": 0,
+    "text": {
+     "fr-FR": "Veuillez d'abord cliquer sur le plan à l'endroit correspondant au bord supérieur gauche du nouveau lieu."
+    }
+   },
+   {
+    "index": 1,
+    "text": {
+     "fr-FR": "Veuillez d'abord cliquer dans le plan sur le lieu à modifier."
+    }
+   },
+   {
+    "index": 2,
+    "text": {
+     "fr-FR": "Aperçu de la liste des fournisseurs"
+    }
+   }
+  ],
+  "dialogs": [
+   {
+    "label": {
+     "fr-FR": "Voulez-vous vraiment supprimer le fournisseur '%1' ?"
+    },
+    "buttons": [
+     {
+      "fr-FR": "&Supprimer"
+     },
+     {
+      "fr-FR": "&Ne pas supprimer"
+     }
+    ]
+   }
+  ],
+  "embedded": null,
+  "other_keys": []
+ },
+ "FEN_Lieu.wdw": {
+  "name": "FEN_Lieu",
+  "properties": {
+   "width": 974,
+   "height": 634,
+   "widthClient": 972,
+   "heightClient": 602,
+   "widthMin": 344,
+   "heightMin": 308
+  },
+  "controls": [
+   {
+    "name": "IMG_PlanLocaux",
+    "type": 8,
+    "parent": null,
+    "x": 16,
+    "y": 60,
+    "w": 709,
+    "h": 538,
+    "events": [
+     {
+      "type": 18,
+      "code": "selon gnMode \n\n\t//On est en phase de création d'un nouveau lieu\t => on est en train de dessiner le nouveau lieu dans le plan\n\tcas CST_MODECREATION :\n\t\tCréationLieu()\n\t\t\n\t//Dès qu'on sélectionne un lieu sur le plan, on affiche les informations de ce lieu\t\n\tcas CST_MODEVISUALISATION :\n\t\t\n\t\t//On récupère les informations du lieu en cours\n\t\tLieu_SelonCoordonnées(SourisPosX(), SourisPosY())\n\t\t\n\t\t//On affiche à l'écran les informations sur le lieu\n\t\tFichierVersEcran(mafenêtre, lieu)\n\t\t\nFIN\n"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Nouveau",
+    "type": 4,
+    "parent": null,
+    "x": 540,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "gnmode = CST_MODECREATION\n\n//Remise à zéro des coordonnées du lieu\ngnX1 = -1\ngny1 = -1\ngnx2 = -1\ngny2 = -1\n\n//Ré-initialisation \nhraz(lieu)\nraz()\nIMG_Picto = \"\"\n\n//On rend disponible les champs de saisie des informations sur le lieu\nGR_AjoutModif..Etat = Actif\n\nToastAffiche(<§$0000§>,toastCourt,cvMilieu,chCentre)\n"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Supprimer",
+    "type": 4,
+    "parent": null,
+    "x": 744,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "//Pour supprimer un lieu, il faut l'avoir sélectionné au préalable sur le plan\n\nSI SAI_Emplacement <> \"\" ALORS\n\tSuppressionLieu()\nSINON\n\tToastAffiche(<§$000c§>,toastCourt,cvMilieu,chCentre)\nFIN"
+     }
+    ]
+   },
+   {
+    "name": "SAI_Commentaires",
+    "type": 2,
+    "parent": null,
+    "x": 737,
+    "y": 154,
+    "w": 193,
+    "h": 109,
+    "events": []
+   },
+   {
+    "name": "SAI_Emplacement",
+    "type": 2,
+    "parent": null,
+    "x": 737,
+    "y": 108,
+    "w": 193,
+    "h": 40,
+    "events": []
+   },
+   {
+    "name": "BTN_Modifier",
+    "type": 4,
+    "parent": null,
+    "x": 642,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "\n\n//Pour modifier un lieu, il faut l'avoir sélectionné au préalable sur le plan\n\nsi SAI_Emplacement <> \"\" alors\n\tGR_AjoutModif..etat = actif\nsinon\n\tToastAffiche(<§$000b§>, toastCourt, cvMilieu, chCentre)\nfin"
+     }
+    ]
+   },
+   {
+    "name": "LIB_InfosLieu",
+    "type": 3,
+    "parent": null,
+    "x": 731,
+    "y": 60,
+    "w": 206,
+    "h": 538,
+    "events": []
+   },
+   {
+    "name": "BTN_OK",
+    "type": 4,
+    "parent": null,
+    "x": 792,
+    "y": 425,
+    "w": 38,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "//On vérifie qu'au moins le nom du lieu a été saisi\nsi SAI_Emplacement = \"\" alors\n\tinfo(\"Veuillez saisir au moins le nom du lieu.\")\n\tRepriseSaisie(SAI_Emplacement)\nFIN\n\n//On met le pictogramme dans le fichier LIEU\nHAttacheMémo(LIEU,Picto,SAI_Picto,hMémoBin)\n//ainsi que toutes les autres informations sur le lieu\nEcranVersFichier(MaFenêtre, LIEU)\n\n//On ajoute ou modifie le lieu\nsi lieu..NouvelEnregistrement = vrai alors\n\n\t//En cas d'ajout, on vérifie que les coordonnées du lieu ont été indiquées\n\tSI gnX1 = -1 ALORS\n\t\tToastAffiche(\"Veuillez représenter l'emplacement du lieu sur le plan.\", toastCourt, cvMilieu, chCentre)\n\t\tRETOUR\n\tFIN\n\t\n\thajoute(lieu)\n\t//A la fermeture de la fenêtre, on renvoie l'identifiant du lieu créé\n\tmafenêtrE..ValeurRenvoyée = lieu.IDLieu\n\t\n\t//On repasse en mode visualisation\n\tReinit()\n\t\nsinon\n\t\n\tHModifie(LIEU)\t\t\n\nFIN\n\n//On met à jour le plan\nAffichePlan(IMG_PlanLocaux)\n\n//On re-grise les champs d'ajout et de modification de lieu\nGR_AjoutModif..Etat = Grisé\n\ngnMode = CST_MODEVISUALISATION"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Annuler",
+    "type": 4,
+    "parent": null,
+    "x": 836,
+    "y": 425,
+    "w": 38,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "\n//On re-grise les champs d'ajout et de modification de lieu\nGR_AjoutModif..etat = grise\n\n//On ré-affiche le plan tel qu'il était sans le lieu en cours de création..si on était en création\nAffichePlan(IMG_PlanLocaux)\n\n//Si on était en création de lieu, on ré-initialise tout\nsi LIEU..NouvelEnregistrement = Vrai ALORS\n\traz()\n\tReinit()\nfin\n\ngnMode = CST_MODEVISUALISATION"
+     }
+    ]
+   },
+   {
+    "name": "LIB_Gestion_des_lieux",
+    "type": 3,
+    "parent": null,
+    "x": 12,
+    "y": 12,
+    "w": 514,
+    "h": 30,
+    "events": []
+   },
+   {
+    "name": "SAI_Picto",
+    "type": 2,
+    "parent": null,
+    "x": 737,
+    "y": 379,
+    "w": 193,
+    "h": 40,
+    "events": []
+   },
+   {
+    "name": "BTN_Parcourir",
+    "type": 4,
+    "parent": null,
+    "x": 905,
+    "y": 395,
+    "w": 25,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "\n//Choix du pictogramme pour représenter le lieu\nsCheminImage est une chaine \nsCheminImage = fSélecteurImage(ComplèteRep(fRepExe()), \"\", \"Sélectionnez un fichier...\", fFiltreImage())\n\nsi sCheminImage <> \"\" alors \n\tSAI_Picto = sCheminImage\n\tIMG_Picto = sCheminImage\nFIN\n"
+     }
+    ]
+   },
+   {
+    "name": "IMG_Picto",
+    "type": 8,
+    "parent": null,
+    "x": 737,
+    "y": 269,
+    "w": 195,
+    "h": 106,
+    "events": []
+   },
+   {
+    "name": "BTN_Imprimer",
+    "type": 4,
+    "parent": null,
+    "x": 846,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "//Orientation de type paysage pour l'imprimante\niParamètre(\"ORIENTATION = PAYSAGE\")\n\n//Aperçu de l'impression à l'écran avant l'impression\niAperçu(iPage,<§$000e§>,Vrai)\n\n//On imprime l'image qui correspond au dernier plan des locaux affichés\n//cette image sera centrée et étirée dans la feuille de manière à occuper le plus grand espace\niImprimeImage(\"plan_locaux.gif\",0,0,iLargeurPage(),ihauteurpage(),iAffichageHomoCentré)\n\niFinImprime()"
+     }
+    ]
+   }
+  ],
+  "menu": [],
+  "window_events": [
+   {
+    "type": null,
+    "code": "procedure FEN_Lieu(gnMode est un entier = CST_MODEVISUALISATION)\n\ngnX1, gnY1, gnX2, gnY2 sont des entiers // Coordonnées du lieu en cours de création "
+   },
+   {
+    "type": 34,
+    "code": "\n//Affichage du plan des locaux avec des rectangles\nAffichePlan(IMG_PlanLocaux)\n\nsi gnMode = CST_MODEVISUALISATION alors\n\t\n\t//Les champs de saisie pour l'ajout et la modification d'un lieu sont grisés\n\tGR_AjoutModif..Etat = Grisé\n\t\nsinon\n\t\n\tExécuteTraitement(BTN_Nouveau, trtClic)\n\t\nfin\n\n//La fenêtre renvoie l'identifiant du lieu créé, le cas échéant\nmafenêtrE..ValeurRenvoyée = 0\n"
+   }
+  ],
+  "procedures": [
+   {
+    "name": "CréationLieu",
+    "code": "// Résumé : Création d'un nouveau lieu\n// Syntaxe :\n//CréationLieu ()\n//\n// Paramètres :\n//\tAucun\n// Valeur de retour :\n// \tAucune\n//\n\nProcédure CréationLieu()\n\nSI gnx1 = -1 ALORS\n\t\n\t//On met à jour le coin haut à gauche du lieu concerné\n\tgnx1 = SourisPosX()\n\tgny1 = SourisPosY()\n\tToastAffiche(<§$0001§>)\n\t\nSINON\n\t\n\tsi gnX2 = -1 alors\n\t\t\n\t\t//On met à jour le coin bas à droite du lieu concerné\n\t\tgnx2 = SourisPosX()\n\t\tgny2 = SourisPosY()\t\n\t\t\n\t\tSI bSuperposéAvecAutreLieu() ALORS\n\t\t\t\n\t\t\t//Deux lieux se superposent\n\t\t\tInfo(<§$0002§>)\n\t\t\tExécuteTraitement(BTN_Nouveau, trtclic)\n\t\t\t\n\t\tsinon\n\t\t\t\n\t\t\t//On dessine le bureau\n\t\t\tdRectangle(gnX1,gnY1,gnX2,gnY2,Transparent,RougeFoncé)\n\t\t\t\n\t\t\t//1 : Il convient\n\t\t\t//2 : Il ne convient pas\n\t\t\tSELON Dialogue(<§?183694D20182A3D4§>)\n\t\t\t\n\t\t\t\t// Il est correct.\n\t\t\t\tCAS 1 :\n\t\t\t\t\t\n\t\t\t\t\t//On met à jour la valeur de la rubrique contenant les coordonnées\n\t\t\t\t\tLIEU.Rectangle = NumériqueVersChaîne(gnX1)+\",\"+NumériqueVersChaîne(gnY1)+\",\"+NumériqueVersChaîne(gnX2)+\",\"+NumériqueVersChaîne(gnY2)\n\t\t\t\t\ttoastaffiche(<§$000d§>, toastCourt, cvMilieu,chCentre)\n\t\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t// Il est incorrect.\n\t\t\t\tCAS 2 :\n\t\t\t\t\tAffichePlan(IMG_PlanLocaux)\n\t\t\t\t\tExécuteTraitement(BTN_Nouveau, trtClic)\n\t\t\t\t\t\n\t\t\tFIN\t\n\t\t\t\n\t\tFIN\t\n\t\t\n\tfin\nFIN"
+   },
+   {
+    "name": "bSuperposéAvecAutreLieu",
+    "code": "// Résumé : Vérifie si le lieu en cours de création se superpose avec un autre existant\n// Syntaxe :\n//[ <Résultat> = ] bSuperposéAvecAutreLieu ()\n//\n// Paramètres :\n//\tAucun\n// Valeur de retour :\n// \tbooléen : Vrai si le lieu se superpose avec un autre\n//\n\nProcédure bSuperposéAvecAutreLieu()\n\nnX1, nY1, nX2, nY2 sont des entiers\n\n//On parcourt chaque lieu pour vérifier que le lieu en cours de création ne se superpose pas avec un existant\nPOUR TOUT LIEU \n\t\n\tnX1 = ExtraitChaîne(LIEU.Rectangle,1,\",\")\n\tnY1 = ExtraitChaîne(LIEU.Rectangle,2,\",\")\n\tnX2 = ExtraitChaîne(LIEU.Rectangle,3,\",\")\n\tnY2 = ExtraitChaîne(LIEU.Rectangle,4,\",\")\n\t\n\tSI pas ((gnx1 < nX1 ET gnx2 < nX1) OU (gnx1 > nX2 ET gnx2 > nX2) OU (gny1 < nY1 ET gny2 < nY1) OU (gny1 > nY2 ET gny2 > nY2)) ALORS\n\t\t\n\t\tRENVOYER vrai\t\n\t\t\n\tFIN\t\n\t\nFIN\n\nRENVOYER faux"
+   },
+   {
+    "name": "SuppressionLieu",
+    "code": "// Résumé : Supprime le lieu en cours, celui sur lequel on a cliqué dans le plan\n// Syntaxe :\n//SuppressionLieu ()\n//\n// Paramètres :\n//\tAucun\n// Valeur de retour :\n// \tAucune\n//\n\nProcédure SuppressionLieu()\n\n//1 : &Supprimer\n//2 : &Ne pas supprimer\nSELON Dialogue(<§?1836921B00B206DA§>, SAI_Emplacement)\n\n\t// &Supprimer\n\tCAS 1 :\n\t\t\n\t\t//On vérifie si le lieu ne correspond à aucune machine\n\t\tHLitRecherchepremier(MACHINE, IDLieu, lieu.IDLieu)\n\t\tSI PAS HTrouve(MACHINE) ALORS\n\t\t\tHSupprime(LIEU)\n\t\tSINON\n\t\t\tInfo(\"Des machines sont associées à ce lieu. Vous ne pouvez donc pas le supprimer.\")\n\t\tFIN\n\t\t\n\t\t//On réinitialise l'affichage des informations du lieu\n\t\traz()\n\t\tIMG_Picto = \"\"\n\t\t\n\t\t// Rafraîchissement du plan des locaux\n\t\tAffichePlan(IMG_PlanLocaux)\n\t\t\n\t// &Ne pas supprimer : on ne fait rien\n\tCAS 2 :\n\t\t\nFIN\n"
+   },
+   {
+    "name": "Reinit",
+    "code": "// Résumé : Ré-initialisation au mode de visualisation\n// Syntaxe :\n//Reinit ()\n//\n// Paramètres :\n//\tAucun\n// Valeur de retour :\n// \tAucune\n\nProcédure Reinit()\n\n//Remise à zéro des coordonnées du lieu\ngnX1 = -1\ngnY1 = -1\ngnX2 = -1\ngnY2 = -1\n"
+   }
+  ],
+  "strings": [
+   {
+    "index": 0,
+    "text": {
+     "fr-FR": "Veuillez d'abord cliquer sur le plan à l'endroit correspondant au bord supérieur gauche du nouveau lieu."
+    }
+   },
+   {
+    "index": 1,
+    "text": {
+     "fr-FR": "Veuillez maintenant cliquer sur le plan à l'endroit correspondant au bord inférieur droit du nouveau lieu."
+    }
+   },
+   {
+    "index": 2,
+    "text": {
+     "fr-FR": "Impossible de créer le lieu spécifié car ce lieu se superpose avec un autre déjà existant."
+    }
+   },
+   {
+    "index": 3,
+    "text": {
+     "fr-FR": "Cet emplacement correspond à la machine : %1."
+    }
+   },
+   {
+    "index": 4,
+    "text": {
+     "fr-FR": "Veuillez d'abord supprimer la machine ou attribuer celle-ci à un autre endroit."
+    }
+   },
+   {
+    "index": 5,
+    "text": {
+     "fr-FR": "Veuillez cliquer sur le lieu à supprimer."
+    }
+   },
+   {
+    "index": 6,
+    "text": {
+     "fr-FR": "Machine.Emplacement ='"
+    }
+   },
+   {
+    "index": 7,
+    "text": {
+     "fr-FR": "Vide"
+    }
+   },
+   {
+    "index": 8,
+    "text": {
+     "fr-FR": "1 machine"
+    }
+   },
+   {
+    "index": 9,
+    "text": {
+     "fr-FR": "%1 machines"
+    }
+   },
+   {
+    "index": 10,
+    "text": {
+     "fr-FR": "plan_locaux.gif"
+    }
+   },
+   {
+    "index": 11,
+    "text": {
+     "fr-FR": "Veuillez d'abord cliquer dans le plan sur le lieu à modifier."
+    }
+   },
+   {
+    "index": 12,
+    "text": {
+     "fr-FR": "Veuillez d'abord cliquer dans le plan sur le lieu à supprimer."
+    }
+   },
+   {
+    "index": 13,
+    "text": {
+     "fr-FR": "Saisissez aussi le nom du lieu et un commentaire éventuel."
+    }
+   },
+   {
+    "index": 14,
+    "text": {
+     "fr-FR": "Aperçu écran"
+    }
+   }
+  ],
+  "dialogs": [
+   {
+    "label": {
+     "fr-FR": "Le lieu vous convient-il sur le plan ?"
+    },
+    "buttons": [
+     {
+      "fr-FR": "Il convient."
+     },
+     {
+      "fr-FR": "Il ne convient pas."
+     }
+    ]
+   },
+   {
+    "label": {
+     "fr-FR": "Voulez-vous vraiment supprimer le lieu '%1' ?"
+    },
+    "buttons": [
+     {
+      "fr-FR": "&Supprimer"
+     },
+     {
+      "fr-FR": "&Ne pas supprimer"
+     }
+    ]
+   }
+  ],
+  "embedded": null,
+  "other_keys": []
+ },
+ "FEN_Machine.wdw": {
+  "name": "FEN_Machine",
+  "properties": {
+   "width": 787,
+   "height": 574,
+   "widthClient": 785,
+   "heightClient": 542,
+   "widthMin": 344,
+   "heightMin": 308
+  },
+  "controls": [
+   {
+    "name": "ONG_Onglet",
+    "type": 16,
+    "parent": null,
+    "x": 12,
+    "y": 63,
+    "w": 760,
+    "h": 463,
+    "events": []
+   },
+   {
+    "name": "SAI_NomMachine",
+    "type": 2,
+    "parent": "ONG_Onglet[1]",
+    "x": 17,
+    "y": 52,
+    "w": 268,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_AdresseIP",
+    "type": 2,
+    "parent": "ONG_Onglet[1]",
+    "x": 17,
+    "y": 150,
+    "w": 268,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "COMBO_Utilisateur",
+    "type": 14,
+    "parent": "ONG_Onglet[1]",
+    "x": 17,
+    "y": 116,
+    "w": 270,
+    "h": 30,
+    "dropdown": {
+     "internal_properties": "CAAAAAgAAABnieomX2XBAD4is8QZ2PhPkwc6bwATbhi5MuroCAZwkNepAuymmgitb5drKczShvPbY57crTOi4CheDSAidb3qztGuT0zFEnPWbIcz2ZykS9fldgQeI/V4F8jrt6DinjJEoLlBzUmqawR39UH794riKXiGwkRa8JFfaePy14GBHu8usGxCJ/F66lQIg7Ghks1XkjQDsV2zr1IEzNDoc8H5bWJeS215vTyZY975oV2+BcWl70erQGry8PelxwUrDDtFoytSQZNqJkFhs5zldWmEDGD9tv2hC3xhSt9Xy68JlNPon5vPIhMr6P6nmb6QiyxiDH10Km2MJUy1Gbmcnba/YGzE93yl3/mVyh9umsshqnT386ZcG+YDRR0vGhKZJAkNrzrqh9xu1+JW0Nq29zpScGByUlyXQhuWnnThdsE86313QAADiuz8EftTEUO41UxGI2uv2ohP2S8DpmCJX23o+YoLfnl++wPSZM9De9TOPdgYF38yW6WgPWWGZODHgo2VWgOSq02QXyYU+3G0EUZhhS3xSmlNNlwgXKfm128zjrerzQrJGFPvwPJiZahyyOBmSBrhZSuYYYL9+Yuik8blgAy1nyGxprD1SQHsNTBjq7Suf8Y6wYbl+zweWnQ9utAWPpQxw3/TUvWCpXLcb9sC40ZRwsYwE5NYr9p/wEfKE2MxzthqLmcfYw/9qIVQR8Czk75HVdV42aVqdMkUdWI5XS/CE3eg4HP74TDGvHC4vjR2pZjfxIIemaCHZ8K2sFP93e+2Rf94cME4APwaQ2eO9cLz0j7EP4RlP4MyO8LtATdG5OZXWkgAOrkT38OZcC125lpykvus9U/e/JJqoYQIB0+yNqkjdA==",
+     "type": 7
+    },
+    "events": []
+   },
+   {
+    "name": "COMBO_Emplacement",
+    "type": 14,
+    "parent": "ONG_Onglet[1]",
+    "x": 17,
+    "y": 82,
+    "w": 270,
+    "h": 30,
+    "dropdown": {
+     "internal_properties": "CAAAAAgAAABI/Pelpl0jEje19Jr+o9rl6kUpw0iTIZR8effJx2lrk9NFQYEkek5FZvxX2vnUt0LvRVDNDegbjrpWIIR4uikPE/cAIZ8nd54YnmWuw7qsZ3XnuLFsjQqGNYc9+ygRpE3GNFzdqv6oPVY0uNZxADqJVutannu9M7Hf1TTg86fXLfxr5VvrKJ/Gc6t6kQxcN8eEoJ6PLSlLtVSPm2v+MEzqzIufVDt83GIpCAzNS1f06AxPZbo2JSPRth1HkRdPM0S4XAsLbLrPM/mkLYBHdFrVPoOcrySxM5+EBw9XN9rnzk+qxMuUyHCf3llKc7ESDl4yn6lQeGyOpjcf6wmH13iCh6BAk1kXqCTicgSOEkQDltYnWkOCpqiwuRdOn4/KfpGsxqfsFeFRoA6hty3rM2nFCJTiJUC3q6reNplkge6eMcY9LlNaEsOKCTeIlxe4QuMP6dbmJbQMMfWDa0g/YeLNDDbqwfD+0kNYPERlMwC9/nOQWsBHZ9xe+UlzTCrxBcYMPPIJVvPZv7yE3OPgdVnE5h1SxThd0VxGxuTiHdPaJ/6HQHHkLEYpuKzTK/yCV+P7apfywvXhszKRSHXO9+deizAwAG5BnwRXCT7Ye6RYtjmy9ulx4Tdd3YoZTPAZx/u78HHOzAnWDsOKFIj4p/ILSnC6UYFq0JkUNeMHDne5Low9U7E/eEBjFVfgin1GwIFi+5eMppu7ob8o7S98MbXGMC11uGi4ydG/7ZsMYDjfURkMjBMeSIXM9WwSycefIPGD3WlN5B25iZyuMur3SWru/z+2fxFKKc9KWfG8L5Dez6plz32cKXxHYjIAoE/5p7m3WK4LAO762SXnhmornIjNvGer",
+     "type": 7
+    },
+    "events": []
+   },
+   {
+    "name": "LIB_Note",
+    "type": 3,
+    "parent": "ONG_Onglet[1]",
+    "x": 26,
+    "y": 338,
+    "w": 709,
+    "h": 48,
+    "events": []
+   },
+   {
+    "name": "BTN_Annuler",
+    "type": 4,
+    "parent": "ONG_Onglet[1]",
+    "x": 125,
+    "y": 18,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "\n//On ré-affiche les informations connues dans le fichier\nFichierVersEcran(mafenêtre, MACHINE)\n"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Appliquer",
+    "type": 4,
+    "parent": "ONG_Onglet[1]",
+    "x": 23,
+    "y": 18,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "\n//Dans le cas de la création\nSI machine..NouvelEnregistrement ALORS\n\t\n\t//On ajoute la machine dans le fichier\n\tEcranVersFichier(MaFenêtre, MACHINE)\n\tHAjoute(MACHINE) \n\t\n\tgnIDMachine = machine.IDMachine\n\t\n\t//On peut rendre l'onglet des composants \"actif\"\n\tONG_Onglet[2]..Etat = Actif\n\t\nSINON\n\t\n\tsi SAI_NomMachine..Modifié = vrai alors\n\t\t\n\t\tpour TOUT COMPOSANT AVEC NomMachine = machine.NomMachine\n\t\t\tCOMPOSANT.NomMachine = SAI_NomMachine\n\t\t\tHModifie(COMPOSANT)\n\t\tFIN\n\t\t\n\tFIN\n\t\n\t//On se repositionne sur la machine à modifier\n\tHLitRecherchePremier(MACHINE,IDMachine,gnIDMachine)\n\t//Et on modifie\n\tEcranVersFichier(MaFenêtre, MACHINE)\n\tHModifie(MACHINE)\n\t\nFIN\n\n//A la fermeture de la fenêtre, on renvoie le nom de la machine créée \nMaFenêtre..ValeurRenvoyée = Vrai"
+     }
+    ]
+   },
+   {
+    "name": "LISTE_Composants",
+    "type": 7,
+    "parent": "ONG_Onglet[2]",
+    "x": 17,
+    "y": 66,
+    "w": 124,
+    "h": 360,
+    "events": [
+     {
+      "type": 14,
+      "code": "\n//Si on est en mode visualisation-modification d'une machine, on affiche la liste de ses composants...\n//On initialise les paramètres de la requête intégrée à la liste des composants\nsi gnidmachine <> 0 alors\n\tHLitRecherchePremier(machine, IDMachine, gnidmachine)\n\tMaSource.pNomMachine = MACHINE.NomMachine\nfin\n"
+     },
+     {
+      "type": 33,
+      "code": "//A chaque sélection d'un composant dans la liste, on affiche toutes ses caractéristiques \n\n//Caractéristiques du composant lui-même\nHLitRecherchePremier(COMPOSANT,IDCOMPOSANT,LISTE_Composants)\nFichierVersEcran(mafenêtre, COMPOSANT)\n\n//Caractéristiques du type de composant (modèle)\nhLitRecherchePremier(modele,IDMODELE,composant.IDMODELE)\nFichierVersEcran(MaFenêtre, modèle)\nAfficherLibelléCaractéristiques()\n"
+     }
+    ]
+   },
+   {
+    "name": "SAI_Caractéristique1Comp",
+    "type": 2,
+    "parent": "ONG_Onglet[2]",
+    "x": 448,
+    "y": 211,
+    "w": 291,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_Caractéristique2Comp",
+    "type": 2,
+    "parent": "ONG_Onglet[2]",
+    "x": 448,
+    "y": 241,
+    "w": 291,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_Caractéristique3Comp",
+    "type": 2,
+    "parent": "ONG_Onglet[2]",
+    "x": 448,
+    "y": 271,
+    "w": 291,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_Caractéristique4Comp",
+    "type": 2,
+    "parent": "ONG_Onglet[2]",
+    "x": 448,
+    "y": 301,
+    "w": 291,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_NomModeleComp",
+    "type": 2,
+    "parent": "ONG_Onglet[2]",
+    "x": 448,
+    "y": 151,
+    "w": 291,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_MarqueModeleComp",
+    "type": 2,
+    "parent": "ONG_Onglet[2]",
+    "x": 448,
+    "y": 181,
+    "w": 291,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "BTN_Nouveau",
+    "type": 4,
+    "parent": "ONG_Onglet[2]",
+    "x": 24,
+    "y": 18,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "\n//Ré-initialisation en vue de création\nHRAZ(composant)\nraz(GR_Composant)\n\nEtatChamps_CréaModifComposant()\n"
+     }
+    ]
+   },
+   {
+    "name": "SAI_CommentairesComp",
+    "type": 2,
+    "parent": "ONG_Onglet[2]",
+    "x": 158,
+    "y": 292,
+    "w": 268,
+    "h": 135,
+    "events": []
+   },
+   {
+    "name": "SAI_DateRenvoiComp",
+    "type": 2,
+    "parent": "ONG_Onglet[2]",
+    "x": 158,
+    "y": 262,
+    "w": 199,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_DateRetourComp",
+    "type": 2,
+    "parent": "ONG_Onglet[2]",
+    "x": 158,
+    "y": 232,
+    "w": 199,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_NumRetourComp",
+    "type": 2,
+    "parent": "ONG_Onglet[2]",
+    "x": 158,
+    "y": 202,
+    "w": 268,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_GarantieComp",
+    "type": 2,
+    "parent": "ONG_Onglet[2]",
+    "x": 158,
+    "y": 172,
+    "w": 199,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_DateAchatComp",
+    "type": 2,
+    "parent": "ONG_Onglet[2]",
+    "x": 158,
+    "y": 112,
+    "w": 199,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_NSerieComp",
+    "type": 2,
+    "parent": "ONG_Onglet[2]",
+    "x": 158,
+    "y": 82,
+    "w": 268,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "BTN_Type",
+    "type": 4,
+    "parent": "ONG_Onglet[2]",
+    "x": 448,
+    "y": 121,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "//Choix d'un modèle pour le nouveau composant\nnIDModèle est un entier = ouvre(FEN_ChoixModèle)\n\n//On associe le modèle au composant en cours de création\nAssocierModèle(nIDModèle)\n\n//On affiche les caractéristiques du modèle choisi\nAfficherLibelléCaractéristiques()"
+     }
+    ]
+   },
+   {
+    "name": "LIB_InfosLieu",
+    "type": 3,
+    "parent": "ONG_Onglet[2]",
+    "x": 442,
+    "y": 82,
+    "w": 305,
+    "h": 345,
+    "events": []
+   },
+   {
+    "name": "BTN_ValiderComposant",
+    "type": 4,
+    "parent": "ONG_Onglet[2]",
+    "x": 24,
+    "y": 18,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "//On vérifie qu'au moins le nom du composant et son type ont été saisis\nSI SAI_NSerieComp= \"\" ALORS\n\tInfo(<§$0003§>)\n\tRepriseSaisie(SAI_NSerieComp)\nFIN\n\nSI SAI_NomModeleComp= \"\" ALORS\n\tInfo(<§$0002§>)\n\tRepriseSaisie(BTN_Type)\nFIN\n\nEcranVersFichier(mafenêtre, COMPOSANT)\n\n//On ajoute ou modifie le composant\nsi composant..NouvelEnregistrement = vrai alors \n\n\tHAjoute(COMPOSANT)\n\t//On associe le nouveau composant à la machine en cours\n\tAssocierComposant(COMPOSANT.IDCOMPOSANT)\n\nsinon\n\n\tHModifie(COMPOSANT)\n\t\nfin\n\nEtatChamps_HorsCréaModifComp()\n"
+     }
+    ]
+   },
+   {
+    "name": "BTN_AnnulerComposant",
+    "type": 4,
+    "parent": "ONG_Onglet[2]",
+    "x": 124,
+    "y": 18,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "\nEtatChamps_HorsCréaModifComp()\n\n//Si la liste est vide, on efface juste tout ce qui a été saisi\nSI LISTE_Composants..Occurrence = 0 ALORS\n\tRAZ(GR_Composant)\nsinon\n\t//sinon on veut que les informations affichées dans la fenêtre correspondent au composant sélectionné dans la liste\n\tExécuteTraitement(LISTE_Composants, trtSélection)\nFIN"
+     }
+    ]
+   },
+   {
+    "name": "COMBO_Fournisseur",
+    "type": 14,
+    "parent": "ONG_Onglet[2]",
+    "x": 158,
+    "y": 138,
+    "w": 270,
+    "h": 30,
+    "dropdown": {
+     "internal_properties": "CAAAAAgAAADP4lJWKvw+i1hYebTAZ+J50dmovESA7thdpSJHQLLKUr31tlNQXf6tu/lVlHIu9zpNLasUBCmantYXUvxfa22YsHlqaRtoioFsSAJKFnw2p+E+MqDO9Onmvwx4pwrcJXS6BSbYSZ1mxHACDcEpU4s0e/Q9UR7tZulGg3ohX3xdpm0eJWofirpwRYjB2aqiF+2VSVmK+Z9XOWZUKSUivp5G0FJjSbXYP/FlKwunoAcz2GcUaXBnNmp7JHhcTEWmZ8Ytq5TCEPdSysZ/cHdarKZ3QKUGs21UmuWJaOYSNsj4HCezAlJejOaSHmFs4aAi77l5uExLxJLo4E270Z6zVRE+iUCfhuxVzMW8bUbfuqTMyWIcTf3OLmAXdFjYA+C+rMzUa/ZHKsJ3XZu4apnSITQHoZzyIRx3RJRldQmOmHmn7VljT+956V4RUgPrNqni9BNbJJBf3YCEtBYpNrsBdfrh9IeEXqpiirqp2P0YP+ZjtF2RRP/b4zwDPJfuKWTnS3wu82jQOJknPL86F5LiDT2MutCADGAdNWXFEGU1Y22McfRm7DZWRHr645II6mIez2PPk1FNILM/kFmVW6yueQGICQHW0/rFvwfwV/HxAVDQrkUvpBglO5k+vExABcYBi9E9z6FNXvPgS566L/2c18ZTZq20jtXCxO4Dl6B2JOMpKBr2/wrhth5+JvVp7wFMHm3aQmmzCEH5Cn4y5lLuNZWk8tD/e8pQfUKm2dIx0kwvK+87tmRKWKEXeoLjbtTUMzygFzRO1l/MRc343ptfILM2bjUGhC+Wo367V9arb6QyaUCxZCynzDoCRCZv4e64D0nQoa5n8dLm2/O6evKDCo6n+Ik5bMdUIRL2G9xL/a3XpT/6kk7m",
+     "type": 7
+    },
+    "events": []
+   },
+   {
+    "name": "BTN_Modifier",
+    "type": 4,
+    "parent": "ONG_Onglet[2]",
+    "x": 124,
+    "y": 18,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "EtatChamps_CréaModifComposant()\n"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Dissocier",
+    "type": 4,
+    "parent": "ONG_Onglet[2]",
+    "x": 424,
+    "y": 18,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "\n//Vérification qu'il y ait bien un composant à dissocier\nsi LISTE_Composants..occurrence <> 0 alors\n\t\n\t//1 : &Dissocier\n\t//2 : &Ne pas dissocier\n\tSELON Dialogue(<§?183AAFCF050A4B0F§>, LISTE_Composants..ValeurAffichée,SAI_NomMachine)\t\n\t\n\t\t// &Dissocier\n\t\tCAS 1 : \n\t\t\t//La dissociation signifie que le composant n'est plus relié à aucune machine\n\t\t\tcomposant.NomMachine = \"\"\n\t\t\tHModifie(COMPOSANT)\n\t\t\t\n\t\t\t//On réactualise la liste des composants pour la machine en cours => sans le composant dissocié\n\t\t\tListeAffiche(LISTE_Composants, taInit)\n\t\t\tSI LISTE_Composants..Occurrence = 0 ALORS\n\t\t\t\tRAZ(GR_Composant)\n\t\t\tFIN\n\t\t\t\n\t\t// &Ne pas dissocier : on ne fait rien\n\t\tCAS 2 : \n\t\t\t\n\tFIN\n\t\nsinon\n\t\n\tinfo(<§$0000§>)\n\t\nfin\n\n"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Ajouter",
+    "type": 4,
+    "parent": "ONG_Onglet[2]",
+    "x": 324,
+    "y": 18,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "\n//Choix du composant à ajouter\nnIDComposant est un entier = ouvre(FEN_Composants)\n\n//Association de ce composant à la machine en cours\nAssocierComposant(nIDComposant)\n"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Supprimer",
+    "type": 4,
+    "parent": "ONG_Onglet[2]",
+    "x": 224,
+    "y": 18,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "\n//Vérification qu'il y ait bien un composant à supprimer\nSI LISTE_Composants..Occurrence <> 0 ALORS\n\t\n\t//1 : &Supprimer\n\t//2 : &Ne pas supprimer\n\tSELON Dialogue(<§?183AAF7703FAF2C2§>, LISTE_Composants..ValeurAffichée)\n\t\n\t\t// &Supprimer\n\t\tCAS 1 : \n\t\t\t\n\t\t\t//On se positionne sur le composant à supprimer\n\t\t\tHLitRecherchePremier(COMPOSANT,IDCOMPOSANT,LISTE_Composants)\n\t\t\tHSupprime(COMPOSANT)\n\t\t\t\n\t\t\t//On réactualise la liste des composants pour la machine en cours => sans le composant supprimé\n\t\t\tListeAffiche(LISTE_Composants, taInit)\n\t\t\tsi LISTE_Composants..Occurrence = 0 alors\n\t\t\t\traz(GR_Composant)\n\t\t\tFIN\n\t\t\t\n\t\t// &Ne pas supprimer : on ne fait rien\n\t\tCAS 2 : \n\t\t\t\n\tFIN\n\t\nsinon\n\tInfo(<§$0001§>)\t\nFIN"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Imprimer",
+    "type": 4,
+    "parent": "ONG_Onglet[2]",
+    "x": 524,
+    "y": 18,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "//On ouvre la boîte de dialogue \n\n//1 : pour la machine seulement ?\n//2 : pour toutes les machines ?\n//3 : Ne rien faire\nSELON Dialogue(<§?187C808E01108B8F§>)\n\t\n\t// pour la machine seulement ?\n\tCAS 1\n\t\tiInitRequêteEtat(Etat_Composant_Machine,machine.NomMachine)\n\t\t// On affiche l'aperçu à l'écran avant d'imprimer\n\t\tiAperçu(iPage,<§$0004§>,Vrai)\n\t\tiImprimeEtat(Etat_Composant_Machine)\n\t\t\n\t// pour toutes les machines ?\n\tCAS 2\n\t\t// on va imprimer le détail des composants de toutes les machines\n\t\tiInitRequêteEtat(Etat_Composant_Machine,*)\n\t\t// On affiche l'aperçu à l'écran avant d'imprimer\n\t\tiAperçu(iPage,<§$0004§>,Vrai)\n\t\tiImprimeEtat(Etat_Composant_Machine)\n\t\t\n\t// Ne rien faire\n\tCAS 3\n\t\t\nFIN\n"
+     }
+    ]
+   },
+   {
+    "name": "LIB_Gestion_des_Machines",
+    "type": 3,
+    "parent": null,
+    "x": 12,
+    "y": 12,
+    "w": 542,
+    "h": 30,
+    "events": []
+   }
+  ],
+  "menu": [],
+  "window_events": [
+   {
+    "type": null,
+    "code": "procedure FEN_Machine(gnIDMachine=0)\n\n//Si aucun nom de machine n'a été passé en paramètre\n//On est en mode visualisation - modification éventuelle\nsi gnIDMachine <> 0 alors\n\t\n\t//On affiche les informations de la machine dont le nom a été passé en paramètre à la fenêtre\n\tHLitRecherchepremier(MACHINE,IDMachine,gnIDMachine)\n\tFichierVersEcran(mafenêtre, MACHINE)\n\t\n\t//Pas besoin d'afficher l'aide à la création de machine puisqu'on n'est pas en création\n\tLIB_Note..Visible = faux\n\t\nsinon\n\t\n\t//Ré-initialisation en vue de création\n\thraz(machine)\n\t\n\t//On affiche l'aide à la création de machine\n\tlib_note..Visible = vrai\n\t\n\t//On rend inactif l'onglet \"Composant\".. il faut d'abord avoir créé la machine\n\tONG_Onglet[2]..Etat = Grisé\n\t\nfin\n\n\n//Par défaut, la fenêtre renvoie faux : pas de modification\nMaFenêtre..ValeurRenvoyée = \"\"\n"
+   }
+  ],
+  "procedures": [
+   {
+    "name": "AssocierComposant",
+    "code": "// Résumé : Permet d'associer un nouveau composant à la machine en cours\n// Syntaxe :\n// AssocierComposant (<nIDComposant>)\n//\n// Paramètres :\n// \tnIDComposant : Identifiant du composant à associer à la machine en cours\n// Valeur de retour :\n// \tAucune\n//\n\nProcédure AssocierComposant(nIDComposant)\n\nnIDComposantAjouté est un entier sur 8 octets\n\n//Vérification : dispose-t-on bien d'un composant à associer ?\nSI nIDComposant <> 0 ALORS\n\t\n\t//Recherche des informations sur le composant pour demander confirmation à l'utilisateur\n\tHLitRecherchePremier(COMPOSANT,IDCOMPOSANT,nIDComposant)\t\n\t\n\t//1 : &Ajouter\n\t//2 : &Ne pas ajouter\n\tSELON Dialogue(<§?183AD4C50760AD3D§>, composant.NSerie, sai_NomMachine)\n\t\n\t\t// &Ajouter\n\t\tCAS 1 :\n\t\t\t//Association du composant à la machine en cours\n\t\t\tCOMPOSANT.NomMachine = SAI_NomMachine\n\t\t\tHModifie(COMPOSANT)\n\t\t\t\n\t\t\t//Récupération de l'identifiant du composant ajouté pour ré-affichage de la liste des composants\n\t\t\t//pour prendre en compte ce nouveau composant pour la machine et le sélectionner\n\t\t\tnIDComposantAjouté = composant.IDCOMPOSANT\t\t\t\n\t\t\tListeAffiche(LISTE_Composants, tainit)\t\n\t\t\tLISTE_Composants = nIDComposantAjouté\n\t\t\tExécuteTraitement(LISTE_Composants, trtSélection)\n\t\t\t\t\t\t\n\t\t// &Ne pas ajouter : on ne fait rien\n\t\tCAS 2 :\n\t\t\t\n\tFIN\n\t\nFIN"
+   },
+   {
+    "name": "AssocierModèle",
+    "code": "// Résumé : Permet d'associer un modèle (un type de composant) à un composant\n// Syntaxe :\n//AssocierModèle (<nIDModèle>)\n//\n// Paramètres :\n//\tnIDModèle : Identifiant du modèle à associer\n// Valeur de retour :\n// \tAucune\n\nPROCEDURE AssocierModèle(nIDModèle)\n\n//Vérification : a-t-on bien un modèle à associer ?\nSI nIDModèle <> 0 ALORS\n\t\n\t//Recherche des informations sur le modèle\n\tHLitRecherchePremier(modèle,IDMODELE,nIDModèle)\t\n\n\t//1 : &Associer\n\t//2 : &Ne pas associer\n\tSELON Dialogue(<§?183BE017022CF53A§>, modele.TypeModele + \" \" + MODELE.NomModele + \" \"+ modele.MarqueModele)\n\t\t\n\t\t// &Associer\n\t\tCAS 1 :\n\t\t\tcomposant.IDMODELE = nIDModèle\n\t\t\t//Affiche les informations concernant le type de composant\n\t\t\tFichierVersEcran(mafenêtre, MODELE)\n\t\t\t\n\t\t// &Ne pas associer : on ne fait rien\n\t\tCAS 2 :\n\t\t\t\n\tFIN\n\t\t\nFIN"
+   },
+   {
+    "name": "AfficherLibelléCaractéristiques",
+    "code": "// Résumé : Permet d'afficher le libellé des caractéristiques pour le modèle du composant \n// Syntaxe :\n// AfficherLibelléCaractéristiques ()\n//\n// Paramètres :\n//\tAucun\n// Valeur de retour :\n// \tAucune\n//\n\nProcédure AfficherLibelléCaractéristiques()\n\n//Selon les caractéristiques disponibles pour le composant, on affiche ou pas les champs de saisie qui correspondent \n//On adapte le libellé du champ de saisie à la caractéristique en cours\nSI SAI_Caractéristique1Comp <> \"\" ALORS\n\tSAI_Caractéristique1Comp..Visible = Vrai\n\tSAI_Caractéristique1Comp..Libellé = MODELE.Caractéristique1 + \" : \"\nSINON\n\tSAI_Caractéristique1Comp..Visible = Faux\nFIN\n\nSI SAI_Caractéristique2Comp <> \"\" ALORS\n\tSAI_Caractéristique2Comp..Visible = Vrai\n\tSAI_Caractéristique2Comp..Libellé = MODELE.Caractéristique2 + \" : \"\nSINON\n\tSAI_Caractéristique2Comp..Visible = Faux\nFIN\n\nSI SAI_Caractéristique3Comp <> \"\" ALORS\n\tSAI_Caractéristique3Comp..Visible = Vrai\n\tSAI_Caractéristique3Comp..Libellé = MODELE.Caractéristique3 + \" : \"\nSINON\n\tSAI_Caractéristique3Comp..Visible = Faux\nFIN\n\nSI SAI_Caractéristique4Comp <> \"\" ALORS\n\tSAI_Caractéristique4Comp..Visible = Vrai\n\tSAI_Caractéristique4Comp..Libellé = MODELE.Caractéristique4 + \" : \"\nSINON\n\tSAI_Caractéristique4Comp..Visible = Faux\nFIN"
+   },
+   {
+    "name": "EtatChamps_CréaModifComposant",
+    "code": "// Résumé : Procédure qui modifie l'état des champs et des boutons de la fenêtre en vue de la modification ou de la création de composant\n// Syntaxe :\n//EtatChamps_CréaModifComposant ()\n//\n// Paramètres :\n//\tAucun\n// Valeur de retour :\n// \tAucune\n\nProcédure EtatChamps_CréaModifComposant()\n\n//On est en création d'un composant => on n'affiche plus les boutons \"ajouter\", \"dissocier\", \"supprimer\"...\nGR_BtnNouveauComposant..Visible = Vrai\n\n//Par contre, on met les boutons \"valider\" et \"annuler\" à la place\nGR_BtnGestionComposants..Visible = Faux\n\n//Les champs sont dégrisés pour permettre la saisie des informations du composant\nGR_NouveauComposant..Etat = Actif\n\n//On permet de choisir le type du composant (le modèle)\nBTN_Type..Visible = Vrai\n\n//La liste des composants ne doit plus être active\nLISTE_Composants..Etat = grisé\n"
+   },
+   {
+    "name": "EtatChamps_HorsCréaModifComp",
+    "code": "// Résumé : Procédure qui modifie l'état des champs et des boutons de la fenêtre quand on est ni en modification ni en création de composant\n// Syntaxe :\n// EtatChamps_HorsCréaModifComp ()\n//\n// Paramètres :\n//\tAucun\n// Valeur de retour :\n// \tAucune\n//\n\nProcédure EtatChamps_HorsCréaModifComp()\n\n//On n'a plus besoin des boutons \"valider\" et \"annuler\" pour le composant\nGR_BtnNouveauComposant..Visible = Faux\n\n//On a à nouveau besoin des boutons \"ajouter\", \"modifier\", \"dissocier\", \"supprimer\"...\nGR_BtnGestionComposants..Visible = Vrai\n\n//On re-grise les champs d'informations du composant\nGR_NouveauComposant..Etat = Grisé\n\n//Le bouton pour le choix du type de composant n'est plus utile\nBTN_Type..Visible = Faux\n\n//On rend de nouveau active la liste avec tous les composants de la machine\nLISTE_Composants..Etat = Actif"
+   }
+  ],
+  "strings": [
+   {
+    "index": 0,
+    "text": {
+     "fr-FR": "Pas de composant à dissocier."
+    }
+   },
+   {
+    "index": 1,
+    "text": {
+     "fr-FR": "Pas de composant à supprimer."
+    }
+   },
+   {
+    "index": 2,
+    "text": {
+     "fr-FR": "Veuillez sélectionner le type du composant en choisissant son modèle."
+    }
+   },
+   {
+    "index": 3,
+    "text": {
+     "fr-FR": "Veuillez saisir au moins le numéro de série du composant."
+    }
+   },
+   {
+    "index": 4,
+    "text": {
+     "fr-FR": "Aperçu de la liste des composants"
+    }
+   }
+  ],
+  "dialogs": [
+   {
+    "label": {
+     "fr-FR": "Voulez-vous vraiment dissocier le composant '%1' de la machine '%2' ?"
+    },
+    "buttons": [
+     {
+      "fr-FR": "&Dissocier"
+     },
+     {
+      "fr-FR": "&Ne pas dissocier"
+     }
+    ]
+   },
+   {
+    "label": {
+     "fr-FR": "Voulez-vous vraiment supprimer définitivement le composant '%1' de la base ?"
+    },
+    "buttons": [
+     {
+      "fr-FR": "&Supprimer"
+     },
+     {
+      "fr-FR": "&Ne pas supprimer"
+     }
+    ]
+   },
+   {
+    "label": {
+     "fr-FR": "Voulez-vous imprimer le détail des composants ..."
+    },
+    "buttons": [
+     {
+      "fr-FR": "pour la machine seulement ?"
+     },
+     {
+      "fr-FR": "pour toutes les machines ?"
+     },
+     {
+      "fr-FR": "Ne rien faire"
+     }
+    ]
+   },
+   {
+    "label": {
+     "fr-FR": "Voulez-vous vraiment ajouter le composant '%1' à la machine '%2' ?"
+    },
+    "buttons": [
+     {
+      "fr-FR": "&Ajouter"
+     },
+     {
+      "fr-FR": "&Ne pas ajouter"
+     }
+    ]
+   },
+   {
+    "label": {
+     "fr-FR": "Voulez-vous vraiment associer le composant en cours au type de composant '%1' ?"
+    },
+    "buttons": [
+     {
+      "fr-FR": "&Associer"
+     },
+     {
+      "fr-FR": "&Ne pas associer"
+     }
+    ]
+   }
+  ],
+  "embedded": [
+   {
+    "name": "FEN_Machine_1$Requête",
+    "internal_properties": "CAAAAAgAAACnK5hpBuJ6mE7znh5ZBSODHdllTpwkxSDWb8Pnj+5/WyXF/mfra5vG7miPkfQBiXPrxW0RJIqghYskzDyZ1OuqbYqI/tq3XZFpYjUN/vFaRkYJ4ibseSvkZt/jTL/n2ZaRL9G8elmiCKiOhGH/QanJ7kAMtU8zmWdxZUgnWJ2u52Q7kkqLDNtu+JSWEw3iCBlZN3Oca9491LgjwLrN7SdPUz6wPOz1J57k+c6D6ERC5k9g2VHEXxFJlrf2tGUiDSqeShwfFjnnkY0w5D4V7da+yq/M438BnMA5ACPb2T7TJB8cbeOIpGZg/EOLXOpUpld31DjHn76DB+i6KPl8bdfPsANaI4EiX0MHqJYWXZ4bgR/O2STdYKqQDSWwcjHDiO9n/8TBb2kVTEowwjc82YOEBGnZaeVUY/Pk1TfX/fj5dcpvNyKVdKzaPL9vfdry8NgM9BXv5DN0beOB6Z4Wh1vQxACewgGVUSATc/+e1kd8UQfypRpCNgdgoeuhZqqeHjg/bdADjlixol6E7LxG+8qZv3iwI6JdXMZNaOethWJKMZi+qUFlVIvzDVuRt/I16dTgIutiJsZ8smOYBbadUri/bOgEVtGm7iyESsoyro94s31HRM5nypLDs6lwsEvUaVs4jtjN5wwI9KiED+HlhssMGZYtmYefxWWE7U4ajeR8MBnX1BEMt83OgaG9AIzlwfU9wXIJquYHWGqUI+uHetEAu97afeXu8S5QOG9ZiMlLCy100DQPcZQkpII1VYgXVxersMT5QIcZAJ0L7Esyrt59t/T3LSeuqVQ6pbXFHUfoBq5cB51ZMAufzQU4IKG8TtbJXliBm1x0Z0rnaAikQkhzxbBdVj3NXHVyUqnIj4mno0lPQC4BI+jQfirB5xediiMl7jYJ2sQ4A9XK9HNXLbQ0/+CUjIgITmxkCNljHINZGqZP7Z9tDGoEcgi5ET9DTO5ypLiMmPY/BTXyckVmhWTec9Poedzq3RseJT5IjqdvT6K1/TOOtvLQ5Ggsty66d/UJwLxx5vsZyuJkAjmg5PTmNOMhuoU0e477+hEzqnSPTqxtE/17p5Yr1OMLqnyStI2yadKsqQhynBHKOuSEp70dNs7BXZ1S6cM3zNE9O6Ue+uHpsOawYJZJklwiyzJpXRIpVgNkBKS/36kWWHGTeZYt6jjZ9LCY8sgVOyM6RW1P6mQ3VD1kC8q6m/c6lLsmjbejYpbIXw+O3+x4a+e+pFMszsMKvYKBqakkG2Ronwf3KoYdg3KewYiNZh5thlZhKfcXBnD2hdqFxKplqRsVdppvTZ13pnd8hs4dXnz7/wV95K2D+i5F/nFcJLBxUQugyRGrJsfhl/bg1ExY9QcSgxq3ISSoZp0txxTqdE66aEcD0mie80twQg2QfB9KJLRaWE3T9EMUD4TxuBrrfLc/NuXhtDrjKPrj89zgCDZ9Z+qf6Yjw2sY41nM6TPpyVpPuyDy9V96z+wflKitJJM85ks+34MHHc5emvEX7gdnI8jNZ9aHni+CLF6OMdQq3pkJ3lk9rS4zhMEIiN4Qo2rLGqygtKdpujmJxZ8qb18E//JeD7Mu1TtGvnWpNYm7R17mctId/EbQAdp5Oeh/jfXodpG6MLRL3FFV0tdKJ7+pEUrZMwZyYSNPHcK8enVaREr4NdpgcMWkcUDt99XOGDPr09XorHL32FSAQrDCvngfYAhyS7WrNUZ+zQEf/MwX8OQzI2VWwEgmAmQAz3l4UFD2RUXQEpKI3ubpZTAwHvbNEkB48ob0X0ihaA5t4fE7vERLire9/nywY23sVBnLl8I7F0FnX+Iq4udxdENM0MiNVq1T3yLpx9UrFhsRbzXKmFDQzWHPjdclHRFqopFEZynOnOcO28waoox6tw6m2WBNaSFdd0HALB3iQdzF16KePNrUCTg53k+a3uF9Zwh/R0Br6G9EgObX3sGR3I81ErA9d4a0GMrzTIvszn/93MKeK6HDJp5B2BC9J8jtSZn83yy76gS/pSmFm/F5wjkPxnF90jmk4r1evnBzvH7WtRYG9RAs/w8OPwnxgRNNZsjDKgktWAlFgEMypuMKxwTFewHpyyOviqF9U32q/V04c3Q8vquliCAubY7ITod75rOs06UXP7WDwGBM6EyLs2i1uG/PrNkG/TvCrwYRtd/iO9xodzGbCUzCoX5jOQMwiFEGWh1dhSm88ikKukyXYPhXlPFeHcygqnrdgAxAsjBZhzVTFxFiSuZ4jqvCTkflbMcgZE5o63yDFKptxTwaQhPRXk4tV9vFOfB4l6IwpIC4nMqrfP7VsncOIfFuWGE2jXLTPpQ2qRlj8RKsdLKaeGAKj6EtKuJ6ZwSM2XHW+WVMqW3erDk35MU4fmvpvr8pwcinprMoQtZ5UePVhNZHlKLQWZRkLXBpVisFM9oLMmw+hUX8gy5CoEt88GIwnwsvxzauzaaYWsaJgCVCVbABQR/8Hn0UB9qggUkkTcKqFCb9RlrBtKVq+QjayYUc1G1RMSbfLtGEXnElMleyqGSt6htUDxO43+b2B4rrrNpBMQWWAVkVx5v62xdTNllgMswkJ7tW0KIgYe39STk6FANrGJmYsuhTbMjD0eEpQXnMqaRbUtl/LdaRZLSZiPpj7fRgzdYPwOJD5xn/WmdCSY1cxpL1RsBuvujF13lIimhx9HeYwQwUA/W8ofvS5fJzuBJbztj9/d4DjlPB8XkYzlhG8Yy95zaD61G/pfA0y6KzH7RAKzLVAkMeAJzsJyWQZ04C6ymlCm4mj4alIgsKAb22Jiq9pt2lNXqitXmd0FjvfLGHKfPX1HPZG467lgNyrY7bJf5pf9+TbAPem5A3pC0sA3XOoCXRhhC46UWEb1LBOggOcI7yFBTO8SOEgBJfyJuChj8aAj99xWquyhP8UUbWSsz6XK92lcE+EGRmLfbZqRfGfQBrEbbX0ATdc1U6Bu8pFLR8IKYUjzwwy14pvXaMsaSyJX/JEyNSxdgDjeBUJgl/Gd9tmGER3FN+Qp3Zvv6wgyPdCqtQ8"
+   }
+  ],
+  "other_keys": []
+ },
+ "FEN_Modèle.wdw": {
+  "name": "FEN_Modèle",
+  "properties": {
+   "width": 974,
+   "height": 657,
+   "widthClient": 972,
+   "heightClient": 625,
+   "widthMin": 344,
+   "heightMin": 308
+  },
+  "controls": [
+   {
+    "name": "LIB_Gestion_des_Modèles_de",
+    "type": 3,
+    "parent": null,
+    "x": 12,
+    "y": 12,
+    "w": 474,
+    "h": 30,
+    "events": []
+   },
+   {
+    "name": "SAI_NomModeleComp",
+    "type": 2,
+    "parent": null,
+    "x": 616,
+    "y": 125,
+    "w": 336,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_MarqueModeleComp",
+    "type": 2,
+    "parent": null,
+    "x": 616,
+    "y": 154,
+    "w": 336,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_Caractéristique3Lib",
+    "type": 2,
+    "parent": null,
+    "x": 616,
+    "y": 328,
+    "w": 336,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_Caractéristique3Val",
+    "type": 2,
+    "parent": null,
+    "x": 616,
+    "y": 357,
+    "w": 336,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_Caractéristique4Lib",
+    "type": 2,
+    "parent": null,
+    "x": 616,
+    "y": 386,
+    "w": 336,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_Caractéristique4Val",
+    "type": 2,
+    "parent": null,
+    "x": 616,
+    "y": 415,
+    "w": 336,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "BTN_Nouveau",
+    "type": 4,
+    "parent": null,
+    "x": 451,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "//Ré-initialisation en vue d'ajout de modèle\nhraz(modèle)\nraz()\n\n//On veut ajouter un modèle => on dégrise les champs de saisie pour l'ajout et la modification d'un modèle\nGR_AjoutModif..Etat = Actif\n"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Modifier",
+    "type": 4,
+    "parent": null,
+    "x": 553,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "\n//On veut modifier un modèle => on dégrise les champs de saisie pour l'ajout et la modification d'un modèle\nGR_AjoutModif..etat = actif\n"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Supprimer",
+    "type": 4,
+    "parent": null,
+    "x": 655,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "//1 : &Supprimer\n//2 : &Ne pas supprimer\nSELON Dialogue(<§?183C3A7702AC0162§>, TABLE_Modèles.COL_NomModele)\n\t\n\t// &Supprimer\n\tCAS 1 :\n\t\t\n\t\t//Avant de supprimer le modèle, on vérifie qu'il n'y ait pas de composant lié à ce modèle\n\t\tHLitRecherchePremier(COMPOSANT,IDMODELE,TABLE_Modèles.COL_IDMODELE)\n\t\t\n\t\t//S'il n'y a pas de composants associés à ce modèle, on supprime le modèle\n\t\tsi pas htrouve(composant) ALORS\n\t\t\t\n\t\t\t//Suppression dans la table et donc aussi dans le fichier\n\t\t\tTableSupprime(TABLE_Modèles)\n\t\t\tFichierVersEcran(MaFenêtre, MODELE)\n\t\t\t\n\t\tsinon\n\t\t\t\n\t\t\tInfo(<§$0000§>)\n\t\t\n\t\tFIN\n\t\t\n\t// &Ne pas supprimer\n\tCAS 2 :\n\t\t\nFIN"
+     }
+    ]
+   },
+   {
+    "name": "TABLE_Modèles",
+    "type": 9,
+    "parent": null,
+    "x": 12,
+    "y": 59,
+    "w": 567,
+    "h": 549,
+    "columns": [
+     {
+      "name": "COL_TypeModele",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAADul3w3vYg5JXuPkOr9OumNuH3ld6fkVXpoRe+O2NAMnSefyV799w4ZMndEbUWiPVzhv95/RpkF4tKMMuRCiaUiNrZ/gUKzrMY14L2XWmK9x2cFC8gTnjNFHzDffejFtxvYFl4NQDbY4KlqY0825pNcz5M0+fBzT/38qF1g7JEQUZvrWaNnpXDSDllkusGzYaQbO0elA8sma2lfkvprOm0c2uRK2GbMG3Ht0sR7qMRdwERQPRr16JAnKDrHvdV6/0u2c2BCNDtFDF/58ogYYIDA6oltemN0M9/iP7TVTkb2mAtG2QvEHjLN32XQxCs11MUg64Wp/k4QIdqWQfn+qHzDs8jTWIamUrxu21pLPY1qJHkTWiZ83utV8ZqW1UWsKhL21SB/BdMyNOcgn0lziggSzBq3shmamJNN2iKM5wHI/+CUaIMBuMiWRghj4x49AfVnKGpVy0h5MACBNJ5hNRqLJeek+HPNjaSRXbFwxc6kTKMo5di01I5bz2n5W0XzpKoQG3qJmzygtK8taHJ95FkmXKWkCs4vV+AP7WA1NEmiPQ9ezCG7mHXNpKb+mt8yly2ZOckk49zRbGmIH0h4ZUOwzFUKnDZ2pBtV7RY0YIact3X4XpWelf/BmjXkd/lIyFRqpRrhUq3YL6h9zIWz6/P6VYGV3/VNBv3Fs2RiwlyVBE88HYo2DLqWY71Nq2YXMS6GxH1pxpedlhbrThElQ5aYmqkzmqYc/a9shUUpjrQCJv1ERX6/O7cijNyEfkbYt3R4Q/hhVNcKvCvT7j9ZBmHmdymdAd3YPSwypLwVYwLQlaHIgP1GsBaEJcK9GamKtGldbQeqDvcQkEhwXnGLaPNKi7wLprQ2r0keHaMKAGjlopRoKinBvr/vdh6O40N+cUkob0zfv5XmgCM1ynmiOQ3oyx08APqeXmmKdZFFlbH1k0x9pGXxpru7JCViai62/8lw2wIu4PHzwB/9cnHV",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_NomModele",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAAB7bcutRj8oCoXk4t3ogx0L6xmMqYxvEThI2aDDEx+EEsyY0XWiS+gLzA1gkk0QYRdzzBZiYbKM0fvfzLxZThNWgcepiWByQnDgT/XAh/OYcPRdpkGSiYKyoi6V+PxdogjKHE7IXxslBXw5qpWFFTluwEc5W4FynIX4QYNlHKSFTYBi1BtsUXL2o5yoNd6jCS9ut+VUrZTvI3S5Y2t4YjM5S77dnvdANj6AThbr8GJzmjhGVEsCPGY7m3vBve3bhFJPL1HiHoSVakHJHe5w1tA8Y+ZT0H6Z9Gu0HMhenxVFYWmAdjlQOy6Jx44CJLo8CEe4TtyOF1Y6xkX3PjNG5DvQLWdtSoztgemlsAYA6K3i+DPB0MasvAJ+cSUL8Fxwy9FmLN5PrJH9eCLUUl+E4q7vi/5ffg4q9YJHYz2GUkl3R2F7Woo180UdJu4H6tUEeo5EvqneatIZJHR2lTO4UA424W9hv7x31nO8XBXfIpgqu77pthavJWR9L2YtN7QgjRGaTqqWWAux5T+t2Eclcs0MMZYlAPGMsgTTKTBpWujzdrArUHfCGZ+8yhqX37Uh9KZ/3tt03knYiQEaFaWKdhb2FIMWrm4jcIAddkC/shGujewuDA2dRGCV0mCBLDnGhus7+BSPOzjkgB8UNydZXjidCxGc+okpQvZBj/Xqhgs+u1WgbhUukM7DsQlNcb81VhchjDf/zYFkHDfQl300b6T+xDRArthEXKb5LCD61gqxhOA8Ap3gVFRJIcsXszLfEBtUArbJdDhHX0t4v2j4Slk+Wnh/sqnR434B6c446ggHUuRIvWpTnNwO1F1WEVaT7gQlN2lR3/y6exfAZdntqJarN3InFA8q6MujgGS6VhnIYW69DRJdTJkEsjsatFsK3EVa565FbXip2RxwU+6FMMBKHVGgFXBUYo6arRZkK6dAm+Ya9lGp9wDfJXrWywP9796xbSrnLo+tpPo8j7B1nWfidr0CPyKqB78NlOmmGDH6YgyCoicyCwCFmaYnczQWqahBMRhxpIjtEcs=",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_MarqueModele",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAAB8ZNpme+2/q+M/uXsekQEyvNzwAoFFRaaia0AMMd8S/QiH6TUYPRjCqXh+5WfnloVyHYbT4HJgnCagmDS09iWRV4Itw+F+P3gARwwvSjFvzKu8b4dn6ygweIohuGwZoBd3Grxt7zPLJ/YEBXuoDzzUfiB62hnHfSCOK00Lky1hWjAyQKo2dSBNACulxBdDKtSKNNEh/JcQLOHshqe7kOi1DHAfccBOBIIvy0lVZfPVVlFxLRa8Uu0ralJS9fAJ2LUuncIIrYMhprNFvKBId1R9SxY6wJ5/DrlFCpUghCT8utZZ/O7eZI5GAcEb6bHlP3H74LmJD8KlCrU6ir2H2y7CA624Rq7ZU1aSNNT9A9t2amfYfh9z/C8gecLxPwGGMOj1yEbf5p80iOsihwqeV7++XQP8GuHa6iEPU+6ujAevIysIzY7fR7kffiRI4ELw4pI0nQ5f3ZtHBN7CI/pcXSp6oW7eEMwDCKjpsw33WBgKOK5dyyR4a7ImqRPza10K1BUXjtlVaHDz6Y9sLd7pjuYaSBRycTNhsPwh+ru4fPaSDuOLaVhOfB28tjmA9lOjN7TcUA4Tus7YK/cZeir6ZiceG4vdd0LwvPYnc5tm1m3n22mad85DhRQLYPP6n2FuVQVKSHV4y1F26LOTqJYbLONZbv3/S3tWQGYP7oYvnLXRWXbkW+Cov1rlH6C+zEV/2fN4VDg6D27ewEPDvDQQo+WGLXbJX/r5mCg7VdMjyEik8MMMw+J+38hHc4744lKfhdXN9hEWrKGRs0Ntcp0YemiADfRMT4XWFU6XpIcLbgR2WucSPh1Pf/peLiDbWmD5cz5yl1CO70uSwfmBxJoZfAU9YDAUYwnR6H1jE1mXPNO3wZ9TxJ09zaOESIghmT1oGca8ApQhuNabbdWK2Qsh0Tk1zRwaEYeb5MKWATPG/oWQw8+ERxi4HEsoOGtmMi1scDqxilqM7bHKADDcW/BV4KVZ01gw6zkDHmeP6FqCFyFLrhfdk/0ZEqs3027VXsFdUpIBTj6R6vlEQsEPoDs=",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_Commentaire",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAACbdl2Vp1innGqnFtLG33gelkyJJT513k4q4RF0MRmkcIPn8iNzwA7pPJqhrDaT4ttDVu1QfVHUyivQEtNeyWBxon85uKWuTcePWQk4j1TSyZMTxexKjiY7Hgh3yfTAsAIQWTdCFItdJ+fJ5xK0N1XExjg/5cbF6IGDYKPiSA5mqFek1Lkl5cceeGfxDTl0BoOGSsLUCiC8GH+Pf4Cs/kan+NQFwiOdCvPtJBQKey9emeHtebDYsN93ogrzJABbRM0bzcTnO/dEIuthg0nEF/n8OfM3y+3oFcxsnJlO+acaJPMRBtydTB5lNIy8sqNkp6isnvuL+sl/o/1LyYtTpW+lLTudKz9aDPJWejuQarx5vtO6wSUipp77QdgIygaqeU5ewjZhi2bVpvuwgjKX/fttcOnWgg0gTPHuezu/S6PL9WcaGCxYs3UFQkxJFCg/CK4oqboLGE54SnpQWgTnxYZd7sT8w1NR8BPhpBzyVH6tevujqS4JL6+OTlkiPZBiCywUJHRLdG3DZ76TA0ZEJyjWBgQ87lPq2EfSz1VlN2xdj2t35N1sb2o8c9CL1kyNjtfJtI/glpd6G3RqEPRhRlR0jqQwZgf9EegyF3ueqZdxC+NJPtWVLJxaVxWXhax/t0DsYgbJEeDRkLWvSx26wECQgchtNVAS5cYW848u5T3GSGnR6Wqvk4fXZMuu69GgSvYMTddbnXB43ws/NQc+FNtejippTJ2RfExNAThdVaF7nLkTSSJqUpyNtyqZettZAEwKYKRV8dITTTQ/u0f2o6bkkzKDh847dm/d5HVPxrfxhW9BYnNvdcWl7nLUG6Sr4UvBbicW9aiLhYkWM7NEwyogc1/5sm/XQmrj9cZyf6HGdnKBzH8s5QxUL7Rb1z6PSufkgKSNvMRDaQzJ5Tf5htKQcK736KvBfQrcu6aFjv74bm3b/nxn5h+DVwmeb2iU7txhbqzvUDuHHpGMmA==",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_IDMODELE",
+      "type": 3,
+      "content": {
+       "internal_properties": "CAAAAAgAAAAIgCQrZKqJBd0YLcFniVEZTcHjlYUTLhJmMnx2SToaE2IVYBSSu3JevOooG73Qw1oBK0utZ4gz0fgaNxWgzcX+FB5toY6kGBfsOvO+nV/3cRacPMuvWrmFBKMhtUXA4lrsYfkXj8KHZw1PYMFASZaRIeXQNa/eKiwfZ/jqNoBeOso9y2FNQXxdWAaNnONNqjbnhTM85KE6CQX1wB8eLr56nIEhb8gzo0FYIuV1p8i/+wUR",
+       "type": 3
+      },
+      "w": null,
+      "events": []
+     }
+    ],
+    "events": [
+     {
+      "type": 33,
+      "code": "\n//On affiche les informations sur le modèle\nFichierVersEcran(MaFenêtre, modele)\n"
+     }
+    ]
+   },
+   {
+    "name": "LIB_InfosLieu",
+    "type": 3,
+    "parent": null,
+    "x": 602,
+    "y": 59,
+    "w": 360,
+    "h": 549,
+    "events": []
+   },
+   {
+    "name": "BTN_Annuler",
+    "type": 4,
+    "parent": null,
+    "x": 786,
+    "y": 574,
+    "w": 38,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "//On remet à jour les champs de saisie avec les valeurs présentes dans le fichier\nfichierversecran(mafenêtre, modele) \n\n//On re-grise les champs de saisie pour l'ajout et la modification d'un modèle\nGR_AjoutModif..etat = grise\n"
+     }
+    ]
+   },
+   {
+    "name": "BTN_OK",
+    "type": 4,
+    "parent": null,
+    "x": 742,
+    "y": 574,
+    "w": 38,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "//On vérifie qu'au moins le nom du modèle a été saisi\nSI SAI_NomModeleComp = \"\" ALORS\n\tInfo(\"Veuillez saisir au moins le nom du modèle.\")\n\tRepriseSaisie(SAI_NomModeleComp)\nFIN\n\n//On remplit les rubriques du fichier avec ce que l'utilisateur a saisi à l'écran\nEcranVersFichier(MaFenêtre, modele)\n\n//On ajoute ou modifie l'enregistrement dans le fichier\nsi modele..NouvelEnregistrement = vrai alors\n\thajoute(modele)\n\t//A la fermeture de la fenêtre, on renvoie l'identifiant du modèle créé\n\tmafenêtre..ValeurRenvoyée = modele.IDMODELE\nsinon\n\tHModifie(MODELE)\t\t\nFIN\n\n//On re-grise les champs de saisie pour l'ajout et la modification d'un fournisseur\nGR_AjoutModif..Etat = Grisé\n\n//On met à jour la table\nTableAffiche(TABLE_Modèles, taCourantEnreg)\n\n"
+     }
+    ]
+   },
+   {
+    "name": "SAI_TypeModeleComp",
+    "type": 2,
+    "parent": null,
+    "x": 616,
+    "y": 183,
+    "w": 336,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_Caractéristique1Lib",
+    "type": 2,
+    "parent": null,
+    "x": 616,
+    "y": 212,
+    "w": 336,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_Caractéristique1Val",
+    "type": 2,
+    "parent": null,
+    "x": 616,
+    "y": 241,
+    "w": 336,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_Caractéristique2Lib",
+    "type": 2,
+    "parent": null,
+    "x": 616,
+    "y": 270,
+    "w": 336,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_Caractéristique2Val",
+    "type": 2,
+    "parent": null,
+    "x": 616,
+    "y": 299,
+    "w": 336,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_Commentaire",
+    "type": 2,
+    "parent": null,
+    "x": 616,
+    "y": 445,
+    "w": 336,
+    "h": 110,
+    "events": []
+   },
+   {
+    "name": "BTN_Détails",
+    "type": 4,
+    "parent": null,
+    "x": 859,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "\n//Ouverture de la boîte de dialogue\n\n//1 : pour ce modèle seulement ?\n//2 : pour tous les modèles\n//3 : Ne rien faire\nSELON Dialogue(<§?187C819901CD9F7C§>)\n\t\n\t// pour ce modèle seulement ?\n\tCAS 1\n\t\tiInitRequêteEtat(Etat_Composant_Modele,TABLE_Modèles.COL_IDMODELE)\n\t\t// On affiche l'aperçu à l'écran avant d'imprimer\n\t\tiAperçu(iPage,<§$0001§>,Vrai)\n\t\tiImprimeEtat(Etat_Composant_Modele)\n\t\t\n\t// pour tous les modèles ?\n\tCAS 2\n\t\t// on va imprimer le détail des composants de toutes les machines\n\t\tiInitRequêteEtat(Etat_Composant_Modele,*)\n\t\t// On affiche l'aperçu à l'écran avant d'imprimer\n\t\tiAperçu(iPage,<§$0001§>,Vrai)\n\t\tiImprimeEtat(Etat_Composant_Modele)\n\t\t\n\t// Ne rien faire\n\tCAS 3\n\t\t\nFIN"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Liste",
+    "type": 4,
+    "parent": null,
+    "x": 757,
+    "y": 15,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "// Aperçu avant impression de la liste des machines\niAperçu(iPage,<§$0002§>,Vrai)\niImprimeEtat(Etat_Modele)\n"
+     }
+    ]
+   }
+  ],
+  "menu": [],
+  "window_events": [
+   {
+    "type": null,
+    "code": "procedure FEN_Modèle(gnMode est un entier = CST_MODEVISUALISATION)\n\n"
+   },
+   {
+    "type": 34,
+    "code": "SI gnMode = CST_MODEVISUALISATION ALORS\n\t//Les champs de saisie pour l'ajout et la modification du modèle sont grisés\n\tGR_AjoutModif..Etat = Grisé\nSINON\n\tExécuteTraitement(BTN_Nouveau, trtClic)\nFIN\n\n//La fenêtre renvoie le modèle, le cas échéant\nMaFenêtre..ValeurRenvoyée = \"\"\n\n"
+   }
+  ],
+  "procedures": [],
+  "strings": [
+   {
+    "index": 0,
+    "text": {
+     "fr-FR": "Des composants sont associés à ce modèle. Vous ne pouvez donc pas le supprimer."
+    }
+   },
+   {
+    "index": 1,
+    "text": {
+     "fr-FR": "Aperçu de la liste des composants"
+    }
+   },
+   {
+    "index": 2,
+    "text": {
+     "fr-FR": "Aperçu de la liste des modèles"
+    }
+   }
+  ],
+  "dialogs": [
+   {
+    "label": {
+     "fr-FR": "Voulez-vous vraiment supprimer le modèle '%1' ?"
+    },
+    "buttons": [
+     {
+      "fr-FR": "&Supprimer"
+     },
+     {
+      "fr-FR": "&Ne pas supprimer"
+     }
+    ]
+   },
+   {
+    "label": {
+     "fr-FR": "Voulez-vous imprimer le détail des composants ..."
+    },
+    "buttons": [
+     {
+      "fr-FR": "pour ce modèle seulement ?"
+     },
+     {
+      "fr-FR": "pour tous les modèles ?"
+     },
+     {
+      "fr-FR": "Ne rien faire"
+     }
+    ]
+   }
+  ],
+  "embedded": null,
+  "other_keys": []
+ },
+ "FEN_Principale.wdw": {
+  "name": "FEN_Principale",
+  "properties": {
+   "width": 974,
+   "height": 652,
+   "widthClient": 972,
+   "heightClient": 598,
+   "widthMin": 344,
+   "heightMin": 303
+  },
+  "controls": [
+   {
+    "name": "TABLE_Machines",
+    "type": 9,
+    "parent": null,
+    "x": 16,
+    "y": 86,
+    "w": 216,
+    "h": 506,
+    "columns": [
+     {
+      "name": "COL_Disponible",
+      "type": 8,
+      "content": {
+       "internal_properties": "CAAAAAgAAACdMTAxHTeaP6JzBtrOTwiq16jB5UAPYzw7G3cE9pVPXO6HZx4As8RKq7ZGQrJlSQdZCnG5pb1nxXfLRGirMkoKrUhp21FOMJNd/VMjUElM3EatSIEb4Dr+0jC3Ua/6hS8KawleLIYeAinFfSDNKz3BjtXrHfwj4UpvfNk9mQWODpBreXWA4eNnNRBLWJdlL5f571SiJom7HTbuLbQX8bzMGpJOkEPfUFqGfiuiduYPM5eORLXUcRjL4caxkZghLu9GWfsXL/RN7pykj57G++t3ZPT7UG66o6s5aakBle/jE8XTJ7Yx9WTDuJRh3cAfzTFeO9frzRhEdIxJb8diP6VGwrrI1X4f3DNVR/idfeyq1QZS9Ip1pgeUQpJY4tS738ffLhltZimgWTQ0qYjfnlHxZUu/q7yOO7iZ5D9Y",
+       "type": 8
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_Machine",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAAB/Q3Dg0Rhpz+2YCl2G8Ul2rBn1DhIDb98M5FV3ogrctIFuGKGFn0+Kno5X0lcLEck73+3rKaN5kSlGCNh/0O78baddMVvTk5BAP3GjuVar5u5YsCPG+JnIihLZFbI7gsOV4UYczmZ/mgZfwy9TkxUIK8KejHsSnK3uQ3ZTG3rYGbjGK5q8XF96lmtIy723kg5AgQKteL3VQJltEqVOGttv6KRK38XciCldyGaPqwIQCF9+2u+oPtzqfSt28u3HBw5/Ocqwoe8ZZ5JuJYzzFSbfcUG3zJ7hIJLj6XgvJEa0eQfrrMrZjXYMo33CtU8SMa6nDf2IsjPDXvRi+RRuKN53xmD7J7FrnH3S7HfMXmI5o+NCNW3x8nB01dkSVqJzxjDv94oSu467Yw2Vx4O74aVpm+TnbL5UV/HOHevruDfHVM6GN92D5AIMWGUVPstZrkAAzxEXIPe7TkMxxFEHlPaScw9kCSS51vOQle2kBP9ZKn1wPkU3zLPvtqdVJKKxE0BSS3lSChoXDCAP/IMCJky+kC89JZuVutL2xbbskXEp5522BQDYaj5V4TwmRbpAwm8feaQ7GGx08FAovZ+Bk2D8tDMHaZtek5d8e+ZPfXTt4/3Cx36HUxiNNSnqDh6uEbKspXtIP+1Dx10ZKlZ6z9QAl63wvEary+MIX6rTGayEltXAnsUPBJewBD0Lvomr9MDkNNCkn436BFcVwrii4TdeJEHO1Wsg7IHZS4maAcjFlvFaSi8qA4zGja48g6cunDS81U3gD4EH7KxdYrT+ajZQ3anscGK4zAid9kjC3tKzT58EaXyFxmcIFApTrBzw+5X9AwCNETPdmo2kELLcDoZGG76kOT+cIP0ZiVW3jXAc/BqU6yjM2KajmfgSBuAqnNFMfXNSJoejDJBT2nxLl2Lc478/z/dWaZPJB4ZXeYG0aLZt2uqVJEc04IwY/UtOagk5urYWPrrvr/JMmzA=",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_Utilisateur",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAAB/Q3Dg0Rhpz+2YCl2G8Ul2rBn1DhIDb98M5FV3ogrctIFuGKGFn0+Kno5X0lcLEck73+3rKaN5kSlGCNh/0O78baddMVvTk5BAP3GjuVar5u5YsCPG+JnIihLZFbI7gsOV4UYczmZ/mgZfwy9TkxUIK8KejHsSnK3uQ3ZTG3rYGbjGK5q8XF96lmtIy723kg5AgQKteL3VQJltEqVOGttv6KRK38XciCldyGaPqwIQCF9+2u+oPtzqfSt28u3HBw5/Ocqwoe8ZZ5JuJYzzFSbfcUG3zJ7hIJLj6XgvJEa0eQfrrMrZjXYMo33CtU8SMa6nDf2IsjPDXvRi+RRuKN53xmD7J7FrnH3S7HfMXmI5o+NCNW3x8nB01dkSVqJzxjDv94oSu467Yw2Vx4O74aVpm+TnbL5UV/HOHevruDfHVM6GN92D5AIMWGUVPstZrkAAzxEXIPe7TkMxxFEHlPaScw9kCSS51vOQle2kBP9ZKn1wPkU3zLPvtqdVJKKxE0BSS3lSChoXDCAP/IMCJky+kC89JZuVutL2xbbskXEp5522BQDYaj5V4TwmRbpAwm8feaQ7GGx08FAovZ+Bk2D8tDMHaZtek5d8e+ZPfXTt4/3Cx36HUxiNNSnqDh6uEbKspXtIP+1Dx10ZKlZ6z9QAl63wvEary+MIX6rTGayEltXAnsUPBJewBD0Lvomr9MDkNNCkn436BFcVwrii4TdeJEHO1Wsg7IHZS4maAcjFlvFaSi8qA4zGja48g6cunDS81U3gD4EH7KxdYrT+ajZQ3anscGK4zAid9kjC3tKzT58EaXyFxmcIFApTrBzw+5X9AwCNETPdmo2kELLcDoZGG76kOT+cIP0ZiVW3jXAc/BqU6yjM2KajmfgSBuAqnNFMfXNSJoejDJBT2nxLl2Lc478/z/dWaZPJB4ZXeYG0aLZt2uqVJEc04IwY/UtOagk5urYWPrrvr/JMmzA=",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_IDMachine",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAACFrL5sCl7HaA1uJRp6ZSs4Cs8qjeakMF3PTJT8IBqnpm3Tv+2bvqF3gDsQ2N7Mm1DjC5zamEU50KqdWCXU825zVos+B+ut56LQSJ4l4kR7a3nd0NQ2Z4EMv2TkhqHjexesTFhv1Yyy4SHs6TrEPHih+7Z0B88FoMqR+HsvxaHdxxGJzzOQBkFU9EHbZVphUJ+8i+KGIcd/T5zlia+Et1c/3EhsojxvGozGHCbEN9WkW7B7OpLdFJz5TFXHeHy+cJvFRbrq8HfHTf+7Z2F0iqXHp0SVyUkXFPWCS3pBBPVRh4jUtS+dk1O2TplYlJLZfu2u4R+vN7f6dE3LLbpbvHG2Dc22/3MQ1KNZMYGDMZarvT5C6ulFRNGofTti85ludBIL21Nv8XBPwyy7JhFKnE2RXyYGUSEak6Uv4N24kWAa8fziq0ertqk2rZYG4PZjC32GAcvUC8Ks9p2RgOnHe+PW0+99Y8oUgN8UwKEtOkEQzeuMS60UX1X9IcXzDHS686UJmd7aWF9xW9J1etey0Y4ZnSPgtT266COmgfacv8aD4ESwqOjOo1bYX47YzxTD2B7814HRcIcqixRw6V9Lcth5A5kUCZUR3fy2yRjfAwONxk5MwCDVhETKV/cwQLRJJfGtveTOlcylKIWd/kSuxgJHfKtl5vJof6aWUaxLnXMQUS6W/WFn1fWTWJWDJN3GdB+FsEsSb0ouW9eJ6uLsIs0xea3B/QHzKjzlM/H4ZcFjxT6K0Z++IjzrgZ4cE9U1dAXfrbQqyXCVnwqnRLA2f7oPGiHD6ghJOGcdYhzmDEO1zhz4lmoJKy/RQpQVhCj1JxySJTndu2atX29SttB+hai/cuYrb9upwJpb5/8HN+8oqYkiouBA887G1YhyPvr15Nh1/z4MqJSzn8ZV0MK/HnKTaB2GFyuvr+LkExbjzf+Gd1vbGMSHAmaEv2tYtyGHChPHhFI968CD3BIMkMuGyEg/PJbWdadDicwGjQYXKJnGJVW4Xh4a",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     }
+    ],
+    "events": [
+     {
+      "type": 33,
+      "code": "\nAffichePlan(IMG_PlanLocaux)\n\n//On se positionne dans le fichier sur la machine sélectionnée dans la table\nHLitRecherchePremier(MACHINE,NomMachine,TABLE_Machines.COL_Machine)\n\n//Si la machine n'est pas dans un lieu\nsi machine.IDLieu <> 0 alors\n\t\n\t//Sinon on affiche un cadre rouge autour du lieu où se situe la machine\n\tHLitRecherchePremier(LIEU,IDLieu,machine.IDLieu)\n\tEntoureLieu(lieu.Rectangle)\n\t\nfin\n"
+     }
+    ]
+   },
+   {
+    "name": "IMG_MachineDispo",
+    "type": 8,
+    "parent": null,
+    "x": 2,
+    "y": -83,
+    "w": 16,
+    "h": 16,
+    "events": []
+   },
+   {
+    "name": "IMG_MachineUtilisée",
+    "type": 8,
+    "parent": null,
+    "x": 34,
+    "y": -83,
+    "w": 16,
+    "h": 16,
+    "events": []
+   },
+   {
+    "name": "LIB_Gestion_de_Parc_Informatique",
+    "type": 3,
+    "parent": null,
+    "x": 12,
+    "y": 14,
+    "w": 453,
+    "h": 30,
+    "events": []
+   },
+   {
+    "name": "BTN_Modifier",
+    "type": 4,
+    "parent": null,
+    "x": 646,
+    "y": 17,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "nIDmachine est un entier = TABLE_Machines.COL_IDMachine\n\n//On ouvre la fenêtre de visualisation - modification de la machine sélectionnée dans la table\nbModif est un booleen = ouvre(FEN_Machine, nIDmachine)\n\n//Si on a changé le nom de la machine pendant la modification, on met à jour la table\nsi bModif = vrai alors\n\t\n\t//Met à jour la table au cas où les informations de la machine aient été modifiées \n\t//Si on avait un ID de lieu mémorisé : on affiche les machines de ce lieu sinon on affiche toutes les machines\n\tsi gnIDLieu = 0 ALORS\n\t\tAfficheToutesMachines()\n\tsinon\n\t\tAfficheMachinesLieu(gnIDLieu)\n\tFIN\n\t\n\t//Remet le bandeau de la table sur la machine qui a été visualisée - modifiée\n\tnIndice est un entier = TableCherche(COL_idMachine, nIDmachine)\n\tTableSelectPlus(TABLE_Machines,nIndice)\n\t\n\t//Ré-affichage du plan : si on a modifié le lieu d'une machine ...\n\tAffichePlan(IMG_PlanLocaux)\n\t\n\tHLitRecherchePremier(lieu, IDLieu, machine.IDLieu)\n\tEntoureLieu(LIEU.Rectangle)\n\t\nFIN"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Toutes",
+    "type": 4,
+    "parent": null,
+    "x": 748,
+    "y": 55,
+    "w": 204,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "//Permet de visualiser toutes les machines de tous les lieux\nAfficheToutesMachines()\n\n"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Supprimer",
+    "type": 4,
+    "parent": null,
+    "x": 748,
+    "y": 17,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "si TableSelect(TABLE_Machines) = -1 alors retour\n\n//1 : Et tous ses composants ?\n//2 : Et son UC et mettre les autres composants dans le stock ?\n//3 : Ne rien faire\nSELON Dialogue(<§?183C306901A0BAB1§>, TABLE_Machines.COL_Machine)\n\n\t// Et tous ses composants ?\n\tCAS 1 :\n\t\t\n\t\tPOUR TOUT COMPOSANT AVEC NomMachine = TABLE_Machines.COL_Machine\n\t\t\tHSupprime(COMPOSANT)\n\t\tFIN\n\t\t\n\t\t//On supprime la machine correspondant à la sélection dans la table\n\t\tHLitRecherchepremier(MACHINE,NomMachine,TABLE_Machines.COL_Machine)\n\t\tHSupprime(MACHINE)\n\t\t\n\t\t//Met à jour la table\n\t\t//Si on avait un ID de lieu mémorisé : on affiche les machines de ce lieu sinon on affiche toutes les machines\n\t\tSI gnIDLieu = 0 ALORS\n\t\t\tAfficheToutesMachines()\n\t\tSINON\n\t\t\tAfficheMachinesLieu(gnIDLieu)\n\t\tFIN\n\t\t\n\t// Et son UC et mettre les autres composants dans le stock ?\n\tCAS 2 :\n\t\t\n\t\tPOUR TOUT COMPOSANT AVEC NomMachine = TABLE_Machines.COL_Machine\n\t\t\t\n\t\t\t//On va chercher le type du composant\n\t\t\t//Si c'est l'unité centrale : on supprime\n\t\t\t//sinon on met le composant dans le stock\n\t\t\t\n\t\t\tHLitRecherchepremier(Modele,IDMODELE,COMPOSANT.IDMODELE)\n\t\t\tSI Modele.TypeModele = CST_TypeUC ALORS\n\t\t\t\tHSupprime(COMPOSANT)\n\t\t\tSINON\n\t\t\t\tCOMPOSANT.NomMachine=\"\"\n\t\t\t\tHModifie(COMPOSANT)\t\n\t\t\tFIN\n\t\t\t\n\t\tFIN\n\t\t\n\t\t//On supprime la machine correspondant à la sélection dans la table\n\t\tHLitRecherchePremier(MACHINE,NomMachine,TABLE_Machines.COL_Machine)\n\t\tHSupprime(MACHINE)\n\t\t\n\t\t//Met à jour la table\n\t\t//Si on avait un ID de lieu mémorisé : on affiche les machines de ce lieu sinon on affiche toutes les machines\n\t\tSI gnIDLieu = 0 ALORS\n\t\t\tAfficheToutesMachines()\n\t\tSINON\n\t\t\tAfficheMachinesLieu(gnIDLieu)\n\t\tFIN\t\n\t\t\n\t// Ne rien faire\n\tCAS 3 :\n\t\t\nFIN\n"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Nouveau",
+    "type": 4,
+    "parent": null,
+    "x": 544,
+    "y": 17,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "//Ouverture de la fenêtre de création d'une nouvelle machine\nsNomMachine est une chaine = Ouvre(FEN_Machine)\n\n//Si effectivement on a créé une nouvelle machine, on met à jour la table \nsi sNomMachine <> \"\" alors\n\t\n\t//Met à jour la table avec la nouvelle machine\n\t//Si on avait un ID de lieu mémorisé : on affiche les machines de ce lieu sinon on affiche toutes les machines\n\tSI gnIDLieu = 0 ALORS\n\t\tAfficheToutesMachines()\n\tSINON\n\t\tAfficheMachinesLieu(gnIDLieu)\n\tFIN\n\t\n\t//Remet le bandeau de la table sur la machine qui a été créée et la sélectionne\n\tnIndice est un entier = TableCherche(COL_Machine, sNomMachine)\n\tTableSelectPlus(TABLE_Machines,nIndice)\n\t\nfin"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Imprimer",
+    "type": 4,
+    "parent": null,
+    "x": 850,
+    "y": 17,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "// Aperçu avant impression de la liste des machines\niAperçu(iPage,<§$0002§>,Vrai)\niImprimeEtat(Etat_Machine)"
+     }
+    ]
+   },
+   {
+    "name": "IMG_PlanLocaux",
+    "type": 8,
+    "parent": null,
+    "x": 247,
+    "y": 86,
+    "w": 709,
+    "h": 506,
+    "events": [
+     {
+      "type": 18,
+      "code": "\n\n//On parcourt chaque lieu de la base de données\npour TOUT LIEU \n\t\n\t//Si le point cliqué sur le plan correspond à un lieu donné\n\tsi bInclusDans(lieu.Rectangle, SourisPosX(), SourisPosY()) ALORS\n\t\t\n\t\tgnIDLieu = lieu.IDLieu\n\t\t\n\t\tAffichePlan(IMG_PlanLocaux)\n\t\t\n\t\t//Entoure en rouge sur le plan le lieu sur lequel on a cliqué\n\t\tEntoureLieu(LIEU.Rectangle)\t\t\n\t\t\n\t\t//On affiche dans la table la liste des machines de ce lieu\n\t\tAfficheMachinesLieu(lieu.IDLieu)\n\t\t\n\t\tlib_filtre = ChaîneConstruit(\"Machines dans la salle %1\", lieu.Emplacement)\n\tfin\n\nFIN"
+     }
+    ]
+   },
+   {
+    "name": "LIB_Filtre",
+    "type": 3,
+    "parent": null,
+    "x": 143,
+    "y": 57,
+    "w": 599,
+    "h": 20,
+    "events": []
+   },
+   {
+    "name": "LIB_MachinesAffichées",
+    "type": 3,
+    "parent": null,
+    "x": 16,
+    "y": 57,
+    "w": 121,
+    "h": 20,
+    "events": []
+   }
+  ],
+  "menu": [
+   {
+    "depth": 0,
+    "name": "OPT_Menu",
+    "label": null,
+    "events": []
+   },
+   {
+    "depth": 1,
+    "name": "OPT_Modifier_le_plan_des_locaux",
+    "label": null,
+    "events": [
+     {
+      "type": 32,
+      "code": "\nouvre(FEN_Lieu)\n\n//Rafraîchit l'image du plan des locaux pour prendre en compte les éventuelles modifications\nIMG_PlanLocaux = \"\"\nIMG_PlanLocaux = ComplèteRep(frepexe()) + \"plan_locaux.gif\" \n\n"
+     }
+    ]
+   },
+   {
+    "depth": 1,
+    "name": "OPT_Gérer_les_utilisateurs",
+    "label": null,
+    "events": [
+     {
+      "type": 32,
+      "code": "ouvre(FEN_Utilisateur)\n"
+     }
+    ]
+   },
+   {
+    "depth": 1,
+    "name": "OPT_Gérer_les_fournisseurs",
+    "label": null,
+    "events": [
+     {
+      "type": 32,
+      "code": "Ouvre(FEN_Fournisseur)\n"
+     }
+    ]
+   },
+   {
+    "depth": 1,
+    "name": "OPT_Gérer_les_modèles",
+    "label": null,
+    "events": [
+     {
+      "type": 32,
+      "code": "ouvre(FEN_Modèle)\n"
+     }
+    ]
+   }
+  ],
+  "window_events": [
+   {
+    "type": null,
+    "code": "//Identifiant du lieu sélectionné\ngnIDLieu est un entier\n\nToastAffiche(\"Cliquez dans le plan pour afficher les machines d'une salle donnée.\",toastLong,cvMilieu,chCentre)"
+   },
+   {
+    "type": 34,
+    "code": "\n//Affichage du plan des locaux avec des rectangles\nAffichePlan(IMG_PlanLocaux)\n\n//Par défaut, on affiche toutes les machines de tous les lieux\nAfficheToutesMachines()\n\n//le clic dans le plan sur un lieu donné n'affichera dans la table que les machines de ce lieu\n"
+   }
+  ],
+  "procedures": [
+   {
+    "name": "EntoureLieu",
+    "code": "// Résumé : Entoure d'un cadre rouge sur le plan le lieu correspondant au rectangle \n// Syntaxe :\n//EntoureLieu (<Rectangle>)\n//\n// Paramètres :\n//\tRectangle : coordonnées du lieu\n// Valeur de retour :\n// \tAucune\n\n\nProcédure EntoureLieu(Rectangle)\n\nnLX, nLY, nRX, nRY sont des entiers\nMonImagepourEntourer est une Image\n\ndDébutDessin(MonImagepourEntourer)\nMonImagepourEntourer = IMG_PlanLocaux\n\n// Coin haut gauche du rectangle du lieu\nnLX = ExtraitChaîne(Rectangle,1,\",\") \nnLY = ExtraitChaîne(Rectangle,2,\",\")\n\n// Coin bas droit du rectangle du lieu\nnRX = ExtraitChaîne(Rectangle,3,\",\") \nnRY = ExtraitChaîne(Rectangle,4,\",\")\n\ndStylo(RougeClair, 0, 3)\ndFond(Transparent)\n\n//On dessine le lieu\ndRectangle(nLX-2,nLY-2,nRX+2,nRY+2)\n\ndFusionne(IMG_PlanLocaux, MonImagepourEntourer,50)"
+   },
+   {
+    "name": "AfficheMachinesLieu",
+    "code": "// Résumé : Affiche dans la table toutes les machines d'un lieu donné\n// Syntaxe :\n//AfficheMachinesLieu (<nIDLieu>)\n//\n// Paramètres :\n// \tnIDLieu : Identifiant du lieu pour lequel il faut rechercher les machines\n// Valeur de retour :\n// \tAucune\n//\n\nProcédure AfficheMachinesLieu(nIDLieu)\n\n//On change le contenu de la liste des machines pour y mettre les machines du lieu sur lequel l'utilisateur a cliqué\nTableSupprimeTout(TABLE_Machines)\n\nPOUR TOUTE MACHINE AVEC IDLieu = nIDLieu\n\t\n\t//On affiche l'utilisateur de la machine s'il y en a un, avec un pictogramme \"machine utilisée\"\n\t//sinon on utilise un pictogramme \"machine disponible\"\n\tSI MACHINE.InitialesUtilisateur = \"\" ALORS\n\t\tTableAjouteLigne(TABLE_Machines, IMG_MachineDispo, MACHINE.NomMachine, \"\" ,MACHINE.IDMachine)\n\t\t\tSINON\n\t\tTableAjouteLigne(TABLE_Machines, IMG_MachineUtilisée, MACHINE.NomMachine, MACHINE.InitialesUtilisateur ,MACHINE.IDMachine)\n\tFIN\n\t\nFIN"
+   },
+   {
+    "name": "AfficheToutesMachines",
+    "code": "// Résumé : Affiche toutes les machines de tous les lieux\n// Syntaxe :\n// AfficheToutesMachines ()\n//\n// Paramètres :\n//\tAucun\n// Valeur de retour :\n// \tAucune\n\nProcédure AfficheToutesMachines()\n\n\n//Affiche toutes les machines de tous les lieux\nTableSupprimeTout(TABLE_Machines)\n\nPOUR TOUTE MACHINE\n\t\t\n\t//On affiche l'utilisateur de la machine s'il y en a un, avec un pictogramme \"machine utilisée\"\n\t//sinon on utilise un pictogramme \"machine disponible\"\n\tSI MACHINE.InitialesUtilisateur = \"\" ALORS\n\t\tTableAjouteLigne(TABLE_Machines, IMG_MachineDispo, MACHINE.NomMachine, \"\" , MACHINE.IDMachine)\n\tSINON\n\t\tTableAjouteLigne(TABLE_Machines, IMG_MachineUtilisée, MACHINE.NomMachine, MACHINE.InitialesUtilisateur ,MACHINE.IDMachine)\n\tFIN\n\t\nFIN\n\ngnIDLieu = 0\nExécuteTraitement(TABLE_Machines, trtSélection)\n"
+   }
+  ],
+  "strings": [
+   {
+    "index": 0,
+    "text": {
+     "fr-FR": "Unité Centrale"
+    }
+   },
+   {
+    "index": 1,
+    "text": {
+     "fr-FR": "Aperçu de la liste des utilisateurs"
+    }
+   },
+   {
+    "index": 2,
+    "text": {
+     "fr-FR": "Aperçu de la liste des machines"
+    }
+   }
+  ],
+  "dialogs": [
+   {
+    "label": {
+     "fr-FR": "Voulez-vous supprimer la machine '%1'.."
+    },
+    "buttons": [
+     {
+      "fr-FR": "Et tous ses composants ?"
+     },
+     {
+      "fr-FR": "Et son UC et mettre les autres composants dans le stock ?"
+     },
+     {
+      "fr-FR": "Ne rien faire"
+     }
+    ]
+   }
+  ],
+  "embedded": null,
+  "other_keys": []
+ },
+ "FEN_Utilisateur.wdw": {
+  "name": "FEN_Utilisateur",
+  "properties": {
+   "width": 679,
+   "height": 492,
+   "widthClient": 677,
+   "heightClient": 460,
+   "widthMin": 344,
+   "heightMin": 308
+  },
+  "controls": [
+   {
+    "name": "SAI_Utilisateur",
+    "type": 2,
+    "parent": null,
+    "x": 376,
+    "y": 146,
+    "w": 222,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_Tel",
+    "type": 2,
+    "parent": null,
+    "x": 376,
+    "y": 176,
+    "w": 222,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "SAI_NomComplet",
+    "type": 2,
+    "parent": null,
+    "x": 376,
+    "y": 206,
+    "w": 279,
+    "h": 24,
+    "events": []
+   },
+   {
+    "name": "IMG_Photo",
+    "type": 8,
+    "parent": null,
+    "x": 376,
+    "y": 236,
+    "w": 117,
+    "h": 112,
+    "events": []
+   },
+   {
+    "name": "LIB_Gestion_des_Utilisateurs",
+    "type": 3,
+    "parent": null,
+    "x": 12,
+    "y": 9,
+    "w": 294,
+    "h": 30,
+    "events": []
+   },
+   {
+    "name": "SAI_Photo",
+    "type": 2,
+    "parent": null,
+    "x": 376,
+    "y": 352,
+    "w": 248,
+    "h": 38,
+    "events": []
+   },
+   {
+    "name": "BTN_Parcourir",
+    "type": 4,
+    "parent": null,
+    "x": 630,
+    "y": 367,
+    "w": 25,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "//Choix de la photo\n\nsCheminImage est une chaine \nsCheminImage = fSélecteurImage(ComplèteRep(fRepExe()), \"\", \"Sélectionnez un fichier...\", fFiltreImage())\n\nsi sCheminImage <> \"\" alors \n\tSAI_Photo = sCheminImage\n\timg_photo = sCheminImage\nFIN\n"
+     }
+    ]
+   },
+   {
+    "name": "TABLE_Utilisateurs",
+    "type": 9,
+    "parent": null,
+    "x": 12,
+    "y": 57,
+    "w": 339,
+    "h": 387,
+    "columns": [
+     {
+      "name": "COL_Utilisateur",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAACu17x3/cj5ZbvPUCq9eilN+D2lN2eklTooBS9OGJDM3effCZ49Fw5Z8jfELYXivRwhf97/xtnFYlIM8mTCieWitja/QQKzrIZ1IL1XmiK9B6fFi8gT3vNFHzCffWjFd5tYFh7NgLZYIGkqY4/2JhMcD9O0+XAzD/18KJ3g7BFQUZtrGeOnJfASTplkegFzYWRb+8clgwvm6+nfUvprOi2cWmSKmKZMGzEtEsS7aIRdgISQvZp1qFCnKDqHPdX6v0u286AC9LvFzB+58kjYoICAqkltemO0c9/iP/TVzsa2GAvGmcuEnjINH6XQhOv11IVgK4Up/g5QIVoWAfn+KLxDs8gTmEamUvyuG9oLfU3qZLlTWiZ8nqtV8ZpW1UUs6pL2VeA/xVOy9Cdgn4kzSghSDNq3Mhla2BNN2mKMZ4GI/2CUKMNBuMhWBshjI159ATUnaOpVywg5sACBdB5hNVoLJefkODPNDWTRnbGwhY6ErMMIBbjUNK77rwnZe+UTBAqwe5ppuxxAVA/NyJIdhDkG/AXE6u4P94DvDUBVVGkCna++bAHb+BXthEbeuv/S9425GWmEg7xxDMkof2iYBaMQ7DWq/NbWxDu1jfZUgKZ8l5XYfnW+9Z9hetXEl5loqLSKBbpB8o14T4gdLKXTi1NadeE1vxUtJp2l08QCYvz15G+cPerW7Nq2Q92ty4Y3EQ6mJB3JZne9tnaLrrFF4/Z4OonT+kb8Hc9MpSVJrlRihh2k5d5fG1dC7PzkHuZ4F9QYoxjB9Deq3Avzzl/5psFGF4k9YX04XUwSxJy1AyIwdUEooN1mkLYkheKdOcmqFMn9zaeKLlcwsKiQvhGriNOqqxwrhtSWz+n+PYOqIAjFgrRISgnhHl+P1r5ug2Oe0SnIT+w/X/WGoANVKplCWe3Ia/3cYJp+filKtVGF1XG10wy9ZCUxZnv7ZOWiKu72P4mwm0JuoDEzgN89MrEV",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_Tel",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAACYYW4lr44zL3X5hnRflItviq93xQlyR1SSp00QujKWD5GpK+a2/RKVhol27eWqHfpl0WKxQmNxxsqSPGzK5QGMrqSLk5INzOKJGmtrtnK11ZOnqyZb6Judg9oZPTCdj2GcOH4T7Hxw+JU0vQNaapM+aw1kZ3BhJ6VUxreQ7DlIE9/V/XXHF9TKasuaZm3PzSan1duXTxWKO31RPGLbTpEuNh5SRn4eT9k1MGprWEQJvqyO9TC9qrD/UBCFpVXWryVWyVDwZF2Z8P+fjIyUIGQKfsPlUF9OfwuOWar1LobaUqs0xWWYcLoBa1cmsAep5JME1emLjujItc44Hzm+/EApk26PWiIUPhh6hXSveSneWtVlpjB83IexMdiQLa1A+ph2s4yZcX1WFLf+/aF7wrwMBKjz/FWwJGfBdKAcd6EQkRR+QNkp1qh2HhYFFzLFeRMfJg7PDxIlyNy7Zn6xya4ZrW04giM7cYT973dMySpZgX7zWPeJIZH6Tu5eLgYoWe+XMnEIOFG7z7o6VT3egaqHPwADLc/IrofmNjkcyaLL3q7dR5gwDRjch9uzLahH6O7YiPyfhE1I44BpCK+FVmBlS6T5z+ef0xZQFtdvuXO5TCjLjYSDympAJQLRQpJFxVFpJK3wZxL7nitm1YCk0BSr5JCssl7u5UhgkCGdK+GOdd5TGOHDmU059o6OGpM4ppPV25BQG0RAOcVcP2xGWGvtSZiG1V+FrIIT/u5MV5mnS1g/BD3kgKoVszWtVdNpJOEHog/ACfw1b84Ii+Ymt7a76oQAwDKF2NeZwYmMuLORxgj394i/eZ2TxCN2oFbbZaoUpNpNV0hv/+sp1whA4fhPxndG+Z0PhpRVxsQpFeFiN/OviTSyR4Zi5Yu7jgT78soTkoeOBAqJswaqn2h3Ulq9fqhfS6tnJSwm13Nb40Nbda7fBoPXuMlJtrf0mBzY3SvSRfQ81vv5xhHvZEfj",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     },
+     {
+      "name": "COL_NomComplet",
+      "type": 2,
+      "content": {
+       "internal_properties": "CAAAAAgAAADul3w3vYg5JXuPkOr9OumNuH3ld6fkVXpoRe+O2NAMnSefyV799w4ZMndEbUWiPVzhv95/RpkF4tKMMuRCiaUiNrZ/gUKzrMY14L2XWmK9x2cFC8gTnjNFHzDffejFtxvYFl4NQDbY4KlqY0825pNcz5M0+fBzT/38qF1g7JEQUZvrWaNnpXDSDllkusGzYaQbO0elA8sma2lfkvprOm0c2uRK2GbMG3Ht0sR7qMRdwERQPRr16JAnKDrHvdV6/0u2c2BCNDtFDF/58ogYYIDA6oltemN0M9/iP7TVTkb2mAtG2QvEHjLN32XQxCs11MUg64Wp/k4QIdqWQfn+qHzDs8jTWIamUrxu21pLPY1qJHkTWiZ83utV8ZqW1UWsKhL21SB/BdMyNOcgn0lziggSzBq3shmamJNN2iKM5wHI/+CUaIMBuMiWRghj4x49AfVnKGpVy0h5MACBNJ5hNRqLJeek+HPNjaSRXbFwxc6kTKMo5di01I5bz2n5W0XzpKoQG3qJmzygtK8taHJ95FkmXKWkCs4vV+AP7WA1NEmiPQ9ezCG7mHXNpKb+mt8yly2ZOckk49zRbGmIH0h4ZUOwzFUKnDZ2pBtV7RY0YIact3X4XpWelf/BmjXkd/lIyFRqpRrhUq3YL6h9zIWz6/P6VYGV3/VNBv3Fs2RiwlyVBE88HYo2DLqWY71Nq2YXMS6GxH1pxpedlhbrThElQ5aYmqkzmqYc/a9shUUpjrQCJv1ERX6/O7cijNyEfkbYt3R4Q/hhVNcKvCvT7j9ZBmHmdymdAd3YPSwypLwVYwLQlaHIgP1GsBaEJcK9GamKtGldbQeqDvcQkEhwXnGLaPNKi7wLprQ2r0keHaMKAGjlopRoKinBvr/vdh6O40N+cUkob0zfv5XmgCM1ynmiOQ3oyx08APqeXmmKdZFFlbH1k0x9pGXxpru7JCViai62/8lw2wIu4PHzwB/9cnHV",
+       "type": 2
+      },
+      "w": null,
+      "events": []
+     }
+    ],
+    "events": [
+     {
+      "type": 33,
+      "code": "\n//On affiche les informations sur l'utilisateur sélectionné dans la table\nFichierVersEcran(MaFenêtre, UTILISATEUR)\n"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Nouveau",
+    "type": 4,
+    "parent": null,
+    "x": 258,
+    "y": 12,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "//Ré-initialisation en vue de la création\nhraz(UTILISATEUR)\nraz()\nIMG_Photo = \"\"\n\n\n//On veut ajouter un nouvel utilisateur => les champs de saisie pour l'ajout et la modification de l'utilisateur sont dégrisés\nGR_AjoutModif..Etat = Actif\n"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Modifier",
+    "type": 4,
+    "parent": null,
+    "x": 360,
+    "y": 12,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "//On veut modifier un utilisateur => les champs de saisie pour l'ajout et la modification de l'utilisateur sont grisés\nGR_AjoutModif..etat = actif\n\nSAI_Photo = \"\"\n"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Supprimer",
+    "type": 4,
+    "parent": null,
+    "x": 462,
+    "y": 12,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "//1 : &Supprimer\n//2 : &Ne pas supprimer\nSELON Dialogue(<§?183A7DE101613D07§>, TABLE_Utilisateurs.COL_Utilisateur)\n\t\n\t// &Supprimer\n\tCAS 1 :\t\n\t\t\n\t\t//On vérifie si l'utilisateur possède des machines\n\t\tHLitRecherchePremier(MACHINE, InitialesUtilisateur, TABLE_Utilisateurs.COL_Utilisateur)\n\t\tSI PAS HTrouve(MACHINE) ALORS\n\t\t\t\n\t\t\t//Suppression de l'utilisateur dans la table => aussi dans le fichier\t\n\t\t\tTableSupprime(TABLE_Utilisateurs)\n\t\t\tFichierVersEcran(MaFenêtre, UTILISATEUR)\n\t\t\t\n\t\tSINON\n\t\t\tInfo(\"Des machines sont associées à cet utilisateur. Vous ne pouvez donc pas le supprimer.\")\n\t\tFIN           \n\t\t\n\t// &Ne pas supprimer : on ne fait rien\n\tCAS 2 :\n\t\t\nFIN"
+     }
+    ]
+   },
+   {
+    "name": "LIB_InfosLieu",
+    "type": 3,
+    "parent": null,
+    "x": 365,
+    "y": 57,
+    "w": 299,
+    "h": 387,
+    "events": []
+   },
+   {
+    "name": "COMBO_Civilité",
+    "type": 14,
+    "parent": null,
+    "x": 376,
+    "y": 116,
+    "w": 173,
+    "h": 26,
+    "dropdown": {
+     "internal_properties": "CAAAAAgAAAALlJ1yZtPeE8bPmmAQYsvxdWLn4G8vXbYDGLvU4nYAFTgSUrNk5H/NKboCvrbq+9Y/X4EKIoSPwFU6zATwBIob0zir0m2OHqeCEM8Bbr/4cN1ffz/CIe/W8RpwVs18ZLwKRuHUoIj5MuPuM4oVx89aq2s58/f9VBFV2Btf7t/7jOTFc2+QiP9MI8IM+swC5OOuGdqcC6iPgsKxizqHjm/5M83+0a7O+tcE1qcJ3jp8TDvoTTC3dETuO8UYQIaHRnK5P8OUtlGhpX6urlBeZopE4xVTArEndA/tSnqay9pmG4hSERXvVuvPiU86O0neBCuS+Q1axlet6KWtWJHXrmhrLvBtkY0SLUbYx01LgJwito7xYRHIv1bMhtWr4IjDbKZkPk/YPS8cowrLLzjKHYAXl+GZJQJku0JrKyfCOTJhiOXTj/u8OHxua9WBKGgYQTK4Mx/mO2QvnTdNLJ38sfNyR5jF3xz2X+VE1lVYhsyIM4qUr5JXr7OUjXe8Cd9vEFt/ksdb6qsIO6age8QRxRiV9d83hxQbCEz8Bs0zbl3T0JXXjf9g/HvXhHSgjO18Il6IiDZaGIHCJWpDe14/03Z3ViQBFlKDSvLvpdHfGj5B78TiJzPt3ZI3pcRCMX110DJcNEaiLi1tzN/MQ4kpMd8ARVAPUVNmPUNU9USSIUEw2R25gik9nud7Iz+xUVwMKx498ypw/LdUz0subKbbhwJdTe0kREbWMMPv0RTv40xA/hAo693in0FhsCfeCZfiRhnB+GM5MVpg4WEZkShIPfXYGc7oUpY9sY52zu1nev50",
+     "type": 7
+    },
+    "events": []
+   },
+   {
+    "name": "BTN_Imprimer",
+    "type": 4,
+    "parent": null,
+    "x": 564,
+    "y": 12,
+    "w": 96,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "// Aperçu avant impression pour la liste des utilisateurs\niAperçu(iPage,<§$0003§>,Vrai)\n// Impression de l'état correspondant\niImprimeEtat(Etat_Utilisateur)\n"
+     }
+    ]
+   },
+   {
+    "name": "BTN_Annuler",
+    "type": 4,
+    "parent": null,
+    "x": 534,
+    "y": 412,
+    "w": 38,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "//On remet à jour les champs de saisie avec les valeurs présentes dans le fichier\nfichierversecran(mafenêtre, UTILISATEUR) \n\n//On re-grise les champs de saisie\nGR_AjoutModif..etat = grise\n"
+     }
+    ]
+   },
+   {
+    "name": "BTN_OK",
+    "type": 4,
+    "parent": null,
+    "x": 490,
+    "y": 412,
+    "w": 38,
+    "h": 24,
+    "events": [
+     {
+      "type": 18,
+      "code": "//On vérifie qu'au moins le nom de l'utilisateur a été saisi\nSI SAI_Utilisateur = \"\" ALORS\n\tInfo(\"Veuillez saisir au moins le nom de l'utilisateur.\")\n\tRepriseSaisie(SAI_Utilisateur)\nFIN\n\n//ainsi que toutes les informations saisies\nEcranVersFichier(MaFenêtre, UTILISATEUR)\n\nsCheminPhoto est une chaine\n//On remplit la rubrique photo avec celle spécifiée par l'utilisateur\nSI SAI_Photo <> \"\" ALORS\n\tsCheminPhoto = SAI_Photo\nSINON\t\n\tSELON COMBO_Civilité\n\t\tCAS 1, 2 :\n\t\t\tsCheminPhoto = ComplèteRep(fRepexe()) + \"Images\\visage_femme.gif\"  \t\t\t\n\t\tAUTRE CAS :\n\t\t\tsCheminPhoto = ComplèteRep(fRepExe()) + \"Images\\visage_homme.gif\"  \n\tFIN\nFIN\n\n//On met la photo sélectionnée dans le fichier\nHAttacheMémo(UTILISATEUR,photo,sCheminPhoto)\n\n\n//On ajoute ou modifie l'utilisateur\nsi UTILISATEUR..NouvelEnregistrement = vrai alors\n\t\n\thajoute(UTILISATEUR)\n\t//A la fermeture de la fenêtre, on renvoie l'utilisateur créé\n\tmafenêtre..ValeurRenvoyée = UTILISATEUR.Initiales\n\t\nsinon\n\t\n\tHModifie(UTILISATEUR)\t\t\n\t\nFIN\n\n//On re-grise les champs de saisie\nGR_AjoutModif..Etat = Grisé\n\n//on met à jour la table\nTableAffiche(TABLE_Utilisateurs, taCourantEnreg)\n\n"
+     }
+    ]
+   }
+  ],
+  "menu": [],
+  "window_events": [
+   {
+    "type": null,
+    "code": "procedure FEN_Utilisateur (gnMode est un entier = CST_MODEVISUALISATION)"
+   },
+   {
+    "type": 34,
+    "code": "\nsi gnmode = CST_MODEVISUALISATION alors\n\t//Les champs de saisie pour l'ajout et la modification de l'utilisateur sont grisés\n\tGR_AjoutModif..Etat = Grisé\nsinon\n\tExécuteTraitement(BTN_Nouveau, trtClic)\nfin\n\n//La fenêtre renvoie l'utilisateur créé, le cas échéant\nmafenêtre..ValeurRenvoyée = \"\""
+   }
+  ],
+  "procedures": [],
+  "strings": [
+   {
+    "index": 0,
+    "text": {
+     "fr-FR": "Veuillez d'abord cliquer sur le plan à l'endroit correspondant au bord supérieur gauche du nouveau lieu."
+    }
+   },
+   {
+    "index": 1,
+    "text": {
+     "fr-FR": "Veuillez d'abord cliquer dans le plan sur le lieu à modifier."
+    }
+   },
+   {
+    "index": 2,
+    "text": {
+     "fr-FR": "Aperçu de la liste des fournisseurs"
+    }
+   },
+   {
+    "index": 3,
+    "text": {
+     "fr-FR": "Aperçu de la liste des utilisateurs"
+    }
+   }
+  ],
+  "dialogs": [
+   {
+    "label": {
+     "fr-FR": "Voulez-vous vraiment supprimer l'utilisateur '%1' ?"
+    },
+    "buttons": [
+     {
+      "fr-FR": "&Supprimer"
+     },
+     {
+      "fr-FR": "&Ne pas supprimer"
+     }
+    ]
+   }
+  ],
+  "embedded": null,
+  "other_keys": []
+ }
+}

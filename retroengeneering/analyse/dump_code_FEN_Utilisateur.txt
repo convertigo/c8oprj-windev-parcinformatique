@@ -1,0 +1,142 @@
+
+
+################ CODE FEN_Utilisateur ################
+
+--- WINDOW event type=None ---
+procedure FEN_Utilisateur (gnMode est un entier = CST_MODEVISUALISATION)
+
+--- WINDOW event type=34 ---
+
+si gnmode = CST_MODEVISUALISATION alors
+	//Les champs de saisie pour l'ajout et la modification de l'utilisateur sont grisés
+	GR_AjoutModif..Etat = Grisé
+sinon
+	ExécuteTraitement(BTN_Nouveau, trtClic)
+fin
+
+//La fenêtre renvoie l'utilisateur créé, le cas échéant
+mafenêtre..ValeurRenvoyée = ""
+
+--- BTN_Parcourir (BUTTON) event type=18 ---
+//Choix de la photo
+
+sCheminImage est une chaine 
+sCheminImage = fSélecteurImage(ComplèteRep(fRepExe()), "", "Sélectionnez un fichier...", fFiltreImage())
+
+si sCheminImage <> "" alors 
+	SAI_Photo = sCheminImage
+	img_photo = sCheminImage
+FIN
+
+
+--- TABLE_Utilisateurs (TABLE) event type=33 ---
+
+//On affiche les informations sur l'utilisateur sélectionné dans la table
+FichierVersEcran(MaFenêtre, UTILISATEUR)
+
+
+--- BTN_Nouveau (BUTTON) event type=18 ---
+//Ré-initialisation en vue de la création
+hraz(UTILISATEUR)
+raz()
+IMG_Photo = ""
+
+
+//On veut ajouter un nouvel utilisateur => les champs de saisie pour l'ajout et la modification de l'utilisateur sont dégrisés
+GR_AjoutModif..Etat = Actif
+
+
+--- BTN_Modifier (BUTTON) event type=18 ---
+//On veut modifier un utilisateur => les champs de saisie pour l'ajout et la modification de l'utilisateur sont grisés
+GR_AjoutModif..etat = actif
+
+SAI_Photo = ""
+
+
+--- BTN_Supprimer (BUTTON) event type=18 ---
+//1 : &Supprimer
+//2 : &Ne pas supprimer
+SELON Dialogue(<§?183A7DE101613D07§>, TABLE_Utilisateurs.COL_Utilisateur)
+	
+	// &Supprimer
+	CAS 1 :	
+		
+		//On vérifie si l'utilisateur possède des machines
+		HLitRecherchePremier(MACHINE, InitialesUtilisateur, TABLE_Utilisateurs.COL_Utilisateur)
+		SI PAS HTrouve(MACHINE) ALORS
+			
+			//Suppression de l'utilisateur dans la table => aussi dans le fichier	
+			TableSupprime(TABLE_Utilisateurs)
+			FichierVersEcran(MaFenêtre, UTILISATEUR)
+			
+		SINON
+			Info("Des machines sont associées à cet utilisateur. Vous ne pouvez donc pas le supprimer.")
+		FIN           
+		
+	// &Ne pas supprimer : on ne fait rien
+	CAS 2 :
+		
+FIN
+
+--- BTN_Imprimer (BUTTON) event type=18 ---
+// Aperçu avant impression pour la liste des utilisateurs
+iAperçu(iPage,<§$0003§>,Vrai)
+// Impression de l'état correspondant
+iImprimeEtat(Etat_Utilisateur)
+
+
+--- BTN_Annuler (BUTTON) event type=18 ---
+//On remet à jour les champs de saisie avec les valeurs présentes dans le fichier
+fichierversecran(mafenêtre, UTILISATEUR) 
+
+//On re-grise les champs de saisie
+GR_AjoutModif..etat = grise
+
+
+--- BTN_OK (BUTTON) event type=18 ---
+//On vérifie qu'au moins le nom de l'utilisateur a été saisi
+SI SAI_Utilisateur = "" ALORS
+	Info("Veuillez saisir au moins le nom de l'utilisateur.")
+	RepriseSaisie(SAI_Utilisateur)
+FIN
+
+//ainsi que toutes les informations saisies
+EcranVersFichier(MaFenêtre, UTILISATEUR)
+
+sCheminPhoto est une chaine
+//On remplit la rubrique photo avec celle spécifiée par l'utilisateur
+SI SAI_Photo <> "" ALORS
+	sCheminPhoto = SAI_Photo
+SINON	
+	SELON COMBO_Civilité
+		CAS 1, 2 :
+			sCheminPhoto = ComplèteRep(fRepexe()) + "Images\visage_femme.gif"  			
+		AUTRE CAS :
+			sCheminPhoto = ComplèteRep(fRepExe()) + "Images\visage_homme.gif"  
+	FIN
+FIN
+
+//On met la photo sélectionnée dans le fichier
+HAttacheMémo(UTILISATEUR,photo,sCheminPhoto)
+
+
+//On ajoute ou modifie l'utilisateur
+si UTILISATEUR..NouvelEnregistrement = vrai alors
+	
+	hajoute(UTILISATEUR)
+	//A la fermeture de la fenêtre, on renvoie l'utilisateur créé
+	mafenêtre..ValeurRenvoyée = UTILISATEUR.Initiales
+	
+sinon
+	
+	HModifie(UTILISATEUR)		
+	
+FIN
+
+//On re-grise les champs de saisie
+GR_AjoutModif..Etat = Grisé
+
+//on met à jour la table
+TableAffiche(TABLE_Utilisateurs, taCourantEnreg)
+
+

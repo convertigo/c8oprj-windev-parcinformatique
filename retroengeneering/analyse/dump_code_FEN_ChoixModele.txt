@@ -1,0 +1,60 @@
+
+
+################ CODE FEN_ChoixModèle ################
+
+--- WINDOW event type=34 ---
+//A la fermeture de la fenêtre, on renvoie l'identifiant du modèle sélectionné
+MaFenêtre..ValeurRenvoyée = 0
+
+
+--- TABLE_Modèles (TABLE) event type=33 ---
+FichierVersEcran(mafenêtre, modele)
+
+//Selon les caractéristiques disponibles pour le composant, on affiche ou pas les champs de saisie qui correspondent 
+//On adapte le libellé du champ de saisie à la caractéristique en cours
+SI SAI_Caractéristique1 <> "" ALORS
+	SAI_Caractéristique1..Visible = Vrai
+	SAI_Caractéristique1..Libellé = MODELE.Caractéristique1 + " : "
+SINON
+	SAI_Caractéristique1..Visible = Faux
+FIN
+
+SI SAI_Caractéristique2 <> "" ALORS
+	SAI_Caractéristique2..Visible = Vrai
+	SAI_Caractéristique2..Libellé = MODELE.Caractéristique2 + " : "
+SINON
+	SAI_Caractéristique2..Visible = Faux
+FIN
+
+SI SAI_Caractéristique3 <> "" ALORS
+	SAI_Caractéristique3..Visible = Vrai
+	SAI_Caractéristique3..Libellé = MODELE.Caractéristique3 + " : "
+SINON
+	SAI_Caractéristique3..Visible = Faux
+FIN
+
+SI SAI_Caractéristique4 <> "" ALORS
+	SAI_Caractéristique4..Visible = Vrai
+	SAI_Caractéristique4..Libellé = MODELE.Caractéristique4 + " : "
+SINON
+	SAI_Caractéristique4..Visible = Faux
+FIN
+
+
+
+--- BTN_Annuler (BUTTON) event type=18 ---
+Ferme(MaFenêtre, 0)
+
+
+--- BTN_Valider (BUTTON) event type=18 ---
+//On renvoie l'identifiant du modèle sélectionné
+ferme(mafenêtre, TABLE_Modèles.COL_IDMODELE)
+
+
+--- BTN_Nouveau (BUTTON) event type=18 ---
+nIDModèle est une chaine = ouvre(FEN_modele, CST_MODECREATION)
+
+//Permet d'afficher dans la table le nouveau modèle et de le sélectionner
+TableAffiche(TABLE_Modèles, taDébut)
+nIndice est un entier = TableCherche(COL_IDMODELE, nIDModèle)
+TableSelectPlus(TABLE_Modèles, nIndice)

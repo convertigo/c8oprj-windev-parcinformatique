@@ -1,0 +1,447 @@
+
+
+################ CODE FEN_Machine ################
+
+--- WINDOW event type=None ---
+procedure FEN_Machine(gnIDMachine=0)
+
+//Si aucun nom de machine n'a été passé en paramètre
+//On est en mode visualisation - modification éventuelle
+si gnIDMachine <> 0 alors
+	
+	//On affiche les informations de la machine dont le nom a été passé en paramètre à la fenêtre
+	HLitRecherchepremier(MACHINE,IDMachine,gnIDMachine)
+	FichierVersEcran(mafenêtre, MACHINE)
+	
+	//Pas besoin d'afficher l'aide à la création de machine puisqu'on n'est pas en création
+	LIB_Note..Visible = faux
+	
+sinon
+	
+	//Ré-initialisation en vue de création
+	hraz(machine)
+	
+	//On affiche l'aide à la création de machine
+	lib_note..Visible = vrai
+	
+	//On rend inactif l'onglet "Composant".. il faut d'abord avoir créé la machine
+	ONG_Onglet[2]..Etat = Grisé
+	
+fin
+
+
+//Par défaut, la fenêtre renvoie faux : pas de modification
+MaFenêtre..ValeurRenvoyée = ""
+
+
+--- BTN_Annuler (BUTTON) event type=18 ---
+
+//On ré-affiche les informations connues dans le fichier
+FichierVersEcran(mafenêtre, MACHINE)
+
+
+--- BTN_Appliquer (BUTTON) event type=18 ---
+
+//Dans le cas de la création
+SI machine..NouvelEnregistrement ALORS
+	
+	//On ajoute la machine dans le fichier
+	EcranVersFichier(MaFenêtre, MACHINE)
+	HAjoute(MACHINE) 
+	
+	gnIDMachine = machine.IDMachine
+	
+	//On peut rendre l'onglet des composants "actif"
+	ONG_Onglet[2]..Etat = Actif
+	
+SINON
+	
+	si SAI_NomMachine..Modifié = vrai alors
+		
+		pour TOUT COMPOSANT AVEC NomMachine = machine.NomMachine
+			COMPOSANT.NomMachine = SAI_NomMachine
+			HModifie(COMPOSANT)
+		FIN
+		
+	FIN
+	
+	//On se repositionne sur la machine à modifier
+	HLitRecherchePremier(MACHINE,IDMachine,gnIDMachine)
+	//Et on modifie
+	EcranVersFichier(MaFenêtre, MACHINE)
+	HModifie(MACHINE)
+	
+FIN
+
+//A la fermeture de la fenêtre, on renvoie le nom de la machine créée 
+MaFenêtre..ValeurRenvoyée = Vrai
+
+--- LISTE_Composants (LIST) event type=14 ---
+
+//Si on est en mode visualisation-modification d'une machine, on affiche la liste de ses composants...
+//On initialise les paramètres de la requête intégrée à la liste des composants
+si gnidmachine <> 0 alors
+	HLitRecherchePremier(machine, IDMachine, gnidmachine)
+	MaSource.pNomMachine = MACHINE.NomMachine
+fin
+
+
+--- LISTE_Composants (LIST) event type=33 ---
+//A chaque sélection d'un composant dans la liste, on affiche toutes ses caractéristiques 
+
+//Caractéristiques du composant lui-même
+HLitRecherchePremier(COMPOSANT,IDCOMPOSANT,LISTE_Composants)
+FichierVersEcran(mafenêtre, COMPOSANT)
+
+//Caractéristiques du type de composant (modèle)
+hLitRecherchePremier(modele,IDMODELE,composant.IDMODELE)
+FichierVersEcran(MaFenêtre, modèle)
+AfficherLibelléCaractéristiques()
+
+
+--- BTN_Nouveau (BUTTON) event type=18 ---
+
+//Ré-initialisation en vue de création
+HRAZ(composant)
+raz(GR_Composant)
+
+EtatChamps_CréaModifComposant()
+
+
+--- BTN_Type (BUTTON) event type=18 ---
+//Choix d'un modèle pour le nouveau composant
+nIDModèle est un entier = ouvre(FEN_ChoixModèle)
+
+//On associe le modèle au composant en cours de création
+AssocierModèle(nIDModèle)
+
+//On affiche les caractéristiques du modèle choisi
+AfficherLibelléCaractéristiques()
+
+--- BTN_ValiderComposant (BUTTON) event type=18 ---
+//On vérifie qu'au moins le nom du composant et son type ont été saisis
+SI SAI_NSerieComp= "" ALORS
+	Info(<§$0003§>)
+	RepriseSaisie(SAI_NSerieComp)
+FIN
+
+SI SAI_NomModeleComp= "" ALORS
+	Info(<§$0002§>)
+	RepriseSaisie(BTN_Type)
+FIN
+
+EcranVersFichier(mafenêtre, COMPOSANT)
+
+//On ajoute ou modifie le composant
+si composant..NouvelEnregistrement = vrai alors 
+
+	HAjoute(COMPOSANT)
+	//On associe le nouveau composant à la machine en cours
+	AssocierComposant(COMPOSANT.IDCOMPOSANT)
+
+sinon
+
+	HModifie(COMPOSANT)
+	
+fin
+
+EtatChamps_HorsCréaModifComp()
+
+
+--- BTN_AnnulerComposant (BUTTON) event type=18 ---
+
+EtatChamps_HorsCréaModifComp()
+
+//Si la liste est vide, on efface juste tout ce qui a été saisi
+SI LISTE_Composants..Occurrence = 0 ALORS
+	RAZ(GR_Composant)
+sinon
+	//sinon on veut que les informations affichées dans la fenêtre correspondent au composant sélectionné dans la liste
+	ExécuteTraitement(LISTE_Composants, trtSélection)
+FIN
+
+--- BTN_Modifier (BUTTON) event type=18 ---
+EtatChamps_CréaModifComposant()
+
+
+--- BTN_Dissocier (BUTTON) event type=18 ---
+
+//Vérification qu'il y ait bien un composant à dissocier
+si LISTE_Composants..occurrence <> 0 alors
+	
+	//1 : &Dissocier
+	//2 : &Ne pas dissocier
+	SELON Dialogue(<§?183AAFCF050A4B0F§>, LISTE_Composants..ValeurAffichée,SAI_NomMachine)	
+	
+		// &Dissocier
+		CAS 1 : 
+			//La dissociation signifie que le composant n'est plus relié à aucune machine
+			composant.NomMachine = ""
+			HModifie(COMPOSANT)
+			
+			//On réactualise la liste des composants pour la machine en cours => sans le composant dissocié
+			ListeAffiche(LISTE_Composants, taInit)
+			SI LISTE_Composants..Occurrence = 0 ALORS
+				RAZ(GR_Composant)
+			FIN
+			
+		// &Ne pas dissocier : on ne fait rien
+		CAS 2 : 
+			
+	FIN
+	
+sinon
+	
+	info(<§$0000§>)
+	
+fin
+
+
+
+--- BTN_Ajouter (BUTTON) event type=18 ---
+
+//Choix du composant à ajouter
+nIDComposant est un entier = ouvre(FEN_Composants)
+
+//Association de ce composant à la machine en cours
+AssocierComposant(nIDComposant)
+
+
+--- BTN_Supprimer (BUTTON) event type=18 ---
+
+//Vérification qu'il y ait bien un composant à supprimer
+SI LISTE_Composants..Occurrence <> 0 ALORS
+	
+	//1 : &Supprimer
+	//2 : &Ne pas supprimer
+	SELON Dialogue(<§?183AAF7703FAF2C2§>, LISTE_Composants..ValeurAffichée)
+	
+		// &Supprimer
+		CAS 1 : 
+			
+			//On se positionne sur le composant à supprimer
+			HLitRecherchePremier(COMPOSANT,IDCOMPOSANT,LISTE_Composants)
+			HSupprime(COMPOSANT)
+			
+			//On réactualise la liste des composants pour la machine en cours => sans le composant supprimé
+			ListeAffiche(LISTE_Composants, taInit)
+			si LISTE_Composants..Occurrence = 0 alors
+				raz(GR_Composant)
+			FIN
+			
+		// &Ne pas supprimer : on ne fait rien
+		CAS 2 : 
+			
+	FIN
+	
+sinon
+	Info(<§$0001§>)	
+FIN
+
+--- BTN_Imprimer (BUTTON) event type=18 ---
+//On ouvre la boîte de dialogue 
+
+//1 : pour la machine seulement ?
+//2 : pour toutes les machines ?
+//3 : Ne rien faire
+SELON Dialogue(<§?187C808E01108B8F§>)
+	
+	// pour la machine seulement ?
+	CAS 1
+		iInitRequêteEtat(Etat_Composant_Machine,machine.NomMachine)
+		// On affiche l'aperçu à l'écran avant d'imprimer
+		iAperçu(iPage,<§$0004§>,Vrai)
+		iImprimeEtat(Etat_Composant_Machine)
+		
+	// pour toutes les machines ?
+	CAS 2
+		// on va imprimer le détail des composants de toutes les machines
+		iInitRequêteEtat(Etat_Composant_Machine,*)
+		// On affiche l'aperçu à l'écran avant d'imprimer
+		iAperçu(iPage,<§$0004§>,Vrai)
+		iImprimeEtat(Etat_Composant_Machine)
+		
+	// Ne rien faire
+	CAS 3
+		
+FIN
+
+
+--- PROCEDURE AssocierComposant ---
+// Résumé : Permet d'associer un nouveau composant à la machine en cours
+// Syntaxe :
+// AssocierComposant (<nIDComposant>)
+//
+// Paramètres :
+// 	nIDComposant : Identifiant du composant à associer à la machine en cours
+// Valeur de retour :
+// 	Aucune
+//
+
+Procédure AssocierComposant(nIDComposant)
+
+nIDComposantAjouté est un entier sur 8 octets
+
+//Vérification : dispose-t-on bien d'un composant à associer ?
+SI nIDComposant <> 0 ALORS
+	
+	//Recherche des informations sur le composant pour demander confirmation à l'utilisateur
+	HLitRecherchePremier(COMPOSANT,IDCOMPOSANT,nIDComposant)	
+	
+	//1 : &Ajouter
+	//2 : &Ne pas ajouter
+	SELON Dialogue(<§?183AD4C50760AD3D§>, composant.NSerie, sai_NomMachine)
+	
+		// &Ajouter
+		CAS 1 :
+			//Association du composant à la machine en cours
+			COMPOSANT.NomMachine = SAI_NomMachine
+			HModifie(COMPOSANT)
+			
+			//Récupération de l'identifiant du composant ajouté pour ré-affichage de la liste des composants
+			//pour prendre en compte ce nouveau composant pour la machine et le sélectionner
+			nIDComposantAjouté = composant.IDCOMPOSANT			
+			ListeAffiche(LISTE_Composants, tainit)	
+			LISTE_Composants = nIDComposantAjouté
+			ExécuteTraitement(LISTE_Composants, trtSélection)
+						
+		// &Ne pas ajouter : on ne fait rien
+		CAS 2 :
+			
+	FIN
+	
+FIN
+
+--- PROCEDURE AssocierModèle ---
+// Résumé : Permet d'associer un modèle (un type de composant) à un composant
+// Syntaxe :
+//AssocierModèle (<nIDModèle>)
+//
+// Paramètres :
+//	nIDModèle : Identifiant du modèle à associer
+// Valeur de retour :
+// 	Aucune
+
+PROCEDURE AssocierModèle(nIDModèle)
+
+//Vérification : a-t-on bien un modèle à associer ?
+SI nIDModèle <> 0 ALORS
+	
+	//Recherche des informations sur le modèle
+	HLitRecherchePremier(modèle,IDMODELE,nIDModèle)	
+
+	//1 : &Associer
+	//2 : &Ne pas associer
+	SELON Dialogue(<§?183BE017022CF53A§>, modele.TypeModele + " " + MODELE.NomModele + " "+ modele.MarqueModele)
+		
+		// &Associer
+		CAS 1 :
+			composant.IDMODELE = nIDModèle
+			//Affiche les informations concernant le type de composant
+			FichierVersEcran(mafenêtre, MODELE)
+			
+		// &Ne pas associer : on ne fait rien
+		CAS 2 :
+			
+	FIN
+		
+FIN
+
+--- PROCEDURE AfficherLibelléCaractéristiques ---
+// Résumé : Permet d'afficher le libellé des caractéristiques pour le modèle du composant 
+// Syntaxe :
+// AfficherLibelléCaractéristiques ()
+//
+// Paramètres :
+//	Aucun
+// Valeur de retour :
+// 	Aucune
+//
+
+Procédure AfficherLibelléCaractéristiques()
+
+//Selon les caractéristiques disponibles pour le composant, on affiche ou pas les champs de saisie qui correspondent 
+//On adapte le libellé du champ de saisie à la caractéristique en cours
+SI SAI_Caractéristique1Comp <> "" ALORS
+	SAI_Caractéristique1Comp..Visible = Vrai
+	SAI_Caractéristique1Comp..Libellé = MODELE.Caractéristique1 + " : "
+SINON
+	SAI_Caractéristique1Comp..Visible = Faux
+FIN
+
+SI SAI_Caractéristique2Comp <> "" ALORS
+	SAI_Caractéristique2Comp..Visible = Vrai
+	SAI_Caractéristique2Comp..Libellé = MODELE.Caractéristique2 + " : "
+SINON
+	SAI_Caractéristique2Comp..Visible = Faux
+FIN
+
+SI SAI_Caractéristique3Comp <> "" ALORS
+	SAI_Caractéristique3Comp..Visible = Vrai
+	SAI_Caractéristique3Comp..Libellé = MODELE.Caractéristique3 + " : "
+SINON
+	SAI_Caractéristique3Comp..Visible = Faux
+FIN
+
+SI SAI_Caractéristique4Comp <> "" ALORS
+	SAI_Caractéristique4Comp..Visible = Vrai
+	SAI_Caractéristique4Comp..Libellé = MODELE.Caractéristique4 + " : "
+SINON
+	SAI_Caractéristique4Comp..Visible = Faux
+FIN
+
+--- PROCEDURE EtatChamps_CréaModifComposant ---
+// Résumé : Procédure qui modifie l'état des champs et des boutons de la fenêtre en vue de la modification ou de la création de composant
+// Syntaxe :
+//EtatChamps_CréaModifComposant ()
+//
+// Paramètres :
+//	Aucun
+// Valeur de retour :
+// 	Aucune
+
+Procédure EtatChamps_CréaModifComposant()
+
+//On est en création d'un composant => on n'affiche plus les boutons "ajouter", "dissocier", "supprimer"...
+GR_BtnNouveauComposant..Visible = Vrai
+
+//Par contre, on met les boutons "valider" et "annuler" à la place
+GR_BtnGestionComposants..Visible = Faux
+
+//Les champs sont dégrisés pour permettre la saisie des informations du composant
+GR_NouveauComposant..Etat = Actif
+
+//On permet de choisir le type du composant (le modèle)
+BTN_Type..Visible = Vrai
+
+//La liste des composants ne doit plus être active
+LISTE_Composants..Etat = grisé
+
+
+--- PROCEDURE EtatChamps_HorsCréaModifComp ---
+// Résumé : Procédure qui modifie l'état des champs et des boutons de la fenêtre quand on est ni en modification ni en création de composant
+// Syntaxe :
+// EtatChamps_HorsCréaModifComp ()
+//
+// Paramètres :
+//	Aucun
+// Valeur de retour :
+// 	Aucune
+//
+
+Procédure EtatChamps_HorsCréaModifComp()
+
+//On n'a plus besoin des boutons "valider" et "annuler" pour le composant
+GR_BtnNouveauComposant..Visible = Faux
+
+//On a à nouveau besoin des boutons "ajouter", "modifier", "dissocier", "supprimer"...
+GR_BtnGestionComposants..Visible = Vrai
+
+//On re-grise les champs d'informations du composant
+GR_NouveauComposant..Etat = Grisé
+
+//Le bouton pour le choix du type de composant n'est plus utile
+BTN_Type..Visible = Faux
+
+//On rend de nouveau active la liste avec tous les composants de la machine
+LISTE_Composants..Etat = Actif

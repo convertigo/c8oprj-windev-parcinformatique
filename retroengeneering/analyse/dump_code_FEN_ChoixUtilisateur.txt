@@ -1,0 +1,35 @@
+
+
+################ CODE FEN_ChoixUtilisateur ################
+
+--- WINDOW event type=None ---
+//--- Fenêtre Popup ---
+// Pour accéder au champ ou à la combo popup qui a ouvert cette fenêtre
+// vous pouvez utiliser : MonChampPopup
+ 
+
+
+--- WINDOW event type=34 ---
+//A l'ouverture de la fenêtre popup, l'élément sélectionné dans la liste image correspond
+//à ce qui est sélectionné dans la combo qui l'a ouverte
+ LSI_Utilisateur = MonChampPopup
+
+--- BTN_Valider (BUTTON) event type=18 ---
+// Renvoie l'élément sélectionné dan la liste image
+// et l'affecte dans la combo qui a ouvert la popup
+MonChampPopup = LSI_Utilisateur
+Ferme()
+
+
+//Ce traitement s'exécute également lors du double clic dans la liste image
+
+--- BTN_Annuler (BUTTON) event type=18 ---
+Ferme()
+
+
+--- BTN_Nouveau (BUTTON) event type=18 ---
+sUtilisateur est une chaine = ouvre(FEN_Utilisateur, CST_MODECREATION)
+
+//Permet d'afficher dans la liste le nouvel utilisateur et de le sélectionner
+ListeAffiche(LSI_Utilisateur, taDébut)
+LSI_Utilisateur = sUtilisateur

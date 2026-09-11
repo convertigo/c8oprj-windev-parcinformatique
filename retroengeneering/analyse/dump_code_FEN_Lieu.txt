@@ -1,0 +1,326 @@
+
+
+################ CODE FEN_Lieu ################
+
+--- WINDOW event type=None ---
+procedure FEN_Lieu(gnMode est un entier = CST_MODEVISUALISATION)
+
+gnX1, gnY1, gnX2, gnY2 sont des entiers // Coordonnées du lieu en cours de création 
+
+--- WINDOW event type=34 ---
+
+//Affichage du plan des locaux avec des rectangles
+AffichePlan(IMG_PlanLocaux)
+
+si gnMode = CST_MODEVISUALISATION alors
+	
+	//Les champs de saisie pour l'ajout et la modification d'un lieu sont grisés
+	GR_AjoutModif..Etat = Grisé
+	
+sinon
+	
+	ExécuteTraitement(BTN_Nouveau, trtClic)
+	
+fin
+
+//La fenêtre renvoie l'identifiant du lieu créé, le cas échéant
+mafenêtrE..ValeurRenvoyée = 0
+
+
+--- IMG_PlanLocaux (IMAGE) event type=18 ---
+selon gnMode 
+
+	//On est en phase de création d'un nouveau lieu	 => on est en train de dessiner le nouveau lieu dans le plan
+	cas CST_MODECREATION :
+		CréationLieu()
+		
+	//Dès qu'on sélectionne un lieu sur le plan, on affiche les informations de ce lieu	
+	cas CST_MODEVISUALISATION :
+		
+		//On récupère les informations du lieu en cours
+		Lieu_SelonCoordonnées(SourisPosX(), SourisPosY())
+		
+		//On affiche à l'écran les informations sur le lieu
+		FichierVersEcran(mafenêtre, lieu)
+		
+FIN
+
+
+--- BTN_Nouveau (BUTTON) event type=18 ---
+gnmode = CST_MODECREATION
+
+//Remise à zéro des coordonnées du lieu
+gnX1 = -1
+gny1 = -1
+gnx2 = -1
+gny2 = -1
+
+//Ré-initialisation 
+hraz(lieu)
+raz()
+IMG_Picto = ""
+
+//On rend disponible les champs de saisie des informations sur le lieu
+GR_AjoutModif..Etat = Actif
+
+ToastAffiche(<§$0000§>,toastCourt,cvMilieu,chCentre)
+
+
+--- BTN_Supprimer (BUTTON) event type=18 ---
+//Pour supprimer un lieu, il faut l'avoir sélectionné au préalable sur le plan
+
+SI SAI_Emplacement <> "" ALORS
+	SuppressionLieu()
+SINON
+	ToastAffiche(<§$000c§>,toastCourt,cvMilieu,chCentre)
+FIN
+
+--- BTN_Modifier (BUTTON) event type=18 ---
+
+
+//Pour modifier un lieu, il faut l'avoir sélectionné au préalable sur le plan
+
+si SAI_Emplacement <> "" alors
+	GR_AjoutModif..etat = actif
+sinon
+	ToastAffiche(<§$000b§>, toastCourt, cvMilieu, chCentre)
+fin
+
+--- BTN_OK (BUTTON) event type=18 ---
+//On vérifie qu'au moins le nom du lieu a été saisi
+si SAI_Emplacement = "" alors
+	info("Veuillez saisir au moins le nom du lieu.")
+	RepriseSaisie(SAI_Emplacement)
+FIN
+
+//On met le pictogramme dans le fichier LIEU
+HAttacheMémo(LIEU,Picto,SAI_Picto,hMémoBin)
+//ainsi que toutes les autres informations sur le lieu
+EcranVersFichier(MaFenêtre, LIEU)
+
+//On ajoute ou modifie le lieu
+si lieu..NouvelEnregistrement = vrai alors
+
+	//En cas d'ajout, on vérifie que les coordonnées du lieu ont été indiquées
+	SI gnX1 = -1 ALORS
+		ToastAffiche("Veuillez représenter l'emplacement du lieu sur le plan.", toastCourt, cvMilieu, chCentre)
+		RETOUR
+	FIN
+	
+	hajoute(lieu)
+	//A la fermeture de la fenêtre, on renvoie l'identifiant du lieu créé
+	mafenêtrE..ValeurRenvoyée = lieu.IDLieu
+	
+	//On repasse en mode visualisation
+	Reinit()
+	
+sinon
+	
+	HModifie(LIEU)		
+
+FIN
+
+//On met à jour le plan
+AffichePlan(IMG_PlanLocaux)
+
+//On re-grise les champs d'ajout et de modification de lieu
+GR_AjoutModif..Etat = Grisé
+
+gnMode = CST_MODEVISUALISATION
+
+--- BTN_Annuler (BUTTON) event type=18 ---
+
+//On re-grise les champs d'ajout et de modification de lieu
+GR_AjoutModif..etat = grise
+
+//On ré-affiche le plan tel qu'il était sans le lieu en cours de création..si on était en création
+AffichePlan(IMG_PlanLocaux)
+
+//Si on était en création de lieu, on ré-initialise tout
+si LIEU..NouvelEnregistrement = Vrai ALORS
+	raz()
+	Reinit()
+fin
+
+gnMode = CST_MODEVISUALISATION
+
+--- BTN_Parcourir (BUTTON) event type=18 ---
+
+//Choix du pictogramme pour représenter le lieu
+sCheminImage est une chaine 
+sCheminImage = fSélecteurImage(ComplèteRep(fRepExe()), "", "Sélectionnez un fichier...", fFiltreImage())
+
+si sCheminImage <> "" alors 
+	SAI_Picto = sCheminImage
+	IMG_Picto = sCheminImage
+FIN
+
+
+--- BTN_Imprimer (BUTTON) event type=18 ---
+//Orientation de type paysage pour l'imprimante
+iParamètre("ORIENTATION = PAYSAGE")
+
+//Aperçu de l'impression à l'écran avant l'impression
+iAperçu(iPage,<§$000e§>,Vrai)
+
+//On imprime l'image qui correspond au dernier plan des locaux affichés
+//cette image sera centrée et étirée dans la feuille de manière à occuper le plus grand espace
+iImprimeImage("plan_locaux.gif",0,0,iLargeurPage(),ihauteurpage(),iAffichageHomoCentré)
+
+iFinImprime()
+
+--- PROCEDURE CréationLieu ---
+// Résumé : Création d'un nouveau lieu
+// Syntaxe :
+//CréationLieu ()
+//
+// Paramètres :
+//	Aucun
+// Valeur de retour :
+// 	Aucune
+//
+
+Procédure CréationLieu()
+
+SI gnx1 = -1 ALORS
+	
+	//On met à jour le coin haut à gauche du lieu concerné
+	gnx1 = SourisPosX()
+	gny1 = SourisPosY()
+	ToastAffiche(<§$0001§>)
+	
+SINON
+	
+	si gnX2 = -1 alors
+		
+		//On met à jour le coin bas à droite du lieu concerné
+		gnx2 = SourisPosX()
+		gny2 = SourisPosY()	
+		
+		SI bSuperposéAvecAutreLieu() ALORS
+			
+			//Deux lieux se superposent
+			Info(<§$0002§>)
+			ExécuteTraitement(BTN_Nouveau, trtclic)
+			
+		sinon
+			
+			//On dessine le bureau
+			dRectangle(gnX1,gnY1,gnX2,gnY2,Transparent,RougeFoncé)
+			
+			//1 : Il convient
+			//2 : Il ne convient pas
+			SELON Dialogue(<§?183694D20182A3D4§>)
+			
+				// Il est correct.
+				CAS 1 :
+					
+					//On met à jour la valeur de la rubrique contenant les coordonnées
+					LIEU.Rectangle = NumériqueVersChaîne(gnX1)+","+NumériqueVersChaîne(gnY1)+","+NumériqueVersChaîne(gnX2)+","+NumériqueVersChaîne(gnY2)
+					toastaffiche(<§$000d§>, toastCourt, cvMilieu,chCentre)
+							
+					
+				// Il est incorrect.
+				CAS 2 :
+					AffichePlan(IMG_PlanLocaux)
+					ExécuteTraitement(BTN_Nouveau, trtClic)
+					
+			FIN	
+			
+		FIN	
+		
+	fin
+FIN
+
+--- PROCEDURE bSuperposéAvecAutreLieu ---
+// Résumé : Vérifie si le lieu en cours de création se superpose avec un autre existant
+// Syntaxe :
+//[ <Résultat> = ] bSuperposéAvecAutreLieu ()
+//
+// Paramètres :
+//	Aucun
+// Valeur de retour :
+// 	booléen : Vrai si le lieu se superpose avec un autre
+//
+
+Procédure bSuperposéAvecAutreLieu()
+
+nX1, nY1, nX2, nY2 sont des entiers
+
+//On parcourt chaque lieu pour vérifier que le lieu en cours de création ne se superpose pas avec un existant
+POUR TOUT LIEU 
+	
+	nX1 = ExtraitChaîne(LIEU.Rectangle,1,",")
+	nY1 = ExtraitChaîne(LIEU.Rectangle,2,",")
+	nX2 = ExtraitChaîne(LIEU.Rectangle,3,",")
+	nY2 = ExtraitChaîne(LIEU.Rectangle,4,",")
+	
+	SI pas ((gnx1 < nX1 ET gnx2 < nX1) OU (gnx1 > nX2 ET gnx2 > nX2) OU (gny1 < nY1 ET gny2 < nY1) OU (gny1 > nY2 ET gny2 > nY2)) ALORS
+		
+		RENVOYER vrai	
+		
+	FIN	
+	
+FIN
+
+RENVOYER faux
+
+--- PROCEDURE SuppressionLieu ---
+// Résumé : Supprime le lieu en cours, celui sur lequel on a cliqué dans le plan
+// Syntaxe :
+//SuppressionLieu ()
+//
+// Paramètres :
+//	Aucun
+// Valeur de retour :
+// 	Aucune
+//
+
+Procédure SuppressionLieu()
+
+//1 : &Supprimer
+//2 : &Ne pas supprimer
+SELON Dialogue(<§?1836921B00B206DA§>, SAI_Emplacement)
+
+	// &Supprimer
+	CAS 1 :
+		
+		//On vérifie si le lieu ne correspond à aucune machine
+		HLitRecherchepremier(MACHINE, IDLieu, lieu.IDLieu)
+		SI PAS HTrouve(MACHINE) ALORS
+			HSupprime(LIEU)
+		SINON
+			Info("Des machines sont associées à ce lieu. Vous ne pouvez donc pas le supprimer.")
+		FIN
+		
+		//On réinitialise l'affichage des informations du lieu
+		raz()
+		IMG_Picto = ""
+		
+		// Rafraîchissement du plan des locaux
+		AffichePlan(IMG_PlanLocaux)
+		
+	// &Ne pas supprimer : on ne fait rien
+	CAS 2 :
+		
+FIN
+
+
+--- PROCEDURE Reinit ---
+// Résumé : Ré-initialisation au mode de visualisation
+// Syntaxe :
+//Reinit ()
+//
+// Paramètres :
+//	Aucun
+// Valeur de retour :
+// 	Aucune
+
+Procédure Reinit()
+
+//Remise à zéro des coordonnées du lieu
+gnX1 = -1
+gnY1 = -1
+gnX2 = -1
+gnY2 = -1
+

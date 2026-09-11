@@ -1,0 +1,34 @@
+
+
+################ CODE FEN_ChoixFournisseur ################
+
+--- WINDOW event type=None ---
+//--- Fenêtre Popup ---
+// Pour accéder au champ ou à la combo popup qui a ouvert cette fenêtre
+// vous pouvez utiliser : MonChampPopup
+ 
+
+
+--- WINDOW event type=34 ---
+//A l'ouverture de la fenêtre popup, l'élément sélectionné dans la liste image correspond
+//à ce qui est sélectionné dans la combo qui l'a ouverte
+TABLE_Fournisseurs = MonChampPopup
+
+--- BTN_Valider (BUTTON) event type=18 ---
+//Renvoie le fournisseur sélectionné dans la table et l'affecte à la combo qui a ouvert la fenêtre popup
+MonChampPopup = TABLE_Fournisseurs.COL_idFournisseur
+Ferme()
+
+//Ce traitement s'exécute également lors du double clic dans la table des fournisseurs
+
+--- BTN_Annuler (BUTTON) event type=18 ---
+Ferme()
+
+
+--- BTN_Nouveau (BUTTON) event type=18 ---
+sFournisseur est une chaine = ouvre(FEN_Fournisseur, CST_MODECREATION)
+
+//Permet d'afficher dans la table le nouveau fournisseur et de le sélectionner
+TableAffiche(TABLE_Fournisseurs, taDébut)
+nIndice est un entier = TableCherche(COL_NomFournisseur,sFournisseur)
+TableSelectPlus(TABLE_Fournisseurs, nIndice)

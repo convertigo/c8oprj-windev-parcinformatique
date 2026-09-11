@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="753" font-family="Helvetica, Arial, sans-serif">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<rect x="24" y="40" width="976" height="683" fill="#f7f7f7" stroke="#333" stroke-width="1.5"/>
+<rect x="24" y="40" width="976" height="24" fill="#3b4a5a"/><text x="32" y="56" font-size="12" text-anchor="start" font-weight="bold" font-style="normal" fill="#fff">FEN_Modèle</text><text x="992" y="56" font-size="10" text-anchor="end" font-weight="normal" font-style="normal" fill="#dde">974×657</text>
+<rect x="37" y="77" width="474" height="30" fill="#f3f3f3" stroke="#999999" stroke-width="1"  />
+<text x="41" y="96" font-size="11" text-anchor="start" font-weight="bold" font-style="normal" fill="#333">Gestion des Modèles de</text>
+<rect x="627" y="124" width="360" height="549" fill="#f3f3f3" stroke="#999999" stroke-width="1" stroke-dasharray="4 3" />
+<text x="631" y="138" font-size="10" text-anchor="start" font-weight="normal" font-style="italic" fill="#777">InfosLieu</text>
+<rect x="476" y="80" width="96" height="24" fill="#ffd9a0" stroke="#c77d00" stroke-width="1"  rx="4"/>
+<text x="524" y="96" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">Nouveau</text>
+<rect x="578" y="80" width="96" height="24" fill="#ffd9a0" stroke="#c77d00" stroke-width="1"  rx="4"/>
+<text x="626" y="96" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">Modifier</text>
+<rect x="680" y="80" width="96" height="24" fill="#ffd9a0" stroke="#c77d00" stroke-width="1"  rx="4"/>
+<text x="728" y="96" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">Supprimer</text>
+<rect x="884" y="80" width="96" height="24" fill="#ffd9a0" stroke="#c77d00" stroke-width="1"  rx="4"/>
+<text x="932" y="96" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">Détails</text>
+<rect x="782" y="80" width="96" height="24" fill="#ffd9a0" stroke="#c77d00" stroke-width="1"  rx="4"/>
+<text x="830" y="96" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">Liste</text>
+<rect x="37" y="124" width="567" height="549" fill="#dff3ee" stroke="#0f8a6f" stroke-width="1"  />
+<rect x="37" y="124" width="567" height="20" fill="#bfe6da" stroke="#0f8a6f"/>
+<text x="40" y="138" font-size="9" text-anchor="start" font-weight="bold" font-style="normal" fill="#0b4d3e">TypeModele</text>
+<line x1="150" y1="124" x2="150" y2="673" stroke="#a9d6c9"/>
+<text x="153" y="138" font-size="9" text-anchor="start" font-weight="bold" font-style="normal" fill="#0b4d3e">NomModele</text>
+<line x1="264" y1="124" x2="264" y2="673" stroke="#a9d6c9"/>
+<text x="267" y="138" font-size="9" text-anchor="start" font-weight="bold" font-style="normal" fill="#0b4d3e">MarqueModele</text>
+<line x1="377" y1="124" x2="377" y2="673" stroke="#a9d6c9"/>
+<text x="380" y="138" font-size="9" text-anchor="start" font-weight="bold" font-style="normal" fill="#0b4d3e">Commentaire</text>
+<line x1="491" y1="124" x2="491" y2="673" stroke="#a9d6c9"/>
+<text x="494" y="138" font-size="9" text-anchor="start" font-weight="bold" font-style="italic" fill="#888">IDMODELE</text>
+<line x1="604" y1="124" x2="604" y2="673" stroke="#a9d6c9"/>
+<line x1="37" y1="162" x2="604" y2="162" stroke="#cfe9e1"/>
+<line x1="37" y1="180" x2="604" y2="180" stroke="#cfe9e1"/>
+<line x1="37" y1="198" x2="604" y2="198" stroke="#cfe9e1"/>
+<line x1="37" y1="216" x2="604" y2="216" stroke="#cfe9e1"/>
+<line x1="37" y1="234" x2="604" y2="234" stroke="#cfe9e1"/>
+<line x1="37" y1="252" x2="604" y2="252" stroke="#cfe9e1"/>
+<line x1="37" y1="270" x2="604" y2="270" stroke="#cfe9e1"/>
+<line x1="37" y1="288" x2="604" y2="288" stroke="#cfe9e1"/>
+<line x1="37" y1="306" x2="604" y2="306" stroke="#cfe9e1"/>
+<line x1="37" y1="324" x2="604" y2="324" stroke="#cfe9e1"/>
+<line x1="37" y1="342" x2="604" y2="342" stroke="#cfe9e1"/>
+<line x1="37" y1="360" x2="604" y2="360" stroke="#cfe9e1"/>
+<line x1="37" y1="378" x2="604" y2="378" stroke="#cfe9e1"/>
+<line x1="37" y1="396" x2="604" y2="396" stroke="#cfe9e1"/>
+<line x1="37" y1="414" x2="604" y2="414" stroke="#cfe9e1"/>
+<line x1="37" y1="432" x2="604" y2="432" stroke="#cfe9e1"/>
+<line x1="37" y1="450" x2="604" y2="450" stroke="#cfe9e1"/>
+<line x1="37" y1="468" x2="604" y2="468" stroke="#cfe9e1"/>
+<line x1="37" y1="486" x2="604" y2="486" stroke="#cfe9e1"/>
+<line x1="37" y1="504" x2="604" y2="504" stroke="#cfe9e1"/>
+<line x1="37" y1="522" x2="604" y2="522" stroke="#cfe9e1"/>
+<line x1="37" y1="540" x2="604" y2="540" stroke="#cfe9e1"/>
+<line x1="37" y1="558" x2="604" y2="558" stroke="#cfe9e1"/>
+<line x1="37" y1="576" x2="604" y2="576" stroke="#cfe9e1"/>
+<line x1="37" y1="594" x2="604" y2="594" stroke="#cfe9e1"/>
+<line x1="37" y1="612" x2="604" y2="612" stroke="#cfe9e1"/>
+<line x1="37" y1="630" x2="604" y2="630" stroke="#cfe9e1"/>
+<line x1="37" y1="648" x2="604" y2="648" stroke="#cfe9e1"/>
+<text x="41" y="667" font-size="9" text-anchor="start" font-weight="normal" font-style="italic" fill="#0b4d3e">Table Modèles</text>
+<rect x="641" y="190" width="336" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="644" y="206" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">NomModeleComp</text>
+<rect x="761" y="192" width="214" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="641" y="219" width="336" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="644" y="235" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">MarqueModeleComp</text>
+<rect x="761" y="221" width="214" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="641" y="248" width="336" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="644" y="264" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">TypeModeleComp</text>
+<rect x="761" y="250" width="214" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="641" y="277" width="336" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="644" y="293" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">Caractéristique1Lib</text>
+<rect x="761" y="279" width="214" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="641" y="306" width="336" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="644" y="322" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">Caractéristique1Val</text>
+<rect x="761" y="308" width="214" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="641" y="335" width="336" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="644" y="351" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">Caractéristique2Lib</text>
+<rect x="761" y="337" width="214" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="641" y="364" width="336" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="644" y="380" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">Caractéristique2Val</text>
+<rect x="761" y="366" width="214" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="641" y="393" width="336" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="644" y="409" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">Caractéristique3Lib</text>
+<rect x="761" y="395" width="214" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="641" y="422" width="336" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="644" y="438" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">Caractéristique3Val</text>
+<rect x="761" y="424" width="214" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="641" y="451" width="336" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="644" y="467" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">Caractéristique4Lib</text>
+<rect x="761" y="453" width="214" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="641" y="480" width="336" height="24" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="644" y="496" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#444">Caractéristique4Val</text>
+<rect x="761" y="482" width="214" height="20" fill="#fff" stroke="#8aa8e0"/>
+<rect x="641" y="510" width="336" height="110" fill="#ffffff" stroke="#2f6fd6" stroke-width="1"  />
+<text x="645" y="523" font-size="9" text-anchor="start" font-weight="normal" font-style="italic" fill="#444">Commentaire</text>
+<rect x="811" y="639" width="38" height="24" fill="#ffd9a0" stroke="#c77d00" stroke-width="1"  rx="4"/>
+<text x="830" y="655" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">Annu…</text>
+<rect x="767" y="639" width="38" height="24" fill="#ffd9a0" stroke="#c77d00" stroke-width="1"  rx="4"/>
+<text x="786" y="655" font-size="10" text-anchor="middle" font-weight="bold" font-style="normal" fill="#222">OK</text>
+<rect x="24" y="735" width="14" height="12" fill="#ffffff" stroke="#2f6fd6"/><text x="42" y="745" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#222">Saisie (SAI_)</text>
+<rect x="149" y="735" width="14" height="12" fill="#fff3c4" stroke="#b58a00"/><text x="167" y="745" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#222">Combo (COMBO_)</text>
+<rect x="274" y="735" width="14" height="12" fill="#ffd9a0" stroke="#c77d00"/><text x="292" y="745" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#222">Bouton (BTN_)</text>
+<rect x="399" y="735" width="14" height="12" fill="#f3f3f3" stroke="#999999"/><text x="417" y="745" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#222">Libellé (LIB_)</text>
+<rect x="524" y="735" width="14" height="12" fill="#dff3ee" stroke="#0f8a6f"/><text x="542" y="745" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#222">Table (TABLE_)</text>
+<rect x="649" y="735" width="14" height="12" fill="#e6f4e6" stroke="#2e8b3d"/><text x="667" y="745" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#222">Liste (LISTE_/LSI_)</text>
+<rect x="774" y="735" width="14" height="12" fill="#ece3fb" stroke="#7a48c9"/><text x="792" y="745" font-size="9" text-anchor="start" font-weight="normal" font-style="normal" fill="#222">Image (IMG_)</text>
+</svg>
